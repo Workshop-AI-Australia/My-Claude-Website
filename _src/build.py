@@ -272,6 +272,7 @@ FOOTER = f"""<footer>
       <a href="/ai-for-tradies/">AI for tradies: questions answered</a>
       <a href="mailto:{ORG['email']}">{ORG['email']}</a>
       <a href="tel:{ORG['phone_intl']}">{ORG['phone_display']}</a>
+      <a href="/privacy/">Privacy</a>
     </div>
     <p>{ORG['legal_name']} &middot; ABN {ORG['abn']} &middot; Hobsons Bay, Melbourne &middot; AI that works for your business</p>
   </div>
@@ -279,6 +280,71 @@ FOOTER = f"""<footer>
 """
 
 END = "</body>\n</html>\n"
+
+
+# ---------------------------------------------------------------- privacy page
+def build_privacy():
+    e = ORG["email"]
+    body = f"""{nav('/privacy/')}
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Privacy &middot; Updated {UPDATED_HUMAN}</p>
+    <h1>Privacy</h1>
+    <p class="lede">What we collect when you visit this site or get in touch, why, and what you can do about it. Plain English, kept short.</p>
+  </div>
+</header>
+
+<main class="wrap">
+<section id="who">
+  <h2><span class="num">Who we are</span>Workshop AI</h2>
+  <p>This site is run by {ORG['legal_name']} (ABN {ORG['abn']}), based in Hobsons Bay, Victoria. We aim to handle personal information in line with the Australian Privacy Principles. Questions about privacy go to <a href="mailto:{e}">{e}</a>.</p>
+</section>
+
+<section id="collect">
+  <h2><span class="num">What we collect</span>Only what we need</h2>
+  <ul>
+    <li><strong>When you visit the site:</strong> we use Google Analytics to see how the site is used, such as which pages are read, where visitors come from and which buttons are clicked. It uses cookies and records things like your approximate location, device and browser. It doesn't tell us who you are.</li>
+    <li><strong>When you contact us:</strong> your name, email, phone number, business details and whatever you tell us, whether by email, phone or a booking through our calendar page.</li>
+    <li><strong>When we meet:</strong> if we meet by video, we may use a note-taking tool to record and transcribe the call. We'll tell you at the start, and you can say no.</li>
+    <li><strong>Business contact details:</strong> we sometimes contact businesses using publicly available business contact details, such as those on a company website or a job ad. Ask us to stop at any time and we will.</li>
+  </ul>
+  <p>The site has no forms or accounts, and we don't sell personal information.</p>
+</section>
+
+<section id="use">
+  <h2><span class="num">How we use it</span>To reply, to do the work, to improve the site</h2>
+  <p>We use what you give us to respond to you, to scope and deliver work, and to keep records of our conversations. We use the analytics to understand which pages help people and to improve the site. If you become a client, we'll agree how your business information is handled as part of the engagement.</p>
+</section>
+
+<section id="ai">
+  <h2><span class="num">AI tools</span>We use AI in our own work</h2>
+  <p>We use AI tools, including Claude, to help with our own admin, such as drafting replies and summarising notes. We use business accounts whose terms say our data isn't used to train their models, and we don't put sensitive information into AI tools.</p>
+</section>
+
+<section id="share">
+  <h2><span class="num">Who sees it</span>The services that run the business</h2>
+  <p>We share information only with the services we use to run the business, such as Google (Analytics, email, calendar and the web fonts on this site), GitHub (which hosts this site and logs visitor IP addresses for security), and our note-taking and AI tools. Some of these providers store data outside Australia, including in the United States. We don't share your information with anyone else unless the law requires it.</p>
+</section>
+
+<section id="choices">
+  <h2><span class="num">Your choices</span>Opt out, access, correct, complain</h2>
+  <ul>
+    <li>Block or delete cookies in your browser settings, or use Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener" target="_blank">Analytics opt-out browser add-on</a>.</li>
+    <li>Ask us what we hold about you, or ask us to correct or delete it, by emailing <a href="mailto:{e}">{e}</a>.</li>
+    <li>If you're not happy with how we've handled a privacy concern, you can contact the <a href="https://www.oaic.gov.au/privacy/privacy-complaints" rel="noopener" target="_blank">Office of the Australian Information Commissioner</a>.</li>
+  </ul>
+  <p>We'll update this page if anything changes, and the date at the top will show when.</p>
+</section>
+</main>
+"""
+    page_node = {"@type": "WebPage", "@id": f"{SITE}/privacy/#webpage", "url": f"{SITE}/privacy/",
+                 "name": "Privacy | Workshop AI", "isPartOf": {"@id": WEBSITE_ID},
+                 "about": {"@id": ORG_ID}, "dateModified": UPDATED, "inLanguage": "en-AU"}
+    out = head("Privacy | Workshop AI",
+               "How Workshop AI handles personal information: website analytics, enquiries, meetings, "
+               "AI tools, who we share with and how to opt out or ask questions.",
+               "/privacy/", graph([page_node])) + body + FOOTER + END
+    write("privacy/index.html", out)
 
 
 # ---------------------------------------------------------------- facts page
@@ -505,7 +571,7 @@ def build_home_jsonld():
 
 # ---------------------------------------------------------------- sitemap and llms.txt
 def build_sitemap():
-    urls = [("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8")]
+    urls = [("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8"), ("/privacy/", "0.3")]
     items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{UPDATED}</lastmod><priority>{p}</priority></url>"
                       for u, p in urls)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -547,6 +613,7 @@ def write(rel, text):
 
 if __name__ == "__main__":
     build_facts()
+    build_privacy()
     n = build_qa()
     build_home_jsonld()
     build_sitemap()
