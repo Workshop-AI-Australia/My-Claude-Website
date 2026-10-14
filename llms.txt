@@ -1,0 +1,80 @@
+# Workshop AI
+
+> Workshop AI is a Melbourne-based AI implementation consultancy that helps Australian tradies and trade, service and industrial businesses put AI to work in the office, with fixed prices and hands-on delivery.
+
+Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. Based in Hobsons Bay, in Melbourne's western suburbs, Victoria. In person across Melbourne, remote Australia-wide. Contact: hello@workshopai.com.au, 0431 254 769. Last updated 14 October 2026.
+
+## Key pages
+
+- [Home](https://workshopai.com.au/): what Workshop AI does, the five-level path, a client example and prices
+- [Company facts](https://workshopai.com.au/facts/): who Workshop AI is, who it serves, services, prices, people and service area
+- [AI for tradies: questions answered](https://workshopai.com.au/ai-for-tradies/): 58 answers on using AI in an Australian trade or service business
+
+## Services (AUD, excluding GST)
+
+- Claude for Owners: A$1,500 (Two one-on-one video sessions). AI set up on the owner's desk first: Claude connected to files, email and calendar, a company-wide Claude Project with the business's context, and a one-page guide to using it safely with client information. Credited in full if the business goes further within 60 days.
+- Claude for Business: A$2,500 (Set up and running within a week). The team on Claude properly: set up for nominated staff, connected to everyday tools, a shared company-wide Claude Project, AI standards and governance, a team intro session and a follow-up two weeks later. Credited in full towards Discovery within 60 days.
+- Discovery: A$3,600 (Four stages, about a month). A complete picture of how the business really works before any tool is recommended: AI standards and governance, a written AI use policy, a systems audit and confidential team survey, a workflow map, a scored AI Opportunity Map, and a findings report with a recommended pathway.
+- Custom Builds: From A$4,400 a month (Monthly retainer or fixed-price project). Custom AI agents and automations built into the job, file and accounting systems the business already runs, one defined piece at a time with a clear definition of done. Month to month, no lock-in.
+- Document Standard: A$2,000 as an add-on, A$2,750 on its own (Two weeks). Up to four client-facing documents (quotes, reports, letters) built into Claude in the business's own format, wording and branding, with two rounds of revisions. A$2,000 as an add-on or A$2,750 on its own; A$4,000 for Claude for Business and Document Standard booked together.
+
+## Questions answered
+
+- [Where should a tradie start with AI?](https://workshopai.com.au/ai-for-tradies/#where-to-start)
+- [What can AI actually do in a trade business today?](https://workshopai.com.au/ai-for-tradies/#what-can-ai-do)
+- [How do I know if my business is ready for AI?](https://workshopai.com.au/ai-for-tradies/#is-my-business-ready)
+- [Our information is all over spreadsheets and emails. Is AI any use yet?](https://workshopai.com.au/ai-for-tradies/#messy-data)
+- [How many Australian businesses are using AI?](https://workshopai.com.au/ai-for-tradies/#how-many-businesses-use-ai)
+- [Is figuring out AI more work than it saves?](https://workshopai.com.au/ai-for-tradies/#more-work-than-it-saves)
+- [How much does AI consulting cost for a trade business?](https://workshopai.com.au/ai-for-tradies/#consulting-cost)
+- [How much does AI cost to run each month?](https://workshopai.com.au/ai-for-tradies/#running-cost)
+- [Is AI cheaper than hiring a part-time admin person?](https://workshopai.com.au/ai-for-tradies/#cheaper-than-admin)
+- [Can we start small with a pilot?](https://workshopai.com.au/ai-for-tradies/#pilot)
+- [How do I measure whether AI is working?](https://workshopai.com.au/ai-for-tradies/#measure-roi)
+- [I'm missing calls while I'm on the tools. Can AI answer them?](https://workshopai.com.au/ai-for-tradies/#missed-calls)
+- [Will customers hang up when they hear an AI voice?](https://workshopai.com.au/ai-for-tradies/#customers-hang-up)
+- [What does an AI receptionist cost?](https://workshopai.com.au/ai-for-tradies/#ai-receptionist-cost)
+- [Is it legal to record and transcribe customer calls with AI?](https://workshopai.com.au/ai-for-tradies/#call-recording-law)
+- [Can AI send automatic texts to customers without breaking spam rules?](https://workshopai.com.au/ai-for-tradies/#automatic-texts-spam)
+- [Can I use ChatGPT or Claude to write quotes?](https://workshopai.com.au/ai-for-tradies/#ai-quotes)
+- [Can I send a voice note or photos from site and get a quote drafted?](https://workshopai.com.au/ai-for-tradies/#voice-note-quote)
+- [Is there AI take-off software that actually works for estimating?](https://workshopai.com.au/ai-for-tradies/#ai-take-off)
+- [If an AI-written quote is wrong, who's liable?](https://workshopai.com.au/ai-for-tradies/#quote-liability)
+- [Can AI follow up quotes that have gone cold?](https://workshopai.com.au/ai-for-tradies/#quote-follow-up)
+- [Can AI chase unpaid invoices?](https://workshopai.com.au/ai-for-tradies/#chase-invoices)
+- [Can AI do our invoicing from job notes?](https://workshopai.com.au/ai-for-tradies/#invoices-from-job-notes)
+- [Can ChatGPT or Claude read our Simpro data?](https://workshopai.com.au/ai-for-tradies/#simpro-data)
+- [Does AI work with ServiceM8, AroFlo, Tradify, Fergus, Xero and MYOB?](https://workshopai.com.au/ai-for-tradies/#other-software)
+- [Do we have to switch software to use AI?](https://workshopai.com.au/ai-for-tradies/#switch-software)
+- [Do Simpro, ServiceM8 or Xero have AI built in already?](https://workshopai.com.au/ai-for-tradies/#built-in-ai)
+- [Can I put customer details into ChatGPT?](https://workshopai.com.au/ai-for-tradies/#customer-details-chatgpt)
+- [Does the Privacy Act apply to my trade business?](https://workshopai.com.au/ai-for-tradies/#privacy-act)
+- [Does ChatGPT or Claude train on our business data?](https://workshopai.com.au/ai-for-tradies/#training-on-data)
+- [Is it safe to give AI access to our drawings, contracts and job files?](https://workshopai.com.au/ai-for-tradies/#drawings-contracts)
+- [Do we need to update our privacy policy if we use AI?](https://workshopai.com.au/ai-for-tradies/#privacy-policy)
+- [Our staff are already using ChatGPT on their phones. Is that a problem?](https://workshopai.com.au/ai-for-tradies/#shadow-ai)
+- [Will AI take tradies' jobs?](https://workshopai.com.au/ai-for-tradies/#jobs)
+- [How do I bring in AI without staff feeling threatened?](https://workshopai.com.au/ai-for-tradies/#staff-buy-in)
+- [Do I have to consult staff before bringing in AI?](https://workshopai.com.au/ai-for-tradies/#consult-staff)
+- [How long does it take to get a team using AI?](https://workshopai.com.au/ai-for-tradies/#time-to-adopt)
+- [ChatGPT, Claude, Copilot or Gemini: which should a trade business pay for?](https://workshopai.com.au/ai-for-tradies/#which-tool)
+- [Is a personal ChatGPT or Claude account OK for work, or do we need business accounts?](https://workshopai.com.au/ai-for-tradies/#personal-vs-business)
+- [What is an AI agent, and does a trade business need one?](https://workshopai.com.au/ai-for-tradies/#ai-agents)
+- [Can AI write a SWMS?](https://workshopai.com.au/ai-for-tradies/#swms)
+- [Can AI fill in compliance certificates for electrical or plumbing work?](https://workshopai.com.au/ai-for-tradies/#compliance-certificates)
+- [Can AI help our team answer safety and technical questions on site?](https://workshopai.com.au/ai-for-tradies/#site-questions)
+- [How can an HVAC business use AI?](https://workshopai.com.au/ai-for-tradies/#hvac)
+- [How can a plumbing business use AI?](https://workshopai.com.au/ai-for-tradies/#plumbing)
+- [How can an electrical contractor use AI?](https://workshopai.com.au/ai-for-tradies/#electrical)
+- [How can a builder or construction company use AI?](https://workshopai.com.au/ai-for-tradies/#construction)
+- [How can a logistics or transport business use AI?](https://workshopai.com.au/ai-for-tradies/#logistics)
+- [How can a manufacturing or industrial business use AI?](https://workshopai.com.au/ai-for-tradies/#industrial)
+- [Can AI help restaurants and service businesses too?](https://workshopai.com.au/ai-for-tradies/#hospitality-services)
+- [Why doesn't my business show up when people ask ChatGPT or Google's AI?](https://workshopai.com.au/ai-for-tradies/#show-up-in-ai)
+- [Can AI reply to our Google reviews?](https://workshopai.com.au/ai-for-tradies/#review-replies)
+- [Do I need an AI consultant, or can I do it myself?](https://workshopai.com.au/ai-for-tradies/#consultant-or-diy)
+- [Are AI consultants worth it, or a scam?](https://workshopai.com.au/ai-for-tradies/#consultant-red-flags)
+- [Is there government funding or free help for AI in a small business?](https://workshopai.com.au/ai-for-tradies/#government-help)
+- [What does Workshop AI do?](https://workshopai.com.au/ai-for-tradies/#what-is-workshop-ai)
+- [Where is Workshop AI based, and do you work outside Melbourne?](https://workshopai.com.au/ai-for-tradies/#where-based)
+- [How does working with Workshop AI start?](https://workshopai.com.au/ai-for-tradies/#how-to-start)
