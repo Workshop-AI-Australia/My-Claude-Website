@@ -14,6 +14,7 @@ Rules for anything in this file:
 SITE = "https://workshopai.com.au"
 UPDATED = "2026-10-14"            # ISO date, shown on both pages and in sitemap
 UPDATED_HUMAN = "14 October 2026"
+GA_ID = "G-SB01RKTVMZ"           # Google Analytics 4, property "Workshop AI"
 
 ORG = {
     "name": "Workshop AI",
