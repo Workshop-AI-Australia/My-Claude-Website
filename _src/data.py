@@ -100,13 +100,16 @@ LEVELS = [
               "working as the business changes."),
 ]
 
+# Justin's own words (Oct 2026), lightly edited into the third person.
 JUSTIN_BIO = (
-    "Justin Watts founded Workshop AI in 2026. Before "
-    "Workshop AI he was Head of Marketing at Ailo, an Australian property management "
-    "software company, with a background in campaign management, lead generation, "
-    "CRM and sales enablement. He builds working tools himself with Claude Code, "
-    "Cursor, GitHub and Vercel, and holds a Master of Entrepreneurship and Innovation "
-    "from Swinburne University of Technology. He lives in Melbourne's west."
+    "Justin Watts is a Director of Workshop AI. He helps trades and small businesses "
+    "work smarter, finding where AI can take the manual grind off people's plates (the "
+    "quotes, the double entry, the same questions answered over and over) and freeing "
+    "them up for higher-value, more meaningful work. He has spent more than 15 years "
+    "building the systems that growing businesses run on, and the last few applying AI "
+    "across them, in property tech, finance, health and social enterprise. Whatever the "
+    "industry or the technology, his approach stays the same: audit how things work now, "
+    "find the manual steps, design something better, and build it."
 )
 
 # ---------------------------------------------------------------------------

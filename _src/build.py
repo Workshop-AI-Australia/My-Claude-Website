@@ -68,7 +68,7 @@ def org_node():
         "email": ORG["email"],
         "telephone": ORG["phone_intl"],
         "foundingDate": ORG["founded"],
-        "founder": {"@id": PERSON_ID},
+        "employee": {"@id": PERSON_ID},
         "identifier": {"@type": "PropertyValue", "propertyID": "ABN",
                        "value": ORG["abn"].replace(" ", "")},
         "address": {"@type": "PostalAddress", "addressRegion": "VIC",
@@ -114,10 +114,10 @@ def org_node():
 def person_node():
     return {
         "@type": "Person", "@id": PERSON_ID, "name": "Justin Watts",
-        "jobTitle": "Founder", "worksFor": {"@id": ORG_ID},
+        "jobTitle": "Director", "worksFor": {"@id": ORG_ID},
         "description": JUSTIN_BIO,
         "alumniOf": {"@type": "CollegeOrUniversity", "name": "Swinburne University of Technology"},
-        "knowsAbout": ["AI implementation", "Claude", "Marketing", "CRM", "Lead generation"],
+        "knowsAbout": ["AI implementation", "Business systems", "Process automation", "Claude"],
     }
 
 
@@ -193,8 +193,6 @@ CSS = """
   .toc a:hover{border-color:var(--navy)}
   .qa{padding:22px 0;border-top:1px solid var(--line-soft)}
   .qa:first-of-type{border-top:none}
-  .qa h3 a.anchor{text-decoration:none;color:var(--muted);font-weight:700;margin-left:6px}
-  .qa h3 a.anchor:hover{color:var(--amber-deep)}
   .qa p,.qa li{color:var(--ink-soft)}
   .qa p:first-of-type{color:var(--ink)}
   .qa a{color:var(--amber-deep)}
@@ -350,7 +348,7 @@ def build_facts():
         ("Legal entity", f"{ORG['legal_name']}, an Australian private company"),
         ("ABN", f'<a href="{ORG["abn_url"]}" rel="noopener" target="_blank">{ORG["abn"]}</a>'),
         ("Founded", "2026, in Melbourne"),
-        ("Founder", "Justin Watts"),
+        ("Director", "Justin Watts"),
         ("What it does", "AI implementation for small and mid-sized businesses: setting up AI tools safely, "
                          "mapping how the business runs, and building custom AI agents and automations "
                          "into the systems the business already uses"),
@@ -416,19 +414,6 @@ def build_facts():
   </table></div>
 </section>
 
-<section id="approach">
-  <h2><span class="num">How it works</span>Three steps, five levels</h2>
-  <ol>
-    <li><strong>A chat, no pitch.</strong> A free 30-minute conversation about how the business runs and which level it's really on.</li>
-    <li><strong>Fix one real problem first.</strong> One headache solved end to end, with a real result before anything bigger.</li>
-    <li><strong>Build from there, at your pace.</strong> One step at a time, month to month.</li>
-  </ol>
-  <p>Workshop AI uses a five-level path for AI in a business. The order matters: skipping straight to agents tends to automate the mess.</p>
-  <div class="table-scroll"><table class="facts">
-{levels}
-  </table></div>
-</section>
-
 <section id="tools">
   <h2><span class="num">Systems</span>Works with the tools you already run</h2>
   <p>{e(tools)}.</p>
@@ -445,8 +430,9 @@ def build_facts():
 
 <section id="people">
   <h2><span class="num">People</span>Who's behind it</h2>
-  <h3>Justin Watts, founder</h3>
+  <h3>Justin Watts, Director</h3>
   <p>{e(JUSTIN_BIO)}</p>
+  <p>What excites him is using AI to make a business run not just better, but differently, in a way that elevates what people do best.</p>
 </section>
 
 <section id="safety">
@@ -491,7 +477,7 @@ def build_qa():
     for slug, title, qs in THEMES:
         items = "\n".join(
             f"""<div class="qa" id="{qid}">
-  <h3>{e(q)}<a class="anchor" href="#{qid}" aria-label="Link to this question">#</a></h3>
+  <h3>{e(q)}</h3>
   {ans}
 </div>""" for qid, q, ans in qs)
         sections.append(f"""<section id="{slug}">
@@ -506,7 +492,7 @@ def build_qa():
     <p class="eyebrow">AI for tradies &middot; {count} questions answered</p>
     <h1>AI for tradies and trade businesses: questions answered</h1>
     <p class="lede">Straight answers to the questions Australian tradies and trade and service businesses ask about AI: where to start, what it costs, privacy and the law, your staff, and how it works with Simpro, ServiceM8 and Xero. Covers HVAC, plumbing, electrical, construction and logistics.</p>
-    <p class="byline">Written by Justin Watts, founder of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed {UPDATED_HUMAN}<br/>General information only, not legal, tax or financial advice.</p>
+    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed {UPDATED_HUMAN}<br/>General information only, not legal, tax or financial advice.</p>
   </div>
 </header>
 
@@ -579,7 +565,7 @@ def build_llms(count):
 
 > {ORG['one_liner']}
 
-{ORG['legal_name']}, ABN {ORG['abn']}. Founded {ORG['founded']} by Justin Watts. Based in {ORG['base']}. In person across Melbourne, remote Australia-wide. Contact: {ORG['email']}, {ORG['phone_display']}. Last updated {UPDATED_HUMAN}.
+{ORG['legal_name']}, ABN {ORG['abn']}. Founded {ORG['founded']}. Director: Justin Watts. Based in {ORG['base']}. In person across Melbourne, remote Australia-wide. Contact: {ORG['email']}, {ORG['phone_display']}. Last updated {UPDATED_HUMAN}.
 
 ## Key pages
 
