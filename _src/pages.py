@@ -242,7 +242,7 @@ PAGES = [
 <p>It's narrow, it uses information you already receive, and it cuts the chance of work slipping through unbilled. Once it's working, the same register can track which jobs still need a Certificate of Electrical Safety.</p>
 </div>
 """),
-("software", "Systems", "Works with the software electricians already run", """
+("software", "Systems", "Works with the software electricians already run", f"""
 <p>{L(SIMPRO_ABOUT, 'Simpro')} was started in 2002 by an electrical business owner and a software engineering student, and it still sells to electrical contractors, as do AroFlo, Fergus, ServiceM8 and Tradify. AI works with these systems rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>.</p>
 """),
 ],

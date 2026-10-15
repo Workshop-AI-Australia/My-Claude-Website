@@ -793,4 +793,11 @@ if __name__ == "__main__":
     build_sitemap()
     build_llms(n)
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
+    # Guard: fail the build if any template code leaked into a page
+    for rel in ["index.html"] + [f"{p['slug']}/index.html" for p in PAGES] + [
+            "facts/index.html", "ai-for-tradies/index.html", "privacy/index.html"]:
+        text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        leak = re.search(r"\{(L|SRC|ORG|e)\(|\{[A-Z_]{3,}\}", text)
+        if leak:
+            sys.exit(f"Unrendered template code in {rel}: {leak.group(0)}")
     print(f"{n} questions")
