@@ -57,10 +57,12 @@ WYNDHAM_IGNITE = "https://www.wyndham.vic.gov.au/node/23919"
 SIMPRO_API_FAQ = "https://helpguide.simprogroup.com/Content/Service-and-Enterprise/API-FAQs.htm"
 SIMPRO_API_DOCS = "https://developer.simprogroup.com/apidoc/"
 SIMPRO_LIMITS = "https://developer.simprogroup.com/apidoc/?page=ed8457e003ba0f6197756eca5a61fde9"
+SIMPRO_PAGING = "https://developer.simprogroup.com/apidoc/?page=07adc9c3c19b7c17e7309e86c22161a2"
 SIMPRO_AUTH = "https://developer.simprogroup.com/apidoc/?page=b0d64c044a432c8e0f9f01e0641d5596"
 SIMPRO_LIGHTNING_PR = "https://www.simprogroup.com/company/press/simpro-group-unveils-lightning"
 SIMPRO_LIGHTNING = "https://www.simprogroup.com/lightning"
 SIMPRO_RAIN = "https://www.simprogroup.com/rain"
+SIMPRO_RAIN_PR = "https://www.simprogroup.com/company/press/simpro-group-announces-rain"
 SIMPRO_PRICING = "https://www.simprogroup.com/au/pricing"
 SIMPRO_STAGES = "https://helpguide.simprogroup.com/Content/Service-and-Enterprise/Managing-Existing-Jobs.htm"
 SIMPRO_QUOTES = "https://helpguide.simprogroup.com/Content/Service-and-Enterprise/View-Quotes.htm"
@@ -71,6 +73,7 @@ ZAPIER_SIMPRO_PARTNER = "https://www.simprogroup.com/partners/integration-partne
 ZAPIER_MCP = "https://zapier.com/mcp/simpro"
 VIASOCKET_MCP = "https://viasocket.com/mcp/simpro"
 TUGGER = "https://marketplace.simprogroup.com/apps/tugger"
+TUGGER_BLOG = "https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai"
 
 
 # ---------------------------------------------------------------------------
@@ -96,7 +99,7 @@ PAGES = [
 <ul>
 <li><strong>Work orders.</strong> Facility managers, builders and agents send work orders by email in every format: PDFs, portal notifications, a line in the body of an email. AI reads each one, pulls out the site, asset, fault, priority and order number, and sets up the job for a person to check.</li>
 <li><strong>Planned maintenance.</strong> Commercial maintenance contracts mean recurring visits across many sites. AI can check the schedule against what each contract promises, flag sites that are overdue, and draft service reports from technicians' notes, readings and photos.</li>
-<li><strong>Customer reporting.</strong> Commercial clients want regular reports on their assets and the work done. AI can produce them from live job data, in your branding, every month.</li>
+<li><strong>Customer reporting.</strong> Facility managers want regular reports on their plant: what was serviced, readings taken, faults found and what you recommend replacing. AI can produce them from live job data, in your branding, every month.</li>
 <li><strong>Quotes from service notes.</strong> A technician's note such as "condenser fan motor seized, unit 3" becomes a clear quote description with your standard inclusions, exclusions and terms. Prices come from your own price book, and a person checks every quote before it goes out.</li>
 <li><strong>Breakdown peaks.</strong> When the weather turns, breakdown calls and emails spike. AI can sort the inbox and after-hours messages into breakdowns, routine service and quote requests, so urgent jobs reach a person first.</li>
 </ul>
@@ -136,9 +139,9 @@ PAGES = [
 <p>The technician or a supervisor should check anything that records a fault, a reading or a recommendation before it goes to the client.</p>"""),
 ("cooling-tower-results", "Should AI decide what to do about a failed cooling tower test?",
  f"""<p>No. AI should flag the result immediately and start the response steps from the site's risk management plan, but the decisions belong to the people responsible under Victoria's {L(VIC_COOLING, 'cooling tower rules')}.</p>
-<p>Where AI earns its keep is making sure no result sits unread in an inbox and no test date is missed.</p>"""),
+<p>Where AI earns its keep is cutting the risk of a result sitting unread in an inbox or a test date slipping past.</p>"""),
 ("hvac-cost", "What does it cost to start using AI in an HVAC business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a work order agent connected to your job system, start from A$4,400 a month, month to month. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a work order agent connected to your job system, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -159,11 +162,11 @@ PAGES = [
 "sections": [
 ("where-time-goes", "Where the time goes", "Five office jobs AI handles well in plumbing", f"""
 <ul>
-<li><strong>Missed and after-hours calls.</strong> An AI assistant can take the caller's name, address, the problem and how urgent it is, then send it to whoever is on call. Burst pipes and suspected gas leaks always go straight to a person.</li>
+<li><strong>Missed and after-hours calls.</strong> An AI assistant can take the caller's name, address, the problem and how urgent it is, then send it to whoever is on call. Burst pipes and suspected gas leaks are set up to go straight to a person.</li>
 <li><strong>Quotes from photos and voice notes.</strong> A photo of a failed hot water unit or a voice memo from a blocked drain becomes a clear quote description with your standard inclusions and exclusions. Prices come from your price book, checked by a person.</li>
 <li><strong>Rental gas safety checks.</strong> Victorian rental providers must have a {L(CAV_RENTAL_GAS, 'gas safety check every two years')} by a gasfitter licensed or registered for Type A appliance servicing. For plumbers who do this work, AI can manage the cycle: due dates, booking access with tenants and property managers, and sending the report.</li>
 <li><strong>Backflow testing.</strong> Testable backflow devices at the meter must be {L(YVW_BACKFLOW, 'tested every 12 months')}, with results reported on the water corporation's form, and a failed device must be repaired and retested within {L(SEW_BACKFLOW, '20 business days')}. AI can track due dates, pre-fill the forms from test data and flag failures so the retest is booked.</li>
-<li><strong>Chasing quotes and invoices.</strong> AI drafts follow-ups in your voice and keeps a list of who needs a call, so nothing goes quiet for want of a reminder.</li>
+<li><strong>Chasing quotes.</strong> Hot water and drainage quotes often go quiet while the customer shops around. AI drafts follow-ups in your voice and keeps a list of who needs a call, so fewer quotes stall for want of a reminder.</li>
 </ul>
 """),
 ("compliance", "Compliance certificates", "What AI can do, and what stays with the licence holder", f"""
@@ -178,7 +181,7 @@ PAGES = [
 ("first-project", "A sensible first project", "A compliance certificate tracker", """
 <div class="card">
 <p>Every completed job is checked overnight against the certificate rules. Each morning the office gets a short list: certificates due, with the deadline, a pre-filled draft for each, and any job missing details the plumber needs to supply.</p>
-<p>It's narrow, it uses data you already have, and it removes a deadline risk. That's the kind of first project Workshop AI recommends: one real problem fixed end to end before anything bigger.</p>
+<p>It's narrow, it uses data you already have, and it reduces a deadline risk. Once it works, the same pattern extends to backflow due dates and rental gas safety checks.</p>
 </div>
 """),
 ("software", "Systems", "Works with the plumbing software you already run", """
@@ -196,7 +199,7 @@ PAGES = [
 ("hot-water-electrification", "How should we handle customers asking about replacing gas hot water?",
  f"""<p>Give them a consistent, accurate answer. AI can draft your quote options and a plain-English explainer, but check it against the {L(VIC_ELECTRIFY, "government's current rules")} and rebate information before sending, and update it when they change.</p>"""),
 ("plumbing-cost", "What does it cost to start using AI in a plumbing business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a certificate tracker connected to your job system, start from A$4,400 a month, month to month. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a certificate tracker connected to your job system, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -212,21 +215,21 @@ PAGES = [
 "eyebrow": "AI for electrical contractors",
 "h1": "AI for electrical contractors",
 "lede": ("Electrical contractors spend their office hours on quotes, builder emails and variations, "
-         "progress claims, and Certificates of Electrical Safety with tight deadlines. AI can draft and "
+         "progress claims, and Certificates of Electrical Safety with legal deadlines. AI can draft and "
          "track all of it. Testing, certification and sign-off stay with the licensed electrician."),
 "sections": [
 ("where-time-goes", "Where the time goes", "Five office jobs AI handles well for sparkies", f"""
 <ul>
 <li><strong>Quotes and scopes.</strong> AI reads specifications, scope documents and builder emails, lists inclusions and exclusions, spots items the scope doesn't cover, and drafts the quote letter. Counting fittings from drawings is still best done in estimating software, and prices come from your own rates.</li>
-<li><strong>Builder instructions and variations.</strong> Site instructions arrive by email, text and in conversation. AI captures each one against the job, drafts the variation the same day, and keeps a register so nothing is done and never billed.</li>
+<li><strong>Builder instructions and variations.</strong> Site instructions arrive by email, text and in conversation. AI captures each one against the job, drafts the variation the same day, and keeps a register so less work gets done and never billed.</li>
 <li><strong>Progress claims.</strong> As a subcontractor you're usually covered by Victoria's {L(SOP_OVERVIEW, 'security of payment laws')}. AI can draft each month's claim from job data with the wording the Act requires, and track when the builder's payment schedule is due.</li>
-<li><strong>Solar and battery paperwork.</strong> Jobs under Solar Victoria programs come with {L(SOLAR_VIC, 'their own requirements')}, including installer accreditation and the customer's QR code. AI can run a checklist on every job so nothing holds up the rebate.</li>
+<li><strong>Solar and battery paperwork.</strong> Jobs under Solar Victoria programs come with {L(SOLAR_VIC, 'their own requirements')}, including installer accreditation and the customer's QR code. AI can run a checklist on every job so missing paperwork is caught before it holds up the rebate.</li>
 <li><strong>Technical questions from your own documents.</strong> AI can answer from your procedures, manufacturer instructions and past jobs, pointing to the document it used, so apprentices get an answer without ringing the boss.</li>
 </ul>
 """),
 ("coes", "Certificates of Electrical Safety", "What AI can prepare, and what stays with the electrician", f"""
 <p>In Victoria a Certificate of Electrical Safety is a legal document recording the electrical work done, and {L(ESV_COES, 'Energy Safe')} says failing to meet the certificate requirements is a criminal offence. Certificates are completed electronically through {L(ESV_CONNECT, 'ESVConnect')}, and work done for profit is certified under a registered electrical contractor.</p>
-<p>{L(ESV_PRESCRIBED, 'Prescribed work')}, which includes consumer mains, solar and battery systems, high-voltage work and hazardous areas, must also be inspected by an independent licensed electrical inspector. For non-prescribed work, copies go to the customer and Energy Safe within a month of completion.</p>
+<p>{L(ESV_PRESCRIBED, 'Prescribed work')}, which includes consumer mains, solar and battery systems, high-voltage work and hazardous areas, must also be inspected by a licensed electrical inspector before it's connected. For non-prescribed work, copies go to the customer and Energy Safe within a month of completion.</p>
 <p>AI can list which completed jobs need a certificate, pre-fill the details from the job record, chase the electrician for anything missing, and track every deadline. It must never invent a test result. The licensed electrician enters the results, completes the certificate and submits it.</p>
 """),
 ("payment-claims", "Getting paid", "Security of payment claims, on time and in the right form", f"""
@@ -236,11 +239,11 @@ PAGES = [
 ("first-project", "A sensible first project", "A variations and claims register", """
 <div class="card">
 <p>Every builder email and site instruction is read into one register against the right job. Variations are drafted the same day for you to approve, and at the end of the month the register becomes a draft payment claim with the required wording.</p>
-<p>It's narrow, it uses information you already receive, and it stops work slipping through unbilled. That's the kind of first project Workshop AI recommends: one real problem fixed end to end before anything bigger.</p>
+<p>It's narrow, it uses information you already receive, and it cuts the chance of work slipping through unbilled. Once it's working, the same register can track which jobs still need a Certificate of Electrical Safety.</p>
 </div>
 """),
 ("software", "Systems", "Works with the software electricians already run", """
-<p>Simpro was started in 2002 by an electrical business owner and a software engineering student, and it still sells to electrical contractors, as do AroFlo, Fergus, ServiceM8 and Tradify. AI works with these systems rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>.</p>
+<p>{L(SIMPRO_ABOUT, 'Simpro')} was started in 2002 by an electrical business owner and a software engineering student, and it still sells to electrical contractors, as do AroFlo, Fergus, ServiceM8 and Tradify. AI works with these systems rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>.</p>
 """),
 ],
 "faqs": [
@@ -253,7 +256,7 @@ PAGES = [
 ("standards-questions", "Can AI answer technical questions about the Wiring Rules?",
  """<p>Use it carefully. AI tools can be wrong on clause-level detail. Point AI at your own procedures and the manufacturer documents you hold, have it show where each answer came from, and check the standard itself for anything that matters.</p>"""),
 ("electrical-cost", "What does it cost to start using AI in an electrical business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a variations and claims register connected to your job system, start from A$4,400 a month, month to month. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a variations and claims register connected to your job system, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -276,10 +279,10 @@ PAGES = [
 ("where-time-goes", "Where the time goes", "Five document jobs AI handles well in construction", f"""
 <ul>
 <li><strong>Finding what was agreed.</strong> Drawings, RFIs, variations, contracts and emails sit across folders and inboxes. AI can answer "what did we agree about the window change on that job?" and point to the document it came from.</li>
-<li><strong>Variations.</strong> For domestic work in Victoria, a variation generally has to be {L(CAV_VARIATIONS, 'agreed in writing')} on a variation notice, with the new price and completion date, before the work is done. AI drafts the notice from site notes, and a register makes sure every variation is priced and signed before anyone starts.</li>
-<li><strong>Payment claims and schedules.</strong> Whether you're claiming or receiving claims, the {L(SOP_OVERVIEW, 'security of payment')} timeframes are tight. AI can draft claims in the required form and make sure no claim from a subcontractor goes unanswered past the deadline.</li>
+<li><strong>Variations.</strong> For domestic work in Victoria, a variation generally has to be {L(CAV_VARIATIONS, 'agreed in writing')} on a variation notice, with the new price and completion date, before the work is done. AI drafts the notice from site notes, and a register shows which variations are still waiting on a price or a signature before anyone starts.</li>
+<li><strong>Payment claims and schedules.</strong> Whether you're claiming or receiving claims, the {L(SOP_OVERVIEW, 'security of payment')} timeframes are tight. AI can draft claims in the required form and list every claim you've received with the date its payment schedule is due.</li>
 <li><strong>Site diaries, RFIs and defects.</strong> A supervisor's voice note and photos become a diary entry, an RFI or a defect item, filed against the job. Defect lists are tracked to close-out, which often decides when you get paid.</li>
-<li><strong>Tenders.</strong> AI reads tender documents for scope gaps, special conditions, insurance requirements and deadlines, so nothing is missed when you price.</li>
+<li><strong>Tenders.</strong> AI reads tender documents for scope gaps, special conditions, insurance requirements and deadlines, so they're in front of you when you price.</li>
 </ul>
 """),
 ("rules", "The rules AI helps you keep", "Variations, payment claims and SWMS", f"""
@@ -287,7 +290,7 @@ PAGES = [
 <p>Victoria's security of payment scheme covers most construction contracts, including subcontracts, but not a builder's contract with a home owner. A {L(SOP_CLAIM, 'payment claim')} must identify the work, state the amount and say it's made under the Building and Construction Industry Security of Payment Act 2002. Since {L(SOP_CHANGES, '15 April 2026')}, claims are monthly, served from the last day of the month, and can be made for up to six months after practical completion.</p>
 <p>If you receive a claim, a {L(SOP_RESPOND, 'payment schedule')} is due within 10 business days, or you become liable for the full amount. An AI register of incoming claims with their deadlines is cheap insurance.</p>
 <h3>Domestic building contracts</h3>
-<p>Changes to Victoria's domestic building contract laws, including a single variation process, were {L(CAV_NEW_LAWS, 'passed in 2025')} and are due to start in 2027. AI-drafted templates are easy to update when the rules change, provided someone owns that job. Check Consumer Affairs Victoria for the start date.</p>
+<p>Changes to Victoria's domestic building contract laws, including a single variation process, were {L(CAV_NEW_LAWS, 'passed in 2025')}, with the start date set by the government. AI-drafted templates are easy to update when the rules change, provided someone owns that job. Check Consumer Affairs Victoria for when the new rules apply.</p>
 <h3>SWMS</h3>
 <p>Under Victoria's OHS Regulations, a Safe Work Method Statement must be prepared {L(WORKSAFE_SWMS, 'before high-risk construction work starts')}, such as work with a risk of falling more than two metres, trenches deeper than 1.5 metres, demolition or work involving asbestos. It must be kept for the duration of the work and reviewed when the work changes or after an incident.</p>
 <p>AI can draft a SWMS from your templates and the job details, and flag when a change on site means one needs reviewing. The hazard assessment, and the consultation with the workers involved, stay with your people.</p>
@@ -296,7 +299,7 @@ PAGES = [
 ("first-project", "A sensible first project", "Ask the job", """
 <div class="card">
 <p>Pick one live project. Give AI read-only access to its folders and the project inbox. Your supervisors and office team can then ask questions in plain English, such as "what's outstanding from the last site meeting?" or "which variations aren't signed yet?", and get answers that link to the source document.</p>
-<p>It works best when job files are organised consistently, and setting that up is often half the value. That's the kind of first project Workshop AI recommends: one real problem fixed end to end before anything bigger.</p>
+<p>It works best when job files are organised consistently, and setting that up is often half the value. Once one project works, the same setup rolls out to the next.</p>
 </div>
 """),
 ("software", "Systems", "Works with the construction software you already run", """
@@ -313,7 +316,7 @@ PAGES = [
 ("job-folders", "Can AI find things across our job folders and emails?",
  """<p>Yes, and it's often the biggest win for builders. With read-only access to a project's folders and inbox, AI can answer questions and link to the drawing, RFI or email the answer came from. It works much better when files are named and filed consistently.</p>"""),
 ("construction-cost", "What does it cost to start using AI in a construction business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Discovery, which maps how the business really runs before anything is built, is A$3,600. Custom builds start from A$4,400 a month, month to month. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Discovery, which maps how the business really runs before anything is built, is A$3,600. Custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -351,7 +354,7 @@ PAGES = [
 ("first-project", "A sensible first project", "Find the unbilled surcharges", """
 <div class="card">
 <p>Run AI across the last three months of completed jobs, PODs and driver notes, and list every job where waiting time, a tail lift, a futile pick-up or a redelivery was recorded but not invoiced. Then run the same check every week.</p>
-<p>It uses data you already have and the result is measured in dollars. That's the kind of first project Workshop AI recommends: one real problem fixed end to end before anything bigger.</p>
+<p>It uses data you already have, and the answer is a dollar figure, which makes it a fair test of whether AI deserves more of your time.</p>
 </div>
 """),
 ("software", "Systems", "Works with the transport software you already run", """
@@ -369,7 +372,7 @@ PAGES = [
 ("unbilled-surcharges", "Can AI find surcharges we forgot to bill?",
  """<p>Yes, and it's a good first project. AI compares driver notes and POD comments with invoices and lists jobs where waiting time, tail lifts, futile pick-ups or redeliveries were recorded but not charged.</p>"""),
 ("logistics-cost", "What does it cost to start using AI in a logistics business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a weekly surcharge check or booking reader connected to your systems, start from A$4,400 a month, month to month. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a weekly surcharge check or booking reader connected to your systems, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -379,26 +382,26 @@ PAGES = [
 "short": "Melbourne's west",
 "audience": "trade, industrial and logistics businesses in Melbourne's western suburbs",
 "title": "AI consultant in Melbourne's west: Hobsons Bay, Altona, Brooklyn, Derrimut | Workshop AI",
-"description": ("Workshop AI is based in Hobsons Bay and works in person with trade, manufacturing and "
-                "logistics businesses across Melbourne's west, from Williamstown and Altona to Brooklyn, "
+"description": ("Workshop AI is based in Hobsons Bay and works with trade, industrial and logistics "
+                "businesses across Melbourne's west, from Williamstown and Altona to Brooklyn, "
                 "Derrimut, Truganina and Werribee."),
 "eyebrow": "Local to Melbourne's west",
 "h1": "AI help for businesses in Melbourne's west",
-"lede": ("Workshop AI is based in Hobsons Bay. We work in person with trade, manufacturing and logistics "
-         "businesses across Melbourne's west, from Williamstown, Newport and Altona to Brooklyn, Derrimut, "
+"lede": ("Workshop AI is based in Hobsons Bay. We work with trade, industrial and logistics businesses, and "
+         "meet in person anywhere across Melbourne's west, from Williamstown, Newport and Altona to Brooklyn, Derrimut, "
          "Laverton North, Truganina, Sunshine, Footscray and Werribee."),
 "sections": [
 ("why-the-west", "Why the west", "A region built on trades, making things and moving freight", f"""
 <p>The west's economy looks different from the rest of Melbourne, and so does its office work.</p>
 <ul>
 <li>Hobsons Bay alone has {L(ECON_HB, '8,709 local businesses and about 47,000 local jobs')}. Its largest employers are {L(ECON_HB_JOBS, 'construction, manufacturing, and transport, postal and warehousing')}, and transport, postal and warehousing employs about 11 per cent of local workers, more than twice the Victorian share.</li>
-<li>The Western Industrial Precinct is {L(VIC_WIP, "Melbourne's largest state-significant industrial precinct")} and a centre for logistics, spanning Derrimut, Brooklyn, Altona and Altona North, with Truganina planned as a future precinct.</li>
+<li>The Western Industrial Precinct is {L(VIC_WIP, "one of Melbourne's largest state-significant industrial precincts")} and a centre for logistics, with major precincts at Derrimut, Brooklyn and Altona North, and Truganina emerging.</li>
 <li>The {L(POM, 'Port of Melbourne')} handles more than a third of Australia's container trade, and the {L(WGT, 'West Gate Tunnel')}, open since December 2025, has changed how trucks reach it.</li>
 </ul>
 <p>That means a lot of businesses whose office runs on work orders, job sheets, compliance records, bookings and PODs. That's the work AI is good at.</p>
 """),
 ("what-we-do", "What we do here", "Hands-on, in person, close by", """
-<p>Being local matters for this kind of work. The first conversation is usually at your place, with the people who do the admin. We sit with the office team, watch how a job moves from the first email to the final invoice, and find the steps that eat the hours.</p>
+<p>Being local matters for this kind of work. The first conversation can be at your place, with the people who do the admin, or by video. Once we're working together, we sit with the office team, watch how a job moves from the first email to the final invoice, and find the steps that eat the hours.</p>
 <p>From there, the work depends on the business:</p>
 <ul>
 <li>Trades: <a href="/ai-for-hvac/">HVAC and refrigeration</a>, <a href="/ai-for-plumbing/">plumbing and gas</a>, <a href="/ai-for-electrical/">electrical</a> and <a href="/ai-for-construction/">construction</a>.</li>
@@ -409,7 +412,7 @@ PAGES = [
 ("suburbs", "Where we visit", "Suburbs across the west", """
 <div class="table-scroll"><table class="facts">
 <tr><th scope="row">Hobsons Bay</th><td>Williamstown, Newport, Spotswood, South Kingsville, Altona, Altona North, Altona Meadows, Seaholme, and parts of Laverton and Brooklyn</td></tr>
-<tr><th scope="row">Wyndham</th><td>Laverton North, Truganina, Point Cook, Hoppers Crossing and Werribee</td></tr>
+<tr><th scope="row">Wyndham</th><td>Laverton North, Truganina (shared with Melton), Point Cook, Hoppers Crossing and Werribee</td></tr>
 <tr><th scope="row">Brimbank</th><td>Sunshine, Derrimut, Deer Park and Ardeer</td></tr>
 <tr><th scope="row">Maribyrnong</th><td>Footscray, Yarraville, Seddon, West Footscray and Braybrook</td></tr>
 </table></div>
@@ -418,7 +421,7 @@ PAGES = [
 ("local-help", "Local help worth knowing", "Free and low-cost support in the west", f"""
 <ul>
 <li><strong>Digital Solutions.</strong> The Australian Government's {L(ASBAS, 'Digital Solutions program')}, delivered in Victoria by Melbourne Innovation Centre, offers businesses with fewer than 20 staff free workshops and up to five hours of low-cost one-to-one advice, including on AI.</li>
-<li><strong>Council business programs.</strong> Hobsons Bay City Council runs {L(HB_BUSINESS, 'business workshops and events')}, including an introduction to AI for business. Wyndham City offers {L(WYNDHAM_IGNITE, 'free IGNITE mentoring')} for local businesses.</li>
+<li><strong>Council business programs.</strong> Hobsons Bay City Council runs {L(HB_BUSINESS, 'business workshops and events')}, which have included an introduction to AI for business. Wyndham City offers {L(WYNDHAM_IGNITE, 'free IGNITE mentoring')} for local businesses.</li>
 <li><strong>LeadWest.</strong> {L(LEADWEST, 'LeadWest')} is the alliance of Brimbank, Hobsons Bay, Maribyrnong, Melton and Wyndham councils working on the region's economy.</li>
 </ul>
 <p>If one of these is the right first step for you, we'll say so.</p>
@@ -426,13 +429,13 @@ PAGES = [
 ],
 "faqs": [
 ("local-consultant", "Is there an AI consultant near Altona or Williamstown?",
- """<p>Yes. Workshop AI is based in Hobsons Bay, close to Altona, Williamstown, Newport and the western industrial areas, and works with trade, manufacturing and logistics businesses across Melbourne's west.</p>"""),
+ """<p>Yes. Workshop AI is based in Hobsons Bay, close to Altona, Williamstown, Newport and the western industrial areas, and works with trade, industrial and logistics businesses across Melbourne's west.</p>"""),
 ("in-person", "Do you visit businesses in person?",
- """<p>Yes. We visit businesses anywhere around Melbourne, and the west is home ground. Most first conversations happen on site, with the people who do the admin.</p>"""),
+ """<p>Yes. We visit businesses anywhere around Melbourne, and the west is home ground. We can meet on site, with the people who do the admin, or by video.</p>"""),
 ("free-help-west", "Is there free or low-cost AI help for small businesses in the west?",
  f"""<p>Some. The {L(ASBAS, 'Digital Solutions program')} offers businesses with fewer than 20 staff free workshops and up to five hours of low-cost advice, delivered in Victoria by Melbourne Innovation Centre. Local councils, including {L(HB_BUSINESS, 'Hobsons Bay')}, also run business workshops.</p>"""),
 ("west-businesses", "What kinds of businesses in the west does Workshop AI work with?",
- """<p>Mostly trades, construction, manufacturing and logistics businesses with about 10 to 30 staff, where the office is growing faster than the team can keep up with. The work is the same everywhere: work orders, quotes, compliance records, bookings and invoices.</p>"""),
+ """<p>Trade, construction, industrial and logistics businesses, typically with about 10 to 30 staff, where the office work is growing faster than the team can keep up with: work orders, quotes, compliance records, bookings and invoices.</p>"""),
 ],
 },
 
@@ -455,13 +458,13 @@ PAGES = [
 "sections": [
 ("three-routes", "Three routes", "How AI connects to Simpro", f"""
 <h3>1. Simpro's own AI</h3>
-<p>Simpro launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} in May 2026, describing it as an AI-native operating platform. Its AI, called Cooper, comes with four agents (FieldReady, JobReady, JobScribe and JobBrief), and {L(SIMPRO_LIGHTNING, 'JustAsk')} answers plain-English questions about things like technician margins, overdue invoices and customer history. A {L(SIMPRO_RAIN, 'July 2026 release')} added an AI scheduler and expanded JustAsk. At launch, Lightning was priced as an extra 15 per cent on existing contracts, rising to 25 per cent after 31 May 2026.</p>
+<p>Simpro launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} in May 2026, describing it as an AI-native operating platform. Its AI, called Cooper, comes with four agents (FieldReady, JobReady, JobScribe and JobBrief), and {L(SIMPRO_LIGHTNING, 'JustAsk')} answers plain-English questions about things like technician margins, overdue invoices and customer history. A {L(SIMPRO_RAIN_PR, 'July 2026 release')} added an AI scheduler and expanded JustAsk. At launch, Lightning was priced as an extra 15 per cent on existing contracts, rising to 25 per cent after 31 May 2026.</p>
 <p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it sees Simpro, not your inbox, your accounts or your shared drive.</p>
 <h3>2. Ready-made connectors</h3>
-<p>{L(ZAPIER_SIMPRO, 'Zapier')} connects to Simpro with triggers such as new or updated jobs and quotes, and actions such as creating a service job or quote, and {L(ZAPIER_SIMPRO_PARTNER, 'Simpro charges nothing')} for the Zapier connection. Several services also offer MCP connectors, the standard way AI assistants such as Claude and ChatGPT use other software: {L(ZAPIER_MCP, 'Zapier MCP')}, {L(VIASOCKET_MCP, 'viaSocket')} and {L(TUGGER, 'Tugger')}, a read-only option listed on the Simpro Marketplace.</p>
+<p>{L(ZAPIER_SIMPRO, 'Zapier')} connects to Simpro with triggers such as new or updated jobs and quotes, and actions such as creating a service job or quote, and {L(ZAPIER_SIMPRO_PARTNER, 'Simpro charges nothing')} for the Zapier connection. Several services also offer MCP connectors, the standard way AI assistants such as Claude and ChatGPT use other software: {L(ZAPIER_MCP, 'Zapier MCP')}, {L(VIASOCKET_MCP, 'viaSocket')} and {L(TUGGER, 'Tugger')}, which is listed on the Simpro Marketplace and {L(TUGGER_BLOG, 'gives AI read-only access')} to a synced copy of your data.</p>
 <p><strong>Good for:</strong> quick wins and simple automations. <strong>Limit:</strong> you're bound by what each connector exposes, and some connect with write access by default.</p>
 <h3>3. A custom build on the API</h3>
-<p>Simpro's {L(SIMPRO_API_FAQ, 'REST API')} can view, create and modify records across customers, sites, jobs, cost centres, recurring jobs, quotes, invoices, schedules, stock, purchase orders and assets, and it can send webhooks when a job changes stage. Simpro's {L(SIMPRO_PRICING, 'Australian pricing page')} lists Open API on the base plan. Simpro doesn't offer one-on-one API support, and points people to its forum or a partner.</p>
+<p>Simpro's {L(SIMPRO_API_DOCS, 'REST API')} can view, create and modify records across customers, sites, jobs, cost centres, recurring jobs, quotes, invoices, schedules, stock, purchase orders and assets, and it can send webhooks when a job changes stage. Simpro's {L(SIMPRO_PRICING, 'Australian pricing page')} lists Open API on the base plan. Simpro doesn't offer one-on-one API support, and points people to its forum or a partner.</p>
 <p><strong>Good for:</strong> joining Simpro to email, Xero and documents, branded reporting, and agents that do a defined job. <strong>Limit:</strong> it needs building and looking after.</p>
 """),
 ("what-to-ask", "Once it's connected", "Questions worth asking your Simpro data", f"""
@@ -477,7 +480,7 @@ PAGES = [
 <ul>
 <li><strong>Start read-only.</strong> Let AI look before it's allowed to change anything. Add write access one action at a time, with a person approving.</li>
 <li><strong>Treat API keys like master keys.</strong> Simpro's {L(SIMPRO_AUTH, 'developer documentation')} describes an API key as a single access token that never expires. Give each integration its own credentials, limit who holds them, and remove them when they're no longer needed.</li>
-<li><strong>Mind the limits.</strong> The API returns at most 250 records per request and {L(SIMPRO_LIMITS, 'rejects bursts above 10 requests a second')} to one build, so well-built integrations page through data patiently.</li>
+<li><strong>Mind the limits.</strong> The API returns {L(SIMPRO_PAGING, 'at most 250 records per request')} and {L(SIMPRO_LIMITS, 'rejects bursts above 10 requests a second')} to one build, so well-built integrations page through data patiently.</li>
 <li><strong>Keep a person on the trigger.</strong> Anything sent to a customer, any price and any job created should have a person approving it until the results have earned trust.</li>
 </ul>
 """),
@@ -497,7 +500,7 @@ PAGES = [
 ("ai-create-jobs", "Can AI create jobs and quotes in Simpro?",
  f"""<p>Yes. The {L(SIMPRO_API_FAQ, 'API')} and connectors such as {L(ZAPIER_SIMPRO, 'Zapier')} can create jobs and quotes. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>"""),
 ("simpro-ai-cost", "What does it cost to connect AI to Simpro?",
- """<p>It depends on the route. Simpro's Lightning is priced as a percentage of your Simpro contract, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month, month to month, excluding GST.</p>"""),
+ """<p>It depends on the route. Simpro's Lightning is priced as a percentage of your Simpro contract, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project, excluding GST.</p>"""),
 ],
 },
 ]
@@ -515,7 +518,7 @@ SOURCE_TITLES = {
     YVW_BACKFLOW: "Backflow prevention testing and reporting",
     SEW_BACKFLOW: "Backflow test report form",
     VIC_ELECTRIFY: "Electric and efficiency standards for buildings",
-    ESV_GAS_BPC: "Working with the Victorian Building Authority",
+    ESV_GAS_BPC: "Working with the Building and Plumbing Commission",
     ESV_COES: "Certificates of Electrical Safety for consumers",
     ESV_PRESCRIBED: "Prescribed and non-prescribed work",
     ESV_CONNECT: "ESVConnect Certificates of Electrical Safety",
@@ -546,11 +549,13 @@ SOURCE_TITLES = {
     WYNDHAM_IGNITE: "IGNITE business mentoring",
     SIMPRO_API_FAQ: "API FAQs",
     SIMPRO_API_DOCS: "API documentation",
-    SIMPRO_LIMITS: "API rate limits and paging",
+    SIMPRO_LIMITS: "API rate limits",
+    SIMPRO_PAGING: "API pagination",
     SIMPRO_AUTH: "API authentication",
     SIMPRO_LIGHTNING_PR: "Simpro Group unveils Lightning",
     SIMPRO_LIGHTNING: "Lightning",
     SIMPRO_RAIN: "RAIN release",
+    SIMPRO_RAIN_PR: "Simpro Group announces RAIN",
     SIMPRO_PRICING: "Pricing (Australia)",
     SIMPRO_STAGES: "Managing existing jobs",
     SIMPRO_QUOTES: "View quotes",
@@ -561,6 +566,7 @@ SOURCE_TITLES = {
     ZAPIER_MCP: "Simpro MCP",
     VIASOCKET_MCP: "Simpro MCP",
     TUGGER: "Tugger",
+    TUGGER_BLOG: "How to connect Simpro to AI",
     "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products":
         "Guidance on privacy and the use of commercially available AI products",
 }
