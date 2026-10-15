@@ -12,9 +12,10 @@ Rules for anything in this file:
 """
 
 SITE = "https://workshopai.com.au"
-UPDATED = "2026-10-14"            # ISO date, shown on both pages and in sitemap
-UPDATED_HUMAN = "14 October 2026"
+UPDATED = "2026-10-15"            # ISO date, shown on the pages and in the sitemap
+UPDATED_HUMAN = "15 October 2026"
 GA_ID = "G-SB01RKTVMZ"           # Google Analytics 4, property "Workshop AI"
+INDEXNOW_KEY = "5724ab8cfb4b2553fdb524f346523338"  # served at /<key>.txt so Bing accepts our IndexNow pings
 
 ORG = {
     "name": "Workshop AI",

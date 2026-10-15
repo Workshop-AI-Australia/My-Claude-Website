@@ -2,13 +2,23 @@
 
 > Workshop AI is a Melbourne-based AI implementation consultancy that helps Australian tradies and trade, service and industrial businesses put AI to work in the office, with fixed prices and hands-on delivery.
 
-Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. Based in Hobsons Bay, in Melbourne's western suburbs, Victoria. In person across Melbourne, remote Australia-wide. Contact: hello@workshopai.com.au, 0431 254 769. Last updated 14 October 2026.
+Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. Based in Hobsons Bay, in Melbourne's western suburbs, Victoria. In person across Melbourne, remote Australia-wide. Contact: hello@workshopai.com.au, 0431 254 769. Last updated 15 October 2026.
 
 ## Key pages
 
 - [Home](https://workshopai.com.au/): what Workshop AI does, the five-level path, a client example and prices
 - [Company facts](https://workshopai.com.au/facts/): who Workshop AI is, who it serves, services, prices, people and service area
 - [AI for tradies: questions answered](https://workshopai.com.au/ai-for-tradies/): 58 answers on using AI in an Australian trade or service business
+
+## Industry, local and Simpro pages
+
+- [AI for HVAC and refrigeration businesses](https://workshopai.com.au/ai-for-hvac/): How HVAC and refrigeration businesses use AI for work orders, maintenance reports, refrigerant and cooling tower records and quotes, with a real Melbourne example. Works with Simpro, AroFlo and ServiceM8.
+- [AI for plumbing and gas businesses](https://workshopai.com.au/ai-for-plumbing/): How plumbing and gas businesses in Victoria use AI for missed calls, quotes, compliance certificates, backflow tests and rental gas safety checks, with licensed work kept with the licensed plumber.
+- [AI for electrical contractors](https://workshopai.com.au/ai-for-electrical/): How electrical contractors in Victoria use AI for quotes, builder variations, security of payment claims and Certificates of Electrical Safety, with testing and sign-off kept with the licensed electrician.
+- [AI for builders and construction companies](https://workshopai.com.au/ai-for-construction/): How Victorian builders and construction companies use AI to find answers across job files, draft variations, RFIs and site reports, keep SWMS current and prepare security of payment claims.
+- [AI for logistics and transport businesses](https://workshopai.com.au/ai-for-logistics/): How freight, transport and warehousing businesses use AI for booking emails, proof of delivery and invoice checks, surcharge capture, customer updates and Chain of Responsibility records.
+- [AI help for businesses in Melbourne's west](https://workshopai.com.au/ai-in-melbournes-west/): Workshop AI is based in Hobsons Bay and works in person with trade, manufacturing and logistics businesses across Melbourne's west, from Williamstown and Altona to Brooklyn, Derrimut, Truganina and Werribee.
+- [Using AI with Simpro](https://workshopai.com.au/simpro-ai/): Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely.
 
 ## Services (AUD, excluding GST)
 

@@ -106,6 +106,18 @@
   .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14.5px}
   .foot-links a{color:var(--on-dark);text-decoration:none;border-bottom:1px solid rgba(242,244,243,0.25)}
   .foot-links a:hover{border-color:var(--amber)}
+  .foot-pages{font-size:13.5px}
+  .foot-pages a{color:var(--on-dark-soft)}
+  .sources{font-size:14.5px;color:var(--ink-soft)}
+  .sources a{color:var(--amber-deep)}
+  .related{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .related a{font-size:14px;font-weight:500;text-decoration:none;color:var(--ink);border:1px solid var(--muted);border-radius:999px;padding:7px 14px}
+  .related a:hover{border-color:var(--navy)}
+  .topic a{color:var(--amber-deep)}
+  .topic .btn.solid{color:var(--navy)}
+  .topic .btn.outline,.topic .related a{color:var(--ink)}
+  .qa .more{font-size:15px}
+  .topic section > h3{margin-top:26px}
   footer p{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:0.06em;color:var(--ink-faint);max-width:none;margin:0}
 </style>
 <script type="application/ld+json">
@@ -396,7 +408,7 @@
    "publisher": {
     "@id": "https://workshopai.com.au/#organization"
    },
-   "dateModified": "2026-10-14",
+   "dateModified": "2026-10-15",
    "inLanguage": "en-AU",
    "mainEntity": [
     {
@@ -941,7 +953,7 @@
     <p class="eyebrow">AI for tradies &middot; 58 questions answered</p>
     <h1>AI for tradies and trade businesses: questions answered</h1>
     <p class="lede">Straight answers to the questions Australian tradies and trade and service businesses ask about AI: where to start, what it costs, privacy and the law, your staff, and how it works with Simpro, ServiceM8 and Xero. Covers HVAC, plumbing, electrical, construction and logistics.</p>
-    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed 14 October 2026<br/>General information only, not legal, tax or financial advice.</p>
+    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed 15 October 2026<br/>General information only, not legal, tax or financial advice.</p>
   </div>
 </header>
 
@@ -1106,6 +1118,7 @@
   <h3>Can ChatGPT or Claude read our Simpro data?</h3>
   <p>Yes, with the right connection. Simpro has an API, so an AI assistant can be connected to read jobs, quotes, invoices and customers, and answer questions like "what's sitting in complete but not invoiced?"</p>
 <p>Workshop AI connected Simpro for Mattick Air, a Melbourne commercial air conditioning business, to produce branded monthly reports for Mattick Air's own customers from live Simpro data. Start read-only: let the AI look before it's allowed to change anything.</p>
+  <p class="more">More: <a href="/simpro-ai/">using AI with Simpro</a></p>
 </div>
 <div class="qa" id="other-software">
   <h3>Does AI work with ServiceM8, AroFlo, Tradify, Fergus, Xero and MYOB?</h3>
@@ -1121,6 +1134,7 @@
   <h3>Do Simpro, ServiceM8 or Xero have AI built in already?</h3>
   <p>Several job management and accounting systems now include AI features, and they change often, so check your own system's latest release notes.</p>
 <p>Built-in features are a good first stop because they're already connected to your data. Their limit is that each one only sees its own system. The bigger gains usually come from connecting across systems, for example from email to the job system to the accounts.</p>
+  <p class="more">More: <a href="/simpro-ai/">using AI with Simpro</a></p>
 </div>
   <a class="top" href="#questions">Back to all topics</a>
 </section>
@@ -1212,6 +1226,7 @@
   <h3>Can AI fill in compliance certificates for electrical or plumbing work?</h3>
   <p>It can pre-fill details from job records and check for missing information, but the licensed person must still check and sign it, and lodge it where the rules require.</p>
 <p>Compliance certificates are the licence holder's responsibility. AI can cut the typing and catch gaps. It can't take the accountability.</p>
+  <p class="more">More: <a href="/ai-for-plumbing/#compliance">plumbing certificates in detail</a></p>
 </div>
 <div class="qa" id="site-questions">
   <h3>Can AI help our team answer safety and technical questions on site?</h3>
@@ -1226,26 +1241,31 @@
   <h3>How can an HVAC business use AI?</h3>
   <p>Common wins for HVAC and refrigeration businesses are reading work orders that arrive by email in many formats and creating the job, producing maintenance and compliance reports for commercial clients, drafting quotes from service notes, and keeping recurring maintenance on track.</p>
 <p>For Mattick Air, a Melbourne commercial air conditioning business, Workshop AI built an agent that reads every emailed work order and lands the job ready to go, with a person staying on the trigger, plus branded monthly customer reports built from live Simpro data.</p>
+  <p class="more">More: <a href="/ai-for-hvac/">AI for HVAC and refrigeration businesses</a></p>
 </div>
 <div class="qa" id="plumbing">
   <h3>How can a plumbing business use AI?</h3>
   <p>The biggest wins for plumbers are usually after-hours and missed calls, drafting quotes from photos and voice notes, and chasing quotes and invoices.</p>
 <p>An AI assistant can take the caller's details, the problem and how urgent it is, then send it to the right person. Emergencies such as burst pipes or suspected gas leaks should always go straight to a person. AI can also prepare job paperwork from your records, while compliance certificates stay with the licensed plumber.</p>
+  <p class="more">More: <a href="/ai-for-plumbing/">AI for plumbing and gas businesses</a></p>
 </div>
 <div class="qa" id="electrical">
   <h3>How can an electrical contractor use AI?</h3>
   <p>Electrical contractors use AI to draft quotes from site notes and drawings, read builder and client emails into jobs, keep track of variations, and prepare test and compliance paperwork for the licensed electrician to check.</p>
 <p>AI can also answer technical questions from your own manuals and procedures. Certificates and sign-offs stay with the licence holder.</p>
+  <p class="more">More: <a href="/ai-for-electrical/">AI for electrical contractors</a></p>
 </div>
 <div class="qa" id="construction">
   <h3>How can a builder or construction company use AI?</h3>
   <p>Builders get the most from AI by finding information across job folders (drawings, RFIs, variations and contracts), drafting variations, RFIs and site reports, checking tender documents, and keeping SWMS consistent.</p>
 <p>The biggest win for many builders is being able to ask "what did we agree about this on that job?" and get an answer that points to the document it came from. This works best when job files are organised consistently.</p>
+  <p class="more">More: <a href="/ai-for-construction/">AI for builders and construction companies</a></p>
 </div>
 <div class="qa" id="logistics">
   <h3>How can a logistics or transport business use AI?</h3>
   <p>Logistics businesses use AI to read booking requests and manifests from emails into their system, handle same-day changes, draft customer updates, check proof-of-delivery paperwork against invoices, and report on late or failed deliveries.</p>
 <p>Route optimisation itself is usually better handled by dedicated routing software. AI is strongest on the paperwork and communication around it.</p>
+  <p class="more">More: <a href="/ai-for-logistics/">AI for logistics and transport businesses</a></p>
 </div>
 <div class="qa" id="industrial">
   <h3>How can a manufacturing or industrial business use AI?</h3>
@@ -1299,6 +1319,7 @@
   <h3>Where is Workshop AI based, and do you work outside Melbourne?</h3>
   <p>Workshop AI is based in Hobsons Bay in Melbourne's western suburbs, close to Altona, Williamstown, Newport, Laverton and the western industrial areas.</p>
 <p>We visit businesses in person anywhere around Melbourne and deliver remotely anywhere in Australia.</p>
+  <p class="more">More: <a href="/ai-in-melbournes-west/">AI help in Melbourne's west</a></p>
 </div>
 <div class="qa" id="how-to-start">
   <h3>How does working with Workshop AI start?</h3>
@@ -1322,6 +1343,15 @@
       <a href="mailto:hello@workshopai.com.au">hello@workshopai.com.au</a>
       <a href="tel:+61431254769">0431 254 769</a>
       <a href="/privacy/">Privacy</a>
+    </div>
+    <div class="foot-links foot-pages">
+      <a href="/ai-for-hvac/">AI for HVAC</a>
+      <a href="/ai-for-plumbing/">AI for plumbing</a>
+      <a href="/ai-for-electrical/">AI for electrical</a>
+      <a href="/ai-for-construction/">AI for construction</a>
+      <a href="/ai-for-logistics/">AI for logistics</a>
+      <a href="/simpro-ai/">Simpro and AI</a>
+      <a href="/ai-in-melbournes-west/">Melbourne's west</a>
     </div>
     <p>Workshop AI Pty Ltd &middot; ABN 63 698 704 915 &middot; Hobsons Bay, Melbourne &middot; AI that works for your business</p>
   </div>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://workshopai.com.au/</loc><lastmod>2026-10-14</lastmod><priority>1.0</priority></url>
-  <url><loc>https://workshopai.com.au/ai-for-tradies/</loc><lastmod>2026-10-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://workshopai.com.au/facts/</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://workshopai.com.au/privacy/</loc><lastmod>2026-10-14</lastmod><priority>0.3</priority></url>
+  <url><loc>https://workshopai.com.au/</loc><lastmod>2026-10-15</lastmod><priority>1.0</priority></url>
+  <url><loc>https://workshopai.com.au/ai-for-tradies/</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
+  <url><loc>https://workshopai.com.au/facts/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/ai-for-hvac/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/ai-for-plumbing/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/ai-for-electrical/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/ai-for-construction/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/ai-for-logistics/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/ai-in-melbournes-west/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/simpro-ai/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://workshopai.com.au/privacy/</loc><lastmod>2026-10-15</lastmod><priority>0.3</priority></url>
 </urlset>

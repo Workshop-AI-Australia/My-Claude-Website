@@ -13,7 +13,9 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from data import (ORG, SITE, UPDATED, UPDATED_HUMAN, INDUSTRIES, TOOLS, SERVICES,  # noqa: E402
-                  LEVELS, JUSTIN_BIO, THEMES, GA_ID)
+                  LEVELS, JUSTIN_BIO, THEMES, GA_ID, INDEXNOW_KEY)
+from pages import PAGES, SOURCE_TITLES  # noqa: E402
+from urllib.parse import urlparse  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORG_ID = f"{SITE}/#organization"
@@ -207,6 +209,18 @@ CSS = """
   .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14.5px}
   .foot-links a{color:var(--on-dark);text-decoration:none;border-bottom:1px solid rgba(242,244,243,0.25)}
   .foot-links a:hover{border-color:var(--amber)}
+  .foot-pages{font-size:13.5px}
+  .foot-pages a{color:var(--on-dark-soft)}
+  .sources{font-size:14.5px;color:var(--ink-soft)}
+  .sources a{color:var(--amber-deep)}
+  .related{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .related a{font-size:14px;font-weight:500;text-decoration:none;color:var(--ink);border:1px solid var(--muted);border-radius:999px;padding:7px 14px}
+  .related a:hover{border-color:var(--navy)}
+  .topic a{color:var(--amber-deep)}
+  .topic .btn.solid{color:var(--navy)}
+  .topic .btn.outline,.topic .related a{color:var(--ink)}
+  .qa .more{font-size:15px}
+  .topic section > h3{margin-top:26px}
   footer p{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:0.06em;color:var(--ink-faint);max-width:none;margin:0}
 """
 
@@ -271,6 +285,15 @@ FOOTER = f"""<footer>
       <a href="mailto:{ORG['email']}">{ORG['email']}</a>
       <a href="tel:{ORG['phone_intl']}">{ORG['phone_display']}</a>
       <a href="/privacy/">Privacy</a>
+    </div>
+    <div class="foot-links foot-pages">
+      <a href="/ai-for-hvac/">AI for HVAC</a>
+      <a href="/ai-for-plumbing/">AI for plumbing</a>
+      <a href="/ai-for-electrical/">AI for electrical</a>
+      <a href="/ai-for-construction/">AI for construction</a>
+      <a href="/ai-for-logistics/">AI for logistics</a>
+      <a href="/simpro-ai/">Simpro and AI</a>
+      <a href="/ai-in-melbournes-west/">Melbourne's west</a>
     </div>
     <p>{ORG['legal_name']} &middot; ABN {ORG['abn']} &middot; Hobsons Bay, Melbourne &middot; AI that works for your business</p>
   </div>
@@ -340,6 +363,15 @@ def build_privacy():
 
 
 # ---------------------------------------------------------------- facts page
+INDUSTRY_LINKS = {
+    "HVAC and refrigeration": '<a href="/ai-for-hvac/">HVAC and refrigeration</a>',
+    "Plumbing and gas": '<a href="/ai-for-plumbing/">Plumbing and gas</a>',
+    "Electrical": '<a href="/ai-for-electrical/">Electrical</a>',
+    "Construction and building": '<a href="/ai-for-construction/">Construction and building</a>',
+    "Logistics and transport": '<a href="/ai-for-logistics/">Logistics and transport</a>',
+}
+
+
 def build_facts():
     e = html.escape
     suburbs = ", ".join(ORG["suburbs"])
@@ -353,9 +385,10 @@ def build_facts():
                          "mapping how the business runs, and building custom AI agents and automations "
                          "into the systems the business already uses"),
         ("Who it's for", "Australian tradies and trade, service and industrial businesses, typically 10 to 30 staff"),
-        ("Industries", ", ".join(INDUSTRIES)),
+        ("Industries", ", ".join(INDUSTRY_LINKS.get(i, i) for i in INDUSTRIES)),
         ("Based in", f"{ORG['base']} (postcode {ORG['postcode']})"),
-        ("Service area", f"In person anywhere around Melbourne, including {suburbs}. Remote delivery anywhere in Australia."),
+        ("Service area", f"In person anywhere around Melbourne, including {suburbs}. Remote delivery anywhere in Australia. "
+                         f'See <a href="/ai-in-melbournes-west/">Melbourne\'s west</a>.'),
         ("Prices", "Fixed prices from A$1,500. Custom builds from A$4,400 a month. All prices in AUD, excluding GST."),
         ("Contact", f'<a href="mailto:{ORG["email"]}">{ORG["email"]}</a> &middot; '
                     f'<a href="tel:{ORG["phone_intl"]}">{ORG["phone_display"]}</a> &middot; '
@@ -417,6 +450,7 @@ def build_facts():
 <section id="tools">
   <h2><span class="num">Systems</span>Works with the tools you already run</h2>
   <p>{e(tools)}.</p>
+  <p>See <a href="/simpro-ai/">using AI with Simpro</a> for how AI connects to Simpro.</p>
   <p>Workshop AI is a consultancy and builder. It doesn't sell its own job management software or lock clients into a platform.</p>
 </section>
 
@@ -469,6 +503,26 @@ def build_facts():
 
 
 # ---------------------------------------------------------------- Q&A page
+QA_MORE = {
+    "hvac": ("/ai-for-hvac/", "AI for HVAC and refrigeration businesses"),
+    "plumbing": ("/ai-for-plumbing/", "AI for plumbing and gas businesses"),
+    "electrical": ("/ai-for-electrical/", "AI for electrical contractors"),
+    "construction": ("/ai-for-construction/", "AI for builders and construction companies"),
+    "logistics": ("/ai-for-logistics/", "AI for logistics and transport businesses"),
+    "simpro-data": ("/simpro-ai/", "using AI with Simpro"),
+    "built-in-ai": ("/simpro-ai/", "using AI with Simpro"),
+    "where-based": ("/ai-in-melbournes-west/", "AI help in Melbourne's west"),
+    "compliance-certificates": ("/ai-for-plumbing/#compliance", "plumbing certificates in detail"),
+}
+
+
+def more(qid):
+    if qid not in QA_MORE:
+        return ""
+    href, text = QA_MORE[qid]
+    return f'\n  <p class="more">More: <a href="{href}">{text}</a></p>'
+
+
 def build_qa():
     e = html.escape
     toc = "\n".join(f'<a href="#{slug}">{e(title)}</a>' for slug, title, _ in THEMES)
@@ -478,7 +532,7 @@ def build_qa():
         items = "\n".join(
             f"""<div class="qa" id="{qid}">
   <h3>{e(q)}</h3>
-  {ans}
+  {ans}{more(qid)}
 </div>""" for qid, q, ans in qs)
         sections.append(f"""<section id="{slug}">
   <h2><span class="num">{len(qs)} questions</span>{e(title)}</h2>
@@ -528,6 +582,139 @@ def build_qa():
     return count
 
 
+# ---------------------------------------------------------------- industry, local and Simpro pages
+SOURCE_NAMES = {
+    "arctick.org": "Australian Refrigeration Council",
+    "health.vic.gov.au": "Department of Health, Victoria",
+    "bpc.vic.gov.au": "Building and Plumbing Commission",
+    "consumer.vic.gov.au": "Consumer Affairs Victoria",
+    "yvw.com.au": "Yarra Valley Water",
+    "southeastwater.com.au": "South East Water",
+    "energy.vic.gov.au": "Victorian Government, energy",
+    "energysafe.vic.gov.au": "Energy Safe",
+    "solar.vic.gov.au": "Solar Victoria",
+    "worksafe.vic.gov.au": "WorkSafe Victoria",
+    "nhvr.gov.au": "National Heavy Vehicle Regulator",
+    "ntc.gov.au": "National Transport Commission",
+    "ablis.business.gov.au": "business.gov.au",
+    "business.gov.au": "business.gov.au",
+    "cario.com.au": "Cario",
+    "economy.id.com.au": "economy.id, Hobsons Bay",
+    "planning.vic.gov.au": "Victorian Government, planning",
+    "portofmelbourne.com": "Port of Melbourne",
+    "premier.vic.gov.au": "Premier of Victoria",
+    "hobsonsbaybusiness.com.au": "Hobsons Bay City Council",
+    "leadwest.com.au": "LeadWest",
+    "wyndham.vic.gov.au": "Wyndham City",
+    "helpguide.simprogroup.com": "Simpro help guide",
+    "developer.simprogroup.com": "Simpro developer documentation",
+    "simprogroup.com": "Simpro",
+    "marketplace.simprogroup.com": "Simpro Marketplace",
+    "zapier.com": "Zapier",
+    "viasocket.com": "viaSocket",
+    "oaic.gov.au": "OAIC",
+}
+
+
+def page_sources(html_text):
+    """Every external link on the page, once, labelled by who published it."""
+    seen, out = set(), []
+    for url, text in re.findall(r'<a href="(https?://[^"]+)"[^>]*>(.*?)</a>', html_text):
+        if url in seen or "workshopai.com.au" in url or "calendar.app.google" in url:
+            continue
+        seen.add(url)
+        host = urlparse(url).netloc.replace("www.", "")
+        name = SOURCE_NAMES.get(host, host)
+        title = SOURCE_TITLES.get(url, re.sub("<[^>]+>", "", text))
+        out.append(f'<li>{name}: <a href="{url}" rel="noopener" target="_blank">{title}</a></li>')
+    return "\n".join(out)
+
+
+def build_topic_pages():
+    e = html.escape
+    for pg in PAGES:
+        path = f"/{pg['slug']}/"
+        url = f"{SITE}{path}"
+        secs = "\n".join(
+            f"""<section id="{sid}">
+  <h2><span class="num">{e(num)}</span>{e(head_)}</h2>
+{body}
+</section>""" for sid, num, head_, body in pg["sections"])
+        faqs = "\n".join(
+            f"""<div class="qa" id="{qid}">
+  <h3>{e(q)}</h3>
+  {ans}
+</div>""" for qid, q, ans in pg["faqs"])
+        services = "\n".join(
+            f"<tr><th scope=\"row\">{e(n)}</th><td>{e(pr)}</td><td>{e(u)}</td></tr>"
+            for n, pr, _num, u, _s in SERVICES)
+        related = "\n".join(
+            f'<a href="/{o["slug"]}/">{e(o["short"])}</a>' for o in PAGES if o is not pg)
+        content = secs + faqs
+        body = f"""{nav(path)}
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">{e(pg['eyebrow'])}</p>
+    <h1>{e(pg['h1'])}</h1>
+    <p class="lede">{e(pg['lede'])}</p>
+    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed {UPDATED_HUMAN}<br/>General information only, not legal, tax or financial advice.</p>
+  </div>
+</header>
+
+<main class="wrap topic">
+{secs}
+<section id="questions">
+  <h2><span class="num">{len(pg['faqs'])} questions</span>Questions we hear</h2>
+{faqs}
+</section>
+<section id="work-with-us">
+  <h2><span class="num">Working with Workshop AI</span>Fixed prices, one real problem first</h2>
+  <p>We start with a free 30-minute chat, in person around Melbourne or by video, then fix one real problem end to end before anything bigger is on the table. No lock-in. All prices in AUD, excluding GST.</p>
+  <div class="table-scroll"><table class="facts">
+{services}
+  </table></div>
+  <div class="ctas"><a class="btn solid" href="{ORG['booking_url']}" target="_blank" rel="noopener">Book a free chat</a><a class="btn outline" href="tel:{ORG['phone_intl']}">Call {ORG['phone_display']}</a><a class="btn outline" href="/ai-for-tradies/">Read the Q&amp;A</a></div>
+</section>
+<section id="more">
+  <h2><span class="num">More</span>Related pages</h2>
+  <nav class="related" aria-label="Related pages">
+{related}
+<a href="/ai-for-tradies/">All questions answered</a>
+<a href="/facts/">Company facts</a>
+  </nav>
+</section>
+<section id="sources">
+  <h2><span class="num">Sources</span>Where these facts come from</h2>
+  <p class="sources">Rules and figures on this page were checked against these sources in October 2026. Rules change, so check the source before relying on them.</p>
+  <ul class="sources">
+{page_sources(content)}
+  </ul>
+</section>
+</main>
+"""
+        nodes = [
+            {"@type": "FAQPage", "@id": f"{url}#webpage", "url": url, "name": pg["h1"],
+             "description": pg["description"], "isPartOf": {"@id": WEBSITE_ID},
+             "about": {"@id": f"{url}#service"}, "author": {"@id": PERSON_ID},
+             "publisher": {"@id": ORG_ID}, "dateModified": UPDATED, "inLanguage": "en-AU",
+             "breadcrumb": {"@id": f"{url}#breadcrumb"},
+             "mainEntity": [{"@type": "Question", "name": q, "url": f"{url}#{qid}",
+                             "acceptedAnswer": {"@type": "Answer", "text": plain(ans)}}
+                            for qid, q, ans in pg["faqs"]]},
+            {"@type": "Service", "@id": f"{url}#service", "name": f"AI implementation for {pg['audience']}",
+             "serviceType": "AI implementation consulting", "url": url, "provider": {"@id": ORG_ID},
+             "description": pg["lede"],
+             "audience": {"@type": "BusinessAudience", "audienceType": pg["audience"]},
+             "areaServed": [{"@type": "City", "name": "Melbourne"}, {"@type": "State", "name": "Victoria"},
+                            {"@type": "Country", "name": "Australia"}]},
+            {"@type": "BreadcrumbList", "@id": f"{url}#breadcrumb", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
+                {"@type": "ListItem", "position": 2, "name": pg["h1"], "item": url}]},
+        ]
+        out = head(pg["title"], pg["description"], path, graph(nodes)) + body + FOOTER + END
+        write(f"{pg['slug']}/index.html", out)
+
+
 # ---------------------------------------------------------------- home page structured data
 def build_home_jsonld():
     path = os.path.join(ROOT, "index.html")
@@ -551,7 +738,8 @@ def build_home_jsonld():
 
 # ---------------------------------------------------------------- sitemap and llms.txt
 def build_sitemap():
-    urls = [("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8"), ("/privacy/", "0.3")]
+    urls = ([("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8")]
+            + [(f"/{p['slug']}/", "0.8") for p in PAGES] + [("/privacy/", "0.3")])
     items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{UPDATED}</lastmod><priority>{p}</priority></url>"
                       for u, p in urls)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -561,6 +749,7 @@ def build_sitemap():
 def build_llms(count):
     services = "\n".join(f"- {n}: {p} ({u}). {s}" for n, p, _num, u, s in SERVICES)
     qs = "\n".join(f"- [{q}]({SITE}/ai-for-tradies/#{qid})" for _s, _t, qid, q, _a in all_questions())
+    pages = "\n".join(f"- [{p['h1']}]({SITE}/{p['slug']}/): {p['description']}" for p in PAGES)
     txt = f"""# Workshop AI
 
 > {ORG['one_liner']}
@@ -572,6 +761,10 @@ def build_llms(count):
 - [Home]({SITE}/): what Workshop AI does, the five-level path, a client example and prices
 - [Company facts]({SITE}/facts/): who Workshop AI is, who it serves, services, prices, people and service area
 - [AI for tradies: questions answered]({SITE}/ai-for-tradies/): {count} answers on using AI in an Australian trade or service business
+
+## Industry, local and Simpro pages
+
+{pages}
 
 ## Services (AUD, excluding GST)
 
@@ -596,6 +789,8 @@ if __name__ == "__main__":
     build_privacy()
     n = build_qa()
     build_home_jsonld()
+    build_topic_pages()
     build_sitemap()
     build_llms(n)
+    write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     print(f"{n} questions")
