@@ -24,7 +24,7 @@ ORG = {
     "abn_url": "https://abr.business.gov.au/ABN/View?abn=63698704915",
     "founded": "2026",
     "founder": "Justin Watts",
-    "email": "hello@workshopai.com.au",
+    "email": "info@workshopai.com.au",
     "phone_display": "0431 254 769",
     "phone_intl": "+61431254769",
     "booking_url": "https://calendar.app.google/vLCXuaZViuscaWe96",
