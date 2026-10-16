@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Day 3,000 at Seed &amp; Sprout | Workshop AI</title>
+<meta name="description" content="A note from Workshop AI for Sophie and Rebecca at Seed &amp; Sprout: learn, build and connect, with a sample customer digest." />
+<meta property="og:title" content="Day 3,000 at Seed &amp; Sprout" />
+<meta property="og:description" content="A note from Workshop AI for Sophie and Rebecca: learn, build and connect, with a sample customer digest built from public reviews." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+  /* Layout: Workshop AI house style. Full-width bands alternate jet and paper; one 800px reading column; diagrams sit on jet panels with light boxes. Deliberately single-theme (the brand palette). */
+  :root{
+    --paper:#F2F4F3; --paper-2:#E7E9E8; --tint:#E7DED5;
+    --ink:#22333B; --ink-soft:#5A6670; --ink-faint:#8C969D;
+    --accent:#A9927D; --accent-deep:#8A7460;
+    --jet:#22333B; --on-dark:#F2F4F3; --on-dark-soft:rgba(242,244,243,0.76); --on-dark-faint:rgba(242,244,243,0.56);
+    --line:rgba(34,51,59,0.12); --line-soft:#DDE0DF; --line-dark:rgba(242,244,243,0.16);
+    --display:"Archivo","Arial Narrow",Arial,sans-serif;
+    --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  [hidden]{display:none!important}
+  a{color:inherit}
+  .contact a{color:var(--on-dark);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .contact a:hover{color:var(--accent)}
+  .book{display:inline-block;margin-top:24px;font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;color:var(--jet);background:var(--accent);padding:14px 22px;border-radius:6px}
+  .book:hover{background:var(--on-dark)}
+  .book:focus-visible{outline:2px solid var(--on-dark);outline-offset:3px}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  h1,h2,h3,h4,p,ul,ol{margin:0}
+  .band{padding-block:64px;border-bottom:1px solid var(--line)}
+  .band.dark{background:var(--jet);color:var(--on-dark);border-bottom:none}
+  .wrap{max-width:800px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+  .wrap > * + *{margin-top:18px}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)}
+  h1{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:1.02;letter-spacing:-0.01em;font-size:clamp(38px,7vw,66px);text-wrap:balance;max-width:14ch;color:var(--on-dark)}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lede{font-size:clamp(18px,2.2vw,21px);color:var(--on-dark-soft);max-width:60ch}
+  .meta{display:flex;flex-wrap:wrap;gap:20px 48px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--on-dark-faint);padding-top:18px}
+  .meta div{display:flex;flex-direction:column;gap:4px}
+  .meta strong{font-family:var(--display);font-weight:700;letter-spacing:0;font-size:15px;color:var(--on-dark)}
+
+  h2{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:1.05;font-size:clamp(26px,3.6vw,38px);text-wrap:balance;max-width:22ch}
+  .num{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px}
+  .num::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+  .dark .num{color:var(--accent)}
+  .intro{font-size:18px;color:var(--ink-soft);max-width:62ch}
+  .dark .intro{color:var(--on-dark-soft)}
+  h3{font-family:var(--display);font-weight:800;font-size:17px;line-height:1.25}
+
+  /* Honest-about-it note */
+  .callout{background:var(--tint);border-left:4px solid var(--accent);border-radius:6px;padding:18px 22px}
+  .callout p{font-size:15.5px;color:var(--ink-soft);line-height:1.55}
+  .callout p + p{margin-top:8px}
+  .callout strong{color:var(--ink)}
+
+  /* Role and idea cards */
+  .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  @media(min-width:680px){.grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+  .card{background:#FFFFFF;border:1px solid var(--line-soft);border-radius:8px;padding:18px 20px;min-width:0}
+  .card .role{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:6px}
+  .card p{font-size:15px;color:var(--ink-soft);line-height:1.55}
+  .card h3 + p{margin-top:4px}
+  .dark .card{background:rgba(242,244,243,0.05);border-color:var(--line-dark)}
+  .dark .card h3{color:var(--on-dark)}
+  .dark .card p{color:var(--on-dark-soft)}
+  .dark .card .role{color:var(--accent)}
+  .note{font-size:15px;color:var(--ink-soft);font-style:italic;max-width:62ch}
+  .dark .note{color:var(--on-dark-soft)}
+
+  /* Demo */
+  .demo{background:#FFFFFF;border:1px solid var(--line-soft);border-radius:10px;padding:24px;margin-top:28px}
+  .demo-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;border-bottom:1px solid var(--line-soft);padding-bottom:14px}
+  .demo-head .t{font-family:var(--display);font-weight:800;font-size:18px;text-transform:uppercase}
+  .demo-head .d{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;color:var(--ink-faint)}
+  .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+  @media(min-width:640px){.tiles{grid-template-columns:repeat(4,1fr)}}
+  .tile{background:var(--paper);border-radius:8px;padding:14px 16px;min-width:0}
+  .tile .v{font-family:var(--display);font-weight:900;font-size:30px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+  .tile .l{font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.35}
+  .sub{font-family:var(--mono);font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-deep);margin-top:28px;margin-bottom:12px}
+  .bars{display:grid;gap:10px}
+  .bar{display:grid;grid-template-columns:minmax(0,1fr) 46px;gap:4px 12px;align-items:center}
+  .bar .lab{font-size:14.5px;color:var(--ink)}
+  .bar .pct{font-family:var(--mono);font-size:13px;color:var(--ink-soft);text-align:right;font-variant-numeric:tabular-nums;grid-row:1 / span 2;grid-column:2}
+  .bar .track{height:8px;background:var(--paper-2);border-radius:4px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--accent);border-radius:4px}
+  .scale{font-size:12.5px;color:var(--ink-faint);margin-top:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .chip{font-family:var(--body);font-size:13.5px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink);cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--jet);border-color:var(--jet);color:var(--on-dark)}
+  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .asks{list-style:none;padding:0;display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:640px){.asks{grid-template-columns:1fr 1fr;column-gap:24px}}
+  .asks li{padding:10px 0;border-top:1px solid var(--line-soft);min-width:0}
+  .asks .a{font-size:15px;color:var(--ink);font-weight:600;line-height:1.4}
+  .asks .p{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+  .asks .x2{font-family:var(--mono);font-size:11px;color:var(--accent-deep);border:1px solid var(--accent);border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:1px}
+  .count{font-size:13px;color:var(--ink-faint);margin-top:8px}
+  .watch{list-style:none;padding:0;display:grid;gap:8px}
+  .watch li{font-size:15px;color:var(--ink-soft);padding-left:18px;position:relative;line-height:1.5}
+  .watch li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .quotes{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:640px){.quotes{grid-template-columns:repeat(3,1fr)}}
+  .quotes p{font-family:var(--display);font-weight:700;font-size:16px;line-height:1.35;color:var(--ink);border-left:3px solid var(--accent);padding-left:12px}
+  .method{font-size:13.5px;color:var(--ink-faint);margin-top:22px;border-top:1px solid var(--line-soft);padding-top:14px;line-height:1.55}
+
+  /* Diagram */
+  .dia{background:var(--jet);border-radius:8px;padding:24px 20px;margin-top:28px;overflow-x:auto}
+  .dia svg{display:block;width:100%;min-width:620px;max-width:760px;height:auto;margin:0 auto}
+  .dia svg text{font-family:var(--body)}
+  .dia-cap{text-align:center;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--on-dark-faint)}
+
+  /* Questions */
+  .qs{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  @media(min-width:680px){.qs{grid-template-columns:repeat(2,1fr);gap:16px}}
+  .q{display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;align-items:start;background:rgba(242,244,243,0.05);border:1px solid var(--line-dark);border-radius:8px;padding:18px 20px}
+  .q .n{font-family:var(--display);font-weight:900;font-size:24px;line-height:1;color:var(--accent)}
+  .q p{font-family:var(--display);font-weight:700;font-size:16.5px;line-height:1.35;color:var(--on-dark)}
+
+  /* Steps */
+  .steps{margin-top:28px}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+  .step:last-child{border-bottom:1px solid var(--line)}
+  @media(min-width:720px){.step{grid-template-columns:56px minmax(0,1fr);gap:26px}}
+  .step-n{width:46px;height:46px;border:2px solid var(--jet);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:19px}
+  @media(min-width:720px){.step-n{width:56px;height:56px;font-size:22px}}
+  .step.first .step-n{border-color:var(--accent);color:var(--accent-deep);background:rgba(169,146,125,0.12)}
+  .step-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px}
+  .step h3{font-size:clamp(18px,2.3vw,21px);text-transform:uppercase}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;border:1px solid var(--accent);color:var(--accent-deep);background:rgba(169,146,125,0.12)}
+  .step p{font-size:15.5px;color:var(--ink-soft);max-width:60ch}
+  .about{display:grid;grid-template-columns:1fr;gap:6px;margin-top:32px}
+  .about .who{font-family:var(--display);font-weight:800;font-size:17px}
+  .about p{font-size:15.5px;color:var(--ink-soft);max-width:62ch}
+
+  /* Close */
+  .close p{font-size:17px;color:var(--on-dark-soft);max-width:60ch}
+  .contact{display:grid;grid-template-columns:1fr;gap:10px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line-dark)}
+  @media(min-width:640px){.contact{grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 40px}}
+  .contact div{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .contact span{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--on-dark-faint)}
+  .contact strong{font-family:var(--display);font-weight:700;font-size:16px;color:var(--on-dark);user-select:all;overflow-wrap:anywhere}
+  .sign{font-family:var(--display);font-weight:800;color:var(--on-dark);font-size:17px}
+  footer{background:var(--jet);border-top:1px solid var(--line-dark);padding-block:28px 40px}
+  footer p{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;color:var(--on-dark-faint)}
+
+  @media(max-width:560px){.band{padding-block:48px}.demo{padding:18px}}
+</style>
+</head>
+<body>
+
+<header class="band dark">
+  <div class="wrap">
+    <div class="eyebrow">Workshop AI &middot; For Sophie and Rebecca &middot; Seed &amp; Sprout</div>
+    <h1>Built for <em>day three thousand.</em></h1>
+    <p class="lede">Your ten-year letter says good design is how something works on day three thousand, and that the next decade is about systems rather than swaps. The same is true inside a business. Here's what that could look like for a team of 18, put together from public information only.</p>
+    <div class="meta">
+      <div><span>Prepared by</span><strong>Justin Watts</strong></div>
+      <div><span>Date</span><strong>October 2026</strong></div>
+      <div><span>Built from</span><strong>Public information</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <div class="callout">
+      <p><strong>What we don't know.</strong> Everything here comes from your website, your reviews and what you've shared in the press. We don't know how your team works day to day, so treat every example as a guess to correct, and tell us where we're wrong.</p>
+    </div>
+    <p class="intro">The idea runs in three steps, each feeding the next. The team learns to use AI in their own jobs. That shows us what's worth building. The builds show us which of your tools need connecting.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2><span class="num">01 &middot; Learn</span>Everyone gets better at their own job.</h2>
+    <p class="intro">Sessions by role, online and recorded, so they fit a team that works flexibly. Everyone leaves with one thing they'll use the next morning, and we check in a fortnight later on what stuck.</p>
+    <div class="grid">
+      <div class="card"><div class="role">Customer care</div><h3>Faster replies in your voice</h3><p>AI drafts the reply from your policies and the order history. A person reads it and decides what's sent.</p></div>
+      <div class="card"><div class="role">Product and design</div><h3>Every comment, read in minutes</h3><p>Before a redesign, see everything customers have said about a product across reviews, messages and socials.</p></div>
+      <div class="card"><div class="role">Marketing and content</div><h3>One video, five uses</h3><p>Turn one of Sophie's videos into a blog post, a help article, an email and a set of captions, all in the brand's voice.</p></div>
+      <div class="card"><div class="role">Warehouse and supply chain</div><h3>What's in someone's head, written down</h3><p>Turn the way the best packer does it into a checklist anyone can follow during the Christmas rush.</p></div>
+      <div class="card"><div class="role">Wholesale</div><h3>Stockist questions without the digging</h3><p>Draft answers on stock, pricing and lead times from your own price list and stock levels.</p></div>
+      <div class="card"><div class="role">Finance and leadership</div><h3>Month-end in an afternoon</h3><p>Summaries, board papers and what-if numbers drafted from your reports, ready for you to check.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="wrap">
+    <h2><span class="num">02 &middot; Build</span>Ideas go in. Tools come out.</h2>
+    <p class="intro">Anyone in the team adds an idea to a shared list: a report they rebuild every week, a question they answer fifty times, a spreadsheet nobody trusts. We pick the ones worth doing together and build them in days, inside the tools you already use.</p>
+    <div class="grid">
+      <div class="card"><div class="role">Idea</div><h3>A weekly customer digest</h3><p>What customers loved, what they asked for and what needs a look, in your inbox before Monday's all-hands. There's a working sample below.</p></div>
+      <div class="card"><div class="role">Idea</div><h3>A launch check</h3><p>Stock, preorders and promotions lined up before anything goes live, with a flag when a bundle is about to run short.</p></div>
+      <div class="card"><div class="role">Idea</div><h3>A wholesale helper</h3><p>Stockist enquiries sorted, reorders drafted from your price list, and a nudge when a regular hasn't ordered in a while.</p></div>
+      <div class="card"><div class="role">Idea</div><h3>Your idea here</h3><p>The best builds come from the people doing the work. The list is theirs.</p></div>
+    </div>
+    <p class="note">Every build passes the same test: a clear input, steps we can write down, an output you can check, and a person signs off anything that spends money or reaches a customer.</p>
+  </div>
+</section>
+
+<section class="band" id="sample">
+  <div class="wrap">
+    <h2><span class="num">A sample build</span>What your customers said this month.</h2>
+    <p class="intro">To show what a build looks like, here's the weekly digest idea run once over your own published reviews. It was built from public data, with no access to your systems. Connected to your review tool, it would run itself every week.</p>
+
+    <div class="demo">
+      <div class="demo-head">
+        <div class="t">Customer digest</div>
+        <div class="d">16 Sept to 15 Oct 2026 &middot; seedsprout.com.au reviews</div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile"><div class="v">565</div><div class="l">reviews across 166 products</div></div>
+        <div class="tile"><div class="v">4.9</div><div class="l">average rating, with 92% at five stars</div></div>
+        <div class="tile"><div class="v">98%</div><div class="l">would recommend to a friend</div></div>
+        <div class="tile"><div class="v">15</div><div class="l">product ideas from customers</div></div>
+      </div>
+
+      <div class="sub">In their words</div>
+      <div class="quotes">
+        <p>"make me feel like I have my life together"</p>
+        <p>"the quality is insane"</p>
+        <p>"I keep coming back"</p>
+      </div>
+
+      <div class="sub">What people talk about</div>
+      <div class="bars" role="list">
+        <div class="bar" role="listitem"><div class="lab">Looks and design</div><div class="pct">24%</div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+        <div class="bar" role="listitem"><div class="lab">Quality and build</div><div class="pct">24%</div><div class="track"><div class="fill" style="width:98.5%"></div></div></div>
+        <div class="bar" role="listitem"><div class="lab">Plastic-free and low-tox</div><div class="pct">21%</div><div class="track"><div class="fill" style="width:86.7%"></div></div></div>
+        <div class="bar" role="listitem"><div class="lab">Meal prep, freezer and pantry</div><div class="pct">18%</div><div class="track"><div class="fill" style="width:76.3%"></div></div></div>
+        <div class="bar" role="listitem"><div class="lab">Lids and seals</div><div class="pct">17%</div><div class="track"><div class="fill" style="width:70.4%"></div></div></div>
+        <div class="bar" role="listitem"><div class="lab">Dishwasher and easy cleaning</div><div class="pct">9%</div><div class="track"><div class="fill" style="width:38.5%"></div></div></div>
+        <div class="bar" role="listitem"><div class="lab">Kids and school lunches</div><div class="pct">8%</div><div class="track"><div class="fill" style="width:35.6%"></div></div></div>
+      </div>
+      <p class="scale">Share of reviews that mention each theme. Bars are scaled to the largest.</p>
+
+      <div class="sub">What they asked you to make</div>
+      <div class="chips" role="group" aria-label="Filter product ideas">
+        <button type="button" class="chip" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" id="f-storage" data-f="storage" aria-pressed="false">Storage and glass</button>
+        <button type="button" class="chip" id="f-tools" data-f="tools" aria-pressed="false">Kitchen tools</button>
+        <button type="button" class="chip" id="f-lunch" data-f="lunch" aria-pressed="false">Lunch</button>
+        <button type="button" class="chip" id="f-clean" data-f="clean" aria-pressed="false">Cleaning and compost</button>
+        <button type="button" class="chip" id="f-body" data-f="body" aria-pressed="false">Bath and body</button>
+      </div>
+      <ul class="asks" id="asks">
+        <li data-c="storage"><div class="a">A handle on the canister lids<span class="x2">asked twice</span></div><div class="p">Vegetable storage containers</div></li>
+        <li data-c="storage"><div class="a">Taller containers</div><div class="p">Stainless steel and glass set</div></li>
+        <li data-c="storage"><div class="a">A rectangle bigger than 2.6 litres</div><div class="p">Glass food containers</div></li>
+        <li data-c="storage"><div class="a">A size up from the dip bowls</div><div class="p">Glass dip bowls</div></li>
+        <li data-c="storage"><div class="a">A smaller bread tin</div><div class="p">Bread box</div></li>
+        <li data-c="storage"><div class="a">A way to label trays without glue</div><div class="p">Complete freezer tray set</div></li>
+        <li data-c="storage"><div class="a">Spare jars and lids</div><div class="p">Spice jar set</div></li>
+        <li data-c="tools"><div class="a">A half-tablespoon in the set</div><div class="p">Measuring spoon set</div></li>
+        <li data-c="tools"><div class="a">Tongs to finish the set</div><div class="p">Silicone kitchen utensils</div></li>
+        <li data-c="tools"><div class="a">A large board that fits a standard dishwasher</div><div class="p">Chopping board trio</div></li>
+        <li data-c="lunch"><div class="a">Something to stop the ice pack falling out</div><div class="p">CrunchBox 2.0 lunch set</div></li>
+        <li data-c="clean"><div class="a">A clip to hold the compostable bag in place</div><div class="p">Kitchen compost bin</div></li>
+        <li data-c="clean"><div class="a">A pot scrubber with a handle</div><div class="p">Beechwood pot scrubber</div></li>
+        <li data-c="body"><div class="a">A toddler-size toothbrush</div><div class="p">Bamboo toothbrushes</div></li>
+        <li data-c="body"><div class="a">A bigger body wash bar</div><div class="p">Natural body wash</div></li>
+      </ul>
+      <p class="count" id="ask-count" aria-live="polite">Showing all 15 ideas, from 16 reviews.</p>
+
+      <div class="sub">Worth a look</div>
+      <ul class="watch">
+        <li>Value for money scores 4.67 out of 5, against 4.93 for quality, across the 338 reviews that rated both.</li>
+        <li>Delivery timing came up in five reviews this month.</li>
+      </ul>
+
+      <p class="method">How it was made: the 565 reviews published on seedsprout.com.au between 16 September and 15 October 2026. Themes are tagged by keyword, so treat them as a rough guide. Quotes are kept short and unattributed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2><span class="num">03 &middot; Connect</span>Your tools, talking to each other.</h2>
+    <p class="intro">Most of the answers your team needs already exist, spread across different tools. Connected, anyone can ask a question in plain English and get an answer drawn from all of them. It starts read-only, and you set the rules on what it can do.</p>
+
+    <div class="dia">
+      <svg viewBox="0 0 760 430" role="img" aria-label="Diagram. On the left, the tools Seed &amp; Sprout appears to use: Shopify, Gorgias, Okendo, Australia Post and Aramex, plus other tools to confirm. They feed one connected assistant in the middle. On the right, team members ask it questions: care, product, wholesale and operations.">
+        <text x="122" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.06em" fill="rgba(242,244,243,0.82)" font-weight="600">YOUR TOOLS</text>
+        <text x="368" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.06em" fill="rgba(242,244,243,0.82)" font-weight="600">CONNECTED</text>
+        <text x="626" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.06em" fill="rgba(242,244,243,0.82)" font-weight="600">YOUR TEAM ASKS</text>
+
+        <rect x="24" y="64" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
+        <text x="122" y="88" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Shopify</text>
+        <text x="122" y="106" text-anchor="middle" font-size="11.5" fill="#5A6670">Orders and customers</text>
+
+        <rect x="24" y="136" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
+        <text x="122" y="160" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Gorgias</text>
+        <text x="122" y="178" text-anchor="middle" font-size="11.5" fill="#5A6670">Customer messages</text>
+
+        <rect x="24" y="208" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
+        <text x="122" y="232" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Okendo</text>
+        <text x="122" y="250" text-anchor="middle" font-size="11.5" fill="#5A6670">Product reviews</text>
+
+        <rect x="24" y="280" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
+        <text x="122" y="304" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Australia Post, Aramex</text>
+        <text x="122" y="322" text-anchor="middle" font-size="11.5" fill="#5A6670">Deliveries and returns</text>
+
+        <rect x="24" y="352" width="196" height="56" rx="7" fill="none" stroke="rgba(242,244,243,0.55)" stroke-width="1.3" stroke-dasharray="5 4"/>
+        <text x="122" y="376" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="rgba(242,244,243,0.9)">Your other tools</text>
+        <text x="122" y="394" text-anchor="middle" font-size="11.5" fill="rgba(242,244,243,0.78)" font-weight="600">We'd confirm these with you</text>
+
+        <line x1="220" y1="92" x2="244" y2="92" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <line x1="220" y1="164" x2="244" y2="164" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <line x1="220" y1="236" x2="244" y2="236" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <line x1="220" y1="308" x2="244" y2="308" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <line x1="220" y1="380" x2="244" y2="380" stroke="rgba(242,244,243,0.55)" stroke-width="1.3" stroke-dasharray="4 3"/>
+        <line x1="244" y1="92" x2="244" y2="380" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <line x1="244" y1="236" x2="264" y2="236" stroke="#A9927D" stroke-width="1.5"/>
+        <polygon points="266,236 259,232.5 259,239.5" fill="#A9927D"/>
+
+        <rect x="268" y="168" width="200" height="136" rx="8" fill="#E7DED5" stroke="#A9927D" stroke-width="1.8"/>
+        <text x="368" y="198" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#8A7460">One assistant</text>
+        <text x="368" y="226" text-anchor="middle" font-size="12" fill="#22333B">Reads across your tools</text>
+        <text x="368" y="248" text-anchor="middle" font-size="12" fill="#22333B">Your rules on what it can do</text>
+        <text x="368" y="270" text-anchor="middle" font-size="12" fill="#22333B">Read-only to start</text>
+        <text x="368" y="290" text-anchor="middle" font-size="11" fill="#5A6670">A person signs off any action</text>
+
+        <line x1="468" y1="236" x2="492" y2="236" stroke="#A9927D" stroke-width="1.5"/>
+        <line x1="492" y1="102" x2="492" y2="372" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+
+        <line x1="492" y1="102" x2="512" y2="102" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <polygon points="514,102 507,98.5 507,105.5" fill="rgba(242,244,243,0.55)"/>
+        <rect x="516" y="70" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
+        <text x="530" y="92" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Care</text>
+        <text x="530" y="110" font-size="11.5" fill="#5A6670">Where's this order, and what</text>
+        <text x="530" y="125" font-size="11.5" fill="#5A6670">did we tell the customer?</text>
+
+        <line x1="492" y1="192" x2="512" y2="192" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <polygon points="514,192 507,188.5 507,195.5" fill="rgba(242,244,243,0.55)"/>
+        <rect x="516" y="160" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
+        <text x="530" y="182" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Product</text>
+        <text x="530" y="200" font-size="11.5" fill="#5A6670">What are people saying</text>
+        <text x="530" y="215" font-size="11.5" fill="#5A6670">about the new boards?</text>
+
+        <line x1="492" y1="282" x2="512" y2="282" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <polygon points="514,282 507,278.5 507,285.5" fill="rgba(242,244,243,0.55)"/>
+        <rect x="516" y="250" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
+        <text x="530" y="272" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Wholesale</text>
+        <text x="530" y="290" font-size="11.5" fill="#5A6670">Which stockists haven't</text>
+        <text x="530" y="305" font-size="11.5" fill="#5A6670">reordered since winter?</text>
+
+        <line x1="492" y1="372" x2="512" y2="372" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
+        <polygon points="514,372 507,368.5 507,375.5" fill="rgba(242,244,243,0.55)"/>
+        <rect x="516" y="340" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
+        <text x="530" y="362" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Operations</text>
+        <text x="530" y="380" font-size="11.5" fill="#5A6670">Which orders went out late</text>
+        <text x="530" y="395" font-size="11.5" fill="#5A6670">this week, and why?</text>
+      </svg>
+      <div class="dia-cap">Tools we can see from outside &middot; you'd tell us the rest</div>
+    </div>
+
+    <div class="callout">
+      <p><strong>We've done this before.</strong> For Mattick Air, a Melbourne commercial air-conditioning company, we connected their job management system so the office can ask it questions in plain English, built an email agent for their helpdesk, and set up their monthly client reports to build straight from live data.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="wrap">
+    <h2><span class="num">Before we suggest anything</span>Questions we'd ask in week one.</h2>
+    <p class="intro">Your answers decide where we start. If the honest answer to one of these is "nowhere yet", that's usually the place.</p>
+    <div class="qs">
+      <div class="q"><div class="n">1</div><p>Where does customer feedback go after someone reads it?</p></div>
+      <div class="q"><div class="n">2</div><p>What does a wholesale order look like, from first email to dispatch?</p></div>
+      <div class="q"><div class="n">3</div><p>What have you already tried with AI, and what did it teach you?</p></div>
+      <div class="q"><div class="n">4</div><p>What has to be true for 18 people to run a business twice this size?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2><span class="num">How we'd start</span>Small first, after the rush.</h2>
+    <p class="intro">October to February is your busiest stretch, so the first step can wait until back-to-school is done. Nothing here needs a big commitment up front.</p>
+    <div class="steps">
+      <div class="step first">
+        <div class="step-n">1</div>
+        <div><div class="step-head"><h3>A half-day Kickstart</h3><span class="tag">First step</span></div><p>We sit with the team, in Billinudgel or online, map where the time goes, and leave you with a one-page shortlist of what's worth doing first, scored and in order.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div><div class="step-head"><h3>Learn, by role</h3></div><p>Sessions for each part of the team, shaped by the shortlist, so everyone starts with the things that matter most to their own job.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div><div class="step-head"><h3>Build and connect</h3></div><p>Monthly blocks of work from the team's list, each one scoped before it starts. You can pause between blocks whenever you like.</p></div>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="who">Justin Watts, Director, Workshop AI</div>
+      <p>More than fifteen years building the systems growing businesses run on, the last few applying AI across them, in property tech, finance, health and social enterprise. The approach is simple: see how things work now, find the manual steps, design something better, and build it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band dark close" id="contact">
+  <div class="wrap">
+    <h2><span class="num">If it's useful</span>Twenty minutes, whenever suits.</h2>
+    <p>I'd love a chat with you both, whenever the timing works. If none of this is for you right now, that's completely fine, and congratulations on ten years all the same.</p>
+    <p class="sign">Justin</p>
+    <a class="book" href="https://calendar.app.google/vLCXuaZViuscaWe96" target="_blank" rel="noopener">Pick a time for a chat</a>
+    <div class="contact">
+      <div><span>Email</span><strong><a href="mailto:justin@workshopai.com.au?subject=Seed%20%26%20Sprout">justin@workshopai.com.au</a></strong></div>
+      <div><span>Phone</span><strong><a href="tel:+61431254769">0431 254 769</a></strong></div>
+      <div><span>Web</span><strong><a href="https://workshopai.com.au/">workshopai.com.au</a></strong></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>Workshop AI &middot; Melbourne &middot; Prepared for Seed &amp; Sprout &middot; October 2026 &middot; Built from public information only</p></div>
+</footer>
+
+<script>
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    var items = document.querySelectorAll('#asks li');
+    var count = document.getElementById('ask-count');
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        var f = chip.getAttribute('data-f');
+        if (typeof gtag === 'function') gtag('event', 'digest_filter', {filter: f});
+        chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        var shown = 0;
+        items.forEach(function(li){
+          var on = f === 'all' || li.getAttribute('data-c') === f;
+          li.hidden = !on;
+          if (on) shown++;
+        });
+        count.textContent = f === 'all'
+          ? 'Showing all 15 ideas, from 16 reviews.'
+          : 'Showing ' + shown + ' of 15 ideas.';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
