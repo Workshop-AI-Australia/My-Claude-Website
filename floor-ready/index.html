@@ -165,7 +165,7 @@ a{color:inherit}
     <p>The kind of questions customers ask on the floor. Tap an answer and get the reason straight away.</p>
     <ul class="steps">
       <li><i>5</i>Five questions, two minutes</li>
-      <li><i>↻</i>Miss one and it comes back</li>
+      <li><i>?</i>The reason after every answer</li>
       <li><i>✓</i>Your score at the end</li>
     </ul>
     <div class="go-wrap">
@@ -180,24 +180,16 @@ a{color:inherit}
       <div class="track" aria-hidden="true"><span id="q-bar"></span></div>
       <span class="count mono" id="q-count">1/5</span>
     </div>
-    <div class="round"><span class="eyebrow" id="q-topic">Battery</span><span class="pill" id="q-pill" hidden>Came back</span></div>
+    <div class="round"><span class="eyebrow" id="q-topic">Battery</span></div>
     <p class="lead" id="q-lead">A customer asks:</p>
     <h1 class="q" id="q-text"></h1>
     <div class="opts" id="q-opts" role="group" aria-labelledby="q-text"></div>
   </section>
 
-  <!-- MISSES COME BACK -->
-  <section class="view again" id="v-again" hidden>
-    <div class="eyebrow">Round two</div>
-    <h2>Misses <em>come back.</em></h2>
-    <p id="again-text"></p>
-    <div class="go-wrap"><button class="btn taupe" id="b-again">Go again</button></div>
-  </section>
-
   <!-- RESULT -->
   <section class="view result" id="v-result" hidden>
     <div class="scorecard">
-      <div class="eyebrow">First-time score</div>
+      <div class="eyebrow">Your score</div>
       <div class="big"><span id="r-score">0</span><small>/5</small></div>
       <div class="pips" id="r-pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <h2 id="r-head"></h2>
@@ -222,7 +214,7 @@ a{color:inherit}
 <div class="sheet" id="sheet" role="status" aria-live="polite">
   <div class="verdict"><span class="dot" id="s-dot">✓</span><span id="s-head">Spot on</span></div>
   <p class="why" id="s-why"></p>
-  <div class="meta"><span class="chip" id="s-chip" hidden>Comes back</span><span class="src" id="s-src"></span></div>
+  <div class="meta"><span class="src" id="s-src"></span></div>
   <button class="btn" id="b-next">Continue</button>
 </div>
 
@@ -252,25 +244,23 @@ a{color:inherit}
   ];
 
   var $ = function(id){ return document.getElementById(id); };
-  var order, pos, round, first, missed, locked;
+  var pos, score, locked;
 
   function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
-  function show(id){ ['v-intro','v-quiz','v-again','v-result'].forEach(function(v){ $(v).hidden = (v !== id); }); window.scrollTo(0,0); }
+  function show(id){ ['v-intro','v-quiz','v-result'].forEach(function(v){ $(v).hidden = (v !== id); }); window.scrollTo(0,0); }
   function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
   function start(){
-    order = [0,1,2,3,4]; pos = 0; round = 1; first = {}; missed = []; locked = false;
+    pos = 0; score = 0; locked = false;
     track('drill_start');
     show('v-quiz'); render();
   }
 
   function render(){
-    var q = QS[order[pos]];
-    var done = round === 1 ? pos : 5 - missed.length + pos;
-    $('q-bar').style.width = (done / 5 * 100) + '%';
-    $('q-count').textContent = round === 1 ? (pos + 1) + '/5' : 'Again';
+    var q = QS[pos];
+    $('q-bar').style.width = (pos / QS.length * 100) + '%';
+    $('q-count').textContent = (pos + 1) + '/' + QS.length;
     $('q-topic').textContent = q.topic;
-    $('q-pill').hidden = round === 1;
     $('q-lead').textContent = q.lead;
     $('q-text').textContent = q.q;
     var box = $('q-opts'); box.innerHTML = '';
@@ -286,8 +276,8 @@ a{color:inherit}
 
   function pick(k){
     if (locked) return; locked = true;
-    var idx = order[pos], q = QS[idx], ok = (k === q.a);
-    if (round === 1){ first[idx] = ok; if (!ok) missed.push(idx); }
+    var q = QS[pos], ok = (k === q.a);
+    if (ok) score++;
     var btns = $('q-opts').children;
     for (var j = 0; j < btns.length; j++){
       btns[j].disabled = true;
@@ -296,45 +286,36 @@ a{color:inherit}
       else if (j === q.a){ btns[j].classList.add('answer'); }
       else { btns[j].classList.add('dim'); }
     }
+    var last = (pos === QS.length - 1);
     var s = $('sheet');
     s.className = 'sheet show ' + (ok ? 'good' : 'bad');
     $('s-dot').textContent = ok ? '✓' : '!';
     $('s-head').textContent = ok ? 'Spot on' : 'Not quite';
     $('s-why').textContent = q.why;
-    $('s-chip').hidden = ok || round === 2;
     $('s-src').innerHTML = 'Source: <a href="' + q.src.url + '" target="_blank" rel="noopener">' + esc(q.src.name) + '</a>';
     var nb = $('b-next');
     nb.className = 'btn ' + (ok ? 'jet' : 'taupe');
-    nb.textContent = ok ? 'Continue' : 'Got it';
+    nb.textContent = last ? 'See my score' : (ok ? 'Continue' : 'Got it');
     nb.focus({ preventScroll:true });
-    $('q-bar').style.width = ((round === 1 ? pos + 1 : 5 - missed.length + pos + 1) / 5 * 100) + '%';
-    track('drill_answer', { question:q.id, correct:ok, round:round });
+    $('q-bar').style.width = ((pos + 1) / QS.length * 100) + '%';
+    track('drill_answer', { question:q.id, correct:ok });
   }
 
   function next(){
     $('sheet').className = 'sheet';
     pos++;
-    if (pos < order.length){ render(); return; }
-    if (round === 1 && missed.length){
-      round = 2; order = missed.slice(); pos = 0;
-      $('again-text').textContent = (missed.length === 1 ? 'One' : ['','One','Two','Three','Four','Five'][missed.length]) +
-        (missed.length === 1 ? ' question slipped' : ' questions slipped') +
-        '. Here ' + (missed.length === 1 ? 'it comes' : 'they come') +
-        ' again. In Floor Ready, misses come back the next day until they stick.';
-      show('v-again'); return;
-    }
+    if (pos < QS.length){ render(); return; }
     finish();
   }
 
   function finish(){
-    var score = 0; for (var k in first){ if (first[k]) score++; }
     $('r-score').textContent = score;
     var pips = $('r-pips').children;
     for (var j = 0; j < 5; j++) pips[j].className = j < score ? 'on' : '';
     var head, body;
-    if (score === 5){ head = 'Floor ready.'; body = 'Five from five, first time. Your customers are in good hands.'; }
-    else if (score >= 3){ head = 'Close.'; body = ['','One','Two'][5 - score] + ' slipped first time. That’s exactly what tomorrow’s drill is for.'; }
-    else { head = 'That’s the gap.'; body = 'Most of these slipped first time. Five minutes a day closes it.'; }
+    if (score === 5){ head = 'Floor ready.'; body = 'Five from five. Your customers are in good hands.'; }
+    else if (score >= 3){ head = 'Close.'; body = ['','One','Two'][5 - score] + ' slipped. That’s exactly what tomorrow’s drill is for.'; }
+    else { head = 'That’s the gap.'; body = 'Most of these slipped. Five minutes a day closes it.'; }
     $('r-head').textContent = head; $('r-body').textContent = body;
     var subject = 'Floor Ready: I scored ' + score + '/5';
     var mailBody = 'Hi Justin,\n\nI scored ' + score + '/5 on the Floor Ready drill. I’d like to hear more.\n\n';
@@ -350,7 +331,6 @@ a{color:inherit}
 
   $('b-start').addEventListener('click', start);
   $('b-next').addEventListener('click', next);
-  $('b-again').addEventListener('click', function(){ show('v-quiz'); render(); });
   $('b-retry').addEventListener('click', start);
 })();
 </script>
