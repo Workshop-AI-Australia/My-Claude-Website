@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Floor Ready: five spec questions | Workshop AI</title>
+<meta name="description" content="Five questions car customers ask on the floor. Can you get all five? A two-minute drill from Workshop AI.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#22333B">
+<meta property="og:title" content="Floor Ready: five spec questions">
+<meta property="og:description" content="Five questions car customers ask on the floor. Can you get all five?">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<style>
+:root{
+  --jet:#22333B; --smoke:#F2F4F3; --taupe:#A9927D; --taupe-soft:#8A7460; --taupe-tint:#E7DED5;
+  --muted:#5A6670; --faint:#8C969D; --white:#FFFFFF; --line:#DCE1E2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--smoke)}
+body{font-family:"Instrument Sans",system-ui,sans-serif;color:var(--jet);-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:440px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:0 20px;position:relative}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px 0 6px}
+.brand{font-family:"Archivo",sans-serif;font-weight:900;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.brand b{color:var(--taupe)}
+.by{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);text-decoration:none}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.view[hidden]{display:none}
+.view{flex:1;display:flex;flex-direction:column}
+
+/* buttons */
+.btn{display:block;width:100%;text-align:center;text-decoration:none;border-radius:14px;padding:15px 16px;font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;
+  text-transform:uppercase;letter-spacing:.05em;transition:transform .08s}
+.btn:active{transform:translateY(2px)}
+.btn.taupe{background:var(--taupe);color:var(--jet);box-shadow:0 4px 0 var(--taupe-soft)}
+.btn.jet{background:var(--jet);color:var(--smoke);box-shadow:0 4px 0 #11191d}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--taupe);outline-offset:2px}
+
+/* intro */
+.intro{padding-top:8vh}
+.intro h1{font-family:"Archivo",sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(32px,9.4vw,40px);line-height:.98;letter-spacing:-.01em;margin:12px 0 16px}
+.intro h1 em{font-style:normal;color:var(--taupe)}
+.intro p{font-size:16px;line-height:1.5;color:var(--muted)}
+.steps{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:10px}
+.steps li{display:flex;gap:12px;align-items:center;font-weight:600;font-size:15px}
+.steps i{font-style:normal;flex:none;width:28px;height:28px;border-radius:50%;background:var(--taupe-tint);display:flex;align-items:center;justify-content:center;
+  font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700}
+.intro .small{margin-top:14px;text-align:center;font-size:12.5px;color:var(--faint)}
+.intro .go-wrap{margin-top:auto;padding-bottom:28px}
+
+/* quiz */
+.qtop{display:flex;align-items:center;gap:12px;margin-top:8px}
+.track{flex:1;height:12px;border-radius:8px;background:var(--line);overflow:hidden}
+.track span{display:block;height:100%;width:0;background:var(--taupe);border-radius:8px;transition:width .35s ease}
+.count{font-size:12px;font-weight:700;color:var(--muted);min-width:34px;text-align:right}
+.round{margin-top:22px;display:flex;gap:8px;align-items:center}
+.pill{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:20px;padding:4px 9px;
+  background:var(--taupe-tint);color:var(--taupe-soft)}
+.lead{margin-top:14px;font-size:14px;color:var(--muted);font-weight:600}
+.q{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(22px,6.2vw,26px);line-height:1.18;margin-top:6px;letter-spacing:-.005em}
+.opts{display:flex;flex-direction:column;gap:11px;margin-top:22px;padding-bottom:280px}
+.opt{width:100%;text-align:left;background:var(--white);border:2px solid var(--line);border-bottom-width:4px;border-radius:16px;padding:14px 16px;
+  font-weight:600;font-size:16.5px;line-height:1.3;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:border-color .15s,background .15s}
+.opt:hover{border-color:#C8CFD1}
+.opt[disabled]{cursor:default}
+.opt.right{background:var(--taupe-tint);border-color:var(--taupe)}
+.opt.wrong{border-color:var(--jet);color:var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
+.opt.answer{border-color:var(--taupe);border-style:dashed;border-bottom-style:solid}
+.opt.dim{opacity:.55}
+.mark{flex:none;width:24px;height:24px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.opt.right .mark{display:flex;background:var(--taupe);color:var(--jet)}
+.opt.wrong .mark{display:flex;background:var(--jet);color:var(--smoke)}
+
+/* feedback sheet */
+.sheet{position:fixed;left:50%;bottom:0;width:100%;max-width:440px;transform:translate(-50%,105%);transition:transform .28s cubic-bezier(.2,.8,.2,1);
+  border-radius:26px 26px 0 0;padding:20px 22px calc(22px + env(safe-area-inset-bottom));z-index:5;box-shadow:0 -10px 30px -12px rgba(34,51,59,.35)}
+.sheet:not(.show){visibility:hidden;box-shadow:none;transition:transform .28s,visibility 0s .28s}
+.sheet.show{transform:translate(-50%,0)}
+.sheet.good{background:var(--taupe-tint);color:var(--jet)}
+.sheet.bad{background:var(--jet);color:var(--smoke)}
+.verdict{font-family:"Archivo",sans-serif;font-weight:900;font-size:19px;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+.verdict .dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.sheet.good .dot{background:var(--taupe);color:var(--jet)}
+.sheet.bad .dot{background:var(--smoke);color:var(--jet)}
+.why{font-size:15px;line-height:1.48;margin-top:9px}
+.sheet.bad .why{color:rgba(242,244,243,.9)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-top:11px}
+.src{font-size:12px;color:var(--muted)}
+.sheet.bad .src{color:rgba(242,244,243,.65)}
+.src a{text-underline-offset:2px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:20px;padding:5px 10px;
+  background:rgba(169,146,125,.22);color:var(--taupe)}
+.sheet .btn{margin-top:15px}
+
+/* interstitial */
+.again{padding-top:12vh;text-align:left}
+.again h2{font-family:"Archivo",sans-serif;font-weight:900;text-transform:uppercase;font-size:34px;line-height:1;margin:12px 0 14px}
+.again h2 em{font-style:normal;color:var(--taupe)}
+.again p{font-size:16px;line-height:1.5;color:var(--muted)}
+.again .go-wrap{margin-top:auto;padding-bottom:28px}
+
+/* result */
+.result{padding-top:22px;padding-bottom:30px}
+.scorecard{background:var(--jet);color:var(--smoke);border-radius:22px;padding:22px 22px 24px}
+.scorecard .eyebrow{color:var(--taupe)}
+.big{font-family:"Archivo",sans-serif;font-weight:900;font-size:84px;line-height:.85;letter-spacing:-.03em;margin-top:14px}
+.big small{font-size:30px;color:rgba(242,244,243,.5);letter-spacing:0}
+.pips{display:flex;gap:6px;margin-top:14px}
+.pips i{width:100%;height:8px;border-radius:5px;background:rgba(242,244,243,.18)}
+.pips i.on{background:var(--taupe)}
+.scorecard h2{font-family:"Archivo",sans-serif;font-weight:900;text-transform:uppercase;font-size:24px;line-height:1.05;margin-top:16px}
+.scorecard p{font-size:15px;line-height:1.48;color:rgba(242,244,243,.86);margin-top:6px}
+.pitch{margin-top:24px}
+.pitch h3{font-family:"Archivo",sans-serif;font-weight:900;text-transform:uppercase;font-size:20px;line-height:1.08}
+.pitch h3 em{font-style:normal;color:var(--taupe)}
+.pitch p{font-size:15.5px;line-height:1.52;color:var(--muted);margin-top:8px}
+.pitch .btn{margin-top:20px}
+.who{margin-top:14px;text-align:center;font-size:13px;color:var(--muted);line-height:1.5}
+.who b{color:var(--jet)}
+.retry{display:block;margin:16px auto 0;font-size:13.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px;color:var(--muted)}
+.fine{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;font-size:12px;line-height:1.55;color:var(--faint)}
+.fine summary{cursor:pointer;font-weight:600;color:var(--muted)}
+.fine ul{margin:8px 0 0 16px}
+.fine li{margin-top:3px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <span class="brand">Floor <b>Ready</b></span>
+    <a class="by mono" href="/">by Workshop AI</a>
+  </header>
+
+  <!-- INTRO -->
+  <section class="view intro" id="v-intro">
+    <div class="eyebrow">Two-minute drill</div>
+    <h1>Five spec questions. <em>Can you get all five?</em></h1>
+    <p>The kind of questions customers ask on the floor. Tap an answer and get the reason straight away.</p>
+    <ul class="steps">
+      <li><i>5</i>Five questions, two minutes</li>
+      <li><i>↻</i>Miss one and it comes back</li>
+      <li><i>✓</i>Your score at the end</li>
+    </ul>
+    <div class="go-wrap">
+      <button class="btn taupe" id="b-start">Start</button>
+      <p class="small">No sign-up.</p>
+    </div>
+  </section>
+
+  <!-- QUESTION -->
+  <section class="view" id="v-quiz" hidden>
+    <div class="qtop">
+      <div class="track" aria-hidden="true"><span id="q-bar"></span></div>
+      <span class="count mono" id="q-count">1/5</span>
+    </div>
+    <div class="round"><span class="eyebrow" id="q-topic">Battery</span><span class="pill" id="q-pill" hidden>Came back</span></div>
+    <p class="lead" id="q-lead">A customer asks:</p>
+    <h1 class="q" id="q-text"></h1>
+    <div class="opts" id="q-opts" role="group" aria-labelledby="q-text"></div>
+  </section>
+
+  <!-- MISSES COME BACK -->
+  <section class="view again" id="v-again" hidden>
+    <div class="eyebrow">Round two</div>
+    <h2>Misses <em>come back.</em></h2>
+    <p id="again-text"></p>
+    <div class="go-wrap"><button class="btn taupe" id="b-again">Go again</button></div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="view result" id="v-result" hidden>
+    <div class="scorecard">
+      <div class="eyebrow">First-time score</div>
+      <div class="big"><span id="r-score">0</span><small>/5</small></div>
+      <div class="pips" id="r-pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <h2 id="r-head"></h2>
+      <p id="r-body"></p>
+    </div>
+    <div class="pitch">
+      <h3>That was Floor Ready. <em>Now picture it with your models.</em></h3>
+      <p>Five minutes a day on their phone, fed from a model sheet your team keeps, with misses coming back until they stick. Then practice conversations with an AI customer, marked against your own sales playbook.</p>
+      <a class="btn taupe" id="b-email" href="mailto:justin@workshopai.com.au?subject=Floor%20Ready">Email Justin</a>
+      <p class="who"><b>Justin Watts</b> · Director, Workshop AI<br>justin@workshopai.com.au</p>
+      <button class="retry" id="b-retry">Try it again</button>
+    </div>
+    <details class="fine">
+      <summary>Sources and fine print</summary>
+      <p style="margin-top:8px">General information only, not tax or legal advice. Figures in the questions are examples, not a particular car.</p>
+      <ul id="r-sources"></ul>
+    </details>
+  </section>
+</div>
+
+<!-- FEEDBACK SHEET -->
+<div class="sheet" id="sheet" role="status" aria-live="polite">
+  <div class="verdict"><span class="dot" id="s-dot">✓</span><span id="s-head">Spot on</span></div>
+  <p class="why" id="s-why"></p>
+  <div class="meta"><span class="chip" id="s-chip" hidden>Comes back</span><span class="src" id="s-src"></span></div>
+  <button class="btn" id="b-next">Continue</button>
+</div>
+
+<script>
+(function(){
+  var QS = [
+    { id:'battery', topic:'Battery', lead:'A customer asks:', q:'"How big’s the battery?"',
+      opts:['60 kW','60 kWh','480 km'], a:1,
+      why:'kWh is how much energy the battery stores. kW is power: the motor’s, or a charger’s.',
+      src:{ name:'AutoDaily', url:'https://www.autodaily.com.au/?p=112919' } },
+    { id:'range', topic:'Range', lead:'A customer comparing two EVs says:', q:'"This one says 520 km and that one says 450 km. So the first goes further?"',
+      opts:['Yes, about 70 km further','Not necessarily: check which test each figure uses','Only on the freeway'], a:1,
+      why:'Range figures come from different lab tests. The older NEDC, long used on Australian labels, and China\u2019s CLTC read generously. WLTP usually reads lower and closer to real driving. Even so, the AAA\u2019s 2026 road tests found cars falling short of their WLTP figure by as much as 19%.',
+      src:{ name:'AAA testing, CarsGuide via Canberra Times', url:'https://www.canberratimes.com.au/story/9295583/real-world-ev-efficiency-test-results/' } },
+    { id:'home-charging', topic:'Home charging', lead:'A customer asks:', q:'"How fast will it charge at home?"',
+      opts:['Up to about 7 kW on normal single-phase power','At the 150 kW on the brochure','As fast as a public fast charger'], a:0,
+      why:'Single-phase homes top out around 7.4 kW AC, and the car’s onboard charger caps it too. The big brochure number is DC fast charging.',
+      src:{ name:'Solar Victoria', url:'https://www.secvictoria.com.au/households/products/ev-chargers' } },
+    { id:'towing', topic:'Towing', lead:'A customer says:', q:'"It tows 2,000 kg, and our van’s 1,200 kg loaded with no brakes. All good?"',
+      opts:['Yes, well under the limit','No: over 750 kg, the van needs its own brakes','Only with a weight-distribution hitch'], a:1,
+      why:'Trailers up to 750 kg don’t need brakes. Above that, the trailer needs its own braking system, whatever the car is rated to tow.',
+      src:{ name:'Vehicle Standards Bulletin 1, section 8', url:'https://www.infrastructure.gov.au/sites/default/files/documents/vsb1-revision-6-trailers-with-an-aggregate-trailer-mass-of-4.5-tonnes-or-less.pdf' } },
+    { id:'novated', topic:'Novated lease', lead:'A customer says:', q:'"We’ll get the plug-in hybrid on a novated lease, so no FBT?"',
+      opts:['Not on a new lease since 1 April 2025','Yes, same as a fully electric car','Only if it’s under three years old'], a:0,
+      why:'Plug-in hybrids lost the FBT exemption from 1 April 2025, though some earlier arrangements may still qualify. Fully electric cars under the luxury car tax threshold for fuel-efficient cars still qualify.',
+      src:{ name:'ATO', url:'https://www.ato.gov.au/general/fringe-benefits-tax-(fbt)/fbt-exemptions-and-concessions/electric-cars-exemption' } }
+  ];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var order, pos, round, first, missed, locked;
+
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  function show(id){ ['v-intro','v-quiz','v-again','v-result'].forEach(function(v){ $(v).hidden = (v !== id); }); window.scrollTo(0,0); }
+  function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  function start(){
+    order = [0,1,2,3,4]; pos = 0; round = 1; first = {}; missed = []; locked = false;
+    track('drill_start');
+    show('v-quiz'); render();
+  }
+
+  function render(){
+    var q = QS[order[pos]];
+    var done = round === 1 ? pos : 5 - missed.length + pos;
+    $('q-bar').style.width = (done / 5 * 100) + '%';
+    $('q-count').textContent = round === 1 ? (pos + 1) + '/5' : 'Again';
+    $('q-topic').textContent = q.topic;
+    $('q-pill').hidden = round === 1;
+    $('q-lead').textContent = q.lead;
+    $('q-text').textContent = q.q;
+    var box = $('q-opts'); box.innerHTML = '';
+    q.opts.forEach(function(t, k){
+      var b = document.createElement('button');
+      b.className = 'opt'; b.type = 'button';
+      b.innerHTML = '<span>' + esc(t) + '</span><span class="mark" aria-hidden="true"></span>';
+      b.addEventListener('click', function(){ pick(k); });
+      box.appendChild(b);
+    });
+    locked = false;
+  }
+
+  function pick(k){
+    if (locked) return; locked = true;
+    var idx = order[pos], q = QS[idx], ok = (k === q.a);
+    if (round === 1){ first[idx] = ok; if (!ok) missed.push(idx); }
+    var btns = $('q-opts').children;
+    for (var j = 0; j < btns.length; j++){
+      btns[j].disabled = true;
+      if (j === k && ok){ btns[j].classList.add('right'); btns[j].querySelector('.mark').textContent = '✓'; }
+      else if (j === k){ btns[j].classList.add('wrong'); btns[j].querySelector('.mark').textContent = '✕'; }
+      else if (j === q.a){ btns[j].classList.add('answer'); }
+      else { btns[j].classList.add('dim'); }
+    }
+    var s = $('sheet');
+    s.className = 'sheet show ' + (ok ? 'good' : 'bad');
+    $('s-dot').textContent = ok ? '✓' : '!';
+    $('s-head').textContent = ok ? 'Spot on' : 'Not quite';
+    $('s-why').textContent = q.why;
+    $('s-chip').hidden = ok || round === 2;
+    $('s-src').innerHTML = 'Source: <a href="' + q.src.url + '" target="_blank" rel="noopener">' + esc(q.src.name) + '</a>';
+    var nb = $('b-next');
+    nb.className = 'btn ' + (ok ? 'jet' : 'taupe');
+    nb.textContent = ok ? 'Continue' : 'Got it';
+    nb.focus({ preventScroll:true });
+    $('q-bar').style.width = ((round === 1 ? pos + 1 : 5 - missed.length + pos + 1) / 5 * 100) + '%';
+    track('drill_answer', { question:q.id, correct:ok, round:round });
+  }
+
+  function next(){
+    $('sheet').className = 'sheet';
+    pos++;
+    if (pos < order.length){ render(); return; }
+    if (round === 1 && missed.length){
+      round = 2; order = missed.slice(); pos = 0;
+      $('again-text').textContent = (missed.length === 1 ? 'One' : ['','One','Two','Three','Four','Five'][missed.length]) +
+        (missed.length === 1 ? ' question slipped' : ' questions slipped') +
+        '. Here ' + (missed.length === 1 ? 'it comes' : 'they come') +
+        ' again. In Floor Ready, misses come back the next day until they stick.';
+      show('v-again'); return;
+    }
+    finish();
+  }
+
+  function finish(){
+    var score = 0; for (var k in first){ if (first[k]) score++; }
+    $('r-score').textContent = score;
+    var pips = $('r-pips').children;
+    for (var j = 0; j < 5; j++) pips[j].className = j < score ? 'on' : '';
+    var head, body;
+    if (score === 5){ head = 'Floor ready.'; body = 'Five from five, first time. Your customers are in good hands.'; }
+    else if (score >= 3){ head = 'Close.'; body = ['','One','Two'][5 - score] + ' slipped first time. That’s exactly what tomorrow’s drill is for.'; }
+    else { head = 'That’s the gap.'; body = 'Most of these slipped first time. Five minutes a day closes it.'; }
+    $('r-head').textContent = head; $('r-body').textContent = body;
+    var subject = 'Floor Ready: I scored ' + score + '/5';
+    var mailBody = 'Hi Justin,\n\nI scored ' + score + '/5 on the Floor Ready drill. I’d like to hear more.\n\n';
+    $('b-email').href = 'mailto:justin@workshopai.com.au?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(mailBody);
+    track('drill_complete', { score:score });
+    show('v-result');
+  }
+
+  // sources list
+  $('r-sources').innerHTML = QS.map(function(q){
+    return '<li>' + esc(q.topic) + ': <a href="' + q.src.url + '" target="_blank" rel="noopener">' + esc(q.src.name) + '</a></li>';
+  }).join('');
+
+  $('b-start').addEventListener('click', start);
+  $('b-next').addEventListener('click', next);
+  $('b-again').addEventListener('click', function(){ show('v-quiz'); render(); });
+  $('b-retry').addEventListener('click', start);
+})();
+</script>
+</body>
+</html>
