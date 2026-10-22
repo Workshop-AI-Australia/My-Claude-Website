@@ -263,6 +263,16 @@
   @media(max-width:759px){.stage .ill{max-width:300px}}
   .close .bio{font-size:14.5px;color:var(--on-dark-faint);max-width:62ch}
   .band.dark + .band.dark{border-top:1px solid var(--line-dark)}
+  .logo{display:inline-block;line-height:0;border-radius:4px}
+  .logo img{display:block;height:40px;width:auto}
+  .logo:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .logo + .eyebrow{margin-top:40px}
+  .logo.sm img{height:22px}
+  .foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+  .foot > * + *{margin-top:0}
+  .band.tint{background:var(--tint)}
+  .also{color:var(--ink-soft)}
+  .dark .also{color:var(--on-dark-faint)}
 </style>
 </head>
 <body>
@@ -319,7 +329,8 @@
 
 <header class="band dark">
   <div class="wrap">
-    <div class="eyebrow">Workshop AI &middot; For Sophie and Rebecca &middot; Seed &amp; Sprout</div>
+    <a class="logo" href="https://workshopai.com.au/" aria-label="Workshop AI"><img src="/assets/workshop-ai-logo.jpg" alt="Workshop AI" width="1270" height="260" /></a>
+    <div class="eyebrow">For Sophie and Rebecca &middot; Seed &amp; Sprout</div>
     <h1 class="flip" aria-label="What if. Now let&rsquo;s."><span class="wi" aria-hidden="true">What if&hellip;</span><span class="nl" aria-hidden="true">Now let&rsquo;s.</span></h1>
     <p class="lede">Your ten-year letter says good design is how something works on day three thousand. The same is true of the tools a team runs on. Your team has the ideas, and maybe a few things already built with AI that worked once. We get them working on day 3,000, with nothing for you to build or look after.</p>
     <div class="meta">
@@ -548,7 +559,7 @@
   </div>
 </section>
 
-<section class="band dark" id="first-step">
+<section class="band tint" id="first-step">
   <div class="wrap">
     <h2><span class="num">The first step</span>One what if, one week.</h2>
     <p class="intro">It starts with a chat. After that it barely touches your team, so it can happen now, in your busiest stretch, without waiting for February.</p>
@@ -594,7 +605,7 @@
 </section>
 
 <footer>
-  <div class="wrap"><p>Workshop AI &middot; Melbourne &middot; Prepared for Seed &amp; Sprout &middot; October 2026 &middot; Built from public information only</p></div>
+  <div class="wrap foot"><a class="logo sm" href="https://workshopai.com.au/" aria-label="Workshop AI"><img src="/assets/workshop-ai-logo.jpg" alt="Workshop AI" width="1270" height="260" /></a><p>Melbourne &middot; Prepared for Seed &amp; Sprout &middot; October 2026 &middot; Built from public information only</p></div>
 </footer>
 
 <script>
