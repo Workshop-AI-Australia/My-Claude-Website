@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Day 3,000 at Seed &amp; Sprout | Workshop AI</title>
-<meta name="description" content="A note from Workshop AI for Sophie and Rebecca at Seed &amp; Sprout: learn, build and connect, with a sample customer digest." />
-<meta property="og:title" content="Day 3,000 at Seed &amp; Sprout" />
-<meta property="og:description" content="A note from Workshop AI for Sophie and Rebecca: learn, build and connect, with a sample customer digest built from public reviews." />
+<title>What if, now let&rsquo;s | Seed &amp; Sprout | Workshop AI</title>
+<meta name="description" content="A note from Workshop AI for Sophie and Rebecca at Seed &amp; Sprout: your team&rsquo;s ideas, built and kept working on day 3,000." />
+<meta property="og:title" content="What if, now let&rsquo;s: Seed &amp; Sprout" />
+<meta property="og:description" content="A note from Workshop AI for Sophie and Rebecca: from seed to sprout to day 3,000." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="/favicon.png" />
 <!-- ga4:start -->
@@ -175,15 +175,164 @@
   footer p{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;color:var(--on-dark-faint)}
 
   @media(max-width:560px){.band{padding-block:48px}.demo{padding:18px}}
+
+  /* What if -> Now let's */
+  .flip{max-width:none}
+  .flip span{display:block}
+  .flip .wi{position:relative;width:max-content;max-width:100%;color:var(--on-dark-faint);animation:dim .5s 1.1s ease-out both}
+  .flip .wi::after{content:"";position:absolute;left:-0.04em;right:-0.04em;top:44%;height:0.085em;background:var(--accent);transform:scaleX(0);transform-origin:left center;animation:strike .55s 1.1s ease-out forwards}
+  .flip .nl{color:var(--accent);opacity:0;transform:translateY(0.3em);animation:rise .6s 1.75s ease-out forwards}
+  @keyframes dim{from{color:var(--on-dark)}to{color:var(--on-dark-faint)}}
+  @keyframes strike{to{transform:scaleX(1)}}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){
+    .flip .wi{animation:none}
+    .flip .wi::after{animation:none;transform:scaleX(1)}
+    .flip .nl{animation:none;opacity:1;transform:none}
+  }
+
+  /* Seed, sprout, day 3,000 */
+  .path{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px}
+  @media(min-width:760px){.path{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}}
+  .stage{background:#FFFFFF;border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;position:relative;min-width:0}
+  .stage.grown{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+  .stage .ill{display:block;width:100%;height:auto;background:var(--paper);border-radius:8px}
+  .st{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-deep)}
+  .st b{font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:0.04em;color:var(--ink)}
+  .stage h3{font-size:18px}
+  .stage > p{font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+  .who{display:grid;gap:8px;margin:auto 0 0;padding-top:12px;border-top:1px solid var(--line-soft)}
+  .who div{display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline}
+  .who dt{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;text-align:center;border-radius:4px;padding:2px 0}
+  .who .you dt{background:var(--paper-2);color:var(--ink-soft)}
+  .who .us dt{background:var(--jet);color:var(--on-dark)}
+  .who dd{margin:0;font-size:14px;line-height:1.45;color:var(--ink-soft)}
+  .who .us dd{color:var(--ink);font-weight:600}
+  @media(min-width:760px){
+    .stage + .stage::before{content:"";position:absolute;left:-17px;top:62px;width:9px;height:9px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:rotate(45deg)}
+  }
+
+  /* Day 1 to day 3,000 */
+  .band.dark .dia{background:rgba(242,244,243,0.04);border:1px solid var(--line-dark)}
+  .dia.timeline svg{min-width:640px}
+  .scroll-hint{display:none;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--on-dark-faint);margin-top:10px}
+  @media(max-width:700px){.scroll-hint{display:block}}
+
+  /* Guesses */
+  .guesses{display:grid;gap:16px;margin-top:28px}
+  .guess{background:#FFFFFF;border:1px solid var(--line-soft);border-radius:10px;padding:20px 22px;min-width:0}
+  .guess-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:10px}
+  .guess-top .area{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .guess h3{font-size:clamp(19px,2.4vw,22px);line-height:1.25}
+  .guess .why{font-size:14.5px;color:var(--ink-soft);margin-top:8px;line-height:1.55;max-width:66ch}
+  .guess .why strong{color:var(--ink)}
+  .grow{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:640px){.grow{grid-template-columns:1fr 1fr}}
+  .grow li{display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;align-items:start;background:var(--paper);border-radius:8px;padding:12px 14px;font-size:14.5px;line-height:1.45;color:var(--ink);min-width:0}
+  .grow svg{display:block;width:38px;height:38px}
+  .grow .g-l{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:2px}
+  .gold{background:var(--jet);color:var(--on-dark);border-radius:10px;padding:26px 24px;margin-top:28px}
+  .gold .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(24px,3.4vw,32px);line-height:1.08;color:var(--accent);max-width:none}
+  .gold p{color:var(--on-dark-soft);font-size:15.5px;line-height:1.6;max-width:62ch}
+  .gold p + p{margin-top:12px}
+  .gold strong{color:var(--on-dark)}
+
+  /* Sprout tracker above the digest */
+  .tracker{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:700px){.tracker{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .tracker li{border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.45;color:var(--ink-soft);background:#FFFFFF;border:1px solid var(--line-soft);min-width:0}
+  .tracker b{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+  .tracker b::before{content:"";width:16px;height:16px;border-radius:50%;flex:none;border:2px solid var(--accent)}
+  .tracker .done b::before{background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5' fill='none' stroke='%2322333B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+  .tracker .next{border-style:dashed;border-color:var(--accent)}
+
+  /* First step, on dark */
+  .dark .step{border-top-color:var(--line-dark)}
+  .dark .step:last-child{border-bottom-color:var(--line-dark)}
+  .dark .step-n{border-color:var(--on-dark-faint);color:var(--on-dark)}
+  .dark .step.first .step-n{border-color:var(--accent);color:var(--accent);background:rgba(169,146,125,0.14)}
+  .dark .step h3{color:var(--on-dark)}
+  .dark .step p{color:var(--on-dark-soft)}
+  .dark .tag{color:var(--accent);background:rgba(169,146,125,0.14)}
+  .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:26px}
+  .ctas .book{margin-top:0}
+  .alt{font-weight:600;color:var(--on-dark);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .alt:hover{color:var(--accent)}
+  .also{font-size:14.5px;color:var(--on-dark-faint);max-width:62ch;margin-top:22px}
+  .nb{white-space:nowrap}
+  @media(max-width:759px){.stage .ill{max-width:300px}}
+  .close .bio{font-size:14.5px;color:var(--on-dark-faint);max-width:62ch}
+  .band.dark + .band.dark{border-top:1px solid var(--line-dark)}
+  .logo{display:inline-block;line-height:0;border-radius:4px}
+  .logo img{display:block;height:40px;width:auto}
+  .logo:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .logo + .eyebrow{margin-top:40px}
+  .logo.sm img{height:22px}
+  .foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+  .foot > * + *{margin-top:0}
+  .band.tint{background:var(--tint)}
+  .also{color:var(--ink-soft)}
+  .dark .also{color:var(--on-dark-faint)}
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="soil">
+      <path d="M10 80 H150" stroke="#8C969D" stroke-width="2" stroke-linecap="round"/>
+      <g fill="#C3C9C6"><circle cx="28" cy="90" r="1.8"/><circle cx="54" cy="97" r="1.6"/><circle cx="70" cy="103" r="1.4"/><circle cx="106" cy="93" r="1.8"/><circle cx="133" cy="99" r="1.6"/></g>
+    </g>
+    <symbol id="ill-seed" viewBox="0 0 160 110">
+      <use href="#soil"/>
+      <ellipse cx="80" cy="91" rx="9" ry="5.5" transform="rotate(-18 80 91)" fill="#A9927D"/>
+      <circle cx="87" cy="70" r="1.8" fill="#A9927D" opacity="0.55"/>
+      <circle cx="93" cy="60" r="2.6" fill="#A9927D" opacity="0.7"/>
+      <circle cx="106" cy="38" r="14" fill="#FFFFFF" stroke="#A9927D" stroke-width="1.6"/>
+      <text x="106" y="44" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="17" fill="#22333B">?</text>
+    </symbol>
+    <symbol id="ill-sprout" viewBox="0 0 160 110">
+      <use href="#soil"/>
+      <path d="M80 80 C78 86 74 90 70 94 M80 80 C82 87 86 91 90 95" stroke="#8C969D" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M80 80 C80 72 80 64 80 54" stroke="#5F7D66" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M80 61 C72 49 58 48 52 54 C60 63 72 65 80 61 Z" fill="#7F9C83"/>
+      <path d="M80 57 C88 43 103 42 109 48 C101 58 88 61 80 57 Z" fill="#93AE95"/>
+    </symbol>
+    <symbol id="ill-grown" viewBox="0 0 160 110">
+      <use href="#soil"/>
+      <path d="M80 80 C77 87 71 92 64 97 M80 80 C83 88 89 93 97 98 M80 80 C80 88 81 95 80 103" stroke="#8C969D" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M80 80 C80 64 78 46 80 26" stroke="#5F7D66" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <path d="M80 70 C70 60 56 60 50 66 C58 74 72 75 80 70 Z" fill="#7F9C83"/>
+      <path d="M80 63 C90 51 104 51 110 57 C102 66 89 68 80 63 Z" fill="#93AE95"/>
+      <path d="M79 51 C70 41 58 41 53 46 C60 54 71 56 79 51 Z" fill="#93AE95"/>
+      <path d="M80 44 C88 34 100 34 105 39 C98 47 88 49 80 44 Z" fill="#7F9C83"/>
+      <g fill="#A9927D"><circle cx="80" cy="15" r="5.5"/><circle cx="86.7" cy="19.8" r="5.5"/><circle cx="84.1" cy="27.7" r="5.5"/><circle cx="75.9" cy="27.7" r="5.5"/><circle cx="73.3" cy="19.8" r="5.5"/></g>
+      <circle cx="80" cy="22" r="3.8" fill="#22333B"/>
+    </symbol>
+    <symbol id="mini-sprout" viewBox="0 0 38 38">
+      <path d="M6 30 H32" stroke="#8C969D" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M19 30 V18" stroke="#5F7D66" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M19 23 C15 17 9 17 7 20 C10 24 15 25 19 23 Z" fill="#7F9C83"/>
+      <path d="M19 20 C23 13 30 13 32 16 C29 21 23 22 19 20 Z" fill="#93AE95"/>
+    </symbol>
+    <symbol id="mini-grown" viewBox="0 0 38 38">
+      <path d="M6 32 H32" stroke="#8C969D" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M19 32 C19 26 18 18 19 11" stroke="#5F7D66" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M19 27 C15 22 10 22 8 25 C11 28 15 29 19 27 Z" fill="#7F9C83"/>
+      <path d="M19 23 C23 18 28 18 30 21 C27 24 23 25 19 23 Z" fill="#93AE95"/>
+      <path d="M19 18 C16 14 12 14 10.5 16.5 C13 19 16 19.5 19 18 Z" fill="#93AE95"/>
+      <g fill="#A9927D"><circle cx="19" cy="5.2" r="2.4"/><circle cx="22.1" cy="7.5" r="2.4"/><circle cx="20.9" cy="11" r="2.4"/><circle cx="17.1" cy="11" r="2.4"/><circle cx="15.9" cy="7.5" r="2.4"/></g>
+      <circle cx="19" cy="8.3" r="1.7" fill="#22333B"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header class="band dark">
   <div class="wrap">
-    <div class="eyebrow">Workshop AI &middot; For Sophie and Rebecca &middot; Seed &amp; Sprout</div>
-    <h1>Built for <em>day three thousand.</em></h1>
-    <p class="lede">Your ten-year letter says good design is how something works on day three thousand, and that the next decade is about systems rather than swaps. The same is true inside a business. Here's what that could look like for a team of 18, put together from public information only.</p>
+    <a class="logo" href="https://workshopai.com.au/" aria-label="Workshop AI"><img src="/assets/workshop-ai-logo.jpg" alt="Workshop AI" width="1270" height="260" /></a>
+    <div class="eyebrow">For Sophie and Rebecca &middot; Seed &amp; Sprout</div>
+    <h1 class="flip" aria-label="What if. Now let&rsquo;s."><span class="wi" aria-hidden="true">What if&hellip;</span><span class="nl" aria-hidden="true">Now let&rsquo;s.</span></h1>
+    <p class="lede">Your ten-year letter says good design is how something works on day three thousand. The same is true of the tools a team runs on. Your team has the ideas, and maybe a few things already built with AI that worked once. We get them working on day 3,000, with nothing for you to build or look after.</p>
     <div class="meta">
       <div><span>Prepared by</span><strong>Justin Watts</strong></div>
       <div><span>Date</span><strong>October 2026</strong></div>
@@ -192,48 +341,152 @@
   </div>
 </header>
 
-<section class="band">
+<section class="band" id="path">
   <div class="wrap">
     <div class="callout">
-      <p><strong>What we don't know.</strong> Everything here comes from your website, your reviews and what you've shared in the press. We don't know how your team works day to day, so treat every example as a guess to correct, and tell us where we're wrong.</p>
+      <p><strong>What we don't know.</strong> Everything here comes from your website, your reviews and what you've shared in the press. We don't know how your team works day to day, or what they're already building, so treat everything here as a guess.</p>
     </div>
-    <p class="intro">The idea runs in three steps, each feeding the next. The team learns to use AI in their own jobs. That shows us what's worth building. The builds show us which of your tools need connecting.</p>
+    <h2><span class="num">From seed to day 3,000</span>Every idea starts as a seed.</h2>
+    <p class="intro">With AI tools, plenty of ideas now sprout: someone builds a first version with ChatGPT or an automation tool, and it works the first time. The hard part is the gap between working once and working every day. That's the part we take on.</p>
+    <div class="path">
+      <div class="stage">
+        <svg class="ill" viewBox="0 0 160 110" role="img" aria-label="A seed in the soil, with a question mark"><use href="#ill-seed"/></svg>
+        <div class="st"><b>Seed</b>What if&hellip;</div>
+        <h3>Someone has an idea.</h3>
+        <p>A report rebuilt every Monday, a question answered fifty times, a spreadsheet only one person trusts.</p>
+        <dl class="who">
+          <div class="you"><dt>You</dt><dd>Write it down. One line is plenty.</dd></div>
+          <div class="us"><dt>Us</dt><dd>A short chat to understand it.</dd></div>
+        </dl>
+      </div>
+      <div class="stage">
+        <svg class="ill" viewBox="0 0 160 110" role="img" aria-label="A sprout with two leaves, built once"><use href="#ill-sprout"/></svg>
+        <div class="st"><b>Sprout</b>It worked once</div>
+        <h3>Someone built it with AI.</h3>
+        <p>A clever prompt, a custom GPT, an automation or an app made over a weekend. It worked once. It might not work tomorrow.</p>
+        <dl class="who">
+          <div class="you"><dt>You</dt><dd>Build it yourselves, or hand us the seed.</dd></div>
+          <div class="us"><dt>Us</dt><dd>Test it on your real data and find where it breaks.</dd></div>
+        </dl>
+      </div>
+      <div class="stage grown">
+        <svg class="ill" viewBox="0 0 160 110" role="img" aria-label="A grown plant in flower"><use href="#ill-grown"/></svg>
+        <div class="st"><b>Day 3,000</b>Now let's</div>
+        <h3>It works every day.</h3>
+        <p>Connected to your tools, tested, watched and updated as you grow, so day 3,000 looks like day one.</p>
+        <dl class="who">
+          <div class="you"><dt>You</dt><dd>Use it.</dd></div>
+          <div class="us"><dt>Us</dt><dd>Run it, watch it, fix it and keep it current.</dd></div>
+        </dl>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="band">
+<section class="band dark" id="day-3000">
   <div class="wrap">
-    <h2><span class="num">01 &middot; Learn</span>Everyone gets better at their own job.</h2>
-    <p class="intro">Sessions by role, online and recorded, so they fit a team that works flexibly. Everyone leaves with one thing they'll use the next morning, and we check in a fortnight later on what stuck.</p>
+    <h2><span class="num">Why day 3,000 matters</span>Working once isn't working on day 3,000.</h2>
+    <p class="intro">A sprout proves the idea. Then things change: an app updates, a new range launches, the person who built it goes on leave, peak season arrives. Production is everything that gets a tool through all of that.</p>
+    <div class="dia timeline">
+      <svg viewBox="0 0 720 290" role="img" aria-label="Two lines from day 1 to day 3,000. A tool that worked once stops working after an app update and a new range. A tool built for day 3,000 keeps going through every change.">
+        <g stroke="rgba(242,244,243,0.24)" stroke-width="1" stroke-dasharray="3 4">
+          <line x1="150" y1="68" x2="150" y2="236"/>
+          <line x1="260" y1="68" x2="260" y2="236"/>
+          <line x1="370" y1="68" x2="370" y2="236"/>
+          <line x1="480" y1="68" x2="480" y2="236"/>
+          <line x1="610" y1="68" x2="610" y2="236"/>
+        </g>
+        <g font-size="12.5" font-weight="600" fill="rgba(242,244,243,0.82)" text-anchor="middle">
+          <text x="150" y="40">An app updates</text>
+          <text x="260" y="60">A new range launches</text>
+          <text x="370" y="40">The builder's on leave</text>
+          <text x="480" y="60">Peak season</text>
+          <text x="610" y="40">The team grows</text>
+        </g>
+        <line x1="56" y1="240" x2="692" y2="240" stroke="rgba(242,244,243,0.4)" stroke-width="1.5"/>
+        <g stroke="rgba(242,244,243,0.4)" stroke-width="1.5">
+          <line x1="70" y1="235" x2="70" y2="245"/><line x1="190" y1="235" x2="190" y2="245"/><line x1="310" y1="235" x2="310" y2="245"/><line x1="430" y1="235" x2="430" y2="245"/><line x1="550" y1="235" x2="550" y2="245"/><line x1="670" y1="235" x2="670" y2="245"/>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(242,244,243,0.56)" text-anchor="middle">
+          <text x="70" y="264">Day 1</text><text x="190" y="264">Month 1</text><text x="310" y="264">Month 3</text><text x="430" y="264">Year 1</text><text x="550" y="264">Year 3</text><text x="670" y="264">Day 3,000</text>
+        </g>
+
+        <text x="70" y="104" font-size="13" font-weight="700" fill="rgba(242,244,243,0.82)" stroke="#2A3B42" stroke-width="6" paint-order="stroke">Worked once</text>
+        <path d="M70 120 H150" stroke="rgba(242,244,243,0.82)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M156 120 H240" stroke="rgba(242,244,243,0.42)" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
+        <circle cx="70" cy="120" r="5" fill="#F2F4F3"/>
+        <g stroke="#E08A73" stroke-width="3" stroke-linecap="round"><line x1="247" y1="112" x2="263" y2="128"/><line x1="263" y1="112" x2="247" y2="128"/></g>
+        <text x="274" y="125" font-size="12.5" font-weight="700" fill="#E08A73">Stops</text>
+
+        <text x="70" y="180" font-size="13" font-weight="700" fill="#A9927D" stroke="#2A3B42" stroke-width="6" paint-order="stroke">Built for day 3,000</text>
+        <path d="M70 196 H650" stroke="#A9927D" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="70" cy="196" r="5.5" fill="#A9927D"/>
+        <g fill="#2A3B42" stroke="#A9927D" stroke-width="2.5">
+          <circle cx="150" cy="196" r="6"/><circle cx="260" cy="196" r="6"/><circle cx="370" cy="196" r="6"/><circle cx="480" cy="196" r="6"/><circle cx="610" cy="196" r="6"/>
+        </g>
+        <use href="#mini-grown" x="650" y="158" width="40" height="40"/>
+      </svg>
+    </div>
+    <p class="scroll-hint">Scroll sideways to see day 3,000</p>
     <div class="grid">
-      <div class="card"><div class="role">Customer care</div><h3>Faster replies in your voice</h3><p>AI drafts the reply from your policies and the order history. A person reads it and decides what's sent.</p></div>
-      <div class="card"><div class="role">Product and design</div><h3>Every comment, read in minutes</h3><p>Before a redesign, see everything customers have said about a product across reviews, messages and socials.</p></div>
-      <div class="card"><div class="role">Marketing and content</div><h3>One video, five uses</h3><p>Turn one of Sophie's videos into a blog post, a help article, an email and a set of captions, all in the brand's voice.</p></div>
-      <div class="card"><div class="role">Warehouse and supply chain</div><h3>What's in someone's head, written down</h3><p>Turn the way the best packer does it into a checklist anyone can follow during the Christmas rush.</p></div>
-      <div class="card"><div class="role">Wholesale</div><h3>Stockist questions without the digging</h3><p>Draft answers on stock, pricing and lead times from your own price list and stock levels.</p></div>
-      <div class="card"><div class="role">Finance and leadership</div><h3>Month-end in an afternoon</h3><p>Summaries, board papers and what-if numbers drafted from your reports, ready for you to check.</p></div>
+      <div class="card"><div class="role">Watched</div><h3>We know before you do</h3><p>If something stops working, we hear about it first and fix it.</p></div>
+      <div class="card"><div class="role">Kept current</div><h3>It changes as you do</h3><p>When an app updates or a new range launches, we update the tool to match.</p></div>
+      <div class="card"><div class="role">Safe</div><h3>A person decides</h3><p>It starts <span class="nb">read-only</span>, and a person signs off anything that spends money or reaches a customer.</p></div>
+      <div class="card"><div class="role">Yours</div><h3>Written down and owned by you</h3><p>Keep us on to look after it, or take it over yourselves. Either way, nothing lives in one person's head.</p></div>
     </div>
   </div>
 </section>
 
-<section class="band dark">
+<section class="band" id="guesses">
   <div class="wrap">
-    <h2><span class="num">02 &middot; Build</span>Ideas go in. Tools come out.</h2>
-    <p class="intro">Anyone in the team adds an idea to a shared list: a report they rebuild every week, a question they answer fifty times, a spreadsheet nobody trusts. We pick the ones worth doing together and build them in days, inside the tools you already use.</p>
-    <div class="grid">
-      <div class="card"><div class="role">Idea</div><h3>A weekly customer digest</h3><p>What customers loved, what they asked for and what needs a look, in your inbox before Monday's all-hands. There's a working sample below.</p></div>
-      <div class="card"><div class="role">Idea</div><h3>A launch check</h3><p>Stock, preorders and promotions lined up before anything goes live, with a flag when a bundle is about to run short.</p></div>
-      <div class="card"><div class="role">Idea</div><h3>A wholesale helper</h3><p>Stockist enquiries sorted, reorders drafted from your price list, and a nudge when a regular hasn't ordered in a while.</p></div>
-      <div class="card"><div class="role">Idea</div><h3>Your idea here</h3><p>The best builds come from the people doing the work. The list is theirs.</p></div>
+    <h2><span class="num">Our guesses</span>Three what ifs we'd guess at.</h2>
+    <p class="intro">These come from the outside: your website, your reviews and the press. They're here to show the shape of the thing, not to tell you where to start.</p>
+    <div class="guesses">
+      <article class="guess">
+        <div class="guess-top"><span class="tag">Our guess</span><span class="area">Marketing and supply chain</span></div>
+        <h3>&ldquo;What if we knew which bundles a big week would empty first, before Sophie's next video went live?&rdquo;</h3>
+        <p class="why"><strong>Why we'd guess it:</strong> Sophie's posts reach a big audience, and many of your bundles and multibuys share the same products.</p>
+        <ol class="grow">
+          <li><svg viewBox="0 0 38 38" aria-hidden="true"><use href="#mini-sprout"/></svg><div><span class="g-l">Sprout</span>A check that links each bundle to its products and shows which would run short first.</div></li>
+          <li><svg viewBox="0 0 38 38" aria-hidden="true"><use href="#mini-grown"/></svg><div><span class="g-l">Day 3,000</span>It reads live stock and runs before every launch or post, with a heads-up for the team.</div></li>
+        </ol>
+      </article>
+      <article class="guess">
+        <div class="guess-top"><span class="tag">Our guess</span><span class="area">Wholesale</span></div>
+        <h3>&ldquo;What if a stockist could check stock and reorder without emailing us?&rdquo;</h3>
+        <p class="why"><strong>Why we'd guess it:</strong> you have more than 70 stockists joining through an application form, and you've named wholesale as one of your next areas of growth.</p>
+        <ol class="grow">
+          <li><svg viewBox="0 0 38 38" aria-hidden="true"><use href="#mini-sprout"/></svg><div><span class="g-l">Sprout</span>A simple reorder page built from your wholesale price list.</div></li>
+          <li><svg viewBox="0 0 38 38" aria-hidden="true"><use href="#mini-grown"/></svg><div><span class="g-l">Day 3,000</span>Connected to stock and orders, with a nudge when a regular stockist goes quiet.</div></li>
+        </ol>
+      </article>
+      <article class="guess">
+        <div class="guess-top"><span class="tag">Our guess</span><span class="area">Customer care and product</span></div>
+        <h3>&ldquo;What if anyone who lost a lid could find the right spare in seconds?&rdquo;</h3>
+        <p class="why"><strong>Why we'd guess it:</strong> lids and seals come up in about one in six of your reviews, and one customer asked for spares outright. Of the three, it also fits day 3,000 best, because it keeps your products in use for longer.</p>
+        <ol class="grow">
+          <li><svg viewBox="0 0 38 38" aria-hidden="true"><use href="#mini-sprout"/></svg><div><span class="g-l">Sprout</span>A &ldquo;which part fits?&rdquo; finder built from your product range.</div></li>
+          <li><svg viewBox="0 0 38 38" aria-hidden="true"><use href="#mini-grown"/></svg><div><span class="g-l">Day 3,000</span>In your help centre and updated with every new range. When there's no spare yet, it tells the product team someone asked.</div></li>
+        </ol>
+      </article>
     </div>
-    <p class="note">Every build passes the same test: a clear input, steps we can write down, an output you can check, and a person signs off anything that spends money or reaches a customer.</p>
+    <div class="gold">
+      <p class="big">Your team has the real gold.</p>
+      <p>These are just our guesses. The best what ifs are the ones only your team can see: the report someone rebuilds every Monday, the question that gets answered fifty times a week, the spreadsheet only one person understands. They know the business better than anyone.</p>
+      <p><strong>Already growing sprouts?</strong> Bring us the thing someone built that worked once. We'll get it ready for day 3,000.</p>
+    </div>
   </div>
 </section>
 
 <section class="band" id="sample">
   <div class="wrap">
-    <h2><span class="num">A sample build</span>What your customers said this month.</h2>
-    <p class="intro">To show what a build looks like, here's the weekly digest idea run once over your own published reviews. It was built from public data, with no access to your systems. Connected to your review tool, it would run itself every week.</p>
+    <h2><span class="num">One we&rsquo;ve grown already</span>A sprout from your own reviews.</h2>
+    <p class="intro">Here&rsquo;s a sprout of our own. We took a what if, built a first version with AI tools, the way your team might, and ran it once over your published reviews. It worked once. Getting it into your inbox every Monday is the day 3,000 part. It&rsquo;s built from public data only, with no access to your systems.</p>
+    <ol class="tracker">
+      <li class="done"><b>Seed</b>&ldquo;What if every product idea in our reviews reached the product team by Monday?&rdquo;</li>
+      <li class="done"><b>Sprout</b>This digest, run once over a month of your public reviews.</li>
+      <li class="next"><b>Day 3,000</b>Connected to your review tool, and in the team&rsquo;s inbox every Monday.</li>
+    </ol>
 
     <div class="demo">
       <div class="demo-head">
@@ -298,7 +551,7 @@
       <div class="sub">Worth a look</div>
       <ul class="watch">
         <li>Value for money scores 4.67 out of 5, against 4.93 for quality, across the 338 reviews that rated both.</li>
-        <li>Delivery timing came up in five reviews this month.</li>
+        <li>Delivery timing came up in five of these reviews.</li>
       </ul>
 
       <p class="method">How it was made: the 565 reviews published on seedsprout.com.au between 16 September and 15 October 2026. Themes are tagged by keyword, so treat them as a rough guide. Quotes are kept short and unattributed.</p>
@@ -306,138 +559,43 @@
   </div>
 </section>
 
-<section class="band">
+<section class="band tint" id="first-step">
   <div class="wrap">
-    <h2><span class="num">03 &middot; Connect</span>Your tools, talking to each other.</h2>
-    <p class="intro">Most of the answers your team needs already exist, spread across different tools. Connected, anyone can ask a question in plain English and get an answer drawn from all of them. It starts read-only, and you set the rules on what it can do.</p>
-
-    <div class="dia">
-      <svg viewBox="0 0 760 430" role="img" aria-label="Diagram. On the left, the tools Seed &amp; Sprout appears to use: Shopify, Gorgias, Okendo, Australia Post and Aramex, plus other tools to confirm. They feed one connected assistant in the middle. On the right, team members ask it questions: care, product, wholesale and operations.">
-        <text x="122" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.06em" fill="rgba(242,244,243,0.82)" font-weight="600">YOUR TOOLS</text>
-        <text x="368" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.06em" fill="rgba(242,244,243,0.82)" font-weight="600">CONNECTED</text>
-        <text x="626" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.06em" fill="rgba(242,244,243,0.82)" font-weight="600">YOUR TEAM ASKS</text>
-
-        <rect x="24" y="64" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
-        <text x="122" y="88" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Shopify</text>
-        <text x="122" y="106" text-anchor="middle" font-size="11.5" fill="#5A6670">Orders and customers</text>
-
-        <rect x="24" y="136" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
-        <text x="122" y="160" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Gorgias</text>
-        <text x="122" y="178" text-anchor="middle" font-size="11.5" fill="#5A6670">Customer messages</text>
-
-        <rect x="24" y="208" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
-        <text x="122" y="232" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Okendo</text>
-        <text x="122" y="250" text-anchor="middle" font-size="11.5" fill="#5A6670">Product reviews</text>
-
-        <rect x="24" y="280" width="196" height="56" rx="7" fill="#F2F4F3" stroke="#22333B" stroke-width="1.4"/>
-        <text x="122" y="304" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="#22333B">Australia Post, Aramex</text>
-        <text x="122" y="322" text-anchor="middle" font-size="11.5" fill="#5A6670">Deliveries and returns</text>
-
-        <rect x="24" y="352" width="196" height="56" rx="7" fill="none" stroke="rgba(242,244,243,0.55)" stroke-width="1.3" stroke-dasharray="5 4"/>
-        <text x="122" y="376" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13.5" font-weight="700" fill="rgba(242,244,243,0.9)">Your other tools</text>
-        <text x="122" y="394" text-anchor="middle" font-size="11.5" fill="rgba(242,244,243,0.78)" font-weight="600">We'd confirm these with you</text>
-
-        <line x1="220" y1="92" x2="244" y2="92" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <line x1="220" y1="164" x2="244" y2="164" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <line x1="220" y1="236" x2="244" y2="236" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <line x1="220" y1="308" x2="244" y2="308" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <line x1="220" y1="380" x2="244" y2="380" stroke="rgba(242,244,243,0.55)" stroke-width="1.3" stroke-dasharray="4 3"/>
-        <line x1="244" y1="92" x2="244" y2="380" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <line x1="244" y1="236" x2="264" y2="236" stroke="#A9927D" stroke-width="1.5"/>
-        <polygon points="266,236 259,232.5 259,239.5" fill="#A9927D"/>
-
-        <rect x="268" y="168" width="200" height="136" rx="8" fill="#E7DED5" stroke="#A9927D" stroke-width="1.8"/>
-        <text x="368" y="198" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#8A7460">One assistant</text>
-        <text x="368" y="226" text-anchor="middle" font-size="12" fill="#22333B">Reads across your tools</text>
-        <text x="368" y="248" text-anchor="middle" font-size="12" fill="#22333B">Your rules on what it can do</text>
-        <text x="368" y="270" text-anchor="middle" font-size="12" fill="#22333B">Read-only to start</text>
-        <text x="368" y="290" text-anchor="middle" font-size="11" fill="#5A6670">A person signs off any action</text>
-
-        <line x1="468" y1="236" x2="492" y2="236" stroke="#A9927D" stroke-width="1.5"/>
-        <line x1="492" y1="102" x2="492" y2="372" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-
-        <line x1="492" y1="102" x2="512" y2="102" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <polygon points="514,102 507,98.5 507,105.5" fill="rgba(242,244,243,0.55)"/>
-        <rect x="516" y="70" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
-        <text x="530" y="92" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Care</text>
-        <text x="530" y="110" font-size="11.5" fill="#5A6670">Where's this order, and what</text>
-        <text x="530" y="125" font-size="11.5" fill="#5A6670">did we tell the customer?</text>
-
-        <line x1="492" y1="192" x2="512" y2="192" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <polygon points="514,192 507,188.5 507,195.5" fill="rgba(242,244,243,0.55)"/>
-        <rect x="516" y="160" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
-        <text x="530" y="182" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Product</text>
-        <text x="530" y="200" font-size="11.5" fill="#5A6670">What are people saying</text>
-        <text x="530" y="215" font-size="11.5" fill="#5A6670">about the new boards?</text>
-
-        <line x1="492" y1="282" x2="512" y2="282" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <polygon points="514,282 507,278.5 507,285.5" fill="rgba(242,244,243,0.55)"/>
-        <rect x="516" y="250" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
-        <text x="530" y="272" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Wholesale</text>
-        <text x="530" y="290" font-size="11.5" fill="#5A6670">Which stockists haven't</text>
-        <text x="530" y="305" font-size="11.5" fill="#5A6670">reordered since winter?</text>
-
-        <line x1="492" y1="372" x2="512" y2="372" stroke="rgba(242,244,243,0.55)" stroke-width="1.3"/>
-        <polygon points="514,372 507,368.5 507,375.5" fill="rgba(242,244,243,0.55)"/>
-        <rect x="516" y="340" width="220" height="64" rx="7" fill="#F2F4F3" stroke="#A9927D" stroke-width="1.4"/>
-        <text x="530" y="362" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#22333B">Operations</text>
-        <text x="530" y="380" font-size="11.5" fill="#5A6670">Which orders went out late</text>
-        <text x="530" y="395" font-size="11.5" fill="#5A6670">this week, and why?</text>
-      </svg>
-      <div class="dia-cap">Tools we can see from outside &middot; you'd tell us the rest</div>
-    </div>
-
-    <div class="callout">
-      <p><strong>We've done this before.</strong> For Mattick Air, a Melbourne commercial air-conditioning company, we connected their job management system so the office can ask it questions in plain English, built an email agent for their helpdesk, and set up their monthly client reports to build straight from live data.</p>
-    </div>
-  </div>
-</section>
-
-<section class="band dark">
-  <div class="wrap">
-    <h2><span class="num">Before we suggest anything</span>Questions we'd ask in week one.</h2>
-    <p class="intro">Your answers decide where we start. If the honest answer to one of these is "nowhere yet", that's usually the place.</p>
-    <div class="qs">
-      <div class="q"><div class="n">1</div><p>Where does customer feedback go after someone reads it?</p></div>
-      <div class="q"><div class="n">2</div><p>What does a wholesale order look like, from first email to dispatch?</p></div>
-      <div class="q"><div class="n">3</div><p>What have you already tried with AI, and what did it teach you?</p></div>
-      <div class="q"><div class="n">4</div><p>What has to be true for 18 people to run a business twice this size?</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <h2><span class="num">How we'd start</span>Small first, after the rush.</h2>
-    <p class="intro">October to February is your busiest stretch, so the first step can wait until back-to-school is done. Nothing here needs a big commitment up front.</p>
+    <h2><span class="num">The first step</span>One what if, one week.</h2>
+    <p class="intro">It starts with a chat. After that it barely touches your team, so it can happen now, in your busiest stretch, without waiting for February.</p>
     <div class="steps">
       <div class="step first">
         <div class="step-n">1</div>
-        <div><div class="step-head"><h3>A half-day Kickstart</h3><span class="tag">First step</span></div><p>We sit with the team, in Billinudgel or online, map where the time goes, and leave you with a one-page shortlist of what's worth doing first, scored and in order.</p></div>
+        <div><div class="step-head"><h3>Have a chat</h3><span class="tag">First step</span></div><p>Twenty minutes with you both. We'll hear the what ifs floating around, and about anything the team has built that worked once.</p></div>
       </div>
       <div class="step">
         <div class="step-n">2</div>
-        <div><div class="step-head"><h3>Learn, by role</h3></div><p>Sessions for each part of the team, shaped by the shortlist, so everyone starts with the things that matter most to their own job.</p></div>
+        <div><div class="step-head"><h3>Pick one what if together</h3></div><p>A seed, or a sprout someone has already grown. We choose the one worth doing first.</p></div>
       </div>
       <div class="step">
         <div class="step-n">3</div>
-        <div><div class="step-head"><h3>Build and connect</h3></div><p>Monthly blocks of work from the team's list, each one scoped before it starts. You can pause between blocks whenever you like.</p></div>
+        <div><div class="step-head"><h3>We spend a week on it</h3></div><p>We build it, or pick up what's already there. If it needs access to anything, it starts <span class="nb">read-only</span>.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div><div class="step-head"><h3>You try it, then decide</h3></div><p>At the end of the week you'll have something to try. Then it's your call: grow it, change it, or leave it there.</p></div>
       </div>
     </div>
-
-    <div class="about">
-      <div class="who">Justin Watts, Director, Workshop AI</div>
-      <p>More than fifteen years building the systems growing businesses run on, the last few applying AI across them, in property tech, finance, health and social enterprise. The approach is simple: see how things work now, find the manual steps, design something better, and build it.</p>
-    </div>
+    <p class="also">We also run AI training for teams, role by role, and connect the tools you already use. This is just where we'd start.</p>
   </div>
 </section>
+
 
 <section class="band dark close" id="contact">
   <div class="wrap">
     <h2><span class="num">If it's useful</span>Twenty minutes, whenever suits.</h2>
     <p>I'd love a chat with you both, whenever the timing works. If none of this is for you right now, that's completely fine, and congratulations on ten years all the same.</p>
     <p class="sign">Justin</p>
-    <a class="book" href="https://calendar.app.google/vLCXuaZViuscaWe96" target="_blank" rel="noopener">Pick a time for a chat</a>
+    <p class="bio">Justin Watts, Director, Workshop AI. More than fifteen years building the systems growing businesses run on, the last few applying AI across them, in property tech, finance, health and social enterprise.</p>
+    <div class="ctas">
+      <a class="book" href="https://calendar.app.google/vLCXuaZViuscaWe96" target="_blank" rel="noopener">Pick a time for a chat</a>
+      <a class="alt" href="mailto:justin@workshopai.com.au?subject=Our%20what%20if%20(Seed%20%26%20Sprout)">Or email us a what if</a>
+    </div>
     <div class="contact">
       <div><span>Email</span><strong><a href="mailto:justin@workshopai.com.au?subject=Seed%20%26%20Sprout">justin@workshopai.com.au</a></strong></div>
       <div><span>Phone</span><strong><a href="tel:+61431254769">0431 254 769</a></strong></div>
@@ -447,7 +605,7 @@
 </section>
 
 <footer>
-  <div class="wrap"><p>Workshop AI &middot; Melbourne &middot; Prepared for Seed &amp; Sprout &middot; October 2026 &middot; Built from public information only</p></div>
+  <div class="wrap foot"><a class="logo sm" href="https://workshopai.com.au/" aria-label="Workshop AI"><img src="/assets/workshop-ai-logo.jpg" alt="Workshop AI" width="1270" height="260" /></a><p>Melbourne &middot; Prepared for Seed &amp; Sprout &middot; October 2026 &middot; Built from public information only</p></div>
 </footer>
 
 <script>
@@ -473,6 +631,7 @@
     });
   })();
 </script>
+
 
 </body>
 </html>
