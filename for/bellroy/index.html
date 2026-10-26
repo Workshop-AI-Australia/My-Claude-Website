@@ -80,6 +80,14 @@
   .wallet[data-open="false"] .leaf-left{transform:rotateY(180deg)}
   .face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:visible}
   .face-out{transform:rotateY(180deg)}
+  .face-in{transform:rotateY(0deg)}
+  /* Safari ignores backface-visibility on transformed children, so swap the faces at the halfway point of the flip */
+  .leaf-left .face-in, .leaf-left .face-out{transition:visibility 0s linear .42s}
+  .wallet[data-open="false"] .leaf-left .face-in{visibility:hidden}
+  .wallet[data-open="true"] .leaf-left .face-out{visibility:hidden}
+  .wallet[data-open="false"] .leaf-right .face-in .slot{visibility:hidden;transition:visibility 0s linear .9s}
+  .wallet[data-open="true"] .leaf-right .face-in .slot{visibility:visible}
+  @media (prefers-reduced-motion: reduce){.leaf-left .face-in,.leaf-left .face-out,.wallet .leaf-right .face-in .slot{transition:none!important}}
 
   /* Leather */
   .leather{background-color:var(--jet);
