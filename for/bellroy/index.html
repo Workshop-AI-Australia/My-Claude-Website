@@ -33,17 +33,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
 <style>
-  /* Layout: one centred stage. Heading, then the wallet (closed, then open like a book), then the pulled card, then a plain-text list. */
+  /* Layout: one centred stage. Heading, then the wallet (closed, then open like a book), then the card you pulled. */
   /* Deliberately single-theme: the Workshop AI palette on white smoke, set explicitly. */
   :root{
     --smoke:#F2F4F3;        /* page */
-    --smoke-2:#E7E9E8;      /* quiet panels */
     --card:#FBFBFA;         /* card faces */
     --jet:#22333B;          /* ink and leather */
     --jet-2:#2C3F49;        /* inner leather */
-    --jet-3:#34495360;      /* pocket edge shade */
+    --pocket:#2F434D;       /* pocket fronts */
     --taupe:#A9927D;        /* the one accent: stitching, chips */
-    --taupe-deep:#8A7460;
+    --taupe-deep:#8A7460;   /* the suede pull tab */
     --taupe-soft:#E7DED5;
     --stitch:#C9B49F;
     --ink-soft:#5A6670;
@@ -58,7 +57,7 @@
   }
   html{background:var(--smoke)}
   body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
-    padding-left:max(16px, env(safe-area-inset-left, 0px));margin:0;padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0}
+    padding-left:max(16px, env(safe-area-inset-left, 0px));margin:0;padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0;overflow-x:hidden}
   .wrap{max-width:760px;margin:0 auto}
   *{box-sizing:border-box}
   h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
@@ -66,7 +65,7 @@
 
   header{padding-block:44px 8px;display:grid;gap:12px}
   .eyebrow-row{display:flex;align-items:center;gap:10px}
-  .eyebrow-row svg{width:30px;height:30px;flex:none}
+  .eyebrow-row svg{width:34px;height:34px;flex:none}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
   h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
   h1 em{font-style:normal;color:var(--taupe)}
@@ -87,9 +86,6 @@
   .leaf-left .face-in, .leaf-left .face-out{transition:visibility 0s linear .42s}
   .wallet[data-open="false"] .leaf-left .face-in{visibility:hidden}
   .wallet[data-open="true"] .leaf-left .face-out{visibility:hidden}
-  .wallet[data-open="false"] .leaf-right .face-in > *{visibility:hidden;transition:visibility 0s linear .9s}
-  .wallet[data-open="true"] .leaf-right .face-in > *{visibility:visible}
-  @media (prefers-reduced-motion: reduce){.leaf-left .face-in,.leaf-left .face-out,.wallet .leaf-right .face-in > *{transition:none!important}}
 
   /* Leather */
   .leather{background-color:var(--jet);
@@ -106,52 +102,59 @@
   .leaf-left .face-in{border-top-right-radius:4px;border-bottom-right-radius:4px;background-image:linear-gradient(90deg, rgba(0,0,0,0) 78%, rgba(0,0,0,0.28))}
   .leaf-right .face-in{border-top-left-radius:4px;border-bottom-left-radius:4px;background-image:linear-gradient(270deg, rgba(0,0,0,0) 78%, rgba(0,0,0,0.28))}
 
-  /* Cards and pockets */
-  .slot{position:absolute;left:9%;right:9%;height:calc(var(--w) * 0.52);top:calc(var(--h) * (0.06 + var(--i) * 0.21));z-index:calc(var(--i) * 2 + 1)}
-  .card{all:unset;box-sizing:border-box;position:absolute;inset:0;border-radius:8px;cursor:pointer;padding:clamp(5px,1.2vw,8px) clamp(7px,1.6vw,10px);display:flex;flex-direction:column;gap:2px;
-    background:var(--card);color:var(--jet);box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 6px rgba(0,0,0,0.25);transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .3s}
+  /* The right side's contents sit in their own layer so the pull tab can reach across the spine */
+  .inner{position:absolute;left:var(--w);top:0;width:var(--w);height:var(--h);z-index:5;visibility:hidden}
+  .wallet[data-open="true"] .inner{visibility:visible;transition:visibility 0s linear .45s}
+
+  /* One card showing on each side, in a straight-cut pocket */
+  .solo{position:absolute;left:9%;right:9%;top:calc(var(--h) * 0.09);height:calc(var(--w) * 0.56);z-index:6}
+  .pocket{position:absolute;left:5%;right:5%;bottom:3%;top:calc(var(--h) * 0.40);z-index:10;border-radius:6px 6px 10px 10px;pointer-events:none;
+    background-color:var(--pocket);background-image:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0) 30%);box-shadow:0 -3px 7px rgba(0,0,0,0.3)}
+  .pocket::before{content:"";position:absolute;left:8px;right:8px;top:6px;border-top:1.4px dashed var(--stitch);opacity:0.7}
+  .pocket::after{content:"";position:absolute;left:8px;right:8px;bottom:8px;top:6px;border:1.4px dashed var(--stitch);border-top:0;border-radius:0 0 6px 6px;opacity:0.45}
+
+  /* Cards */
+  .card{all:unset;box-sizing:border-box;position:absolute;inset:0;border-radius:9px;cursor:pointer;padding:clamp(6px,1.4vw,10px) clamp(8px,1.8vw,12px);display:flex;flex-direction:column;gap:3px;
+    background:var(--card);color:var(--jet);box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 6px rgba(0,0,0,0.28);transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .card.v1{background:var(--taupe-soft)}
   .card.v2{background:var(--taupe)}
   @media (hover:hover){.card:hover{transform:translateY(-6px)}}
-  .card,.btn,.cover{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .card:focus-visible{outline:3px solid var(--taupe);outline-offset:2px}
-  .card[aria-pressed="true"]{transform:translateY(calc(var(--h) * -0.17));box-shadow:0 14px 22px -8px rgba(0,0,0,0.45)}
+  .card[aria-pressed="true"]{transform:translateY(calc(var(--h) * -0.16));box-shadow:0 14px 22px -8px rgba(0,0,0,0.45)}
   .card .lbl{font-family:var(--mono);font-size:clamp(8px,1.6vw,9.5px);letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe-deep);display:flex;align-items:center;gap:6px}
   .card.v2 .lbl{color:var(--jet)}
-  .chip{width:16px;height:11px;border-radius:2.5px;background:linear-gradient(135deg,#D8C9BA,#A9927D 55%,#8A7460);flex:none;position:relative}
-  .chip::after{content:"";position:absolute;inset:3px 4px;border:1px solid rgba(34,51,59,0.35);border-radius:1.5px}
+  .chip{width:18px;height:13px;border-radius:3px;background:linear-gradient(135deg,#D8C9BA,#A9927D 55%,#8A7460);flex:none;position:relative}
+  .chip::after{content:"";position:absolute;inset:3px 5px;border:1px solid rgba(34,51,59,0.35);border-radius:1.5px}
   .card.v2 .chip{background:linear-gradient(135deg,#F2F4F3,#D8C9BA)}
-  .card .short{font-family:var(--display);font-weight:800;font-size:clamp(10px,2.4vw,13.5px);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .pocket{position:absolute;left:5%;right:5%;bottom:5%;top:calc(var(--h) * (0.23 + var(--i) * 0.21));z-index:calc(var(--i) * 2 + 2);border-radius:6px 6px 9px 9px;pointer-events:none;
-    background-color:#2F434D;background-image:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 30%);box-shadow:0 -3px 6px rgba(0,0,0,0.28)}
-  .pocket::before{content:"";position:absolute;left:7px;right:7px;top:5px;border-top:1.4px dashed var(--stitch);opacity:0.7}
+  .card .short{font-family:var(--display);font-weight:800;font-size:clamp(10.5px,2.5vw,14px);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card .num{margin-top:auto;font-family:var(--mono);font-size:clamp(7.5px,1.4vw,9px);letter-spacing:0.18em;color:var(--ink-faint)}
+  .card.v2 .num{color:rgba(34,51,59,0.55)}
 
-  /* Right side: one deep pocket, and a pull tab that lifts the cards out of it */
-  .leaf-right .slot{top:calc(var(--h) * (0.09 + var(--i) * 0.17));transition:transform .65s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * 45ms)}
-  .wallet[data-tab="in"] .leaf-right .slot{transform:translateY(calc(var(--h) * (0.48 - var(--i) * 0.17)))}
-  .wallet[data-tab="in"] .leaf-right .card{pointer-events:none}
-  .deep{position:absolute;left:5%;right:5%;bottom:3%;top:calc(var(--h) * 0.61);z-index:8;border-radius:6px 6px 10px 10px;pointer-events:none;
-    background-color:#2F434D;background-image:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 30%);box-shadow:0 -3px 6px rgba(0,0,0,0.28)}
-  .deep::before{content:"";position:absolute;left:7px;right:7px;top:5px;border-top:1.4px dashed var(--stitch);opacity:0.7}
-  .tab{all:unset;box-sizing:border-box;position:absolute;left:calc(50% - var(--w) * 0.1);width:calc(var(--w) * 0.2);height:calc(var(--h) * 0.15);top:calc(var(--h) * -0.04);z-index:0;
-    cursor:pointer;border-radius:6px 6px 2px 2px;background-color:#8A7460;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"), linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 60%);
-    box-shadow:0 2px 5px rgba(0,0,0,0.35);transition:transform .65s cubic-bezier(.2,.8,.2,1);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-  .wallet[data-tab="in"] .tab{transform:translateY(calc(var(--h) * 0.48))}
-  .tab::before{content:"";position:absolute;inset:4px 4px 0;border:1.2px dashed rgba(242,244,243,0.55);border-bottom:0;border-radius:4px 4px 0 0}
-  .tab::after{content:"";position:absolute;left:50%;top:26%;width:7px;height:7px;border-left:2px solid var(--smoke);border-top:2px solid var(--smoke);transform:translateX(-50%) rotate(45deg);transition:transform .3s}
-  .wallet[data-tab="out"] .tab::after{transform:translateX(-50%) translateY(3px) rotate(225deg)}
+  /* The pull tab: four cards tucked behind the right-hand pocket. Pull the tab left and they slide all the way out. */
+  .sslot{position:absolute;left:9%;width:82%;top:calc(var(--h) * 0.50);height:calc(var(--w) * 0.52);z-index:calc(var(--k) + 1);
+    transition:transform .75s cubic-bezier(.2,.8,.2,1);transition-delay:calc((3 - var(--k)) * 55ms)}
+  .wallet[data-tab="out"] .sslot{transform:translate(calc(var(--w) * -1), calc(var(--h) * (var(--k) * 0.18 - 0.45)))}
+  .wallet[data-tab="in"] .sslot .card{pointer-events:none}
+  .tab{all:unset;box-sizing:border-box;position:absolute;left:-16%;width:30%;top:calc(var(--h) * 0.635);height:calc(var(--h) * 0.12);z-index:0;cursor:pointer;
+    border-radius:7px 2px 2px 7px;background-color:var(--taupe-deep);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"), linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 60%);
+    box-shadow:0 2px 5px rgba(0,0,0,0.35);transition:transform .75s cubic-bezier(.2,.8,.2,1);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .tab::before{content:"";position:absolute;top:4px;bottom:4px;left:4px;right:0;border:1.2px dashed rgba(242,244,243,0.55);border-right:0;border-radius:5px 0 0 5px}
+  .tab::after{content:"";position:absolute;top:50%;left:14%;width:7px;height:7px;border-left:2px solid var(--smoke);border-bottom:2px solid var(--smoke);transform:translateY(-50%) rotate(45deg);transition:transform .3s}
+  .wallet[data-tab="out"] .tab{transform:translate(calc(var(--w) * -0.92), calc(var(--h) * -0.45))}
+  .wallet[data-tab="out"] .tab::after{transform:translateY(-50%) rotate(225deg)}
   .tab:focus-visible{outline:3px solid var(--taupe);outline-offset:2px}
-  @media (hover:hover){.wallet[data-tab="in"] .tab:hover{transform:translateY(calc(var(--h) * 0.45))}}
-  @media (prefers-reduced-motion: reduce){.leaf-right .slot,.tab{transition:none!important}}
+  @media (hover:hover){.wallet[data-tab="in"] .tab:hover{transform:translateX(-6px)}}
 
   .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;min-height:44px}
-  .btn{all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:11px 18px;border-radius:999px;background:var(--jet);color:var(--smoke)}
+  .btn{all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:11px 18px;border-radius:999px;background:var(--jet);color:var(--smoke);touch-action:manipulation}
   .btn:hover{background:#1A282E}
   .btn.ghost{background:transparent;color:var(--jet);box-shadow:0 0 0 1.5px var(--jet) inset}
   .btn:focus-visible{outline:3px solid var(--taupe);outline-offset:3px}
   .hint{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)}
 
-  /* The pulled card, enlarged */
+  /* The card you pulled, enlarged */
   .reader{min-height:12px;display:grid;justify-items:center;padding-block:6px 30px}
   .big{width:min(560px,100%);background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 24px 40px -22px rgba(34,51,59,0.45), 0 0 0 1px var(--line);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
   .big-top{background:var(--jet);padding:14px 18px;display:flex;align-items:center;gap:12px}
@@ -162,10 +165,9 @@
   .big h2{font-size:clamp(20px,4vw,25px);font-weight:800;line-height:1.2}
   .big p{color:var(--ink-soft);font-size:16.5px;max-width:58ch}
   .big p strong{color:var(--jet);font-weight:600}
-  .big.bonus .big-top{background:#8A7460}
+  .big.bonus .big-top{background:var(--taupe-deep)}
   .big.bonus .big-top span{color:var(--smoke)}
   @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
 
   footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
   footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
@@ -174,20 +176,20 @@
   footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
 
   @media (prefers-reduced-motion: reduce){
-    .wallet,.leaf-left,.card,.big{transition:none!important;animation:none!important}
+    .wallet,.leaf-left,.card,.big,.sslot,.tab,.leaf-left .face-in,.leaf-left .face-out,.wallet[data-open="true"] .inner{transition:none!important;animation:none!important}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="eyebrow-row"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="18" y="3" width="12" height="22" rx="2.5" fill="#A9927D"/><rect x="20" y="5.5" width="8" height="15" rx="1.5" fill="none" stroke="#F2F4F3" stroke-width="0.9" stroke-dasharray="2 1.6"/><path d="M21.2 13.5 24 10.6 26.8 13.5" fill="none" stroke="#F2F4F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="19" width="32" height="10" rx="2" fill="#E7DED5" stroke="#22333B" stroke-opacity="0.15"/><rect x="5" y="24" width="38" height="21" rx="4" fill="#22333B"/><line x1="8.5" y1="27.5" x2="39.5" y2="27.5" stroke="#C9B49F" stroke-width="1" stroke-dasharray="2.4 1.8"/></svg><div class="eyebrow">Workshop AI &middot; For Bellroy</div></div>
+    <div class="eyebrow-row"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="18" width="20" height="12" rx="3" fill="#8A7460"/><rect x="5.5" y="20.2" width="15" height="7.6" rx="2" fill="none" stroke="#F2F4F3" stroke-width="0.9" stroke-dasharray="2 1.6"/><path d="M11.5 21.4 8.6 24 11.5 26.6" fill="none" stroke="#F2F4F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="11" width="10" height="26" rx="2" fill="#E7DED5" stroke="#22333B" stroke-opacity="0.15"/><rect x="19" y="7" width="26" height="34" rx="4" fill="#22333B"/><line x1="22.5" y1="10.5" x2="22.5" y2="37.5" stroke="#C9B49F" stroke-width="1" stroke-dasharray="2.4 1.8"/></svg><div class="eyebrow">Workshop AI &middot; For Bellroy</div></div>
     <h1>Six red flags, <em>in my old wallet.</em></h1>
     <p class="lede">My wallet has been off duty since Myki started taking card payments. It&rsquo;s now carrying something new: the doubts I&rsquo;d have in your seat about my application, and my answers. Don&rsquo;t skip the pull tab.</p>
   </header>
 
   <section class="stage" aria-label="The wallet">
-    <div class="wallet" id="wallet" data-open="false">
+    <div class="wallet" id="wallet" data-open="false" data-tab="in">
       <div class="leaf leaf-left">
         <div class="face face-in" id="in-left" inert></div>
         <div class="face face-out leather stitch">
@@ -195,8 +197,9 @@
         </div>
       </div>
       <div class="leaf leaf-right">
-        <div class="face face-in" id="in-right" inert></div>
+        <div class="face face-in"></div>
       </div>
+      <div class="inner" id="inner" inert></div>
     </div>
     <div class="controls">
       <button class="btn" id="toggle">Open the wallet</button>
@@ -228,65 +231,70 @@
     {short:"Smaller clients", q:"“His clients are much smaller than us.”",
      a:"They are. What carries is the method: a survey, one-to-ones by role, a shared list of ideas, and skills anyone can run. <strong>I’d start with one team, prove it, and spread what works.</strong> That’s how capability sticks at any size."}
   ];
+  var BONUS = {q:"Plus a pull tab.",
+    a:"Nobody asks for a pull tab. Then you use one and wonder how you managed without it. <strong>Mine is what comes with me:</strong> an engineer behind me for the deep build work, capacity that flexes with your roadmap, and lessons from the other businesses I work with. Red flags 03 to 06 are out now too."};
   function pad(n){return (n<10?"0":"")+n}
 
-  var wallet=document.getElementById("wallet"), inL=document.getElementById("in-left"), inR=document.getElementById("in-right");
+  var wallet=document.getElementById("wallet"), inL=document.getElementById("in-left"), inner=document.getElementById("inner");
   var toggle=document.getElementById("toggle"), hint=document.getElementById("hint"), cover=document.getElementById("cover"), reader=document.getElementById("reader");
-  var variants=["", "v1", "v2"];
+  var open=false, current=-1;
 
-  FLAGS.forEach(function(f, idx){
-    var host = idx < 3 ? inL : inR, i = idx % 3;
-    var slot=document.createElement("div"); slot.className="slot"; slot.style.setProperty("--i", i);
-    var b=document.createElement("button"); b.className="card "+variants[(idx+ (idx>2?1:0)) % 3]; b.type="button";
-    b.setAttribute("aria-pressed","false"); b.dataset.idx=idx;
+  function makeCard(idx, variant){
+    var f=FLAGS[idx], b=document.createElement("button");
+    b.type="button"; b.className="card "+variant; b.dataset.idx=idx; b.setAttribute("aria-pressed","false");
     b.setAttribute("aria-label","Red flag "+pad(idx+1)+": "+f.short);
-    b.innerHTML='<span class="lbl"><span class="chip"></span>Red flag '+pad(idx+1)+'</span><span class="short">'+f.short+'</span>';
-    slot.appendChild(b);
-    host.appendChild(slot);
-    if(idx < 3){ var pocket=document.createElement("div"); pocket.className="pocket"; pocket.style.setProperty("--i", i); host.appendChild(pocket); }
+    b.innerHTML='<span class="lbl"><span class="chip"></span>Red flag '+pad(idx+1)+'</span><span class="short">'+f.short+'</span><span class="num">RF&nbsp;&nbsp;'+pad(idx+1)+'&nbsp;&nbsp;2026</span>';
     b.addEventListener("click", function(){ pick(idx); });
-  });
+    return b;
+  }
+  function solo(host, idx, variant){
+    var s=document.createElement("div"); s.className="solo"; s.appendChild(makeCard(idx, variant)); host.appendChild(s);
+    var p=document.createElement("div"); p.className="pocket"; host.appendChild(p);
+  }
 
-
-  var deep=document.createElement("div"); deep.className="deep"; inR.appendChild(deep);
+  // One card showing on each side
+  solo(inL, 0, "");
+  // Four cards behind the right-hand pocket, on the pull tab
+  var stackVariants=["v2","","v1","v2"], stackCards=[];
+  for(var k=0;k<4;k++){
+    var s=document.createElement("div"); s.className="sslot"; s.style.setProperty("--k", k);
+    var c=makeCard(k+2, stackVariants[k]); c.tabIndex=-1; stackCards.push(c); s.appendChild(c); inner.appendChild(s);
+  }
   var tab=document.createElement("button"); tab.className="tab"; tab.type="button"; tab.id="pulltab";
-  tab.setAttribute("aria-label","Pull the tab"); tab.setAttribute("aria-expanded","false"); inR.appendChild(tab);
-  var rightCards=[].slice.call(inR.querySelectorAll(".card"));
-  var BONUS={q:"Plus a pull tab.",
-    a:"Nobody asks for a pull tab. Then you use one and wonder how you managed without it. <strong>Mine is what comes with me:</strong> an engineer behind me for the deep build work, capacity that flexes with your roadmap, and lessons from the other businesses I work with. Red flags 04 to 06 are out now too."};
-  wallet.dataset.tab="in";
-  function setTab(out, silent){
-    wallet.dataset.tab = out ? "out" : "in";
-    tab.setAttribute("aria-expanded", String(out));
-    tab.setAttribute("aria-label", out ? "Push the tab back in" : "Pull the tab");
-    rightCards.forEach(function(c){ c.tabIndex = out ? 0 : -1; });
-    if(out){ pick(-1, true); showBonus(silent); }
-    else { if(current >= 3 || current === -2){ pick(-1, true); } }
-    hintFor();
-  }
-  function showBonus(silent){
-    current=-2;
-    reader.innerHTML='<article class="big bonus"><div class="big-top"><span class="chip"></span><span>The pull tab</span></div><div class="big-body"><h2>'+BONUS.q+'</h2><p>'+BONUS.a+'</p></div></article>';
-    if(!silent && window.innerHeight < reader.getBoundingClientRect().bottom){
-      try{ reader.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'end'}); }catch(e){}
-    }
-  }
+  tab.setAttribute("aria-label","Pull the tab"); tab.setAttribute("aria-expanded","false"); inner.appendChild(tab);
+  solo(inner, 1, "v1");
+
   function hintFor(){
     if(!open){ hint.textContent="Tap the wallet"; return; }
     hint.textContent = wallet.dataset.tab==="out" ? "Tap a card to pull it out" : "Pull the tab, or tap a card";
   }
-  rightCards.forEach(function(c){ c.tabIndex=-1; });
-  tab.addEventListener("click", function(){ setTab(wallet.dataset.tab!=="out"); });
-
-  var open=false, current=-1;
+  function bringIntoView(){
+    if(window.innerHeight < reader.getBoundingClientRect().bottom){
+      try{ reader.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'end'}); }catch(e){}
+    }
+  }
+  function showBonus(silent){
+    current=-2;
+    reader.innerHTML='<article class="big bonus"><div class="big-top"><span class="chip"></span><span>The pull tab</span></div><div class="big-body"><h2>'+BONUS.q+'</h2><p>'+BONUS.a+'</p></div></article>';
+    if(!silent) bringIntoView();
+  }
+  function setTab(out, silent){
+    wallet.dataset.tab = out ? "out" : "in";
+    tab.setAttribute("aria-expanded", String(out));
+    tab.setAttribute("aria-label", out ? "Push the tab back in" : "Pull the tab");
+    stackCards.forEach(function(c){ c.tabIndex = out ? 0 : -1; });
+    if(out){ pick(-1, true); showBonus(true); }  // stay on the wallet so the cards are seen sliding out
+    else if(current >= 2 || current === -2){ pick(-1, true); }
+    hintFor();
+  }
   function setOpen(v){
     open=v; wallet.dataset.open=String(v);
-    if(v){ inL.removeAttribute("inert"); inR.removeAttribute("inert"); }
-    else { inL.setAttribute("inert",""); inR.setAttribute("inert",""); pick(-1, true); setTab(false, true); }
+    if(v){ inL.removeAttribute("inert"); inner.removeAttribute("inert"); }
+    else { inL.setAttribute("inert",""); inner.setAttribute("inert",""); pick(-1, true); setTab(false, true); }
     toggle.textContent = v ? "Close the wallet" : "Open the wallet";
     toggle.className = v ? "btn ghost" : "btn";
-    hintFor();
     cover.tabIndex = v ? -1 : 0;
+    hintFor();
   }
   function pick(idx, silent){
     if(idx===current && !silent){ idx=-1; }
@@ -295,14 +303,12 @@
     if(idx<0){ reader.innerHTML=""; return; }
     var f=FLAGS[idx];
     reader.innerHTML='<article class="big"><div class="big-top"><span class="chip"></span><span>Red flag '+pad(idx+1)+' of 06</span></div><div class="big-body"><h2>'+f.q+'</h2><p>'+f.a+'</p></div></article>';
-    if(!silent && window.innerHeight < reader.getBoundingClientRect().bottom){
-      try{ reader.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'end'}); }catch(e){}
-    }
+    if(!silent) bringIntoView();
   }
   function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  tab.addEventListener("click", function(){ var o=wallet.dataset.tab!=="out"; setTab(o); if(o) track('pull_tab'); });
   cover.addEventListener("click", function(){ setOpen(true); track('wallet_open', {via:'wallet'}); });
   toggle.addEventListener("click", function(){ var o=!open; setOpen(o); if(o) track('wallet_open', {via:'button'}); });
-  tab.addEventListener('click', function(){ if(wallet.dataset.tab==='out') track('pull_tab'); });
   document.querySelectorAll('.card').forEach(function(c){ c.addEventListener('click', function(){ if(c.getAttribute('aria-pressed')==='true') track('red_flag_card', {card: pad(+c.dataset.idx+1)}); }); });
 })();
 </script>
