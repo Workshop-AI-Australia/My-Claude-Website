@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, minuted | Moir Group | Workshop AI</title>
+<meta name="description" content="For Moir Group: the doubts I&rsquo;d have about my Business Operations &amp; AI Enablement Project Manager application, and my answers, written up as minutes." />
+<meta property="og:title" content="Six red flags, minuted" />
+<meta property="og:description" content="For Moir Group: the doubts I&rsquo;d have in your seat about my application, and my answers. Every item has an action." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<script>document.documentElement.className+=" js";</script>
+<style>
+  /* Layout: heading, then one sheet of typeset minutes on white smoke. Everything renders without JS;
+     JS only collapses the items so they open one at a time. Red appears only on the flag markers. */
+  :root{
+    --smoke:#F2F4F3; --card:#FBFBFA; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#8A7460; --taupe-soft:#E7DED5; --stitch:#C9B49F;
+    --ink-soft:#5A6670; --ink-faint:#8C969D; --line:rgba(34,51,59,0.12); --line-2:rgba(34,51,59,0.22);
+    --flag:#A4493C;          /* the quiet red: flag markers only */
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --pad:clamp(18px,5vw,56px);
+    color-scheme:light;
+  }
+  html{background:var(--smoke)}
+  body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));margin:0;padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0;overflow-x:hidden}
+  .wrap{max-width:760px;margin:0 auto}
+  *{box-sizing:border-box}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+  button{font:inherit;color:inherit;touch-action:manipulation}
+
+  header{padding-block:44px 8px;display:grid;gap:12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe)}
+  .lede{font-size:17px;color:var(--ink-soft);max-width:60ch}
+
+  .hint{display:none;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin:40px 0 14px;text-align:center}
+  .js .hint{display:block}
+
+  /* The sheet: one page of minutes, a second sheet just visible underneath */
+  .sheet-wrap{position:relative;margin:40px 0 56px}
+  .js .sheet-wrap{margin-top:0}
+  .sheet-wrap::before{content:"";position:absolute;inset:7px -5px -7px 5px;background:#F6F5F1;border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 2px rgba(34,51,59,.05)}
+  .sheet{position:relative;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:var(--pad);padding-left:calc(var(--pad) + 18px);
+    box-shadow:0 1px 2px rgba(34,51,59,.06),0 18px 40px -24px rgba(34,51,59,.28)}
+  /* Two punched holes down the binding edge */
+  .sheet::before,.sheet::after{content:"";position:absolute;left:14px;width:14px;height:14px;border-radius:50%;background:var(--smoke);box-shadow:inset 0 1px 2px rgba(34,51,59,.22)}
+  .sheet::before{top:22%}
+  .sheet::after{top:72%}
+  @media (max-width:520px){ .sheet{padding-left:calc(var(--pad) + 10px)} .sheet::before,.sheet::after{left:8px;width:10px;height:10px} }
+
+  .doc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);padding-bottom:14px;border-bottom:2px solid var(--jet)}
+  .doc-title{font-family:var(--display);font-weight:800;font-size:clamp(20px,3.6vw,26px);line-height:1.15;margin:20px 0 18px;letter-spacing:-0.005em}
+  .meta{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0 0 8px;font-size:15px}
+  .meta dt{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);padding-top:4px}
+  .meta dd{margin:0}
+  .meta .aside{color:var(--ink-soft)}
+  @media (max-width:420px){ .meta{grid-template-columns:1fr;gap:0} .meta dd{margin-bottom:8px} }
+
+  .rule-label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);margin:28px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line-2)}
+
+  /* Agenda items */
+  ol.items{list-style:none;margin:0;padding:0}
+  .item{border-bottom:1px solid var(--line);position:relative}
+  .item-head{display:grid;grid-template-columns:30px 1fr;column-gap:12px;align-items:start;padding:18px 0 4px}
+  .item-head h2{font-size:18px;font-weight:800;line-height:1.25;letter-spacing:-0.003em}
+  .item-head .no{font-family:var(--mono);font-size:12px;color:var(--ink-faint);display:block;line-height:1;margin-top:3px}
+  .marker{display:grid;justify-items:start;gap:5px;padding-top:2px}
+  .flag{width:16px;height:18px;color:var(--flag);transform-origin:1px 17px;transition:transform .45s cubic-bezier(.3,.7,.2,1),color .3s}
+  .doubt{grid-column:2;margin-top:6px;color:var(--ink-soft);font-size:15.5px;font-style:italic;font-weight:500}
+  .toggle{grid-column:2;display:none}
+  .body{padding:12px 0 22px calc(30px + 12px)}
+  .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px}
+  .discussion p{max-width:58ch}
+  .discussion strong{font-weight:600;background:linear-gradient(transparent 62%, var(--taupe-soft) 62%)}
+  .action{margin-top:16px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:start;padding:12px 14px;border:1px solid var(--line-2);border-radius:3px;background:rgba(231,222,213,.28)}
+  .action p{font-size:15px}
+  .owner{font-family:var(--mono);font-size:11.5px;color:var(--taupe-deep);letter-spacing:0.04em;margin-top:4px;display:block}
+  .tick{display:grid;justify-items:center;gap:3px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;padding:2px}
+  .tick input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+  .box{width:30px;height:30px;border:1.5px solid var(--jet);border-radius:2px;display:grid;place-items:center;background:var(--card);transform:rotate(-1.5deg)}
+  .box svg{width:30px;height:30px;overflow:visible}
+  .box path{fill:none;stroke:var(--jet);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:44;stroke-dashoffset:44;transition:stroke-dashoffset .35s ease-out}
+  .tick input:checked + .box path{stroke-dashoffset:0}
+  .tick input:focus-visible + .box{outline:2px solid var(--taupe);outline-offset:3px}
+  .tick small{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .item:has(.tick input:checked) .flag{transform:rotate(-74deg);color:var(--ink-faint)}
+  .status{margin-top:14px;display:flex;align-items:center;gap:12px}
+  .status .lbl{margin:0}
+  .stamp{display:inline-block;font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--jet-2);
+    padding:5px 10px 4px;border:2px solid currentColor;outline:1px solid currentColor;outline-offset:2px;border-radius:2px;transform:rotate(-4deg);opacity:.82}
+  .stamp.open{color:var(--taupe-deep)}
+  .stamp.s-agreed{display:none}
+  .item:has(.tick input:checked) .stamp.s-pending{display:none}
+  .item:has(.tick input:checked) .stamp.s-agreed{display:inline-block;animation:press .32s cubic-bezier(.2,.9,.3,1.2) both}
+  .note{margin-top:14px;font-style:italic;font-weight:500;font-size:14.5px;color:var(--taupe-deep);border-left:2px solid var(--stitch);padding-left:10px}
+  .note .lbl{font-style:normal;color:var(--taupe)}
+  @media (min-width:1080px){
+    .note{position:absolute;right:-232px;top:20px;width:176px;border-left:0;padding-left:0;transform:rotate(-2deg);font-size:15px;line-height:1.4}
+    .note::before{content:"";position:absolute;left:-46px;top:12px;width:34px;border-top:1.5px solid var(--stitch);transform:rotate(8deg)}
+  }
+  .item.aob .item-head h2{color:var(--jet-2)}
+  .aob .marker .dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--taupe);margin:4px 0 0 2px}
+
+  /* JS: items collapse, one open at a time */
+  .js .item-head{cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .js .toggle{display:inline-flex;align-items:center;gap:6px;margin:10px 0 2px;padding:0;background:none;border:0;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep);cursor:pointer}
+  .js .toggle::after{content:"+";font-size:14px;line-height:1}
+  .js .item.is-open .toggle::after{content:"\2013"}
+  .js .toggle:focus-visible{outline:2px solid var(--taupe);outline-offset:4px;border-radius:2px}
+  .js .body-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.3,.7,.2,1)}
+  .js .body-wrap > .body{overflow:hidden;min-height:0;padding-top:0;padding-bottom:0;visibility:hidden;transition:padding .4s,visibility 0s linear .4s}
+  .js .item.is-open .body-wrap{grid-template-rows:1fr}
+  .js .item.is-open .body-wrap > .body{padding-top:12px;padding-bottom:22px;visibility:visible;transition:padding .4s,visibility 0s}
+  .js .item.is-open .note{overflow:visible}
+  .js .item.is-open .body{overflow:visible}
+  .js .item.is-open .stamp{animation:press .32s cubic-bezier(.2,.9,.3,1.2) .28s both}
+  @keyframes press{from{transform:rotate(-4deg) scale(1.5);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:.82}}
+  @media (hover:hover){ .js .item-head:hover h2{color:var(--taupe-deep)} .js .item-head:hover .toggle{color:var(--jet)} }
+
+  .close{margin-top:24px;display:grid;gap:6px;font-size:15px}
+  .close p{max-width:60ch}
+  .close a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+  .tally{display:none;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+  .js .tally{display:block}
+  .confirm{margin-top:34px;padding-top:18px;border-top:2px solid var(--jet)}
+  .confirm > p{font-weight:600}
+  .sigs{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:30px}
+  @media (max-width:520px){ .sigs{grid-template-columns:1fr;gap:26px} }
+  .sig{position:relative}
+  .sig .line{height:40px;border-bottom:1px solid var(--jet);position:relative}
+  .sig .who{font-size:14px;margin-top:6px}
+  .sig .who span{display:block;color:var(--ink-soft);font-size:13px}
+  .initials{position:absolute;left:4px;bottom:4px;font-family:var(--display);font-weight:800;font-style:italic;font-size:26px;color:var(--jet-2);letter-spacing:-0.02em;transform:rotate(-6deg);opacity:.85}
+  .sig .stamp{position:absolute;left:6px;bottom:6px;font-size:11px;opacity:0;transition:opacity .3s}
+  .sheet.all-agreed .sig .stamp{opacity:.82;animation:press .32s cubic-bezier(.2,.9,.3,1.2) both}
+  .pagefoot{margin-top:30px;display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+
+  footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+  footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
+  footer .who span{color:var(--ink-soft);font-size:14.5px}
+  footer .contact{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);display:grid;gap:2px;user-select:text}
+  footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important}
+  }
+  @media print{ .hint,.tally,.toggle{display:none !important} .js .body-wrap{grid-template-rows:1fr} .js .body-wrap > .body{visibility:visible;padding-top:12px;padding-bottom:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Workshop AI &middot; For Moir Group</div>
+    <h1>Six red flags, <em>minuted.</em></h1>
+    <p class="lede">The doubts I’d have in your seat, and my answers, written up the way I like minutes written. Every item has an action.</p>
+  </header>
+
+  <p class="hint" id="hint">Open an item to read the minute. Tick the action if you’re satisfied.</p>
+
+  <section class="sheet-wrap" id="minutes" aria-label="Minutes">
+    <div class="sheet" id="sheet">
+      <div class="doc-top"><span>Minutes</span><span>Workshop AI</span></div>
+      <p class="doc-title">Hiring decision: Business Operations &amp; AI Enablement Project Manager</p>
+      <dl class="meta">
+        <dt>Date</dt><dd>October 2026</dd>
+        <dt>Venue</dt><dd>Online, for now</dd>
+        <dt>Present</dt><dd>You (chair); Justin Watts, Workshop AI</dd>
+        <dt>Apologies</dt><dd>Microsoft Dynamics 365 <span class="aside">(not yet introduced; see item 5)</span></dd>
+        <dt>Papers</dt><dd>Cover letter; capability statement <span class="aside">(tabled)</span></dd>
+        <dt>Minutes</dt><dd>J.W.</dd>
+        <dt>Circulation</dt><dd>Kelly-Ann Arthur, Moir Group, and your client</dd>
+      </dl>
+
+      <h2 class="rule-label">Items for discussion</h2>
+      <ol class="items" id="items">
+        <li class="item" id="item-1" data-item="1">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><svg class="flag" viewBox="0 0 16 18"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span class="no">1.</span></div>
+            <div><h2>Complexity for its own sake</h2><p class="doubt">“An AI specialist will want AI in everything.”</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>Often my job is telling people where not to use AI. For an ongoing construction client I mapped ten steps from invoice to payment before building anything, and found the real gap: month end caught missing invoices, not wrong ones. <strong>Sometimes it’s a shared folder and a better meeting template.</strong></p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>I’ll find out what the office is trying to do and what each process costs today, then agree with you what to build, if anything.</p><span class="owner">Owner: JW</span></div>
+              <label class="tick"><input type="checkbox" aria-label="Item 1 action agreed" /><span class="box"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 16.5l5 5.5L24 8"/></svg></span><small>Agreed</small></label></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp s-pending">Answered</span><span class="stamp s-agreed">Agreed</span></div>
+          </div></div>
+        </li>
+
+        <li class="item" id="item-2" data-item="2">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><svg class="flag" viewBox="0 0 16 18"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span class="no">2.</span></div>
+            <div><h2>One person, or a firm?</h2><p class="doubt">“This is from a consultancy. We’re hiring one person.”</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>You’d be hiring me: on site in the CBD three days a week with your Chief of Staff. Workshop AI is a small consultancy I started this year, and an engineer adds build capacity when it’s needed. <strong>I do the work myself, and I keep building between visits.</strong></p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>I’ll agree the three on-site days with the Chief of Staff in week one, and how you reach me between them.</p><span class="owner">Owner: JW</span></div>
+              <label class="tick"><input type="checkbox" aria-label="Item 2 action agreed" /><span class="box"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 16.5l5 5.5L24 8"/></svg></span><small>Agreed</small></label></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp s-pending">Answered</span><span class="stamp s-agreed">Agreed</span></div>
+          </div></div>
+        </li>
+
+        <li class="item" id="item-3" data-item="3">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><svg class="flag" viewBox="0 0 16 18"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span class="no">3.</span></div>
+            <div><h2>Never worked in a family office</h2><p class="doubt">“You’ve never worked in a family office.”</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>True. A family office would be new to me, and so would investment workflows. So I’d map them first. At Everyone Eats I raised about $25,000 to fund 96,000 meals by backing the best-placed partner, Hunger Free World, rather than building our own. <strong>Map first, then back what already works.</strong></p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>I’ll map the office’s investment, advisory and project work as it runs today, before proposing any change.</p><span class="owner">Owner: JW</span></div>
+              <label class="tick"><input type="checkbox" aria-label="Item 3 action agreed" /><span class="box"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 16.5l5 5.5L24 8"/></svg></span><small>Agreed</small></label></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp s-pending">Answered</span><span class="stamp s-agreed">Agreed</span></div>
+          </div></div>
+        </li>
+
+        <li class="item" id="item-4" data-item="4">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><svg class="flag" viewBox="0 0 16 18"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span class="no">4.</span></div>
+            <div><h2>Minutes and governance</h2><p class="doubt">“The ad wants AI for minutes, actions and governance. Has he built that?”</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>Not for a client yet. I’ve chaired a nine-member governing body for eight years, and Mattick Air’s owner told me my write-ups were too long: he wanted a shared folder and a short list of what’s needed from him, by when. Fair. <strong>This page is how I’d write them now.</strong></p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>I’ll agree one meeting format with the Chief of Staff: decisions, and short actions with owners and dates. Then I’ll automate the parts worth automating.</p><span class="owner">Owner: JW</span></div>
+              <label class="tick"><input type="checkbox" aria-label="Item 4 action agreed" /><span class="box"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 16.5l5 5.5L24 8"/></svg></span><small>Agreed</small></label></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp open s-pending">In part</span><span class="stamp s-agreed">Agreed</span></div>
+          </div></div>
+        </li>
+
+        <li class="item" id="item-5" data-item="5">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><svg class="flag" viewBox="0 0 16 18"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span class="no">5.</span></div>
+            <div><h2>Dynamics 365</h2><p class="doubt">“He hasn’t used Dynamics 365.”</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>Correct, I haven’t. I’ve run CRMs for years, Salesforce and HubSpot included, so <strong>learning one more isn’t a worry.</strong> I work in whatever a client already runs, from SimPro to Microsoft 365. I’d start with how yours is set up today and what it connects to.</p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>I’ll map how Dynamics 365 is set up now and what it connects to, before suggesting any change to it.</p><span class="owner">Owner: JW</span></div>
+              <label class="tick"><input type="checkbox" aria-label="Item 5 action agreed" /><span class="box"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 16.5l5 5.5L24 8"/></svg></span><small>Agreed</small></label></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp open s-pending">Open</span><span class="stamp s-agreed">Agreed</span></div>
+            <p class="note"><span class="lbl">Margin note</span>Better raised here than found in week three.</p>
+          </div></div>
+        </li>
+
+        <li class="item" id="item-6" data-item="6">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><svg class="flag" viewBox="0 0 16 18"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span class="no">6.</span></div>
+            <div><h2>After month six</h2><p class="doubt">“What happens when the contract ends? Will we depend on him?”</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>The real test is whether the team can run it without me once I’ve gone, so people get trained on their own work, not on the tool. <strong>Every build ships with a setup guide, a handover note and a log.</strong> The construction client’s SharePoint index agent is in handover now.</p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>With you, I’ll name an owner in the office for every tool, then hand each one over myself with that paperwork.</p><span class="owner">Owner: JW</span></div>
+              <label class="tick"><input type="checkbox" aria-label="Item 6 action agreed" /><span class="box"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 16.5l5 5.5L24 8"/></svg></span><small>Agreed</small></label></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp s-pending">Answered</span><span class="stamp s-agreed">Agreed</span></div>
+          </div></div>
+        </li>
+
+        <li class="item aob" id="item-7" data-item="7">
+          <div class="item-head">
+            <div class="marker" aria-hidden="true"><span class="dot"></span><span class="no">7.</span></div>
+            <div><h2>Any other business</h2><p class="doubt">Not a red flag. The next step.</p></div>
+          </div>
+          <div class="body-wrap"><div class="body">
+            <div class="discussion"><span class="lbl">Discussion</span>
+              <p>An office that’s still setting up its systems is a rare chance to get it right the first time, rather than untangling it later. The capability statement has the detail, duty by duty. <strong>I’d love to have a chat about working together.</strong></p></div>
+            <div class="action"><div><span class="lbl">Action</span><p>Decide whether it’s worth a conversation. I’m on <a href="tel:+61431254769">0431 254 769</a>.</p><span class="owner">Owner: You</span></div></div>
+            <div class="status"><span class="lbl">Status</span><span class="stamp open">With you</span></div>
+          </div></div>
+        </li>
+      </ol>
+
+      <div class="close">
+        <p><span class="lbl">Next meeting</span>Whenever suits you. <a href="tel:+61431254769">0431 254 769</a> or <a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a>.</p>
+        <p class="tally" id="tally" aria-live="polite">Actions agreed: 0 of 6</p>
+      </div>
+
+      <div class="confirm">
+        <p>Confirmed as a true and accurate record.</p>
+        <div class="sigs">
+          <div class="sig"><div class="line"><span class="initials" aria-hidden="true">JW</span></div><div class="who">Justin Watts<span>Director, Workshop AI &middot; minute-taker</span></div></div>
+          <div class="sig"><div class="line"><span class="stamp" aria-hidden="true">Agreed</span></div><div class="who">Chair<span>That’s you</span></div></div>
+        </div>
+      </div>
+      <div class="pagefoot"><span>Minutes: JW</span><span>Page 1 of 1</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>Thanks for reading.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  var items=[].slice.call(document.querySelectorAll('.item'));
+  var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var opened={};
+
+  items.forEach(function(it){
+    var n=it.getAttribute('data-item'), head=it.querySelector('.item-head'), body=it.querySelector('.body-wrap');
+    body.id='item-'+n+'-body';
+    var btn=document.createElement('button');
+    btn.type='button'; btn.className='toggle';
+    btn.setAttribute('aria-controls', body.id); btn.setAttribute('aria-expanded','false');
+    btn.textContent='Read the minute';
+    head.lastElementChild.appendChild(btn);
+    body.setAttribute('inert','');
+    head.addEventListener('click', function(e){
+      if(e.target.closest('a')) return;
+      setOpen(it, !it.classList.contains('is-open'));
+    });
+  });
+
+  function setOpen(it, on){
+    items.forEach(function(o){
+      var want = (o===it) && on;
+      if(o.classList.contains('is-open')===want) return;
+      o.classList.toggle('is-open', want);
+      var b=o.querySelector('.toggle'), w=o.querySelector('.body-wrap');
+      b.setAttribute('aria-expanded', String(want));
+      b.textContent = want ? 'Close' : 'Read the minute';
+      if(want) w.removeAttribute('inert'); else w.setAttribute('inert','');
+    });
+    if(on){
+      var n=it.getAttribute('data-item');
+      if(!opened[n]){ opened[n]=1; track('minutes_item_open', {item:n}); }
+      setTimeout(function(){
+        var r=it.getBoundingClientRect();
+        if(r.top<0 || r.top>window.innerHeight*0.55){
+          try{ it.scrollIntoView({behavior: reduce?'auto':'smooth', block:'start'}); }catch(e){}
+        }
+      }, reduce?0:420);
+    }
+  }
+
+  var sheet=document.getElementById('sheet'), tally=document.getElementById('tally');
+  var boxes=[].slice.call(document.querySelectorAll('.tick input'));
+  var allDone=false;
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){
+      var n=boxes.filter(function(x){return x.checked}).length;
+      tally.textContent='Actions agreed: '+n+' of '+boxes.length;
+      if(b.checked) track('minutes_action_agreed', {item:b.closest('.item').getAttribute('data-item')});
+      var done = n===boxes.length;
+      sheet.classList.toggle('all-agreed', done);
+      if(done && !allDone) track('minutes_all_agreed');
+      allDone=done;
+    });
+  });
+})();
+</script>
+</body>
+</html>
