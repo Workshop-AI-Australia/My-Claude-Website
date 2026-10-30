@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, with tests | Sharp &amp; Carter | Workshop AI</title>
+<meta name="description" content="For Sharp &amp; Carter: the doubts I&rsquo;d have about my Senior Business Analyst, AI application, each written up like a requirement: the concern, my answer, and how you&rsquo;d test it." />
+<meta property="og:title" content="Six red flags, with tests" />
+<meta property="og:description" content="The doubts I&rsquo;d have in your seat, each written up like a requirement: the concern, my answer, and how you&rsquo;d test it." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<script>document.documentElement.className+=" js";</script>
+<style>
+  /* One requirements sheet on white smoke: each red flag is a requirement with a concern, my answer and an acceptance test.
+     Without JS every test shows as run and passed. JS resets them to "Not run" so the reader runs each one. Quiet red only on the flag markers. */
+  :root{
+    --smoke:#F2F4F3; --card:#FBFBFA; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#8A7460; --taupe-soft:#E7DED5; --stitch:#C9B49F;
+    --ink-soft:#5A6670; --ink-faint:#8C969D; --line:rgba(34,51,59,0.12); --line-2:rgba(34,51,59,0.22);
+    --flag:#A4493C;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --pad:clamp(16px,4.4vw,44px);
+    --ease:cubic-bezier(.3,.7,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--smoke)}
+  body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;margin:0;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));overflow-x:hidden}
+  *{box-sizing:border-box}
+  .wrap{max-width:960px;margin:0 auto}
+  .narrow{max-width:760px}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+  q{quotes:"\201C" "\201D"}
+  button{font:inherit;color:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+  header{padding-block:44px 8px;display:grid;gap:12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe)}
+  .lede{font-size:17px;color:var(--ink-soft);max-width:60ch}
+
+  /* The script */
+  .script{margin:36px 0 56px;position:relative}
+  .script::before{content:"";position:absolute;inset:7px -5px -7px 5px;background:#F6F5F1;border:1px solid var(--line);border-radius:3px}
+  .sheet{position:relative;background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(34,51,59,.06),0 18px 40px -24px rgba(34,51,59,.28)}
+  .bar{display:flex;justify-content:space-between;gap:12px;background:var(--jet);color:#E9ECEB;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:11px var(--pad)}
+  .bar span:last-child{color:var(--stitch)}
+  .inner{padding:22px var(--pad) var(--pad)}
+  .doc-title{font-family:var(--display);font-weight:800;font-size:clamp(20px,3.4vw,26px);line-height:1.15;letter-spacing:-0.005em}
+  .meta{display:grid;grid-template-columns:max-content 1fr max-content 1fr;gap:6px 18px;margin:18px 0 0;font-size:15px}
+  .meta dt{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);padding-top:4px}
+  .meta dd{margin:0}
+  .meta .aside{color:var(--ink-soft)}
+  @media (max-width:760px){ .meta{grid-template-columns:max-content 1fr} }
+  @media (max-width:420px){ .meta{grid-template-columns:1fr;gap:0} .meta dd{margin-bottom:8px} }
+
+  /* Run summary */
+  .runbar{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:12px 14px;border:1px solid var(--line-2);border-radius:3px;background:rgba(231,222,213,.28)}
+  .cells{display:flex;gap:4px}
+  .cell{width:18px;height:18px;border-radius:2px;border:1.5px solid var(--jet);background:var(--jet);transition:background .35s,border-color .35s}
+  .js .cell:not(.on){background:transparent;border-color:var(--line-2)}
+  .summary{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;color:var(--jet-2);flex:1 1 180px}
+  .runall{display:none}
+  .js .runall{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--jet);border-radius:2px;background:var(--jet);color:var(--card);font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+  .runall:disabled{opacity:.45;cursor:default}
+  .runall:focus-visible,.runbtn:focus-visible,.crbtn:focus-visible{outline:2px solid var(--taupe);outline-offset:3px}
+  @media (hover:hover){ .js .runall:not(:disabled):hover{background:var(--card);color:var(--jet)} }
+
+  /* Table */
+  .cols,.tc-row{display:grid;grid-template-columns:88px minmax(0,1.25fr) minmax(0,1fr) 128px;column-gap:20px}
+  .cols{margin-top:26px;padding-bottom:8px;border-bottom:2px solid var(--jet);font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .cols span:last-child{text-align:right}
+  ol.cases{list-style:none;margin:0;padding:0}
+  .tc{position:relative;border-bottom:1px solid var(--line)}
+  .tc-row{padding:18px 0 16px;align-items:start}
+  .c-id{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--jet-2);padding-top:2px;white-space:nowrap}
+  .flag{width:14px;height:16px;color:var(--flag);flex:none;transform-origin:1px 15px;transition:transform .5s var(--ease),color .3s}
+  .c-case h2{font-size:18px;font-weight:800;line-height:1.25}
+  .doubt{margin-top:6px;color:var(--ink-soft);font-size:15.5px;font-style:italic;font-weight:500}
+  .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px}
+  .c-trace .lbl{display:none}
+  .c-trace q{display:block;font-size:13.5px;line-height:1.5;color:var(--jet-2);border-left:2px solid var(--stitch);padding-left:10px}
+  .c-res{display:grid;justify-items:end;gap:10px}
+  .pill{display:inline-block;font-family:var(--display);font-weight:900;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 9px 4px;border:2px solid currentColor;border-radius:2px;white-space:nowrap;color:var(--jet-2)}
+  .pill.notrun{display:none;color:var(--ink-faint);border-width:1.5px;border-style:dashed;font-weight:800}
+  .js .tc:not(.run) .pill.notrun{display:inline-block}
+  .js .tc:not(.run) .pill.pass{display:none}
+  .js .tc.run .pill.pass{animation:press .34s cubic-bezier(.2,.9,.3,1.15) both}
+  .tc.run .flag,html:not(.js) .flag{transform:rotate(-74deg);color:var(--ink-faint)}
+  .runbtn{display:none}
+  .js .runbtn{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1.5px solid var(--jet);border-radius:2px;background:var(--card);font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+  .runbtn .tri{width:0;height:0;border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+  .js .tc.run .runbtn{border-color:var(--line-2);color:var(--taupe-deep)}
+  .js .tc.run .runbtn .tri{display:none}
+  @media (hover:hover){ .js .runbtn:hover{background:var(--jet);color:var(--card)} .js .tc.run .runbtn:hover{background:var(--card);color:var(--jet);border-color:var(--jet)} }
+
+  /* Result panel */
+  .tc-body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px 24px;margin:0 0 20px 108px;padding:14px 16px;border:1px solid var(--line-2);border-radius:3px;background:rgba(231,222,213,.22)}
+  .gwt{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 10px;font-size:14px;line-height:1.5;color:var(--jet-2)}
+  .gwt dt{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep);padding-top:3px}
+  .gwt dd{margin:0}
+  .gwt .then{position:relative;padding-right:22px}
+  .tick{position:absolute;right:0;top:2px;width:15px;height:15px;color:var(--jet)}
+  .tick path{stroke-dasharray:20;stroke-dashoffset:0}
+  .js .tc:not(.run) .tick path{stroke-dashoffset:20}
+  .js .tc.run .tick path{transition:stroke-dashoffset .45s var(--ease) .35s}
+  .test{border-left:1px solid var(--line-2);padding-left:18px}
+  @media (max-width:760px){ .test{border-left:0;padding-left:0;border-top:1px dashed var(--line-2);padding-top:12px} }
+  .act p{max-width:60ch}
+  .act strong{font-weight:600;background:linear-gradient(transparent 62%, var(--taupe-soft) 62%)}
+  .js .tc-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .js .tc-wrap > .tc-body{overflow:hidden;min-height:0;visibility:hidden;margin-bottom:0;padding-block:0;border-color:transparent;transition:padding .5s var(--ease),margin .5s var(--ease),border-color .3s,visibility 0s linear .5s}
+  .js .tc.open .tc-wrap{grid-template-rows:1fr}
+  .js .tc.open .tc-wrap > .tc-body{visibility:visible;margin-bottom:20px;padding-block:14px;border-color:var(--line-2);transition:padding .5s var(--ease),margin .5s var(--ease),border-color .3s,visibility 0s}
+  .sweep{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--jet);transform:scaleX(0);transform-origin:left;opacity:0}
+  .tc.running .sweep{opacity:1;transform:scaleX(1);transition:transform .6s var(--ease)}
+  .tc.running .runbtn{pointer-events:none}
+
+  /* Change request slip */
+  .cr{position:relative;margin:34px 0 0;padding:20px 18px 18px;background:#F4EEE7;border:1px solid rgba(138,116,96,.35);border-radius:2px;transform:rotate(-.4deg);box-shadow:0 10px 24px -18px rgba(34,51,59,.35)}
+  .cr::before{content:"";position:absolute;top:-6px;left:28px;width:34px;height:10px;border:1.5px solid #9AA3A8;border-bottom:0;border-radius:2px 2px 0 0}
+  .cr-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 12px;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep);padding-bottom:10px;border-bottom:1px dashed rgba(138,116,96,.5)}
+  .cr h2{font-size:19px;font-weight:800;margin-top:12px}
+  .cr .doubt{font-style:normal}
+  .cr q{display:block;margin-top:12px;font-size:13.5px;color:var(--jet-2);border-left:2px solid var(--taupe);padding-left:10px}
+  .cr .act{margin-top:14px}
+  .crbtn{display:none}
+  .js .crbtn{display:inline-flex;margin-top:14px;padding:7px 12px;border:1.5px solid var(--taupe-deep);border-radius:2px;background:transparent;color:var(--taupe-deep);font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer}
+  .js .cr .cr-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .js .cr .cr-wrap > div{overflow:hidden;min-height:0;visibility:hidden;transition:visibility 0s linear .5s}
+  .js .cr.open .cr-wrap{grid-template-rows:1fr}
+  .js .cr.open .cr-wrap > div{visibility:visible;transition:visibility 0s}
+  @media (hover:hover){ .js .crbtn:hover{background:var(--taupe-deep);color:var(--card)} }
+
+  /* Sign-off */
+  .signoff{margin-top:34px;padding-top:18px;border-top:2px solid var(--jet);display:grid;gap:8px}
+  .signoff > p{max-width:62ch}
+  .signoff a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+  .sigs{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:22px}
+  @media (max-width:520px){ .sigs{grid-template-columns:1fr;gap:24px} }
+  .sig .line{height:40px;border-bottom:1px solid var(--jet);position:relative}
+  .sig .who{font-size:14px;margin-top:6px}
+  .sig .who span{display:block;color:var(--ink-soft);font-size:13px}
+  .initials{position:absolute;left:4px;bottom:4px;font-family:var(--display);font-weight:800;font-style:italic;font-size:26px;color:var(--jet-2);transform:rotate(-6deg);opacity:.85}
+  .ready{position:absolute;left:4px;bottom:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep)}
+  .js .ready{opacity:0;transition:opacity .4s}
+  .js .sheet.all-run .ready{opacity:1}
+  .pagefoot{margin-top:26px;display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+
+  @keyframes press{from{transform:scale(1.45);opacity:0}to{transform:scale(1);opacity:1}}
+
+  /* Narrow: each test case becomes a card */
+  @media (max-width:760px){
+    .cols{display:none}
+    .tc-row{grid-template-columns:1fr auto;grid-template-areas:"id res" "case case" "trace trace";row-gap:8px;padding:18px 0 14px}
+    .c-id{grid-area:id}
+    .c-res{grid-area:res;grid-auto-flow:column;align-items:center;gap:10px}
+    .c-case{grid-area:case}
+    .c-trace{grid-area:trace;margin-top:4px}
+    .c-trace .lbl{display:block}
+    .tc-body{grid-template-columns:1fr;margin-left:0}
+  }
+  @media (max-width:380px){
+    .c-res{grid-auto-flow:row;justify-items:end;gap:8px}
+    .bar{font-size:10px;letter-spacing:0.1em}
+  }
+
+  .hint{display:none;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin:34px 0 -18px;text-align:center}
+  .js .hint{display:block}
+
+  footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+  footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
+  footer .who span{color:var(--ink-soft);font-size:14.5px}
+  footer .contact{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);display:grid;gap:2px;user-select:text}
+  footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important}
+  }
+  @media print{
+    .hint,.runall,.runbtn,.crbtn{display:none !important}
+    .js .tc-wrap,.js .cr .cr-wrap{grid-template-rows:1fr}
+    .js .tc-wrap > .tc-body,.js .cr .cr-wrap > div{visibility:visible}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="narrow">
+    <div class="eyebrow">Workshop AI &middot; For Sharp &amp; Carter</div>
+    <h1>Six red flags, <em>with tests.</em></h1>
+    <p class="lede">The doubts I’d have in your seat, each written up like a requirement: the concern, my answer, and how you’d test it.</p>
+  </header>
+
+  <p class="hint" id="hint">Run a test to see my answer, or run all six.</p>
+
+  <section class="script" id="script" aria-label="Requirements and tests">
+    <div class="sheet" id="sheet">
+      <div class="bar"><span>Requirements and tests &middot; v1.0</span><span>Workshop AI</span></div>
+      <div class="inner">
+        <p class="doc-title">Hiring decision: Senior Business Analyst, AI</p>
+        <dl class="meta">
+          <dt>Prepared for</dt><dd>Sharp &amp; Carter, and your client’s Data &amp; Digital team</dd>
+          <dt>Term</dt><dd>12-month fixed-term contract</dd>
+          <dt>Under test</dt><dd>Justin Watts, Workshop AI</dd>
+          <dt>Tester</dt><dd>You</dd>
+          <dt>Test basis</dt><dd>Your ad <span class="aside">(quoted in each requirement)</span></dd>
+          <dt>Papers</dt><dd>Cover letter; capability statement</dd>
+        </dl>
+
+        <div class="runbar">
+          <span class="cells" id="cells" aria-hidden="true"><span class="cell" data-n="01"></span><span class="cell" data-n="02"></span><span class="cell" data-n="03"></span><span class="cell" data-n="04"></span><span class="cell" data-n="05"></span><span class="cell" data-n="06"></span></span>
+          <span class="summary" id="summary" aria-live="polite">Run 6 of 6 &middot; 6 passed</span>
+          <button type="button" class="runall" id="runall">Run all six</button>
+        </div>
+
+        <div class="cols" aria-hidden="true"><span>ID</span><span>Concern</span><span>Traces to your ad</span><span>Result</span></div>
+        <ol class="cases" id="cases">
+        <li class="tc" id="rf-01" data-n="01" data-result="pass">
+          <div class="tc-row">
+            <div class="c-id"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span>RF-01</span></div>
+            <div class="c-case"><h2>Never held a BA title</h2><p class="doubt">“He’s never been a Business Analyst. The ad asks for proven experience.”</p></div>
+            <div class="c-trace"><span class="lbl">Traces to your ad</span><q>Proven experience as a Business Analyst, with strong requirements gathering, process mapping and UAT capabilities.</q></div>
+            <div class="c-res"><span class="pill notrun" aria-hidden="true">Not run</span><span class="pill pass">Pass</span></div>
+          </div>
+          <div class="tc-wrap"><div class="tc-body">
+            <div class="act"><span class="lbl">My answer</span><p>True: I’ve never held a Business Analyst title. The work sits inside my roles. For an ongoing construction client I mapped ten steps from invoice to payment and agreed must-catch tests. For a logistics client I reviewed 34 sample manifests first. <strong>The BA work is there, under a different title.</strong></p></div>
+            <div class="test"><span class="lbl">How you’d test it</span><dl class="gwt"><dt>Given</dt><dd>the business analysis criterion in your ad.</dd><dt>When</dt><dd>you read “Your eight duties. My version.” in my capability statement.</dd><dt>Then</dt><dd class="then">each duty points to requirements, maps or tests I’ve already done.<svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></dd></dl></div>
+          </div></div>
+          <span class="sweep" aria-hidden="true"></span>
+        </li>
+        <li class="tc" id="rf-02" data-n="02" data-result="pass">
+          <div class="tc-row">
+            <div class="c-id"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span>RF-02</span></div>
+            <div class="c-case"><h2>Power Automate and Copilot</h2><p class="doubt">“The ad asks for Power Automate and Copilot. He builds in Claude.”</p></div>
+            <div class="c-trace"><span class="lbl">Traces to your ad</span><q>Strong working knowledge of Claude, including Claude Code, and Microsoft Power Platform, particularly Power Automate.</q></div>
+            <div class="c-res"><span class="pill notrun" aria-hidden="true">Not run</span><span class="pill pass">Pass</span></div>
+          </div>
+          <div class="tc-wrap"><div class="tc-body">
+            <div class="act"><span class="lbl">My answer</span><p>I work daily in Claude and Claude Code. I haven’t used Power Automate or the wider Power Platform, and Copilot is new too. I use Microsoft 365 with clients, and I’d learn the rest on your client’s own work. <strong>Power Automate is my honest gap, and my letter says so.</strong></p></div>
+            <div class="test"><span class="lbl">How you’d test it</span><dl class="gwt"><dt>Given</dt><dd>the Power Automate line in your ad.</dd><dt>When</dt><dd>you read my cover letter and capability statement.</dd><dt>Then</dt><dd class="then">the gap is named plainly, and no Power Platform experience is claimed.<svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></dd></dl></div>
+          </div></div>
+          <span class="sweep" aria-hidden="true"></span>
+        </li>
+        <li class="tc" id="rf-03" data-n="03" data-result="pass">
+          <div class="tc-row">
+            <div class="c-id"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span>RF-03</span></div>
+            <div class="c-case"><h2>A consultancy owner on contract</h2><p class="doubt">“He runs a consultancy. Will he stay the twelve months, or get pulled back to his own clients?”</p></div>
+            <div class="c-trace"><span class="lbl">Traces to your ad</span><q>12-month fixed term contract</q></div>
+            <div class="c-res"><span class="pill notrun" aria-hidden="true">Not run</span><span class="pill pass">Pass</span></div>
+          </div>
+          <div class="tc-wrap"><div class="tc-body">
+            <div class="act"><span class="lbl">My answer</span><p>I’m applying for the whole twelve months, as one point of contact for the contract. I do the discovery, requirements and testing myself. An engineer takes the deep code when a build needs more hands. <strong>I’d agree with your client up front how my time works, and keep to it.</strong></p></div>
+            <div class="test"><span class="lbl">How you’d test it</span><dl class="gwt"><dt>Given</dt><dd>a 12-month contract with one person in it.</dd><dt>When</dt><dd>you ask me how my time would work.</dd><dt>Then</dt><dd class="then">you get a clear answer before anything is signed.<svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></dd></dl></div>
+          </div></div>
+          <span class="sweep" aria-hidden="true"></span>
+        </li>
+        <li class="tc" id="rf-04" data-n="04" data-result="pass">
+          <div class="tc-row">
+            <div class="c-id"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span>RF-04</span></div>
+            <div class="c-case"><h2>Small clients, bigger organisation</h2><p class="doubt">“His clients are small businesses. This role is organisation-wide.”</p></div>
+            <div class="c-trace"><span class="lbl">Traces to your ad</span><q>driving AI adoption across the business</q></div>
+            <div class="c-res"><span class="pill notrun" aria-hidden="true">Not run</span><span class="pill pass">Pass</span></div>
+          </div>
+          <div class="tc-wrap"><div class="tc-body">
+            <div class="act"><span class="lbl">My answer</span><p>They are smaller. Before Workshop AI I spent twelve years at Ailo, a property management software company in Melbourne, from pre-revenue to $12 million in revenue and 350,000+ users. I led its company-wide Salesforce to HubSpot move. <strong>I’ve led change across a whole company, and in property.</strong></p></div>
+            <div class="test"><span class="lbl">How you’d test it</span><dl class="gwt"><dt>Given</dt><dd>change that has to land across a whole business.</dd><dt>When</dt><dd>you ask me about the Salesforce to HubSpot move.</dd><dt>Then</dt><dd class="then">I can take you through it, including the $50,000 a year it saved.<svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></dd></dl></div>
+          </div></div>
+          <span class="sweep" aria-hidden="true"></span>
+        </li>
+        <li class="tc" id="rf-05" data-n="05" data-result="pass">
+          <div class="tc-row">
+            <div class="c-id"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span>RF-05</span></div>
+            <div class="c-case"><h2>AI where it doesn’t belong</h2><p class="doubt">“An AI consultant will find a use for AI in everything. And is it safe?”</p></div>
+            <div class="c-trace"><span class="lbl">Traces to your ad</span><q>Assess proposed AI solutions and recommend appropriate approaches, including automation, integration or system development.</q></div>
+            <div class="c-res"><span class="pill notrun" aria-hidden="true">Not run</span><span class="pill pass">Pass</span></div>
+          </div>
+          <div class="tc-wrap"><div class="tc-body">
+            <div class="act"><span class="lbl">My answer</span><p>Every agent idea gets four questions. Is the input structured? Are the steps definable? Is the output checkable? What does a wrong answer cost? <strong>A clear no on any of the first three and I don’t build it.</strong> A logistics client got a pipeline with no AI at run time.</p></div>
+            <div class="test"><span class="lbl">How you’d test it</span><dl class="gwt"><dt>Given</dt><dd>any agent I propose for your client.</dd><dt>When</dt><dd>you look at what it can touch.</dd><dt>Then</dt><dd class="then">access is read-only by default and scoped, with a handover note on how to stop it.<svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></dd></dl></div>
+          </div></div>
+          <span class="sweep" aria-hidden="true"></span>
+        </li>
+        <li class="tc" id="rf-06" data-n="06" data-result="pass">
+          <div class="tc-row">
+            <div class="c-id"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg><span>RF-06</span></div>
+            <div class="c-case"><h2>No Workato</h2><p class="doubt">“Integration platforms are highly regarded. He hasn’t used Workato.”</p></div>
+            <div class="c-trace"><span class="lbl">Traces to your ad</span><q>Experience with Model Context Protocol (MCP), AI integrations or connectors. Exposure to Workato or similar integration platforms.</q></div>
+            <div class="c-res"><span class="pill notrun" aria-hidden="true">Not run</span><span class="pill pass">Pass</span></div>
+          </div>
+          <div class="tc-wrap"><div class="tc-body">
+            <div class="act"><span class="lbl">My answer</span><p>I haven’t used Workato, and I won’t claim it. The integrations I build are in code. I built the MCP connector that brings Mattick Air’s Simpro data into Claude, and a logistics client’s manifests now flow to dockets and billing. <strong>I’ve built integrations and connectors, just not on Workato.</strong></p></div>
+            <div class="test"><span class="lbl">How you’d test it</span><dl class="gwt"><dt>Given</dt><dd>the MCP and connectors line in your ad.</dd><dt>When</dt><dd>you ask me about the Mattick Air connector.</dd><dt>Then</dt><dd class="then">I can show you what it does and how the team uses it.<svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></dd></dl></div>
+          </div></div>
+          <span class="sweep" aria-hidden="true"></span>
+        </li>
+        </ol>
+
+        <aside class="cr" id="cr" aria-labelledby="cr-title">
+          <div class="cr-top"><span>CR-01 &middot; Change request</span><span>Scope addition</span></div>
+          <h2 id="cr-title">Plus one change request</h2>
+          <p class="doubt">Not a red flag. A small addition to scope.</p>
+          <div class="cr-wrap" id="cr-body"><div>
+            <q>Support AI adoption across the organisation through workshops, training and practical guidance.</q>
+            <div class="act"><span class="lbl">What comes with me</span><p>Workshops ready to run: “Five levels of AI”, “Setting up Claude properly” and “Agents: what to build and what to leave alone”. An engineer when a build needs more hands, and a handover note with every release. <strong>What’s built is your client’s by the time I hand it over.</strong></p></div>
+          </div></div>
+        </aside>
+
+        <div class="signoff">
+          <span class="lbl">Sign-off</span>
+          <p>The capability statement has the detail, duty by duty. I’d love to have a chat about working together: <a href="tel:+61431254769">0431 254 769</a> or <a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a>.</p>
+          <div class="sigs">
+            <div class="sig"><div class="line"><span class="initials" aria-hidden="true">JW</span></div><div class="who">Justin Watts<span>Director, Workshop AI</span></div></div>
+            <div class="sig"><div class="line"><span class="ready" id="ready">Ready for your sign-off</span></div><div class="who">Tester<span>That’s you</span></div></div>
+          </div>
+        </div>
+        <div class="pagefoot"><span>Prepared by: JW</span><span>Page 1 of 1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="narrow">
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>Thanks for reading.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cases = [].slice.call(document.querySelectorAll('.tc'));
+  var sheet = document.getElementById('sheet'), summary = document.getElementById('summary');
+  var runall = document.getElementById('runall'), allLogged = false;
+
+  function cell(n){ return document.querySelector('.cell[data-n="'+n+'"]'); }
+  function tally(){
+    var run = cases.filter(function(c){ return c.classList.contains('run'); });
+    summary.textContent = 'Run ' + run.length + ' of ' + cases.length + ' \u00b7 ' + run.length + ' passed';
+    var done = run.length === cases.length;
+    sheet.classList.toggle('all-run', done);
+    runall.disabled = done;
+    if(done && !allLogged){ allLogged = true; track('rf_all_run'); }
+  }
+  function setOpen(tc, on){
+    tc.classList.toggle('open', on);
+    var w = tc.querySelector('.tc-wrap'), b = tc.querySelector('.runbtn');
+    if(on) w.removeAttribute('inert'); else w.setAttribute('inert','');
+    b.setAttribute('aria-expanded', String(on));
+    if(tc.classList.contains('run')) b.lastChild.textContent = on ? 'Hide answer' : 'Show answer';
+  }
+  function runCase(tc, via, cb){
+    if(tc.classList.contains('run') || tc.classList.contains('running')) { if(cb) cb(); return; }
+    var n = tc.getAttribute('data-n');
+    tc.classList.add('running');
+    tc.querySelector('.runbtn').lastChild.textContent = 'Running';
+    setTimeout(function(){
+      tc.classList.remove('running'); tc.classList.add('run');
+      cell(n).classList.add('on');
+      setOpen(tc, true); tally();
+      track('rf_test_run', {test:n, via:via});
+      if(cb) cb();
+    }, reduce ? 0 : 650);
+  }
+
+  cases.forEach(function(tc){
+    var n = tc.getAttribute('data-n'), w = tc.querySelector('.tc-wrap'), res = tc.querySelector('.c-res');
+    w.id = 'rf-' + n + '-answer';
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'runbtn';
+    b.setAttribute('aria-controls', w.id); b.setAttribute('aria-expanded', 'false');
+    b.setAttribute('aria-label', 'Run the test for RF-' + n + ': ' + tc.querySelector('h2').textContent);
+    b.innerHTML = '<span class="tri" aria-hidden="true"></span>';
+    b.appendChild(document.createTextNode('Run test'));
+    res.appendChild(b);
+    w.setAttribute('inert','');
+    b.addEventListener('click', function(){
+      if(!tc.classList.contains('run')) runCase(tc, 'button');
+      else setOpen(tc, !tc.classList.contains('open'));
+    });
+  });
+  tally();
+
+  runall.addEventListener('click', function(){
+    track('rf_run_all');
+    var queue = cases.filter(function(c){ return !c.classList.contains('run'); });
+    (function next(){ var c = queue.shift(); if(c) runCase(c, 'run_all', function(){ setTimeout(next, reduce ? 0 : 140); }); })();
+  });
+
+  var cr = document.getElementById('cr'), crBody = document.getElementById('cr-body');
+  var crb = document.createElement('button');
+  crb.type = 'button'; crb.className = 'crbtn';
+  crb.setAttribute('aria-controls', 'cr-body'); crb.setAttribute('aria-expanded', 'false');
+  crb.textContent = 'Review the change';
+  cr.querySelector('.doubt').after(crb);
+  crBody.setAttribute('inert','');
+  crb.addEventListener('click', function(){
+    var on = !cr.classList.contains('open');
+    cr.classList.toggle('open', on);
+    crb.setAttribute('aria-expanded', String(on));
+    crb.textContent = on ? 'Close' : 'Review the change';
+    if(on){ crBody.removeAttribute('inert'); track('change_request_open'); } else crBody.setAttribute('inert','');
+  });
+})();
+</script>
+</body>
+</html>
