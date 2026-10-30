@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags | AGL | Workshop AI</title>
+<meta name="description" content="For AGL: the doubts I'd have about my AI Product &amp; Enablement Lead application, scored for likelihood and impact, each with its mitigation." />
+<meta property="og:title" content="Six red flags, risk-rated" />
+<meta property="og:description" content="For AGL: the doubts I'd have in your seat, scored the way I'd score an AI opportunity, each with its mitigation." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<script>document.documentElement.className = "js";</script>
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<style>
+  /* Layout: heading, then the instrument (heat map + reader), then the register. Workshop AI palette, light only.
+     Red is used for one thing: a flag that hasn't been mitigated yet. */
+  :root{
+    --smoke:#F2F4F3; --card:#FBFBFA; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#8A7460; --taupe-soft:#E7DED5;
+    --ink-soft:#5A6670; --ink-faint:#8C969D; --line:rgba(34,51,59,0.12);
+    --red:#B4473A;
+    --c-low:#E4E9E7; --c-med:#EEE6DC; --c-high:#E2D0BE; --c-ext:#D5AE9E;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --m:26px;
+    --ease:cubic-bezier(.45,0,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--smoke)}
+  body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));margin:0;padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0;overflow-x:hidden}
+  .wrap{max-width:880px;margin:0 auto}
+  *{box-sizing:border-box}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  header{padding-block:44px 8px;display:grid;gap:12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe)}
+  .lede{font-size:17px;color:var(--ink-soft);max-width:60ch}
+
+  .label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
+
+  /* Instrument: heat map + reader */
+  .stage{display:grid;gap:22px;padding-block:44px 8px;align-items:start}
+  @media (min-width:780px){ .stage{grid-template-columns:minmax(0,410px) minmax(0,1fr);gap:32px} }
+
+  .map{margin:0;display:grid;gap:12px}
+  .map-head{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px}
+  .seg{display:none;background:rgba(34,51,59,0.06);border-radius:999px;padding:3px;gap:2px}
+  .js .seg{display:inline-flex}
+  .seg button{all:unset;cursor:pointer;font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:7px 11px;border-radius:999px;color:var(--ink-soft);touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background .25s,color .25s}
+  .seg button[aria-pressed="true"]{background:var(--card);color:var(--jet);box-shadow:0 1px 3px rgba(34,51,59,0.18)}
+  .seg button:focus-visible{outline:2px solid var(--taupe);outline-offset:2px}
+
+  .chart{display:grid;grid-template-columns:22px 16px minmax(0,1fr);grid-template-rows:auto 16px 22px;column-gap:4px}
+  .ytitle{grid-column:1;grid-row:1;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .ytitle b,.xtitle b{font-weight:500;color:var(--jet)}
+  .yticks{grid-column:2;grid-row:1;display:grid;grid-template-rows:repeat(5,1fr);font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-align:right}
+  .yticks span,.xticks span{display:grid;place-items:center}
+  .xticks{grid-column:3;grid-row:2;display:grid;grid-template-columns:repeat(5,1fr);font-family:var(--mono);font-size:10px;color:var(--ink-faint);align-items:end}
+  .xtitle{grid-column:3;grid-row:3;display:flex;justify-content:space-between;align-items:end;font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .plot{scroll-margin-top:52px;grid-column:3;grid-row:1;position:relative;aspect-ratio:1/1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr)}
+  .cell{position:relative}
+  .cell::before{content:"";position:absolute;inset:1.5px;border-radius:6px;background:var(--bg)}
+  .cell span{position:absolute;top:6px;left:8px;font-family:var(--mono);font-size:9px;color:rgba(34,51,59,0.32);line-height:1}
+  .cell.b-low{--bg:var(--c-low)} .cell.b-med{--bg:var(--c-med)} .cell.b-high{--bg:var(--c-high)} .cell.b-ext{--bg:var(--c-ext)}
+
+  .layer{position:absolute;inset:0;pointer-events:none}
+  .layer svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .path{stroke:var(--jet);stroke-width:1.4;stroke-dasharray:3 4;fill:none;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .35s ease}
+  .path.on{opacity:.55;transition-delay:.45s}
+
+  .mk,.ghost{position:absolute;left:calc((var(--x) - 0.5) * 20% + var(--dx, 0px));bottom:calc((var(--y) - 0.5) * 20% - var(--dy, 0px));width:var(--m);height:var(--m);margin:calc(var(--m) / -2) 0 0 calc(var(--m) / -2);transform:translateY(50%);border-radius:50%}
+  .mk{pointer-events:auto;display:grid;place-items:center;text-decoration:none;cursor:pointer;
+    font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:0.02em;color:#fff;background:var(--red);
+    box-shadow:0 0 0 2px var(--card), 0 6px 12px -6px rgba(34,51,59,0.6);
+    transition:left .8s var(--ease), bottom .8s var(--ease), background-color .6s ease .2s, box-shadow .25s, transform .25s;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:3}
+  .mk.res{background:var(--jet)}
+  .mk[aria-pressed="true"]{box-shadow:0 0 0 2px var(--card), 0 0 0 4px var(--jet), 0 8px 16px -6px rgba(34,51,59,0.6);z-index:4}
+  .mk:focus-visible{outline:3px solid var(--taupe);outline-offset:4px}
+  @media (hover:hover){ .mk:hover{transform:translateY(50%) scale(1.1)} }
+  .ghost{border:1.5px dashed var(--red);opacity:0;transition:opacity .3s;z-index:2;display:grid;place-items:center;font-family:var(--mono);font-size:9.5px;color:var(--red)}
+  .ghost.on{opacity:.85}
+
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:var(--ink-soft);padding-left:42px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:11px;height:11px;border-radius:3px;background:var(--bg);display:inline-block}
+  .legend b{font-weight:500;color:var(--jet);min-width:1ch;display:inline-block;text-align:right}
+  .legend .b-low{--bg:var(--c-low)} .legend .b-med{--bg:var(--c-med)} .legend .b-high{--bg:var(--c-high)} .legend .b-ext{--bg:var(--c-ext)}
+  .legend .key-red i{background:var(--red);border-radius:50%} .legend .key-jet i{background:var(--jet);border-radius:50%}
+  .counts{display:none}
+  .js .counts{display:inline}
+  .hint{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);padding-left:42px;min-height:18px}
+
+  /* Reader */
+  .reader{display:grid;align-content:start}
+  .big{width:100%;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 24px 40px -22px rgba(34,51,59,0.45), 0 0 0 1px var(--line);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+  .big-top{background:var(--jet);padding:13px 18px;display:flex;align-items:center;gap:10px}
+  .big-top .dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}
+  .big-top .t{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe)}
+  .big-top .sc{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:rgba(242,244,243,0.7);white-space:nowrap}
+  .big-body{padding:18px 20px 22px;display:grid;gap:12px}
+  .big h2{font-size:clamp(20px,3.6vw,24px);font-weight:800;line-height:1.2}
+  .big p{color:var(--ink-soft);font-size:16.5px;max-width:58ch}
+  .big p strong{color:var(--jet);font-weight:600}
+  .big.intro .big-top .dot{background:var(--taupe)}
+  .big.opp .big-top{background:var(--taupe-deep)}
+  .big.opp .big-top .t{color:var(--smoke)}
+  .big.opp .big-top .dot{background:var(--smoke)}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  .mit{border-top:1px solid var(--line);padding-top:12px;font-size:15.5px!important}
+  .k{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);margin-bottom:3px}
+  .rating{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--smoke);border-radius:10px;padding:10px 12px}
+  .rt{display:grid;gap:3px}
+  .rt-k{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .rt-f{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft)}
+  .arrow{font-family:var(--mono);color:var(--ink-faint);font-size:14px}
+  .rating .arrow{align-self:center;margin-top:12px}
+  .note{font-size:14.5px!important;color:var(--ink-soft);font-style:italic}
+
+  .pill{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.04em;padding:3px 8px;border-radius:999px;color:var(--jet);white-space:nowrap;line-height:1.3}
+  .pill.b-low{background:var(--c-low)} .pill.b-med{background:var(--c-med)} .pill.b-high{background:var(--c-high)} .pill.b-ext{background:var(--c-ext);box-shadow:inset 0 0 0 1px rgba(180,71,58,0.35)}
+  .pill.b-up{background:var(--taupe-deep);color:var(--smoke)}
+
+  /* Register */
+  .register{padding-block:40px 36px;display:grid;gap:10px}
+  .reg-head{display:flex;justify-content:space-between;align-items:end;gap:12px;padding-inline:14px 14px}
+  .rows{display:grid;gap:8px}
+  .row{background:var(--card);border-radius:12px;box-shadow:0 0 0 1px var(--line);overflow:hidden;transition:box-shadow .25s}
+  .row summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 14px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .row summary::-webkit-details-marker{display:none}
+  .row summary:focus-visible{outline:3px solid var(--taupe);outline-offset:-3px;border-radius:12px}
+  @media (hover:hover){ .row:hover{box-shadow:0 0 0 1px rgba(34,51,59,0.28), 0 8px 18px -12px rgba(34,51,59,0.4)} }
+  .badge{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;color:#fff;background:var(--red);transition:background-color .6s ease}
+  .row.res .badge{background:var(--jet)}
+  .row.opp .badge{background:var(--taupe-deep);border-radius:7px;font-size:15px}
+  .rlabel{font-family:var(--display);font-weight:800;font-size:15.5px;line-height:1.2}
+  .rscore{display:flex;align-items:center;gap:6px}
+  .row.sel{box-shadow:0 0 0 2px var(--jet)}
+  .body{padding:0 16px 16px 52px}
+  .item{display:grid;gap:10px}
+  .item .doubt{font-family:var(--display);font-weight:800;font-size:18px;line-height:1.25}
+  .item .ans{color:var(--ink-soft)}
+  .item .ans strong{color:var(--jet);font-weight:600}
+  .js .row .body{display:none}
+  @media (max-width:520px){ .bw{display:none} .body{padding-left:16px} }
+
+  footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+  footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
+  footer .who span{color:var(--ink-soft);font-size:14.5px}
+  footer .contact{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);display:grid;gap:2px;user-select:text}
+  footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+
+  @media (max-width:520px){ :root{--m:22px;--dy:4px} .cell span{top:3px;left:4px;font-size:8px} .layer svg{transform:translateY(4px)} }
+  @media (max-width:400px){ :root{--m:20px;--dy:4px} .legend,.hint{padding-left:0} }
+  @media (prefers-reduced-motion: reduce){
+    .mk,.ghost,.path,.big,.badge,.row,.seg button{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Workshop AI &middot; For AGL</div>
+    <h1>Six red flags, <em>risk-rated.</em></h1>
+    <p class="lede">The doubts I'd have in your seat, scored the way I'd score an AI opportunity, each with its mitigation. Tap a flag to see where it lands. Don't skip the last row.</p>
+  </header>
+
+  <section class="stage" id="stage" aria-label="Heat map">
+    <figure class="map">
+      <div class="map-head">
+        <span class="label">Likelihood &times; impact</span>
+        <div class="seg" role="group" aria-label="Show ratings">
+          <button type="button" id="v-inh" aria-pressed="true">Inherent</button>
+          <button type="button" id="v-res" aria-pressed="false">Residual</button>
+        </div>
+      </div>
+      <div class="chart">
+        <div class="ytitle" aria-hidden="true"><span>Minimal</span><b>Impact</b><span>Severe</span></div>
+        <div class="yticks" aria-hidden="true"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+        <div class="plot" id="plot">
+          <div class="cell b-med" style="grid-column:1;grid-row:1"><span>5</span></div><div class="cell b-high" style="grid-column:2;grid-row:1"><span>10</span></div><div class="cell b-ext" style="grid-column:3;grid-row:1"><span>15</span></div><div class="cell b-ext" style="grid-column:4;grid-row:1"><span>20</span></div><div class="cell b-ext" style="grid-column:5;grid-row:1"><span>25</span></div><div class="cell b-low" style="grid-column:1;grid-row:2"><span>4</span></div><div class="cell b-med" style="grid-column:2;grid-row:2"><span>8</span></div><div class="cell b-high" style="grid-column:3;grid-row:2"><span>12</span></div><div class="cell b-ext" style="grid-column:4;grid-row:2"><span>16</span></div><div class="cell b-ext" style="grid-column:5;grid-row:2"><span>20</span></div><div class="cell b-low" style="grid-column:1;grid-row:3"><span>3</span></div><div class="cell b-med" style="grid-column:2;grid-row:3"><span>6</span></div><div class="cell b-med" style="grid-column:3;grid-row:3"><span>9</span></div><div class="cell b-high" style="grid-column:4;grid-row:3"><span>12</span></div><div class="cell b-ext" style="grid-column:5;grid-row:3"><span>15</span></div><div class="cell b-low" style="grid-column:1;grid-row:4"><span>2</span></div><div class="cell b-low" style="grid-column:2;grid-row:4"><span>4</span></div><div class="cell b-med" style="grid-column:3;grid-row:4"><span>6</span></div><div class="cell b-med" style="grid-column:4;grid-row:4"><span>8</span></div><div class="cell b-high" style="grid-column:5;grid-row:4"><span>10</span></div><div class="cell b-low" style="grid-column:1;grid-row:5"><span>1</span></div><div class="cell b-low" style="grid-column:2;grid-row:5"><span>2</span></div><div class="cell b-low" style="grid-column:3;grid-row:5"><span>3</span></div><div class="cell b-low" style="grid-column:4;grid-row:5"><span>4</span></div><div class="cell b-med" style="grid-column:5;grid-row:5"><span>5</span></div>
+          <div class="layer" id="layer">
+            <svg viewBox="0 0 5 5" preserveAspectRatio="none" aria-hidden="true"><line class="path" id="path" x1="0" y1="0" x2="0" y2="0" /></svg>
+            <span class="ghost" id="ghost" aria-hidden="true"></span>
+            <a class="mk" href="#rf-01" data-i="0" style="--x:3;--y:4" aria-label="Red flag 01: A consultancy pitch? Inherent 12, high. Residual 4, low.">01</a><a class="mk" href="#rf-02" data-i="1" style="--x:5;--y:3" aria-label="Red flag 02: New to energy valuation. Inherent 15, extreme. Residual 6, medium.">02</a><a class="mk" href="#rf-03" data-i="2" style="--x:4;--y:4" aria-label="Red flag 03: Our scale, not his. Inherent 16, extreme. Residual 6, medium.">03</a><a class="mk" href="#rf-04" data-i="3" style="--x:3;--y:3" aria-label="Red flag 04: AI everywhere? Inherent 9, medium. Residual 3, low.">04</a><a class="mk" href="#rf-05" data-i="4" style="--x:4;--y:3" aria-label="Red flag 05: Will it stick? Inherent 12, high. Residual 6, medium.">05</a><a class="mk" href="#rf-06" data-i="5" style="--x:2;--y:5" aria-label="Red flag 06: Safe in a business like ours? Inherent 10, high. Residual 4, low.">06</a>
+          </div>
+        </div>
+        <div class="xticks" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+        <div class="xtitle" aria-hidden="true"><span>Rare</span><b>Likelihood</b><span>Almost certain</span></div>
+      </div>
+      <figcaption class="legend">
+        <span class="b-low"><i></i>Low<b class="counts" id="c-low"></b></span>
+        <span class="b-med"><i></i>Medium<b class="counts" id="c-med"></b></span>
+        <span class="b-high"><i></i>High<b class="counts" id="c-high"></b></span>
+        <span class="b-ext"><i></i>Extreme<b class="counts" id="c-ext"></b></span>
+      </figcaption>
+      <div class="hint" id="hint" aria-live="polite"></div>
+    </figure>
+
+    <div class="reader" id="reader" aria-live="polite">
+      <article class="big intro">
+        <div class="big-top"><span class="dot"></span><span class="t">How it's scored</span></div>
+        <div class="big-body">
+          <h2>Likelihood times impact, before and after.</h2>
+          <p>Likelihood is how likely the doubt turns out to be right. Impact is what it would cost AGL if it did. Both are scored 1 to 5 and multiplied. <strong>Each flag shows where it starts, then where it lands after mitigation.</strong></p>
+          <p class="mit"><span class="k">Bands</span>Low 1 to 4 &middot; Medium 5 to 9 &middot; High 10 to 14 &middot; Extreme 15 to 25</p>
+          <p class="note">Read it with my letter and capability statement. Your AI pipeline would get the full set: value, effort, risk, data readiness and user maturity. Risk is the one that fits on a page about me.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="register" id="register" aria-label="Risk register">
+    <div class="reg-head"><span class="label">The register</span><span class="label">Inherent &rarr; residual</span></div>
+    <div class="rows">
+      <details class="row" id="rf-01" data-i="0" open><summary><span class="badge">01</span><span class="rlabel">A consultancy pitch?</span><span class="rscore"><span class="pill b-high">12<span class="bw"> High</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="pill b-low">4<span class="bw"> Low</span></span></span></summary><div class="body"><div class="item"><p class="doubt">"A consultancy he started this year? This reads like a pitch."</p><p class="ans">Workshop AI started this year, but I spent twelve years at Ailo in sales, growth and enablement first, shipping seven AI tools there. I'm happy to join as a 12-month fixed-term hire or on contract, whichever suits AGL. <strong>The role and the work are the same either way.</strong></p><p class="mit"><span class="k">Mitigation</span>I'm in the role for the twelve months, on site at Docklands as much as it needs, running the discovery, workshops and training myself. An engineer is there if the roadmap needs extra build capacity.</p><div class="rating"><span class="rt"><span class="rt-k">Inherent</span><span class="pill b-high">12 <span class="bw">High</span></span><span class="rt-f">L3 &times; I4</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="rt"><span class="rt-k">Residual</span><span class="pill b-low">4 <span class="bw">Low</span></span><span class="rt-f">L2 &times; I2</span></span></div><p class="note">Low. Hire or contract, your call.</p></div></div></details><details class="row" id="rf-02" data-i="1" open><summary><span class="badge">02</span><span class="rlabel">New to energy valuation</span><span class="rscore"><span class="pill b-ext">15<span class="bw"> Extreme</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="pill b-med">6<span class="bw"> Medium</span></span></span></summary><div class="body"><div class="item"><p class="doubt">"Portfolio valuation is new to him."</p><p class="ans">It is, and I won't pretend otherwise. I'd start the same way regardless: sit with the people doing the work and let them show me where it hurts. Nearest evidence is month-end finance controls for a multi-entity construction group. <strong>Your ad starts with interviews and observation, and so do I.</strong></p><p class="mit"><span class="k">Mitigation</span>Before I propose anything, I sit with the valuation team, map one workflow end to end and survey current AI use, the way I mapped a construction group's ten steps from invoice to payment.</p><div class="rating"><span class="rt"><span class="rt-k">Inherent</span><span class="pill b-ext">15 <span class="bw">Extreme</span></span><span class="rt-f">L5 &times; I3</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="rt"><span class="rt-k">Residual</span><span class="pill b-med">6 <span class="bw">Medium</span></span><span class="rt-f">L3 &times; I2</span></span></div><p class="note">Still medium. Discovery narrows the gap, but I will still be learning valuation in the early months.</p></div></div></details><details class="row" id="rf-03" data-i="2" open><summary><span class="badge">03</span><span class="rlabel">Our scale, not his</span><span class="rscore"><span class="pill b-ext">16<span class="bw"> Extreme</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="pill b-med">6<span class="bw"> Medium</span></span></span></summary><div class="body"><div class="item"><p class="doubt">"His clients have 10 to 30 staff. We have thousands."</p><p class="ans">They do, and an organisation the size of AGL is new to me. Nearest evidence: twelve years at Ailo, from pre-revenue to $12 million in annual revenue and 350,000+ users, including the company-wide Salesforce-to-HubSpot move I led. <strong>I'd start with one team, check it works, then roll it out.</strong></p><p class="mit"><span class="k">Mitigation</span>I start inside Portfolio Valuation, agree success measures with you up front, and leave reusable materials that other teams can pick up.</p><div class="rating"><span class="rt"><span class="rt-k">Inherent</span><span class="pill b-ext">16 <span class="bw">Extreme</span></span><span class="rt-f">L4 &times; I4</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="rt"><span class="rt-k">Residual</span><span class="pill b-med">6 <span class="bw">Medium</span></span><span class="rt-f">L2 &times; I3</span></span></div><p class="note">Medium until the first team's results are in.</p></div></div></details><details class="row" id="rf-04" data-i="3" open><summary><span class="badge">04</span><span class="rlabel">AI everywhere?</span><span class="rscore"><span class="pill b-med">9<span class="bw"> Medium</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="pill b-low">3<span class="bw"> Low</span></span></span></summary><div class="body"><div class="item"><p class="doubt">"An AI consultant will find a use for AI in everything."</p><p class="ans">Every build engagement opens with discovery that states plainly where technology won't help, and I put a number on a problem before anyone builds. Mapping a construction group's invoices showed month end was catching missing invoices, not wrong ones. <strong>Sometimes the answer is a better spreadsheet and a clearer process.</strong></p><p class="mit"><span class="k">Mitigation</span>I weigh each opportunity on your five factors before anything is built, and put every agent idea through four questions first. A clear no on any of the first three and I don't build it.</p><div class="rating"><span class="rt"><span class="rt-k">Inherent</span><span class="pill b-med">9 <span class="bw">Medium</span></span><span class="rt-f">L3 &times; I3</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="rt"><span class="rt-k">Residual</span><span class="pill b-low">3 <span class="bw">Low</span></span><span class="rt-f">L1 &times; I3</span></span></div><p class="note">Low. The scoring allows for a clear no before anything is built.</p></div></div></details><details class="row" id="rf-05" data-i="4" open><summary><span class="badge">05</span><span class="rlabel">Will it stick?</span><span class="rscore"><span class="pill b-high">12<span class="bw"> High</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="pill b-med">6<span class="bw"> Medium</span></span></span></summary><div class="body"><div class="item"><p class="doubt">"Training is easy to run. Will anyone still be using it in month six?"</p><p class="ans">Fair worry. At Mattick Air the group session didn't change how most people worked, so I switched to one-to-ones on each person's own work and tracked uptake person by person. <strong>At Ailo, an enablement platform I built averaged 83% monthly use across 19 users, none required to.</strong></p><p class="mit"><span class="k">Mitigation</span>I track uptake person by person, switch to one-to-ones on people's own work where group sessions don't land, and keep training until the tools are theirs.</p><div class="rating"><span class="rt"><span class="rt-k">Inherent</span><span class="pill b-high">12 <span class="bw">High</span></span><span class="rt-f">L4 &times; I3</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="rt"><span class="rt-k">Residual</span><span class="pill b-med">6 <span class="bw">Medium</span></span><span class="rt-f">L2 &times; I3</span></span></div><p class="note">Medium. Adoption needs ongoing follow-up, so I keep tracking it.</p></div></div></details><details class="row" id="rf-06" data-i="5" open><summary><span class="badge">06</span><span class="rlabel">Safe in a business like ours?</span><span class="rscore"><span class="pill b-high">10<span class="bw"> High</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="pill b-low">4<span class="bw"> Low</span></span></span></summary><div class="body"><div class="item"><p class="doubt">"We can't have AI making calls that nobody checked."</p><p class="ans">Agreed. Before any agent I ask what a wrong answer costs. Access is read-only by default and scoped: an ongoing construction client's index agent can write to one site only, and client data stays out of code and logs. <strong>High or hard to undo: it drafts, a person decides.</strong></p><p class="mit"><span class="k">Mitigation</span>I put four questions to every agent idea, keep access read-only by default, ship every change in a small, tested batch and check usage rules with a quiz. Inside AGL, your own privacy, cyber and risk review comes first.</p><div class="rating"><span class="rt"><span class="rt-k">Inherent</span><span class="pill b-high">10 <span class="bw">High</span></span><span class="rt-f">L2 &times; I5</span></span><span class="arrow" aria-hidden="true">&rarr;</span><span class="rt"><span class="rt-k">Residual</span><span class="pill b-low">4 <span class="bw">Low</span></span><span class="rt-f">L1 &times; I4</span></span></div><p class="note">Impact stays at 4. The controls make an error less likely but do not lower its cost.</p></div></div></details><details class="row opp" id="opportunity" data-i="opp" open><summary><span class="badge" aria-hidden="true">+</span><span class="rlabel">Plus one opportunity</span><span class="rscore"><span class="pill b-up">Upside</span></span></summary><div class="body"><div class="item"><p class="doubt">Registers track upside too.</p><p class="ans">Your ad says knowledge of AI orchestration, automation and agentic workflow development will be highly regarded. <strong>That's the work I lead and build:</strong> hosted, scheduled agents with run logs and watchdog alerts for a construction group, and an email-to-job agent with a custom connector for Mattick Air.</p><p class="mit"><span class="k">Comes with me</span>An engineer for extra build capacity when the roadmap needs it, so good ideas don't queue behind me.</p></div></div></details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>I hope we can have a chat.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var D = [{"short": "A consultancy pitch?", "q": "\"A consultancy he started this year? This reads like a pitch.\"", "a": "Workshop AI started this year, but I spent twelve years at Ailo in sales, growth and enablement first, shipping seven AI tools there. I'm happy to join as a 12-month fixed-term hire or on contract, whichever suits AGL. <strong>The role and the work are the same either way.<\/strong>", "mit": "I'm in the role for the twelve months, on site at Docklands as much as it needs, running the discovery, workshops and training myself. An engineer is there if the roadmap needs extra build capacity.", "note": "Low. Hire or contract, your call.", "inh": [3, 4], "res": [2, 2], "n": "01", "inh_s": 12, "inh_b": "high", "res_s": 4, "res_b": "low"}, {"short": "New to energy valuation", "q": "\"Portfolio valuation is new to him.\"", "a": "It is, and I won't pretend otherwise. I'd start the same way regardless: sit with the people doing the work and let them show me where it hurts. Nearest evidence is month-end finance controls for a multi-entity construction group. <strong>Your ad starts with interviews and observation, and so do I.<\/strong>", "mit": "Before I propose anything, I sit with the valuation team, map one workflow end to end and survey current AI use, the way I mapped a construction group's ten steps from invoice to payment.", "note": "Still medium. Discovery narrows the gap, but I will still be learning valuation in the early months.", "inh": [5, 3], "res": [3, 2], "n": "02", "inh_s": 15, "inh_b": "ext", "res_s": 6, "res_b": "med"}, {"short": "Our scale, not his", "q": "\"His clients have 10 to 30 staff. We have thousands.\"", "a": "They do, and an organisation the size of AGL is new to me. Nearest evidence: twelve years at Ailo, from pre-revenue to $12 million in annual revenue and 350,000+ users, including the company-wide Salesforce-to-HubSpot move I led. <strong>I'd start with one team, check it works, then roll it out.<\/strong>", "mit": "I start inside Portfolio Valuation, agree success measures with you up front, and leave reusable materials that other teams can pick up.", "note": "Medium until the first team's results are in.", "inh": [4, 4], "res": [2, 3], "n": "03", "inh_s": 16, "inh_b": "ext", "res_s": 6, "res_b": "med"}, {"short": "AI everywhere?", "q": "\"An AI consultant will find a use for AI in everything.\"", "a": "Every build engagement opens with discovery that states plainly where technology won't help, and I put a number on a problem before anyone builds. Mapping a construction group's invoices showed month end was catching missing invoices, not wrong ones. <strong>Sometimes the answer is a better spreadsheet and a clearer process.<\/strong>", "mit": "I weigh each opportunity on your five factors before anything is built, and put every agent idea through four questions first. A clear no on any of the first three and I don't build it.", "note": "Low. The scoring allows for a clear no before anything is built.", "inh": [3, 3], "res": [1, 3], "n": "04", "inh_s": 9, "inh_b": "med", "res_s": 3, "res_b": "low"}, {"short": "Will it stick?", "q": "\"Training is easy to run. Will anyone still be using it in month six?\"", "a": "Fair worry. At Mattick Air the group session didn't change how most people worked, so I switched to one-to-ones on each person's own work and tracked uptake person by person. <strong>At Ailo, an enablement platform I built averaged 83% monthly use across 19 users, none required to.<\/strong>", "mit": "I track uptake person by person, switch to one-to-ones on people's own work where group sessions don't land, and keep training until the tools are theirs.", "note": "Medium. Adoption needs ongoing follow-up, so I keep tracking it.", "inh": [4, 3], "res": [2, 3], "n": "05", "inh_s": 12, "inh_b": "high", "res_s": 6, "res_b": "med"}, {"short": "Safe in a business like ours?", "q": "\"We can't have AI making calls that nobody checked.\"", "a": "Agreed. Before any agent I ask what a wrong answer costs. Access is read-only by default and scoped: an ongoing construction client's index agent can write to one site only, and client data stays out of code and logs. <strong>High or hard to undo: it drafts, a person decides.<\/strong>", "mit": "I put four questions to every agent idea, keep access read-only by default, ship every change in a small, tested batch and check usage rules with a quiz. Inside AGL, your own privacy, cyber and risk review comes first.", "note": "Impact stays at 4. The controls make an error less likely but do not lower its cost.", "inh": [2, 5], "res": [1, 4], "n": "06", "inh_s": 10, "inh_b": "high", "res_s": 4, "res_b": "low"}, {"short": "Plus one opportunity", "q": "Registers track upside too.", "a": "Your ad says knowledge of AI orchestration, automation and agentic workflow development will be highly regarded. <strong>That's the work I lead and build:<\/strong> hosted, scheduled agents with run logs and watchdog alerts for a construction group, and an email-to-job agent with a custom connector for Mattick Air.", "mit": "An engineer for extra build capacity when the roadmap needs it, so good ideas don't queue behind me."}];
+  var FLAGS = D.slice(0, 6), OPP = D[6];
+  var BN = {low:"Low", med:"Medium", high:"High", ext:"Extreme"};
+  var $ = function(id){ return document.getElementById(id); };
+  var plot=$("plot"), ghost=$("ghost"), path=$("path"), reader=$("reader"), hint=$("hint"), stage=$("stage");
+  var vInh=$("v-inh"), vRes=$("v-res");
+  var marks=[].slice.call(document.querySelectorAll(".mk"));
+  var rows=[].slice.call(document.querySelectorAll(".row"));
+  var intro=reader.innerHTML;
+  var moved=[false,false,false,false,false,false], sel=null;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function track(name, params){ try { gtag("event", name, params || {}); } catch(e){} }
+  function pos(i){ var f=FLAGS[i], p=moved[i]?f.res:f.inh; return {x:p[0], y:p[1]}; }
+
+  // Register: content is readable without JS (all rows open). With JS, rows become an index for the reader.
+  rows.forEach(function(r){ r.removeAttribute("open"); });
+  marks.forEach(function(m){ m.setAttribute("role","button"); m.setAttribute("aria-pressed","false"); m.removeAttribute("href"); m.tabIndex=0; });
+
+  function render(){
+    // Offset markers that share a cell so both stay readable
+    var groups={};
+    marks.forEach(function(m,i){ var p=pos(i), k=p.x+","+p.y; (groups[k]=groups[k]||[]).push(i); });
+    marks.forEach(function(m,i){
+      var p=pos(i), g=groups[p.x+","+p.y], n=g.length, j=g.indexOf(i);
+      m.style.setProperty("--x", p.x); m.style.setProperty("--y", p.y);
+      m.style.setProperty("--dx", n>1 ? ((j-(n-1)/2)*(parseFloat(getComputedStyle(m).width)*1.08))+"px" : "0px");
+      m.classList.toggle("res", moved[i]);
+      m.setAttribute("aria-pressed", String(sel===i));
+    });
+    rows.forEach(function(r){ var i=r.dataset.i; r.classList.toggle("res", i!=="opp" && moved[+i]); r.classList.toggle("sel", String(sel)===i); });
+    // Ghost and path for the selected flag
+    if(typeof sel==="number" && moved[sel]){
+      var f=FLAGS[sel];
+      ghost.style.setProperty("--x", f.inh[0]); ghost.style.setProperty("--y", f.inh[1]); ghost.textContent=f.n; ghost.classList.add("on");
+      path.setAttribute("x1", f.inh[0]-0.5); path.setAttribute("y1", 5-(f.inh[1]-0.5));
+      path.setAttribute("x2", f.res[0]-0.5); path.setAttribute("y2", 5-(f.res[1]-0.5));
+      path.classList.add("on");
+    } else { ghost.classList.remove("on"); path.classList.remove("on"); }
+    // Band counts for what's on the map now
+    var c={low:0,med:0,high:0,ext:0};
+    FLAGS.forEach(function(f,i){ c[moved[i]?f.res_b:f.inh_b]++; });
+    for(var b in c){ $("c-"+b).textContent=" "+c[b]; }
+    var k=moved.filter(Boolean).length;
+    vInh.setAttribute("aria-pressed", String(k===0)); vRes.setAttribute("aria-pressed", String(k===6));
+    hint.textContent = k===0 ? "Tap a flag" : (k===6 ? "All six mitigated" : k+" of 6 mitigated");
+  }
+
+  function card(i){
+    if(i==="opp"){
+      return '<article class="big opp"><div class="big-top"><span class="dot"></span><span class="t">Opportunity 01</span></div><div class="big-body"><h2>'+OPP.q+'</h2><p>'+OPP.a+'</p><p class="mit"><span class="k">Comes with me</span>'+OPP.mit+'</p></div></article>';
+    }
+    var f=FLAGS[i];
+    function rt(k){ var p=f[k], s=f[k+"_s"], b=f[k+"_b"]; return '<span class="rt"><span class="rt-k">'+(k==="inh"?"Inherent":"Residual")+'</span><span class="pill b-'+b+'">'+s+' '+BN[b]+'</span><span class="rt-f">L'+p[0]+' &times; I'+p[1]+'</span></span>'; }
+    return '<article class="big"><div class="big-top"><span class="dot"></span><span class="t">Red flag '+f.n+' of 06</span><span class="sc">'+f.inh_s+' &rarr; '+f.res_s+'</span></div><div class="big-body"><h2>'+f.q+'</h2><p>'+f.a+'</p><p class="mit"><span class="k">Mitigation</span>'+f.mit+'</p><div class="rating">'+rt("inh")+'<span class="arrow" aria-hidden="true">&rarr;</span>'+rt("res")+'</div><p class="note">'+f.note+'</p></div></article>';
+  }
+
+  function inView(el){ var r=el.getBoundingClientRect(); return r.top>=0 && r.bottom<=window.innerHeight; }
+  function pick(i, via){
+    if(sel===i){ sel=null; reader.innerHTML=intro; render(); return; }
+    sel=i; reader.innerHTML=card(i);
+    if(i==="opp"){ render(); if(via==="register") scrollToStage(); track("opportunity_open",{via:via}); return; }
+    track("red_flag", {flag:FLAGS[i].n, via:via});
+    var wasMoved=moved[i];
+    // Show the starting point first, then move to residual once the map is in view
+    render();
+    if(!wasMoved){
+      var delay = reduce ? 0 : (via==="register" && !inView(plot) ? 520 : 140);
+      if(via==="register") scrollToStage();
+      setTimeout(function(){ if(sel===i){ moved[i]=true; render(); if(via==="map") setTimeout(revealReader, reduce?0:950); } }, delay);
+    } else if(via==="register"){ scrollToStage(); }
+  }
+  function revealReader(){
+    var r=reader.getBoundingClientRect(), vh=window.innerHeight;
+    if(r.top > vh - 120){ try{ window.scrollBy({top:r.top-vh*0.4, behavior: reduce?"auto":"smooth"}); }catch(e){ window.scrollBy(0, r.top-vh*0.4); } }
+  }
+  function scrollToStage(){
+    if(inView(plot)) return;
+    try{ plot.scrollIntoView({behavior: reduce?"auto":"smooth", block:"start"}); }catch(e){ plot.scrollIntoView(); }
+  }
+
+  marks.forEach(function(m){
+    var i=+m.dataset.i;
+    m.addEventListener("click", function(e){ e.preventDefault(); pick(i,"map"); });
+    m.addEventListener("keydown", function(e){ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); pick(i,"map"); } });
+  });
+  rows.forEach(function(r){
+    r.querySelector("summary").addEventListener("click", function(e){
+      e.preventDefault(); var i=r.dataset.i; pick(i==="opp"?"opp":+i, "register");
+    });
+  });
+  vInh.addEventListener("click", function(){ moved=moved.map(function(){return false;}); render(); track("view_toggle",{view:"inherent"}); });
+  vRes.addEventListener("click", function(){ moved=moved.map(function(){return true;}); render(); track("view_toggle",{view:"residual"}); });
+  window.addEventListener("resize", render);
+  render();
+})();
+</script>
+</body>
+</html>
