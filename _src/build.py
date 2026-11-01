@@ -736,12 +736,212 @@ def build_home_jsonld():
     open(path, "w", encoding="utf-8").write(s)
 
 
+# ---------------------------------------------------------------- workshops page (councils and business networks)
+WORKSHOPS_PATH = "/workshops/"
+WORKSHOPS_UPDATED = "2026-11-02"
+WORKSHOPS_UPDATED_HUMAN = "2 November 2026"
+WORKSHOPS_EMAIL = "justin@workshopai.com.au"
+WORKSHOPS_TITLE = "AI workshops for councils and business networks | Workshop AI"
+WORKSHOPS_DESCRIPTION = ("A hands-on, two-hour AI workshop for council business programs, chambers and "
+                         "business networks in Victoria. Owners set AI up safely for their own business "
+                         "and leave with it working.")
+WORKSHOP_RUN_SHEET = [
+    ("Welcome", "10", "What you'll leave with, and how people in the room use AI now"),
+    ("See what's possible", "20", "Live demonstrations: an inbox that sorts itself, a quote drafted from voice "
+                                  "notes, and an office asking its job system questions in plain English"),
+    ("Keep it safe", "25", "What never to paste in, the settings to change today, spotting AI scams, and "
+                           "writing a one-page AI policy"),
+    ("Break", "10", "Networking"),
+    ("Set it up once", "30", "Hands-on: create a saved project that holds your business details, documents "
+                             "and tone; set shared instructions so anyone who helps you gets consistent "
+                             "results; connect one tool you already use, where your plan allows"),
+    ("Try it on your own work", "20", "One real admin task each, with both presenters helping at laptops"),
+    ("Close", "5", "The take-home guide and where to go next"),
+]
+WORKSHOP_TITLE_ALT = "Short on time? Put AI to work on your admin"
+WORKSHOP_BLURB = ("Bring your laptop and leave with AI working for your business. In two hands-on hours "
+                  "you'll set AI up safely, save a set-up that already knows your business, and connect it "
+                  "to the email, calendar or files you already use. Examples come from trades, building and "
+                  "service businesses. No technical background needed.")
+WORKSHOP_OUTCOME = ("At the end of this workshop, participants will be able to write a one-page AI policy, "
+                    "set up an AI assistant that knows their business, and connect it to a tool they already "
+                    "use to cut admin time.")
+WORKSHOP_CSS = """
+  .page-hero .ctas{margin-top:26px}
+  .page-hero .btn.outline{color:var(--on-dark);border-color:rgba(242,244,243,0.4)}
+  .leave{display:grid;gap:14px;margin:8px 0 0;padding:0;list-style:none;max-width:none}
+  @media(min-width:720px){.leave{grid-template-columns:repeat(3,1fr)}}
+  .leave li{background:var(--paper-warm);border:1px solid var(--line-soft);border-radius:10px;padding:20px 22px;margin:0}
+  .leave strong{display:block;font-family:"Archivo",sans-serif;font-size:17px;margin-bottom:6px}
+  .leave span{color:var(--ink-soft);font-size:15.5px}
+  .split{display:grid;gap:14px;margin-top:8px}
+  @media(min-width:720px){.split{grid-template-columns:1fr 1fr}}
+  .split .card{margin-top:0}
+  .split h3{font-size:17px}
+  .split ul{margin-bottom:0}
+  .copy-block{position:relative;background:var(--paper);border:1px solid var(--line-soft);border-radius:8px;padding:16px 18px 14px;margin:8px 0 16px}
+  .copy-block .label{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+  .copy-block p{margin:0;color:var(--ink)}
+  .copy-btn{display:none;position:absolute;top:10px;right:10px;font:600 12.5px "Instrument Sans",sans-serif;color:var(--ink);background:var(--paper-2);border:1px solid var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
+  .js .copy-btn{display:inline-block}
+  .copy-block .label{padding-right:70px}
+  .people{display:grid;gap:14px;margin-top:8px}
+  @media(min-width:720px){.people{grid-template-columns:1fr 1fr}}
+  .people .card{margin-top:0}
+  .people p{font-size:15.5px;color:var(--ink-soft)}
+"""
+
+
+def build_workshops():
+    e = html.escape
+    path = WORKSHOPS_PATH
+    url = f"{SITE}{path}"
+    mail = (f"mailto:{WORKSHOPS_EMAIL}?subject=" + "AI%20for%20business%20workshop%20enquiry")
+    run_rows = "\n".join(
+        f'<tr><th scope="row">{e(b)}</th><td>{e(m)} min</td><td>{e(w)}</td></tr>' for b, m, w in WORKSHOP_RUN_SHEET)
+
+    def copy_block(label, text, cid):
+        return (f'<div class="copy-block"><p class="label">{e(label)}</p>'
+                f'<p id="{cid}">{e(text)}</p>'
+                f'<button class="copy-btn" type="button" data-copy="{cid}">Copy</button></div>')
+
+    body = f"""{nav(path)}
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">For councils, chambers and business networks</p>
+    <h1>AI for business: put it to work</h1>
+    <p class="lede">A hands-on, two-hour workshop for your business program. Owners bring a laptop, set AI up safely for their own business, and leave with it working.</p>
+    <div class="ctas"><a class="btn solid" href="{mail}">Ask for the outline and fee</a><a class="btn outline" href="{ORG['booking_url']}" target="_blank" rel="noopener">Book a 20-minute chat</a></div>
+    <p class="byline">Run by Justin Watts and Kylie, <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Updated {WORKSHOPS_UPDATED_HUMAN}</p>
+  </div>
+</header>
+
+<main class="wrap">
+<section id="workshop">
+  <h2><span class="num">The workshop</span>Practical, not a tour of tools</h2>
+  <p class="intro">Many business programs have already run an introduction to AI. This is the practical next step, and it works just as well on its own. Everyone works on their own business, with examples from trades, building and service businesses.</p>
+  <ul>
+    <li><strong>Set AI up safely:</strong> what never to paste in, the settings to change, how to spot AI scams, and a one-page AI policy.</li>
+    <li><strong>Set it up once:</strong> a saved project that already knows the business, its documents and its tone, so the answers stay consistent.</li>
+    <li><strong>Connect it:</strong> to the email, calendar or files people already use, where their plan allows.</li>
+  </ul>
+</section>
+
+<section id="who">
+  <h2><span class="num">Who it's for</span>Busy owners and small teams</h2>
+  <ul>
+    <li>Owners and small teams in trades, building and service businesses</li>
+    <li>Hospitality, health and retail owners who spend their evenings on admin</li>
+    <li>Anyone who has tried AI and wants it to know their business</li>
+    <li>No technical background needed</li>
+  </ul>
+</section>
+
+<section id="leave-with">
+  <h2><span class="num">Outcomes</span>Everyone leaves with</h2>
+  <ul class="leave">
+    <li><strong>Their own AI set-up</strong><span>Saved and ready to use in their business the next morning.</span></li>
+    <li><strong>A one-page AI policy</strong><span>Written for their business, so the whole team uses AI the same safe way.</span></li>
+    <li><strong>A take-home guide</strong><span>They can load it into their own AI tool and keep asking it questions.</span></li>
+  </ul>
+</section>
+
+<section id="run-sheet">
+  <h2><span class="num">Two hours</span>Run sheet</h2>
+  <div class="table-scroll"><table class="facts stack">
+    <thead><tr><th scope="col">Block</th><th scope="col">Time</th><th scope="col">What happens</th></tr></thead>
+{run_rows}
+  </table></div>
+  <p class="note">A 90-minute version is available. It keeps the hands-on set-up and shortens the demonstrations.</p>
+</section>
+
+<section id="format">
+  <h2><span class="num">Format</span>How it fits your program</h2>
+  <ul>
+    <li>Two hours with a break, or a 90-minute version</li>
+    <li>In person anywhere in Victoria, daytime or after hours, or online on request</li>
+    <li>Two presenters, so people get help at their laptops</li>
+    <li>Attendees bring a laptop with the AI tool they already use. We make sure everyone can take part, whatever plan they're on.</li>
+    <li>Works on its own, or paired with an intro to AI session in the same month</li>
+  </ul>
+  <div class="split">
+    <div class="card"><h3>You provide</h3><ul><li>The venue, screen, sound and wifi</li><li>Promotion and registrations</li></ul></div>
+    <div class="card"><h3>We provide</h3><ul><li>Preparation and program copy</li><li>Take-home materials for every attendee</li><li>A short summary afterwards</li></ul></div>
+  </div>
+</section>
+
+<section id="program-copy">
+  <h2><span class="num">For your listing</span>Program copy, ready to use</h2>
+  <p>Use or adapt these for your events page, newsletter or booking platform.</p>
+  {copy_block("Title", "AI for business: put it to work", "copy-title")}
+  {copy_block("Alternative title", WORKSHOP_TITLE_ALT, "copy-title-alt")}
+  {copy_block("Description", WORKSHOP_BLURB, "copy-blurb")}
+  {copy_block("Learning outcome", WORKSHOP_OUTCOME, "copy-outcome")}
+</section>
+
+<section id="presenters">
+  <h2><span class="num">Presenters</span>Two of us in the room</h2>
+  <div class="people">
+    <div class="card"><h3>Justin Watts, Director</h3><p>Justin has spent more than 15 years building the systems growing businesses run on, and the last few applying AI across them. At Workshop AI he helps trade and service businesses hand their repetitive office work to AI: quotes, double entry and the same questions answered over and over.</p></div>
+    <div class="card"><h3>Kylie, Co-founder</h3><p>Kylie leads client delivery at Workshop AI and co-presents, so attendees get hands-on help at their laptops rather than watching from the back of the room.</p></div>
+  </div>
+  <p style="margin-top:18px">Workshop AI clients include Mattick Air, a Melbourne commercial air-conditioning business, and Rice Group, a regional NSW builder. For Mattick Air, we connected its job management system so the office can ask it questions in plain English. More on who we are on the <a href="/facts/">company facts</a> page.</p>
+</section>
+
+<section id="approach">
+  <h2><span class="num">Our approach</span>A teaching session, not a sales pitch</h2>
+  <p>We don't promote our services during the session. We share our contact details at the close and never use registration lists for marketing.</p>
+</section>
+
+<section id="contact">
+  <h2><span class="num">Next step</span>Planning your 2027 program?</h2>
+  <p>Ask for the one-page outline with the fee, or book a 20-minute chat. We're happy to fit the session to your program, your venue and your local businesses.</p>
+  <div class="ctas"><a class="btn solid" href="{mail}">Email {WORKSHOPS_EMAIL}</a><a class="btn outline" href="tel:{ORG['phone_intl']}">Call {ORG['phone_display']}</a><a class="btn outline" href="{ORG['booking_url']}" target="_blank" rel="noopener">Book a chat</a></div>
+</section>
+</main>
+<script>
+document.addEventListener('click', function (ev) {{
+  var b = ev.target.closest && ev.target.closest('.copy-btn');
+  if (!b || !navigator.clipboard) return;
+  var t = document.getElementById(b.getAttribute('data-copy'));
+  navigator.clipboard.writeText(t.textContent).then(function () {{
+    b.textContent = 'Copied';
+    setTimeout(function () {{ b.textContent = 'Copy'; }}, 1500);
+  }});
+}});
+</script>
+"""
+    nodes = [
+        {"@type": "WebPage", "@id": f"{url}#webpage", "url": url, "name": WORKSHOPS_TITLE,
+         "description": WORKSHOPS_DESCRIPTION, "isPartOf": {"@id": WEBSITE_ID},
+         "about": {"@id": f"{url}#service"}, "publisher": {"@id": ORG_ID},
+         "dateModified": WORKSHOPS_UPDATED, "inLanguage": "en-AU",
+         "breadcrumb": {"@id": f"{url}#breadcrumb"}},
+        {"@type": "Service", "@id": f"{url}#service", "name": "AI for business: put it to work",
+         "serviceType": "Hands-on AI workshop for small businesses", "url": url, "provider": {"@id": ORG_ID},
+         "description": WORKSHOP_BLURB,
+         "audience": {"@type": "Audience",
+                      "audienceType": "Local councils, chambers of commerce and business networks"},
+         "areaServed": [{"@type": "State", "name": "Victoria"}, {"@type": "Country", "name": "Australia"}]},
+        {"@type": "BreadcrumbList", "@id": f"{url}#breadcrumb", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": "AI workshops for councils and business networks",
+             "item": url}]},
+    ]
+    out = head(WORKSHOPS_TITLE, WORKSHOPS_DESCRIPTION, path, graph(nodes)) + body + FOOTER + END
+    out = out.replace("</style>", WORKSHOP_CSS + "</style>", 1)
+    out = out.replace("<body>\n", '<body>\n<script>document.documentElement.className += " js";</script>\n', 1)
+    write("workshops/index.html", out)
+
+
 # ---------------------------------------------------------------- sitemap and llms.txt
 def build_sitemap():
     urls = ([("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8")]
             + [(f"/{p['slug']}/", "0.8") for p in PAGES] + [("/privacy/", "0.3")])
     items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{UPDATED}</lastmod><priority>{p}</priority></url>"
                       for u, p in urls)
+    items += (f"\n  <url><loc>{SITE}{WORKSHOPS_PATH}</loc><lastmod>{WORKSHOPS_UPDATED}</lastmod>"
+              f"<priority>0.7</priority></url>")
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n'
                          f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n')
 
@@ -761,6 +961,7 @@ def build_llms(count):
 - [Home]({SITE}/): what Workshop AI does, the five-level path, a client example and prices
 - [Company facts]({SITE}/facts/): who Workshop AI is, who it serves, services, prices, people and service area
 - [AI for tradies: questions answered]({SITE}/ai-for-tradies/): {count} answers on using AI in an Australian trade or service business
+- [AI workshops for councils and business networks]({SITE}{WORKSHOPS_PATH}): a hands-on, two-hour AI workshop for council business programs, chambers and business networks in Victoria
 
 ## Industry, local and Simpro pages
 
@@ -790,12 +991,13 @@ if __name__ == "__main__":
     n = build_qa()
     build_home_jsonld()
     build_topic_pages()
+    build_workshops()
     build_sitemap()
     build_llms(n)
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     # Guard: fail the build if any template code leaked into a page
     for rel in ["index.html"] + [f"{p['slug']}/index.html" for p in PAGES] + [
-            "facts/index.html", "ai-for-tradies/index.html", "privacy/index.html"]:
+            "facts/index.html", "ai-for-tradies/index.html", "privacy/index.html", "workshops/index.html"]:
         text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         leak = re.search(r"\{(L|SRC|ORG|e)\(|\{[A-Z_]{3,}\}", text)
         if leak:
