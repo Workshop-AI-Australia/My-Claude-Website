@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, answered | Teach For All | Workshop AI</title>
+<meta name="description" content="For Teach For All: the doubts I&rsquo;d have about my AI Specialist application, set out like a lesson plan: the concern, my answer, and how you&rsquo;d check it." />
+<meta property="og:title" content="Six red flags, answered" />
+<meta property="og:description" content="The doubts I&rsquo;d have in your seat, set out like a lesson plan: the concern, my answer, and how you&rsquo;d check it." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;7..72,700&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<script>document.documentElement.className+=" js";</script>
+<style>
+  /* A lesson plan on a teacher's desk. Each concern is a sheet with an exercise-book margin:
+     labels sit left of the margin line (the concern, my answer, how you'd check it), content to the right.
+     Without JS every sheet shows open. JS folds the answers so the reader opens each one. */
+  :root{
+    --desk:#EDEFEA; --paper:#FFFEFA; --ink:#1F2D3A; --ink-2:#2C3B49; --ink-soft:#4C5966; --ink-faint:#5F6B76;
+    --margin:#C98272; --margin-soft:#F5E6E1; --flag:#A4493C;
+    --pen:#2E5A73; --pen-soft:#E5EDF1; --rule:#DCE3E7;
+    --line:rgba(31,45,58,0.11); --line-2:rgba(31,45,58,0.22);
+    --display:"Literata",Georgia,"Times New Roman",serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --pad:clamp(18px,4.2vw,34px); --lblw:164px;
+    --ease:cubic-bezier(.3,.7,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--desk)}
+  body{background:var(--desk);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;margin:0;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));overflow-x:hidden}
+  *{box-sizing:border-box}
+  .wrap{max-width:880px;margin:0 auto}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+  button{font:inherit;color:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  a{color:inherit}
+  :focus-visible{outline:2.5px solid var(--pen);outline-offset:3px;border-radius:6px}
+
+  header{padding-block:50px 6px;display:grid;gap:14px;max-width:720px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--pen);font-weight:500}
+  h1{font-size:clamp(36px,7.4vw,62px);font-weight:700;line-height:1.02;letter-spacing:-0.015em}
+  h1 em{font-style:normal;color:var(--pen);white-space:nowrap;background:linear-gradient(transparent 78%,var(--margin-soft) 78%)}
+  @media (max-width:360px){h1{font-size:32px}}
+  .lede{font-size:17.5px;color:var(--ink-soft);max-width:58ch}
+
+  /* Lesson plan header sheet */
+  .summary{margin:30px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px var(--pad);
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center;box-shadow:0 14px 34px -26px rgba(31,45,58,.35)}
+  .summary .cap{grid-column:1/-1;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--margin);
+    padding-bottom:10px;border-bottom:1.5px solid var(--margin)}
+  .summary dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:14.5px}
+  .summary dt{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+  .summary dd{margin:0}
+  .tally{display:grid;justify-items:end;gap:10px;text-align:right}
+  .count{font-family:var(--display);font-weight:700;font-size:15px;line-height:1.25}
+  .count b{font-size:30px;color:var(--pen);margin-right:4px}
+  .openall{display:none;border:1.5px solid var(--ink);background:var(--ink);color:#FFFEFA;border-radius:999px;padding:9px 18px;font-weight:600;font-size:14px;cursor:pointer;min-height:44px}
+  .js .openall{display:inline-block}
+  .openall:hover{background:var(--ink-2)}
+  .openall:disabled{background:var(--paper);color:var(--ink-faint);border-color:var(--line-2);cursor:default}
+
+  /* Sheets */
+  .cards{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+  .card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px var(--pad) 22px;
+    box-shadow:0 1px 2px rgba(31,45,58,.04),0 16px 36px -30px rgba(31,45,58,.4);transition:border-color .4s var(--ease)}
+  .card.open{border-color:rgba(46,90,115,.32)}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+  .num{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--flag)}
+  .flag{width:13px;height:15px;color:var(--flag);flex:none}
+  .status{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;border-radius:999px;padding:3px 10px;white-space:nowrap;
+    background:var(--pen-soft);color:var(--pen);transition:background .4s var(--ease),color .4s var(--ease)}
+  .js .card:not(.open) .status{background:var(--margin-soft);color:var(--flag)}
+  .card h2{font-size:clamp(20px,3vw,24px);font-weight:700;line-height:1.2;margin-bottom:14px}
+
+  /* Exercise-book margin: labels left, content right */
+  .parts{position:relative}
+  .parts::before{content:"";position:absolute;left:calc(var(--lblw) - 12px);top:2px;bottom:4px;border-left:1.5px solid var(--margin);opacity:.7}
+  .part{display:grid;grid-template-columns:var(--lblw) minmax(0,1fr);align-items:start}
+  .part + .part,.fold .part{margin-top:16px}
+  .lbl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);padding:4px 22px 0 0;line-height:1.45}
+  .part.k .lbl{color:var(--pen)}
+  .body{min-width:0;padding-left:8px}
+  .doubt{font-style:italic;font-weight:500;font-size:17px;color:var(--ink-2)}
+  .ans strong{font-weight:600;background:linear-gradient(transparent 62%,var(--margin-soft) 62%)}
+  .checks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .checks li,.part.k .body > p{position:relative;padding-left:20px;color:#244456}
+  .checks li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--pen)}
+  .part.k .body{background:var(--pen-soft);border-radius:10px;padding:12px 14px;margin-left:8px}
+  .part.k .body > p{padding-left:0}
+
+  .fold{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease),opacity .45s var(--ease)}
+  .fold > div{min-height:0;overflow:hidden}
+  .js .card:not(.open) .fold{grid-template-rows:0fr;opacity:0}
+
+  .obtn{display:inline-flex;align-items:center;gap:10px;margin-top:12px;border:1.5px solid var(--line-2);background:var(--paper);border-radius:999px;
+    padding:8px 16px;min-height:44px;font-weight:600;font-size:14.5px;cursor:pointer;text-align:left}
+  .obtn:hover{border-color:var(--ink)}
+  .part.c .obtn{grid-column:-2;justify-self:start;margin-left:8px}
+  .chev{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .4s var(--ease);flex:none}
+  .open .obtn .chev{transform:rotate(-135deg) translate(-1px,-1px)}
+
+  /* The note at the end */
+  .note{margin-top:26px;background:var(--margin-soft);border-color:rgba(164,73,60,.16)}
+  .card.note.open{border-color:rgba(164,73,60,.16)}
+  .note .num{color:var(--flag)}
+  .note .status,.js .note:not(.open) .status{background:var(--paper);color:var(--flag)}
+  .note .part.k .body{background:var(--paper)}
+  .note .part.k .lbl{color:var(--flag)}
+  .note .obtn{background:var(--paper)}
+
+  .signoff{margin:34px 0 0;padding:22px var(--pad);border:1.5px dashed var(--line-2);border-radius:14px;font-size:16.5px}
+  .signoff .lbl{padding:0 0 4px;color:var(--pen)}
+  .signoff a{font-weight:600;text-underline-offset:3px}
+
+  footer{margin:42px 0 0;padding:22px 0 calc(40px + env(safe-area-inset-bottom, 0px));border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 28px;font-size:14.5px}
+  .who{display:grid;gap:2px}
+  .who span{color:var(--ink-faint)}
+  .contact{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:flex-start}
+  .contact a{text-underline-offset:3px;padding-block:6px}
+
+  @media (max-width:620px){
+    header{padding-top:34px}
+    .summary{grid-template-columns:minmax(0,1fr)}
+    .tally{justify-items:start;text-align:left}
+    .summary dl{grid-template-columns:minmax(0,1fr);gap:0}
+    .summary dd{margin-bottom:8px}
+    /* margin line moves to the left edge; labels stack above content */
+    .parts{padding-left:16px}
+    .parts::before{left:0}
+    .part{grid-template-columns:minmax(0,1fr)}
+    .lbl{padding:0 0 3px}
+    .body{padding-left:0}
+    .part.k .body{margin-left:0}
+    .part.c .obtn{margin-left:0}
+    .card h2{margin-bottom:12px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Workshop AI &middot; For Teach For All</div>
+    <h1>Six red flags, <em>answered.</em></h1>
+    <p class="lede">The doubts I’d have in your seat, set out like a lesson plan: the concern, my answer, and how you’d check it. There’s a short note at the end.</p>
+  </header>
+
+  <section class="summary" id="summary" aria-label="About this lesson plan">
+    <p class="cap">Lesson plan</p>
+    <dl>
+      <dt>Topic</dt><dd>My application for AI Specialist</dd>
+      <dt>Prepared by</dt><dd>Justin Watts, Workshop AI</dd>
+      <dt>Success criteria</dt><dd>Each concern answered, with a way for you to check it</dd>
+    </dl>
+    <div class="tally">
+      <p class="count" aria-live="polite"><b id="count">6</b>of 6 answered</p>
+      <button type="button" class="openall" id="openall">Open all six</button>
+    </div>
+  </section>
+
+  <section id="flags" aria-label="Six concerns, each with my answer and how you&rsquo;d check it">
+    <ol class="cards" id="cards">
+      <li class="card rf" id="rf-01" data-n="01">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 01</span><span class="status">Answered</span></div>
+        <h2>No community at network scale</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><div class="body"><p class="doubt">“He’s never run a WhatsApp community across 63 partners.”</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><div class="body"><p class="ans">I’ve never moderated an online community. Auto Enthused, my TikTok channel, is an audience of 3.2M+ views, not a community. I facilitate in-person workshops of about 12 people, and chaired a local volunteer governing body’s meetings of nine. <strong>I’d start with power users and help them lead.</strong></p></div></div>
+            <div class="part k"><span class="lbl">How you’d check it</span><div class="body"><ul class="checks"><li>Agree measures up front: engagement depth, and who moves from literacy to building.</li><li>Count the circles members lead themselves.</li></ul></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-02" data-n="02">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 02</span><span class="status">Answered</span></div>
+        <h2>No frontier AI partnerships</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><div class="body"><p class="doubt">“He has no partnerships with frontier AI companies.”</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><div class="body"><p class="ans">Not yet. I take no software resale or referral fees, so my advice on AI tools stays independent. <strong>At Everyone Eats I built a program delivered by a partner, Hunger Free World.</strong> From 2012 to 2018 I sat on the Asia Pacific advisory council for the Public Interest Registry (.org).</p></div></div>
+            <div class="part k"><span class="lbl">How you’d check it</span><div class="body"><ul class="checks"><li>Ask how I set up the Hunger Free World partnership.</li><li>Any AI partner I suggest earns me no fee.</li></ul></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-03" data-n="03">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 03</span><span class="status">Answered</span></div>
+        <h2>Not from education</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><div class="body"><p class="doubt">“He’s from small business and property tech, not education.”</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><div class="body"><p class="ans">Mostly, yes. But I founded Everyone Eats, a social enterprise in Melbourne and Bangladesh, and I raised about $25,000 to fund 96,000 meals. I hold a current Working with Children Check. <strong>At Ailo I trained non-technical colleagues to build their own tools.</strong></p></div></div>
+            <div class="part k"><span class="lbl">How you’d check it</span><div class="body"><ul class="checks"><li>Ask to see my current Working with Children Check.</li><li>Ask what my Ailo colleagues built after the training.</li></ul></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-04" data-n="04">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 04</span><span class="status">Answered</span></div>
+        <h2>Training that creates dependence</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><div class="body"><p class="doubt">“Will he be a trainer who makes people dependent on him?”</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><div class="body"><p class="ans">Fair question. <strong>My test is whether people can build without me in the room.</strong> At Mattick Air, when a group session didn’t change how most people worked, I switched to one-to-ones on their own work. At Ailo, an enablement platform I built had 83% monthly use across 19 users.</p></div></div>
+            <div class="part k"><span class="lbl">How you’d check it</span><div class="body"><ul class="checks"><li>A few months on, count who still uses what they learnt, and who has built something of their own.</li></ul></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-05" data-n="05">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 05</span><span class="status">Answered</span></div>
+        <h2>Hype over responsible adoption</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><div class="body"><p class="doubt">“Will he hype AI to educators, or help them adopt it responsibly?”</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><div class="body"><p class="ans">I’m not an AI evangelist. I follow Australia’s Guidance for AI Adoption: a named owner for each system, risk assessed first, and a person who can switch it off. <strong>A logistics client’s pipeline has no AI at run time, because it didn’t need it.</strong></p></div></div>
+            <div class="part k"><span class="lbl">How you’d check it</span><div class="body"><ul class="checks"><li>Ask me to talk privacy and responsible use with a group of educators.</li><li>Watch whether people feel safe to say they’re unsure.</li></ul></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-06" data-n="06">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 06</span><span class="status">Answered</span></div>
+        <h2>Global work, and Spanish</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><div class="body"><p class="doubt">“Our network is global, across many time zones, and Spanish is a plus.”</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><div class="body"><p class="ans">I’ve lived or worked in five countries: Australia, the UK, the US, France and Bangladesh. The .org council served a global non-profit membership. I speak B2 (intermediate) French. <strong>I don’t speak Spanish, and I won’t claim to.</strong></p></div></div>
+            <div class="part k"><span class="lbl">How you’d check it</span><div class="body"><ul class="checks"><li>Ask about the .org council’s global membership.</li><li>Test my French if it helps. For Spanish, the answer today is no.</li></ul></div></div>
+          </div></div>
+        </div>
+      </li>
+    </ol>
+    
+      <div class="card note" id="note" data-n="NOTE" role="group" aria-labelledby="note-title">
+        <div class="top"><span class="num">One last note</span><span class="status">Not a flag</span></div>
+        <h2 id="note-title">Why this role</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">Context</span><div class="body"><p class="doubt">Not a red flag. Why I’m putting my hand up.</p></div></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">The reason</span><div class="body"><p class="ans">Your ad describes a path from literacy to creator to builder. It’s one I often take people along, usually people who didn’t choose AI and are a bit wary of it. <strong>I’d like to help educators take that path together, across the network.</strong></p></div></div>
+            <div class="part k"><span class="lbl">Where it started</span><div class="body"><p>Everyone Eats supporters wanted to see what their money did for a child. The video tool I built to show them became the start of Ailo.</p></div></div>
+          </div></div>
+        </div>
+      </div>
+    <div class="signoff" id="next">
+      <span class="lbl">Next step</span>
+      <p>If the answers hold up, I’d love to have a chat: <a href="tel:+61431254769">0431 254 769</a> or <a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>Thanks for reading.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+<script>
+(function(){
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var flags = [].slice.call(document.querySelectorAll('.card.rf'));
+  var count = document.getElementById('count'), openall = document.getElementById('openall'), allLogged = false, seen = {};
+
+  function tally(){
+    var n = Object.keys(seen).length;
+    count.textContent = String(n);
+    openall.disabled = flags.every(function(r){ return r.classList.contains('open'); });
+    openall.textContent = openall.disabled ? 'All six open' : 'Open all six';
+    if(n === flags.length && !allLogged){ allLogged = true; track('rf_all_answered'); }
+  }
+  function setOpen(card, on, via){
+    var isNote = card.classList.contains('note');
+    card.classList.toggle('open', on);
+    var f = card.querySelector('.fold'), b = card.querySelector('.obtn'), st = card.querySelector('.status');
+    if(on) f.removeAttribute('inert'); else f.setAttribute('inert', '');
+    b.setAttribute('aria-expanded', String(on));
+    b.querySelector('.t').textContent = on ? 'Hide' : (isNote ? 'Read the note' : 'See my answer');
+    if(!isNote) st.textContent = on ? 'Answered' : 'Open';
+    if(on){
+      if(isNote) track('note_open');
+      else if(!seen[card.dataset.n]){ seen[card.dataset.n] = 1; track('red_flag_open', {card: card.dataset.n, via: via}); }
+    }
+    if(!isNote) tally();
+  }
+  [].forEach.call(document.querySelectorAll('.card'), function(card){
+    var f = card.querySelector('.fold'), title = card.querySelector('h2').textContent;
+    f.id = card.id + '-more';
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'obtn';
+    b.setAttribute('aria-controls', f.id); b.setAttribute('aria-expanded', 'false');
+    b.setAttribute('aria-label', (card.classList.contains('note') ? 'Note: ' : 'Red flag ' + card.dataset.n + ': ') + title);
+    b.innerHTML = '<span class="t"></span><span class="chev" aria-hidden="true"></span>';
+    card.querySelector('.part.c').appendChild(b);
+    setOpen(card, false);
+    b.addEventListener('click', function(){ setOpen(card, !card.classList.contains('open'), 'button'); });
+  });
+  seen = {}; tally();
+  openall.addEventListener('click', function(){
+    track('rf_open_all');
+    var queue = flags.filter(function(r){ return !r.classList.contains('open'); });
+    (function next(){ var r = queue.shift(); if(r){ setOpen(r, true, 'open_all'); setTimeout(next, reduce ? 0 : 110); } })();
+  });
+})();
+</script>
+</body>
+</html>
