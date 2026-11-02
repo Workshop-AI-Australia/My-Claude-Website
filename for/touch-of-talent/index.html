@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, briefed | Touch Of Talent | Workshop AI</title>
+<meta name="description" content="For Touch Of Talent: the doubts I&rsquo;d have about my AI Transformation Partner application, written up like a client brief: the concern, my answer, and how you&rsquo;d measure it." />
+<meta property="og:title" content="Six red flags, briefed" />
+<meta property="og:description" content="The doubts I&rsquo;d have in your seat, written up like a client brief: the concern, my answer, and how you&rsquo;d measure it." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<script>document.documentElement.className+=" js";</script>
+<style>
+  /* A job bag of six client briefs. The job sheet on the left lists them with tick boxes; each brief on the right has
+     three fields: the concern (their voice), my answer, and how you'd measure it. Opening a brief signs it off and ticks
+     the sheet. Brief 07 is the extra, not a red flag. Without JS every brief is open and signed off. Quiet red only on
+     the small flag marks and open status. */
+  :root{
+    --smoke:#F2F4F3; --card:#FBFBFA; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#8A7460; --taupe-soft:#E7DED5; --stitch:#C9B49F;
+    --ink-soft:#5A6670; --ink-faint:#7E8990; --line:rgba(34,51,59,0.12); --line-2:rgba(34,51,59,0.22);
+    --flag:#A4493C; --paper:#FFFFFE;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --ease:cubic-bezier(.3,.7,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--smoke)}
+  body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;margin:0;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));overflow-x:hidden}
+  *{box-sizing:border-box}
+  .wrap{max-width:1040px;margin:0 auto}
+  .narrow{max-width:760px}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+  button{font:inherit;color:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  a{-webkit-tap-highlight-color:transparent}
+
+  header{padding-block:44px 8px;display:grid;gap:12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe)}
+  .lede{font-size:17px;color:var(--ink-soft);max-width:60ch}
+  .hint{display:none;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin:30px 0 0}
+  .js .hint{display:block}
+
+  /* Job bag */
+  .desk{margin:18px 0 56px}
+  .slug{display:flex;justify-content:space-between;align-items:center;gap:6px 14px;flex-wrap:wrap;background:var(--jet);color:var(--card);border-radius:3px 3px 0 0;padding:10px 16px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+  .slug .count{color:var(--stitch)}
+  .layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:30px;background:var(--card);border:1px solid var(--line);border-top:0;border-radius:0 0 3px 3px;padding:26px;align-items:start}
+  @media (max-width:860px){ .layout{grid-template-columns:minmax(0,1fr);padding:18px 14px 22px;gap:24px} }
+
+  /* Job sheet */
+  .sheet{position:sticky;top:16px;background:var(--paper);border:1px solid var(--line-2);border-radius:3px;box-shadow:0 1px 0 rgba(34,51,59,.05),4px 4px 0 var(--taupe-soft);padding:18px 18px 16px}
+  @media (max-width:860px){ .sheet{position:static} }
+  .sheet-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:2px solid var(--jet);padding-bottom:8px}
+  .sheet-top h2{font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:0.04em}
+  .sheet-top span{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  dl.meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:12px 0 0;font-size:14px}
+  dl.meta dt{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+  dl.meta dd{margin:0;color:var(--jet-2)}
+  .ix-head{margin-top:16px;padding-bottom:6px;border-bottom:1px solid var(--line-2);font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  ol.ix{list-style:none;margin:0;padding:0}
+  .ix li{border-bottom:1px solid var(--line)}
+  .ix a{display:grid;grid-template-columns:18px 22px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 2px;color:var(--jet);text-decoration:none;font-size:14.5px;font-weight:500;line-height:1.3}
+  .ix a:focus-visible{outline:2px solid var(--taupe);outline-offset:2px}
+  @media (hover:hover){ .ix a:hover .t{text-decoration:underline;text-decoration-color:var(--taupe);text-underline-offset:3px} }
+  .box{width:16px;height:16px;border:1.5px solid var(--jet);border-radius:2px;position:relative;background:var(--paper)}
+  .box::after{content:"";position:absolute;left:4.5px;top:1px;width:5px;height:9px;border-right:2px solid var(--jet);border-bottom:2px solid var(--jet);transform:rotate(40deg)}
+  .js .ix li:not(.done) .box::after{display:none}
+  .js .ix li.done .box::after{animation:tick .3s var(--ease) both}
+  .ix .no{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+  .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep);border:1px solid var(--stitch);border-radius:2px;padding:2px 5px 1px;white-space:nowrap}
+  .ix li.extra .tag{background:var(--taupe-soft);border-color:var(--taupe-soft)}
+  .js .ix li.cur a{background:rgba(231,222,213,.4)}
+
+  /* Briefs */
+  .briefs-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:2px solid var(--jet);font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  ol.briefs{list-style:none;margin:0;padding:0}
+  .bf{border-bottom:1px solid var(--line);padding:16px 0;scroll-margin-top:16px;transition:background .35s}
+  .bf-head{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--jet-2)}
+  .bf-head .id{flex:1;display:flex;align-items:center;gap:8px}
+  .pennant{width:9px;height:13px;border-left:1.5px solid var(--jet-2);position:relative;flex:none}
+  .pennant::after{content:"";position:absolute;left:0;top:0;border-left:8px solid var(--flag);border-top:4px solid transparent;border-bottom:4px solid transparent}
+  .bf.extra .pennant::after{border-left-color:var(--taupe)}
+  .status{font-family:var(--display);font-weight:900;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;padding:4px 8px 3px;border:2px solid currentColor;border-radius:2px;white-space:nowrap;color:var(--jet-2)}
+  .status .st-open{display:none}
+  .js .bf:not(.done) .status{color:var(--flag);border-width:1.5px;border-style:dashed;font-weight:800}
+  .js .bf:not(.done) .status .st-open{display:inline}
+  .js .bf:not(.done) .status .st-done{display:none}
+  .js .bf.done .status{animation:stamp .34s cubic-bezier(.2,.9,.3,1.15) both}
+  .bf h2{font-size:19px;font-weight:800;line-height:1.25;margin-top:10px}
+  .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px}
+  .field{margin-top:12px}
+  .concern p{color:var(--ink-soft);font-size:15.5px;font-style:italic;font-weight:500;max-width:62ch}
+  .answer{padding:12px 14px;border:1px solid var(--line-2);border-radius:3px;background:rgba(231,222,213,.22)}
+  .answer p{max-width:62ch;font-size:15.5px}
+  .answer strong{font-weight:600;background:linear-gradient(transparent 62%, var(--taupe-soft) 62%)}
+  .measure{border-left:2px solid var(--stitch);padding-left:12px}
+  .measure p{font-size:14.5px;color:var(--jet-2);max-width:62ch}
+  .bf.extra{margin-top:10px;border:1px dashed rgba(138,116,96,.6);border-radius:3px;background:rgba(231,222,213,.35);padding:16px 14px}
+  .bf.extra .sub{margin-top:4px;font-size:14.5px;color:var(--ink-soft)}
+  .bf.extra .answer{background:rgba(251,251,250,.7)}
+  .bf.extra .answer strong{background:linear-gradient(transparent 62%, rgba(231,222,213,.95) 62%)}
+  .readbtn{display:none}
+  .js .readbtn{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:6px 11px;border:1.5px solid var(--jet);border-radius:2px;background:var(--card);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+  .readbtn .chev{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .3s var(--ease)}
+  .js .bf.open .readbtn .chev{transform:rotate(-135deg) translate(-1px,-1px)}
+  .js .bf.done .readbtn{border-color:var(--line-2);color:var(--taupe-deep)}
+  .readbtn:focus-visible{outline:2px solid var(--taupe);outline-offset:3px}
+  @media (hover:hover){ .js .readbtn:hover{background:var(--jet);color:var(--card);border-color:var(--jet)} }
+  .js .body-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .js .body-wrap > div{overflow:hidden;min-height:0;visibility:hidden;transition:visibility 0s linear .5s}
+  .js .bf.open .body-wrap{grid-template-rows:1fr}
+  .js .bf.open .body-wrap > div{visibility:visible;transition:visibility 0s}
+  .body-wrap > div{padding-bottom:2px}
+  .js .bf.flash{background:rgba(231,222,213,.45)}
+
+  /* Approval */
+  .signoff{margin-top:26px;padding-top:16px;border-top:2px solid var(--jet);display:grid;gap:8px}
+  .signoff > p{max-width:62ch}
+  .signoff a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+  .sigs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
+  @media (max-width:520px){ .sigs{grid-template-columns:1fr;gap:22px} }
+  .sig .line{height:40px;border-bottom:1px solid var(--jet);position:relative}
+  .sig .who{font-size:14px;margin-top:6px}
+  .sig .who span{display:block;color:var(--ink-soft);font-size:13px}
+  .initials{position:absolute;left:4px;bottom:4px;font-family:var(--display);font-weight:800;font-style:italic;font-size:26px;color:var(--jet-2);transform:rotate(-6deg);opacity:.85}
+  .ready{position:absolute;left:4px;bottom:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep)}
+  .js .ready{opacity:0;transition:opacity .4s}
+  .js .desk.all-done .ready{opacity:1}
+
+  footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+  footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
+  footer .who span{color:var(--ink-soft);font-size:14.5px}
+  footer .contact{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);display:grid;gap:2px;user-select:text}
+  footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+
+  @keyframes stamp{from{transform:scale(1.4);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes tick{from{opacity:0;transform:rotate(40deg) scale(.4)}to{opacity:1;transform:rotate(40deg) scale(1)}}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+  }
+  @media print{
+    .hint,.readbtn{display:none !important}
+    .js .body-wrap{grid-template-rows:1fr}
+    .js .body-wrap > div{visibility:visible}
+    .sheet{position:static}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="narrow">
+    <div class="eyebrow">Workshop AI &middot; For Touch Of Talent</div>
+    <h1>Six red flags, <em>briefed.</em></h1>
+    <p class="lede">Agencies run on briefs, so I’ve written up the weak spots in my application as six of them: the doubts I’d have in your seat, my answer to each, and how you’d measure it. The seventh in the job bag isn’t a red flag.</p>
+  </header>
+
+  <p class="hint" id="hint">Open a brief from the job sheet, or read down the list.</p>
+
+  <section class="desk" id="briefs" aria-label="Six red flags, written up as client briefs">
+    <div class="slug"><span>Job bag &middot; AI Transformation Partner</span><span class="count" id="count" aria-live="polite">Signed off: 6 of 6</span></div>
+    <div class="layout">
+      <aside class="sheet" aria-labelledby="sheet-title">
+        <div class="sheet-top"><h2 id="sheet-title">Job sheet</h2><span>Brief R1</span></div>
+        <dl class="meta">
+          <dt>Client</dt><dd>A Melbourne marketing agency</dd>
+          <dt>Job</dt><dd>AI Transformation Partner</dd>
+          <dt>Brief by</dt><dd>Justin Watts, Workshop AI</dd>
+          <dt>Format</dt><dd>The concern, my answer, and how you&rsquo;d measure it</dd>
+        </dl>
+        <div class="ix-head" id="ix-head">Briefs in this job</div>
+        <ol class="ix" aria-labelledby="ix-head">
+          <li id="ix-01"><a href="#brief-01"><span class="box" aria-hidden="true"></span><span class="no">01</span><span class="t">A full-time role?</span><span class="tag">Brief</span></a></li>
+          <li id="ix-02"><a href="#brief-02"><span class="box" aria-hidden="true"></span><span class="no">02</span><span class="t">Not on your platforms</span><span class="tag">Brief</span></a></li>
+          <li id="ix-03"><a href="#brief-03"><span class="box" aria-hidden="true"></span><span class="no">03</span><span class="t">Small clients, several teams</span><span class="tag">Brief</span></a></li>
+          <li id="ix-04"><a href="#brief-04"><span class="box" aria-hidden="true"></span><span class="no">04</span><span class="t">Not an agency person</span><span class="tag">Brief</span></a></li>
+          <li id="ix-05"><a href="#brief-05"><span class="box" aria-hidden="true"></span><span class="no">05</span><span class="t">AI in everything?</span><span class="tag">Brief</span></a></li>
+          <li id="ix-06"><a href="#brief-06"><span class="box" aria-hidden="true"></span><span class="no">06</span><span class="t">How will we know it worked?</span><span class="tag">Brief</span></a></li>
+          <li id="ix-07" class="extra"><a href="#brief-07"><span class="box" aria-hidden="true"></span><span class="no">07</span><span class="t">Not a red flag</span><span class="tag">Extra</span></a></li>
+        </ol>
+      </aside>
+
+      <div class="main">
+        <div class="briefs-head"><span>Briefs</span><span>From &middot; JW</span></div>
+        <ol class="briefs">
+          <li class="bf" id="brief-01" data-n="01">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 01</span><span class="status"><span class="st-open">Open</span><span class="st-done">Signed off</span></span></div>
+            <h2>A full-time role?</h2>
+            <div class="field concern"><span class="lbl">The concern</span><p>“He runs his own consultancy. Will he really be full time?”</p></div>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">My answer</span><p>Fair question. Someone who runs their own consultancy probably isn’t who you pictured for a full-time role. But this job reads a lot like my week, and I’m keen to do it properly. <strong>The role would have my full attention.</strong></p></div><div class="field measure"><span class="lbl">How you’d measure it</span><p>Whether my work shows it, build after build.</p></div></div></div>
+          </li>
+          <li class="bf" id="brief-02" data-n="02">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 02</span><span class="status"><span class="st-open">Open</span><span class="st-done">Signed off</span></span></div>
+            <h2>Not on your platforms</h2>
+            <div class="field concern"><span class="lbl">The concern</span><p>“The ad lists Copilot Studio, Power Automate, n8n, Make and Zapier. He builds in Claude.”</p></div>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">My answer</span><p>I’ve used n8n, Make and Zapier hands-on. I build in Claude and Claude Code, with MCP connectors to join systems up, including one that brings Mattick Air’s Simpro data into Claude. <strong>Power Automate and Copilot Studio are my honest gap, and an easy one to close.</strong></p></div><div class="field measure"><span class="lbl">How you’d measure it</span><p>The first workflow I build on your platform, judged against a measure we agree before I build it.</p></div></div></div>
+          </li>
+          <li class="bf" id="brief-03" data-n="03">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 03</span><span class="status"><span class="st-open">Open</span><span class="st-done">Signed off</span></span></div>
+            <h2>Small clients, several teams</h2>
+            <div class="field concern"><span class="lbl">The concern</span><p>“His clients are small businesses. We have several teams.”</p></div>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">My answer</span><p>True, my clients are small. My scale comes from Ailo, where I led the company-wide Salesforce to HubSpot move across sales, marketing and service. I also built an enablement platform there that people kept using. <strong>It had 83% monthly use across its 19 users, none required to.</strong></p></div><div class="field measure"><span class="lbl">How you’d measure it</span><p>Monthly use team by team, so a team that hasn’t taken it up shows early.</p></div></div></div>
+          </li>
+          <li class="bf" id="brief-04" data-n="04">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 04</span><span class="status"><span class="st-open">Open</span><span class="st-done">Signed off</span></span></div>
+            <h2>Not an agency person</h2>
+            <div class="field concern"><span class="lbl">The concern</span><p>“He’s never worked in an agency.”</p></div>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">My answer</span><p>Not agency-side. At Ailo I owned about $150,000 a year of sales and marketing software. My marketing work there included an AI engine that makes four branded social tiles per user, and a campaign that reached 4,775 users, 855% of target, for $3,263. <strong>A marketing team’s day is familiar ground.</strong></p></div><div class="field measure"><span class="lbl">How you’d measure it</span><p>Whether your teams start bringing me their own problems to fix.</p></div></div></div>
+          </li>
+          <li class="bf" id="brief-05" data-n="05">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 05</span><span class="status"><span class="st-open">Open</span><span class="st-done">Signed off</span></span></div>
+            <h2>AI in everything?</h2>
+            <div class="field concern"><span class="lbl">The concern</span><p>“Will he push AI into everything? And is our clients’ data safe?”</p></div>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">My answer</span><p>Every build gets four questions. Is the input structured? Are the steps definable? Is the output checkable? What does a wrong answer cost? A clear no on any of the first three and I don’t build it. <strong>Access is scoped and read-only; client data stays out of code and logs.</strong></p></div><div class="field measure"><span class="lbl">How you’d measure it</span><p>For any build: a written list of what it can access, and no client data in its code or logs.</p></div></div></div>
+          </li>
+          <li class="bf" id="brief-06" data-n="06">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 06</span><span class="status"><span class="st-open">Open</span><span class="st-done">Signed off</span></span></div>
+            <h2>How will we know it worked?</h2>
+            <div class="field concern"><span class="lbl">The concern</span><p>“How will we know any of this worked?”</p></div>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">My answer</span><p>Success measures are agreed before each build. At Mattick Air, after rollout, I tracked logins and connected tools person by person and reported uptake to the owner, with what to fix next. <strong>Here, I’d track adoption the same way and report the impact to your leadership.</strong></p></div><div class="field measure"><span class="lbl">How you’d measure it</span><p>The measure we agree before each build, and the report against it afterwards.</p></div></div></div>
+          </li>
+          <li class="bf extra" id="brief-07" data-n="07">
+            <div class="bf-head"><span class="id"><span class="pennant" aria-hidden="true"></span>Brief 07</span></div>
+            <h2>Not a red flag</h2>
+            <p class="sub">The extra in the job bag: what comes with me.</p>
+            <div class="body-wrap"><div><div class="field answer"><span class="lbl">What comes with me</span><p>I’d start with the internal champions your ad mentions: people already curious, each fixing one real problem in their own work. Workshops ready to run, including “Agents: what to build and what to leave alone”. A handover note with every release. <strong>What I build is yours to run.</strong></p></div></div></div>
+          </li>
+        </ol>
+
+        <div class="signoff" id="signoff">
+          <span class="lbl">Approval</span>
+          <p>If the briefs hold up, I’d love to have a chat about working together: <a href="tel:+61431254769">0431 254 769</a> or <a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a>.</p>
+          <div class="sigs">
+            <div class="sig"><div class="line"><span class="initials" aria-hidden="true">JW</span></div><div class="who">Justin Watts<span>Director, Workshop AI</span></div></div>
+            <div class="sig"><div class="line"><span class="ready" id="ready">Ready for your approval</span></div><div class="who">Approved by<span>That&rsquo;s you</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="narrow">
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>Thanks for reading.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var desk = document.getElementById('briefs'), count = document.getElementById('count');
+  var all = [].slice.call(document.querySelectorAll('.bf'));
+  var flags = all.filter(function(c){ return !c.classList.contains('extra'); }), logged = false;
+  function row(n){ return document.getElementById('ix-' + n); }
+
+  function tally(){
+    var done = flags.filter(function(c){ return c.classList.contains('done'); }).length;
+    count.textContent = 'Signed off: ' + done + ' of ' + flags.length;
+    var full = done === flags.length;
+    desk.classList.toggle('all-done', full);
+    if(full && !logged){ logged = true; track('briefs_all_signed_off'); }
+  }
+  function setOpen(card, on, via){
+    var n = card.getAttribute('data-n'), w = card.querySelector('.body-wrap'), b = card.querySelector('.readbtn'), r = row(n);
+    card.classList.toggle('open', on);
+    if(on) w.removeAttribute('inert'); else w.setAttribute('inert', '');
+    b.setAttribute('aria-expanded', String(on));
+    b.lastChild.textContent = on ? 'Close the brief' : 'Read the brief';
+    if(r) r.classList.toggle('cur', on);
+    if(on){
+      all.forEach(function(c){ if(c !== card && c.classList.contains('open')) setOpen(c, false); });
+      var first = !card.classList.contains('done');
+      card.classList.add('done'); if(r) r.classList.add('done');
+      tally();
+      if(first) track('brief_open', {brief: n, via: via});
+    }
+  }
+
+  all.forEach(function(card){
+    var n = card.getAttribute('data-n'), w = card.querySelector('.body-wrap');
+    w.id = 'brief-' + n + '-body';
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'readbtn';
+    b.setAttribute('aria-controls', w.id); b.setAttribute('aria-expanded', 'false');
+    b.setAttribute('aria-label', 'Brief ' + n + ', ' + card.querySelector('h2').textContent.replace(/[?.!]$/, '') + ': read my answer');
+    b.innerHTML = '<span class="chev" aria-hidden="true"></span>';
+    b.appendChild(document.createTextNode('Read the brief'));
+    w.after(b);
+    w.setAttribute('inert', '');
+    b.addEventListener('click', function(){ setOpen(card, !card.classList.contains('open'), 'card'); });
+  });
+
+  [].slice.call(document.querySelectorAll('.ix a')).forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var card = document.getElementById(a.getAttribute('href').slice(1));
+      if(!card) return;
+      if(!card.classList.contains('open')) setOpen(card, true, 'sheet');
+      var r = card.getBoundingClientRect();
+      if(r.top < 0 || r.top > window.innerHeight * 0.6) card.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+      card.querySelector('.readbtn').focus({preventScroll: true});
+      card.classList.add('flash'); setTimeout(function(){ card.classList.remove('flash'); }, 900);
+    });
+  });
+  tally();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, risk-assessed | World Vision Australia | Workshop AI</title>
+<meta name="description" content="For World Vision Australia: the doubts I&rsquo;d have about my AI Transformation Lead application, set out like a risk assessment: the concern, my answer, the control." />
+<meta property="og:title" content="Six red flags, risk-assessed" />
+<meta property="og:description" content="The doubts I&rsquo;d have in your seat, set out like a risk assessment: the concern, my answer, the control." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<script>document.documentElement.className+=" js";</script>
+<style>
+  /* A gentle risk assessment on warm linen. Six concerns, each as a rounded card: the concern, my answer, the control.
+     The three parts sit on one soft rail. Quiet red marks only the concern; sage marks the control.
+     Without JS every card shows open with its control. JS folds the answers so the reader opens each one. */
+  :root{
+    --linen:#F3F0EA; --paper:#FFFDF9; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#7A6653; --taupe-soft:#EDE5DC; --stitch:#C9B49F;
+    --sage:#4F6B58; --sage-soft:#E8EEE6; --sage-line:#BFCDBF;
+    --ink-soft:#4F5D66; --ink-faint:#66737B; --line:rgba(34,51,59,0.11); --line-2:rgba(34,51,59,0.22);
+    --flag:#A4493C; --flag-soft:#F6E9E5;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --pad:clamp(18px,4.2vw,34px);
+    --ease:cubic-bezier(.3,.7,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--linen)}
+  body{background:var(--linen);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;margin:0;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));overflow-x:hidden}
+  *{box-sizing:border-box}
+  .wrap{max-width:860px;margin:0 auto}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+  button{font:inherit;color:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  a{color:inherit}
+  :focus-visible{outline:2.5px solid var(--jet);outline-offset:3px;border-radius:6px}
+
+  header{padding-block:48px 6px;display:grid;gap:14px;max-width:720px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7.2vw,58px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe-deep);white-space:nowrap}
+  @media (max-width:360px){h1{font-size:31px}}
+  .lede{font-size:17.5px;color:var(--ink-soft);max-width:58ch}
+
+  /* Assessment summary */
+  .summary{margin:30px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px var(--pad);
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center;box-shadow:0 14px 34px -26px rgba(34,51,59,.35)}
+  .summary dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:14.5px}
+  .summary dt{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+  .summary dd{margin:0}
+  .tally{display:grid;justify-items:end;gap:10px;text-align:right}
+  .count{font-family:var(--display);font-weight:800;font-size:15px;line-height:1.25}
+  .count b{font-size:30px;font-weight:900;color:var(--sage);margin-right:4px}
+  .openall{display:none;border:1.5px solid var(--jet);background:var(--jet);color:#F3F0EA;border-radius:999px;padding:9px 18px;font-weight:600;font-size:14px;cursor:pointer;min-height:44px}
+  .js .openall{display:inline-block}
+  .openall:hover{background:var(--jet-2)}
+  .openall:disabled{background:transparent;color:var(--ink-faint);border-color:var(--line-2);cursor:default}
+  .key{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px;padding-top:14px;border-top:1px dashed var(--line-2);
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .key span{display:inline-flex;align-items:center;gap:8px}
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+  .dot.c{background:var(--flag)} .dot.a{background:var(--jet)} .dot.k{background:var(--sage)}
+
+  /* Cards */
+  .cards{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px var(--pad) 22px;
+    box-shadow:0 1px 2px rgba(34,51,59,.04),0 16px 36px -30px rgba(34,51,59,.4);transition:border-color .4s var(--ease)}
+  .card.open{border-color:var(--sage-line)}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+  .num{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--flag)}
+  .flag{width:13px;height:15px;color:var(--flag);flex:none}
+  .status{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;border-radius:999px;padding:3px 10px;white-space:nowrap;
+    background:var(--sage-soft);color:var(--sage);transition:background .4s var(--ease),color .4s var(--ease)}
+  .js .card:not(.open) .status{background:var(--flag-soft);color:var(--flag)}
+  .card h2{font-size:clamp(19px,3vw,23px);font-weight:800;line-height:1.2;letter-spacing:-0.005em;margin-bottom:14px}
+
+  .parts{position:relative;padding-left:26px}
+  .parts::before{content:"";position:absolute;left:5px;top:10px;bottom:12px;border-left:1.5px dashed var(--stitch)}
+  .part{position:relative}
+  .part::before{content:"";position:absolute;left:-26px;top:6px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 3px var(--paper)}
+  .part.c::before{background:var(--flag)} .part.a::before{background:var(--jet)} .part.k::before{background:var(--sage)}
+  .lbl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  .doubt{font-family:var(--body);font-style:italic;font-weight:500;font-size:17px;color:var(--jet-2)}
+  .part.a,.part.k{margin-top:16px}
+  .ans{font-size:16px}
+  .ans strong{font-weight:600;background:linear-gradient(transparent 62%,var(--taupe-soft) 62%)}
+  .part.k .box{background:var(--sage-soft);border-radius:12px;padding:12px 14px;color:#2B3F33}
+  .part.k .lbl{color:var(--sage)}
+
+  .fold{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease),opacity .45s var(--ease)}
+  .fold > div{min-height:0;overflow:hidden}
+  .js .card:not(.open) .fold{grid-template-rows:0fr;opacity:0}
+
+  .obtn{display:inline-flex;align-items:center;gap:10px;margin-top:14px;border:1.5px solid var(--line-2);background:transparent;border-radius:999px;
+    padding:8px 16px;min-height:44px;font-weight:600;font-size:14.5px;cursor:pointer;text-align:left}
+  .obtn:hover{border-color:var(--jet)}
+  .chev{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .4s var(--ease);flex:none}
+  .open .obtn .chev{transform:rotate(-135deg) translate(-1px,-1px)}
+
+  /* Four questions, inside flag 02 */
+  .fq{margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;padding:0}
+  .fq li{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px;color:var(--ink-soft);background:#FBF9F5}
+  .fq b{display:block;font-family:var(--display);font-weight:800;font-size:14.5px;color:var(--jet);margin-bottom:2px}
+  .fq-cap{margin-top:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* The note at the end */
+  .note{margin-top:26px;background:var(--taupe-soft);border-radius:18px;padding:22px var(--pad) 24px;border:1px solid rgba(122,102,83,.18)}
+  .note .num{color:var(--taupe-deep)}
+  .note .flag{display:none}
+  .note .parts::before{border-color:var(--taupe)}
+  .note .part.c::before{background:var(--taupe-deep)}
+  .note .part.k::before{background:var(--taupe-deep)}
+  .note .part::before{box-shadow:0 0 0 3px var(--taupe-soft)}
+  .note .part.k .box{background:var(--paper);color:var(--jet)}
+  .note .part.k .lbl{color:var(--taupe-deep)}
+  .note .status{background:var(--paper);color:var(--taupe-deep)}
+  .card.note.open{border-color:rgba(122,102,83,.18)}
+  .js .note:not(.open) .status{background:var(--paper);color:var(--taupe-deep)}
+
+  .signoff{margin:34px 0 0;padding:22px var(--pad);border:1.5px dashed var(--stitch);border-radius:18px;font-size:16.5px}
+  .signoff .lbl{color:var(--taupe-deep)}
+  .signoff a{font-weight:600;text-underline-offset:3px}
+
+  footer{margin:42px 0 0;padding:22px 0 calc(40px + env(safe-area-inset-bottom, 0px));border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 28px;font-size:14.5px}
+  .who{display:grid;gap:2px}
+  .who span{color:var(--ink-faint)}
+  .contact{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:flex-start}
+  .contact a{text-underline-offset:3px;padding-block:6px}
+
+  @media (max-width:620px){
+    header{padding-top:34px}
+    .summary{grid-template-columns:minmax(0,1fr)}
+    .tally{justify-items:start;text-align:left}
+    .summary dl{grid-template-columns:minmax(0,1fr);gap:0}
+    .summary dd{margin-bottom:8px}
+    .fq{grid-template-columns:minmax(0,1fr)}
+    .parts{padding-left:22px}
+    .part::before{left:-22px}
+    .parts::before{left:5px}
+    .card h2{margin-bottom:12px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Workshop AI &middot; For World Vision Australia</div>
+    <h1>Six red flags, <em>risk-assessed.</em></h1>
+    <p class="lede">The doubts I’d have in your seat, set out like a risk assessment: the concern, my answer, the control. There’s a short note at the end.</p>
+  </header>
+
+  <section class="summary" id="summary" aria-label="About this assessment">
+    <dl>
+      <dt>Assessing</dt><dd>My application for AI Transformation Lead</dd>
+      <dt>Prepared by</dt><dd>Justin Watts, Workshop AI</dd>
+      <dt>Approach</dt><dd>Controls in proportion to risk, as your ad asks</dd>
+    </dl>
+    <div class="tally">
+      <p class="count" aria-live="polite"><b id="count">6</b>of 6 concerns with a control shown</p>
+      <button type="button" class="openall" id="openall">Show all six</button>
+    </div>
+    <div class="key" aria-hidden="true"><span><i class="dot c"></i>The concern</span><span><i class="dot a"></i>My answer</span><span><i class="dot k"></i>The control</span></div>
+  </section>
+
+  <section id="assessment" aria-label="Six concerns, each with my answer and a control">
+    <ol class="cards" id="cards">
+      <li class="card rf" id="rf-01" data-n="01">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 01</span><span class="status">Control shown</span></div>
+        <h2>A small-business consultant in an enterprise role</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><p class="doubt">“His clients are small businesses. This is an enterprise transformation role.”</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><p class="ans">That’s my honest gap: I haven’t shaped AI strategy for an organisation your size. So I’d work through the people who already lead each area: Technology, Data, Risk, Privacy, Legal, Finance, and People &amp; Culture. <strong>I’d build the strategy with them, and with the people doing the work.</strong></p></div>
+            <div class="part k"><div class="box"><span class="lbl">The control</span><p>Every initiative gets a business owner and measures agreed up front, and goes through your enterprise governance before it’s funded.</p></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-02" data-n="02">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 02</span><span class="status">Control shown</span></div>
+        <h2>AI pushed into everything</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><p class="doubt">“An AI lead will want to put AI into everything.”</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><p class="ans">Before any agent, I ask the four questions below. <strong>A clear no on any of the first three and I don’t build it.</strong> At Mattick Air I sorted each backlog item into build, buy or wait. A logistics client got a pipeline with no AI at run time.</p><p class="fq-cap">The four questions</p><ul class="fq"><li><b>Is the input structured?</b>Does it start from something consistent, not a vague one-liner?</li><li><b>Are the steps definable?</b>Can the steps be written down, the same way each time?</li><li><b>Is the output checkable?</b>Can a person tell quickly whether it’s right?</li><li><b>What does a wrong answer cost?</b>Low and reversible: it acts. High or hard to undo: it drafts, a person decides.</li></ul></div>
+            <div class="part k"><div class="box"><span class="lbl">The control</span><p>Work that doesn’t justify central transformation capacity is deferred or stopped. Lower-risk ideas go to business teams to run themselves.</p></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-03" data-n="03">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 03</span><span class="status">Control shown</span></div>
+        <h2>Children’s data and safeguarding</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><p class="doubt">“Our work involves children. The bar for their information is higher than anything his clients hold.”</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><p class="ans">When the people at the end of the work are children, the bar should be higher again, and agreed before anything is built. Where AI earns a place, it drafts and a person sends, and private information stays private. <strong>Safeguarding is your specialists’ field, and I’d build to their bar.</strong></p></div>
+            <div class="part k"><div class="box"><span class="lbl">The control</span><p>Controls in proportion to risk, set with your safeguarding, Privacy and Legal people, and a person who can review, override or switch it off.</p></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-04" data-n="04">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 04</span><span class="status">Control shown</span></div>
+        <h2>A builder who duplicates Technology and Data</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><p class="doubt">“He’s a builder. He’ll end up duplicating our Technology and Data teams.”</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><p class="ans">My clients are too small to have those teams, so I’d work alongside yours. Every piece of work has a business owner. I compare options before building and write the briefs engineers build from. <strong>Where a plainer option is more reliable, I’d choose it.</strong></p></div>
+            <div class="part k"><div class="box"><span class="lbl">The control</span><p>Technology and Data keep their accountabilities. I bring the business problem, the options compared, the brief and the measures.</p></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-05" data-n="05">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 05</span><span class="status">Control shown</span></div>
+        <h2>Adoption that fades after the enthusiasts</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><p class="doubt">“The enthusiasts will love it. Everyone else will drift back to the old way.”</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><p class="ans">I’d find the champions first. At Mattick Air a well-received group session didn’t change how most people worked, so I switched to one-to-ones on their own work and tracked uptake person by person. <strong>At Ailo, an enablement platform I built had 83% monthly use across its 19 users.</strong></p></div>
+            <div class="part k"><div class="box"><span class="lbl">The control</span><p>A check a few months after launch on who’s still using it, person by person, reported to the business owner.</p></div></div>
+          </div></div>
+        </div>
+      </li>
+      <li class="card rf" id="rf-06" data-n="06">
+        <div class="top"><span class="num"><svg class="flag" viewBox="0 0 16 18" aria-hidden="true"><path d="M1.5 17V1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.2 2.2h11l-2.6 3.6 2.6 3.6h-11z" fill="currentColor"/></svg>Red flag 06</span><span class="status">Control shown</span></div>
+        <h2>Influence with executives and governance forums</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">The concern</span><p class="doubt">“Can he hold his own with our executives and governance forums?”</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">My answer</span><p class="ans">At Ailo I owned about $150,000 a year in sales and marketing software, and led the company-wide Salesforce to HubSpot move. I spent six years on the Asia Pacific advisory council of Public Interest Registry (.org). <strong>I’m used to putting a recommendation to people who can say no.</strong></p></div>
+            <div class="part k"><div class="box"><span class="lbl">The control</span><p>Each recommendation reaches the forum with its expected value, measures and risks written down, so the decision stays with the forum.</p></div></div>
+          </div></div>
+        </div>
+      </li>
+    </ol>
+    
+      <div class="card note" id="note" data-n="NOTE" role="group" aria-labelledby="note-title">
+        <div class="top"><span class="num">One last note</span><span class="status">No control needed</span></div>
+        <h2 id="note-title">The personal reason</h2>
+        <div class="parts">
+          <div class="part c"><span class="lbl">Context</span><p class="doubt">Not a red flag. Why this role matters to me.</p></div>
+          <div class="fold"><div>
+            <div class="part a"><span class="lbl">The story</span><p class="ans">I founded Everyone Eats, a social enterprise working in Melbourne and Bangladesh. I raised about $25,000 to fund 96,000 school meals. It’s where I learnt that supporters want to see what their money did for a child. <strong>The video tool I built to show them became the start of Ailo.</strong></p></div>
+            <div class="part k"><div class="box"><span class="lbl">Why it matters here</span><p>Your ad starts with greater impact for children and communities. That’s why I’m putting my hand up.</p></div></div>
+          </div></div>
+        </div>
+      </div>
+    <div class="signoff" id="next">
+      <span class="lbl">Next step</span>
+      <p>If the controls hold up, I’d love to have a chat about working together: <a href="tel:+61431254769">0431 254 769</a> or <a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>Thanks for reading.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var flags = [].slice.call(document.querySelectorAll('.card.rf'));
+  var count = document.getElementById('count'), openall = document.getElementById('openall'), allLogged = false, seen = {};
+
+  function tally(){
+    var n = Object.keys(seen).length;
+    count.textContent = String(n);
+    openall.disabled = flags.every(function(r){ return r.classList.contains('open'); });
+    openall.textContent = openall.disabled ? 'All six shown' : 'Show all six';
+    if(n === flags.length && !allLogged){ allLogged = true; track('rf_all_answered'); }
+  }
+  function setOpen(card, on, via){
+    var isNote = card.classList.contains('note');
+    card.classList.toggle('open', on);
+    var f = card.querySelector('.fold'), b = card.querySelector('.obtn'), st = card.querySelector('.status');
+    if(on) f.removeAttribute('inert'); else f.setAttribute('inert', '');
+    b.setAttribute('aria-expanded', String(on));
+    b.querySelector('.t').textContent = on ? 'Hide' : (isNote ? 'Read the note' : 'See my answer and the control');
+    if(!isNote) st.textContent = on ? 'Control shown' : 'Open';
+    if(on){
+      if(isNote) track('note_open');
+      else if(!seen[card.dataset.n]){ seen[card.dataset.n] = 1; track('red_flag_open', {card: card.dataset.n, via: via}); }
+    }
+    if(!isNote) tally();
+  }
+  [].forEach.call(document.querySelectorAll('.card'), function(card){
+    var f = card.querySelector('.fold'), title = card.querySelector('h2').textContent;
+    f.id = card.id + '-more';
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'obtn';
+    b.setAttribute('aria-controls', f.id); b.setAttribute('aria-expanded', 'false');
+    b.setAttribute('aria-label', (card.classList.contains('note') ? 'Note: ' : 'Red flag ' + card.dataset.n + ': ') + title);
+    b.innerHTML = '<span class="t"></span><span class="chev" aria-hidden="true"></span>';
+    card.querySelector('.part.c').appendChild(b);
+    setOpen(card, false);
+    b.addEventListener('click', function(){ setOpen(card, !card.classList.contains('open'), 'button'); });
+  });
+  seen = {}; tally();
+  openall.addEventListener('click', function(){
+    track('rf_open_all');
+    var queue = flags.filter(function(r){ return !r.classList.contains('open'); });
+    (function next(){ var r = queue.shift(); if(r){ setOpen(r, true, 'open_all'); setTimeout(next, reduce ? 0 : 110); } })();
+  });
+})();
+</script>
+</body>
+</html>
