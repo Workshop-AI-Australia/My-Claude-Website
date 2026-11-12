@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, answered | Perform Digital | Workshop AI</title>
+<meta name="description" content="For Perform Digital: the six things I&rsquo;d worry about in your seat, set out as a statement of work, each with a straight answer and a way to check it." />
+<meta property="og:title" content="Six red flags, answered." />
+<meta property="og:description" content="For Perform Digital: six doubts about my application, set out as a statement of work, each with a straight answer." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<style>
+  /* One centred stage: heading, a statement of work page (six numbered clauses) with Schedule A tucked behind it, then the clause you opened. */
+  :root{
+    --smoke:#F2F4F3; --card:#FBFBFA; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#8A7460; --taupe-soft:#E7DED5; --stitch:#C9B49F;
+    --ink-soft:#5A6670; --ink-faint:#8C969D; --line:rgba(34,51,59,0.12);
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --cw:clamp(244px, calc(100vw - 76px), 360px);
+    --tab:30px;
+    --ease:cubic-bezier(.3,.6,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--smoke)}
+  body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));margin:0;padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0;overflow-x:hidden}
+  .wrap{max-width:760px;margin:0 auto}
+  *{box-sizing:border-box}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+
+  header{padding-block:44px 22px;display:grid;gap:12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe)}
+
+  /* Stage */
+  .stage{display:none;justify-items:center;gap:18px;padding-block:14px 12px}
+  .js .stage{display:grid}
+  .rig{position:relative;width:calc(var(--cw) + var(--tab));padding-right:var(--tab);transition:padding-bottom .75s var(--ease)}
+  .rig[data-bonus="out"]{padding-bottom:var(--bonus-h, 260px)}
+
+  .sheets{position:relative;width:var(--cw)}
+  /* The statement of work page */
+  .doc{position:relative;z-index:2;width:var(--cw);background:var(--card);border-radius:6px;display:flex;flex-direction:column;
+    box-shadow:0 22px 34px -18px rgba(34,51,59,0.5), 0 0 0 1px rgba(34,51,59,0.10)}
+  .doc::before{content:"";position:absolute;left:14px;top:-5px;width:20px;height:9px;border:2px solid #9AA2A6;border-bottom:0;border-radius:2px 2px 0 0;opacity:.85}
+  .dochead{padding:20px 18px 12px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+  .dochead .k{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe-deep)}
+  .dochead .bar{width:44%;height:7px;border-radius:2px;background:var(--jet)}
+  .dochead .t{font-family:var(--display);font-weight:900;font-size:clamp(19px,5.6vw,23px);line-height:1.05;text-transform:uppercase;letter-spacing:-0.01em}
+  .parties{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;padding:10px 18px 8px}
+  .parties > span{display:grid;min-width:0}
+  .parties .ft{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .parties .fd{font-weight:600;font-size:13px;line-height:1.25}
+  .ck{padding:8px 18px 2px;font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .list{list-style:none;margin:0;padding:0 10px 4px;display:flex;flex-direction:column;gap:2px}
+  .list li{display:flex;min-height:44px}
+  .row{all:unset;box-sizing:border-box;flex:1;display:flex;align-items:center;gap:10px;padding:0 8px;border-radius:5px;cursor:pointer;border-bottom:1px dashed rgba(34,51,59,0.14);
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background .3s}
+  .list li:last-child .row{border-bottom:0}
+  @media (hover:hover){.row:hover{background:rgba(169,146,125,0.14)}}
+  .row:focus-visible{outline:3px solid var(--taupe);outline-offset:-1px}
+  .row[aria-pressed="true"]{background:var(--taupe-soft)}
+  .rn{flex:none;width:18px;font-family:var(--mono);font-size:12px;color:var(--taupe-deep)}
+  .rl{flex:1;min-width:0;font-weight:600;font-size:clamp(13px,3.9vw,14.5px);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tag{flex:none;font-family:var(--mono);font-size:8.5px;letter-spacing:0.12em;color:var(--ink-faint);border:1px dashed rgba(34,51,59,0.25);border-radius:3px;padding:2px 4px;line-height:1.3;transition:color .3s, border-color .3s, background .3s}
+  .row.read .tag{color:var(--smoke);background:var(--taupe-deep);border:1px solid var(--taupe-deep)}
+  .docfoot{margin-top:4px;padding:10px 18px 14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* The Schedule A tab, on the page's right edge */
+  .pull{all:unset;box-sizing:border-box;position:absolute;z-index:3;right:calc(-1 * var(--tab));bottom:64px;width:var(--tab);min-height:92px;display:flex;align-items:center;justify-content:center;cursor:pointer;
+    background:var(--taupe);color:var(--jet);border-radius:0 6px 6px 0;box-shadow:4px 6px 10px -6px rgba(34,51,59,0.5);touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background .3s}
+  .pull span{writing-mode:vertical-rl;font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;font-weight:500}
+  @media (hover:hover){.pull:hover{background:#B9A38F}}
+  .pull:focus-visible{outline:3px solid var(--jet);outline-offset:2px}
+  .rig[data-bonus="out"] .pull{background:var(--taupe-deep);color:var(--smoke)}
+
+  /* Schedule A: a taupe sheet behind the page that slides out below it */
+  .bonuscard{all:unset;box-sizing:border-box;position:absolute;z-index:1;left:12px;width:calc(var(--cw) - 24px);top:auto;bottom:14px;cursor:pointer;
+    border-radius:6px;background:var(--taupe-soft);color:var(--jet);padding:16px 16px 14px;display:flex;flex-direction:column;gap:9px;box-shadow:0 10px 18px -10px rgba(34,51,59,0.45), 0 0 0 1px rgba(138,116,96,0.35);
+    transform:rotate(-2.5deg);transition:transform .75s var(--ease), visibility 0s linear .75s;visibility:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .peek{position:absolute;z-index:1;left:10px;top:-7px;width:calc(var(--cw) - 4px);height:60%;border-radius:6px;background:var(--taupe-soft);transform:rotate(2deg);box-shadow:0 0 0 1px rgba(138,116,96,0.3);transition:opacity .4s}
+  .rig[data-bonus="out"] .peek{opacity:0}
+  .rig[data-bonus="out"] .bonuscard{transform:translateY(calc(100% + 26px)) rotate(0deg);visibility:visible;transition:transform .75s var(--ease), visibility 0s}
+  .bonuscard:focus-visible{outline:3px solid var(--taupe-deep);outline-offset:3px}
+  .bonuscard .bk{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--taupe-deep)}
+  .bonuscard .bh{font-family:var(--display);font-weight:900;font-size:clamp(18px,5.5vw,22px);text-transform:uppercase;line-height:1}
+  .blist{display:grid;gap:4px;font-size:13.5px;font-weight:600;counter-reset:s}
+  .bi{display:flex;gap:8px;align-items:baseline;counter-increment:s}
+  .bi::before{content:"A" counter(s);font-family:var(--mono);font-size:10px;font-weight:500;color:var(--taupe-deep);flex:none;width:18px}
+
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;min-height:44px;position:relative;z-index:3}
+  .btn{all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:11px 18px;border-radius:999px;background:var(--jet);color:var(--smoke);touch-action:manipulation}
+  .btn:hover{background:#1A282E}
+  .btn.ghost{background:transparent;color:var(--jet);box-shadow:0 0 0 1.5px var(--jet) inset}
+  .btn:focus-visible{outline:3px solid var(--taupe);outline-offset:3px}
+  .hint{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* The clause you opened, enlarged */
+  .reader{min-height:12px;display:grid;justify-items:center;padding-block:6px 30px;scroll-margin-bottom:16px}
+  .big{width:min(560px,100%);background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 24px 40px -22px rgba(34,51,59,0.45), 0 0 0 1px var(--line);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+  .big-top{background:var(--jet);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .big-top span{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe)}
+  .big-top b{font-family:var(--mono);font-weight:500;font-size:9.5px;letter-spacing:0.14em;color:var(--smoke);border:1px solid var(--taupe);border-radius:3px;padding:2px 6px}
+  .big-body{padding:18px 20px 22px;display:grid;gap:10px}
+  .big h2{font-size:clamp(20px,4vw,25px);font-weight:800;line-height:1.2}
+  .big p{color:var(--ink-soft);font-size:16.5px;max-width:58ch}
+  .big p strong{color:var(--jet);font-weight:600}
+  .big .verify{margin-top:4px;padding-top:12px;border-top:1px dashed var(--taupe);font-size:15px;display:grid;gap:2px}
+  .big .verify em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep)}
+  .big.bonus .big-top{background:var(--taupe-deep)}
+  .big.bonus .big-top span{color:var(--smoke)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* Without JavaScript: every line, in order */
+  .plain{list-style:none;margin:0;padding:24px 0 30px;display:grid;gap:18px;justify-items:center}
+  .js .plain{display:none}
+  .plain > li{width:min(560px,100%)}
+
+  footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+  footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
+  footer .who span{color:var(--ink-soft);font-size:14.5px}
+  footer .contact{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);display:grid;gap:2px;user-select:text}
+  footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+
+  @media (prefers-reduced-motion: reduce){
+    .rig,.bonuscard,.rig[data-bonus="out"] .bonuscard,.peek,.big,.row,.tag,.pull{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Workshop AI &middot; For Perform Digital</div>
+    <h1>Six red flags, <em>answered.</em></h1>
+  </header>
+
+  <section class="stage" aria-label="The statement of work">
+    <div class="rig" id="rig" data-bonus="in">
+      <div class="sheets" id="sheets">
+      <span class="peek" aria-hidden="true"></span>
+      <div class="doc" id="doc">
+        <div class="dochead"><span class="bar" aria-hidden="true"></span><span class="k">Statement of work</span><span class="t">Before you decide</span></div>
+        <div class="parties">
+          <span><span class="ft">Prepared by</span><span class="fd">Justin Watts, Workshop AI</span></span>
+          <span><span class="ft">Prepared for</span><span class="fd">Perform Digital</span></span>
+          <span><span class="ft">Role</span><span class="fd">AI Solutions Consultant</span></span>
+          <span><span class="ft">Term</span><span class="fd">As advertised</span></span>
+        </div>
+        <div class="ck" id="ck">Clauses</div>
+        <ol class="list" id="list" aria-labelledby="ck"></ol>
+        <div class="docfoot"><span>Schedule A attached</span><span>SOW-RF-06</span></div>
+      </div>
+      <button class="pull" id="pull" type="button" aria-expanded="false" aria-controls="bonuscard" aria-label="Schedule A: what&rsquo;s included"><span>Schedule A</span></button>
+      <button class="bonuscard" id="bonuscard" type="button" tabindex="-1" aria-label="Schedule A: what&rsquo;s included, read it">
+        <span class="bk">Schedule A</span>
+        <span class="bh">What&rsquo;s included</span>
+        <span class="blist"><span class="bi">Four questions before any agent</span><span class="bi">A governance one-pager</span><span class="bi">What won’t be built, in writing</span><span class="bi">An engineer, if a job needs one</span></span>
+      </button>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn ghost" id="toggle" type="button">Open Schedule A</button>
+      <span class="hint" id="hint">Tap a clause</span>
+    </div>
+  </section>
+
+  <section class="reader" id="reader" aria-live="polite"></section>
+
+  <ol class="plain" id="plain">
+    <li data-kind="flag" data-short="Not one person"><article class="big"><div class="big-top"><span>Red flag 01 of 06</span><b>ANSWERED</b></div><div class="big-body"><h2>“We advertised for a consultant. He’s bringing a consultancy.”</h2><p>You’d get one person in the room with your clients: me. I’d run the discovery, shape proposals with your sales team, and stay with your engineers through delivery so the build matches what the client needs. <strong>One point of contact for your clients, start to finish.</strong></p><p class="verify"><em>How to check it</em>Ask me exactly who would do what, and who your clients would deal with.</p></div></article></li>
+    <li data-kind="flag" data-short="Not a usual hire"><article class="big"><div class="big-top"><span>Red flag 02 of 06</span><b>ANSWERED</b></div><div class="big-body"><h2>“Is this a consultancy pitch dressed up as an application?”</h2><p>It’s an application from someone who already does this work. A fixed term works for me, and I’d rather show you how I work than pretend to be a standard candidate. <strong>If a different shape suits you better, including the role as advertised, I’m open to finding one.</strong></p><p class="verify"><em>How to check it</em>Bring one real client problem to a first conversation, and watch how I work on it.</p></div></article></li>
+    <li data-kind="flag" data-short="Same work as us"><article class="big"><div class="big-top"><span>Red flag 03 of 06</span><b>ANSWERED</b></div><div class="big-body"><h2>“He does what we do. Is he after our clients?”</h2><p>Fair question. What Workshop AI does sits close to what Perform Digital does, and I’d rather say that up front than have you find it. In your seat, the work and the client relationships are yours. <strong>I’m offering to do the job you advertised, in the open.</strong></p><p class="verify"><em>How to check it</em>Ask me how I’d keep your clients and my own practice apart, and put it in writing.</p></div></article></li>
+    <li data-kind="flag" data-short="Where are the 3+?"><article class="big"><div class="big-top"><span>Red flag 04 of 06</span><b>ANSWERED</b></div><div class="big-body"><h2>“Workshop AI is brand new. Where are the three years?”</h2><p>Mostly at Ailo, a property software company, where I spent nearly twelve years on in-house enablement and client-facing work, training non-technical colleagues to build their own tools. Workshop AI started this year. <strong>The years are real; only the business name is new.</strong></p><p class="verify"><em>How to check it</em>Ask me to walk one Ailo rollout through, from the first conversation to who still uses it.</p></div></article></li>
+    <li data-kind="flag" data-short="AI everywhere?"><article class="big"><div class="big-top"><span>Red flag 05 of 06</span><b>ANSWERED</b></div><div class="big-body"><h2>“Will he push AI into everything?”</h2><p>No. For a logistics business whose agents had started to drift, the right answer was plain automation with no AI at run time. I follow Australia’s Guidance for AI Adoption, which builds on the Voluntary AI Safety Standard. <strong>A good readiness assessment says where AI shouldn’t go.</strong></p><p class="verify"><em>How to check it</em>Ask me which ideas I’ve talked clients out of building, and why.</p></div></article></li>
+    <li data-kind="flag" data-short="Regulated clients"><article class="big"><div class="big-top"><span>Red flag 06 of 06</span><b>ANSWERED</b></div><div class="big-body"><h2>“His clients are small businesses, not regulated industries.”</h2><p>They are, and financial services, health and government would be new to me. What carries is the method. At a construction group I mapped how an invoice gets paid, then sat beside the finance officer while the agent ran. <strong>I stay close until it matches what the client needs.</strong></p><p class="verify"><em>How to check it</em>Ask what changed after those first runs, and what I wrote down before building.</p></div></article></li>
+    <li data-kind="bonus" data-short=""><article class="big bonus"><div class="big-top"><span>Schedule A &middot; What&rsquo;s included</span></div><div class="big-body"><h2>Schedule A: what’s included.</h2><p>Your engineers build it. I make sure it’s the right thing. What comes with me: four questions before any agent, a governance one-pager, a written list of what will and won’t be built, and an engineer if a job needs extra hands. <strong>The method stays with your team.</strong></p><p class="verify"><em>How to check it</em>My capability statement sets out the same shape.</p></div></article></li>
+  </ol>
+
+  <footer>
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>I hope we can have a chat.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // The six clauses and Schedule A live in the HTML (#plain), so they work without JavaScript too.
+  var items=[].slice.call(document.querySelectorAll('#plain > li'));
+  var FLAGS=items.filter(function(li){return li.dataset.kind==='flag';});
+  var BONUS=items.filter(function(li){return li.dataset.kind==='bonus';})[0];
+  function pad(n){return (n<10?"0":"")+n}
+  var TAG='ANSWERED';
+
+  var rig=document.getElementById('rig'), list=document.getElementById('list'), toggle=document.getElementById('toggle'), hint=document.getElementById('hint');
+  var pull=document.getElementById('pull'), bonuscard=document.getElementById('bonuscard'), reader=document.getElementById('reader');
+  var current=-1, rows=[];
+  var reduce=function(){ return matchMedia('(prefers-reduced-motion: reduce)').matches; };
+
+  FLAGS.forEach(function(li, i){
+    var r=document.createElement('li'), b=document.createElement('button');
+    b.type='button'; b.className='row'; b.dataset.idx=i; b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-label','Clause '+(i+1)+', red flag '+pad(i+1)+': '+li.dataset.short);
+    b.innerHTML='<span class="rn">'+(i+1)+'.</span><span class="rl">'+li.dataset.short+'</span><span class="tag">'+TAG+'</span>';
+    b.addEventListener('click', function(){ pick(i); });
+    r.appendChild(b); list.appendChild(r); rows.push(b);
+  });
+
+  function bringIntoView(){
+    var r=reader.getBoundingClientRect();
+    if(window.innerHeight < r.top + Math.min(r.height, 220)){
+      try{ reader.scrollIntoView({behavior: reduce() ? 'auto' : 'smooth', block:'start'}); }catch(e){}
+    }
+  }
+  function show(li, top, tag, bonus){
+    reader.innerHTML='<article class="big'+(bonus?' bonus':'')+'"><div class="big-top"><span>'+top+'</span>'+(tag?'<b>'+tag+'</b>':'')+'</div><div class="big-body">'+li.querySelector('.big-body').innerHTML+'</div></article>';
+  }
+  function hintFor(){ hint.textContent = rig.dataset.bonus==='out' ? 'Tap Schedule A to read it' : 'Tap a clause'; }
+  function pick(idx, silent){
+    if(idx===current && !silent){ idx=-1; }
+    current=idx;
+    rows.forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.idx===idx)); });
+    if(idx<0){ reader.innerHTML=''; return; }
+    rows[idx].classList.add('read');
+    show(FLAGS[idx], 'Red flag '+pad(idx+1)+' of 06', TAG, false);
+    track('red_flag_card', {card: pad(idx+1)});
+    if(!silent) bringIntoView();
+  }
+  function showBonus(silent){
+    pick(-1, true); current=-2;
+    show(BONUS, 'Schedule A &middot; What&rsquo;s included', '', true);
+    if(!silent) bringIntoView();
+  }
+  function setBonus(out){
+    rig.style.setProperty('--bonus-h', (bonuscard.offsetHeight + 40) + 'px');
+    rig.dataset.bonus = out ? 'out' : 'in';
+    pull.setAttribute('aria-expanded', String(out));
+    bonuscard.tabIndex = out ? 0 : -1;
+    toggle.textContent = out ? 'Tuck Schedule A away' : 'Open Schedule A';
+    if(out){ showBonus(true); track('schedule_a'); }  // stay on the page so Schedule A is seen sliding out
+    else if(current===-2){ pick(-1, true); }
+    hintFor();
+  }
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  pull.addEventListener('click', function(){ setBonus(rig.dataset.bonus!=='out'); });
+  toggle.addEventListener('click', function(){ setBonus(rig.dataset.bonus!=='out'); });
+  bonuscard.addEventListener('click', function(){ if(current===-2){ reader.innerHTML=''; current=-1; } else { showBonus(false); } });
+})();
+</script>
+</body>
+</html>
