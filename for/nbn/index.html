@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Six red flags, answered | nbn | Workshop AI</title>
+<meta name="description" content="For nbn: the six things I&rsquo;d worry about in your seat, each checked off with a straight answer and a way to verify it." />
+<meta property="og:title" content="Six red flags, answered." />
+<meta property="og:description" content="For nbn: six doubts about my application, set out like a site induction card, each with a straight answer." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.png" />
+<!-- ga4:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB01RKTVMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SB01RKTVMZ');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var s = a.closest('section, header, footer, nav');
+    var where = s ? (s.id || s.tagName.toLowerCase()) : 'page';
+    if (h.indexOf('calendar.app.google') > -1) gtag('event', 'book_a_chat', {link_location: where});
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', {link_location: where});
+    else if (h.indexOf('tel:') === 0) gtag('event', 'contact_phone', {link_location: where});
+  });
+</script>
+<!-- ga4:end -->
+<script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+<style>
+  /* One centred stage: heading, a site induction card on a lanyard (flips to a six-line checklist), a bonus card tucked in the sleeve, then the line you opened. */
+  :root{
+    --smoke:#F2F4F3; --card:#FBFBFA; --jet:#22333B; --jet-2:#2C3F49;
+    --taupe:#A9927D; --taupe-deep:#8A7460; --taupe-soft:#E7DED5; --stitch:#C9B49F;
+    --ink-soft:#5A6670; --ink-faint:#8C969D; --line:rgba(34,51,59,0.12);
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --cw:clamp(248px, calc(100vw - 72px), 350px);
+    --ch:calc(var(--cw) * 1.42 + 36px);
+    --ease:cubic-bezier(.3,.6,.2,1);
+    color-scheme:light;
+  }
+  html{background:var(--smoke)}
+  body{background:var(--smoke);color:var(--jet);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));margin:0;padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0;overflow-x:hidden}
+  .wrap{max-width:760px;margin:0 auto}
+  *{box-sizing:border-box}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+  p{margin:0}
+
+  header{padding-block:44px 22px;display:grid;gap:12px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);font-weight:500}
+  h1{font-size:clamp(34px,7vw,56px);font-weight:900;text-transform:uppercase;line-height:0.98;letter-spacing:-0.01em}
+  h1 em{font-style:normal;color:var(--taupe)}
+
+  /* Stage */
+  .stage{display:none;justify-items:center;gap:18px;padding-block:8px 12px}
+  .js .stage{display:grid}
+  .rig{position:relative;width:var(--cw);display:grid;justify-items:center;transition:padding-bottom .75s var(--ease)}
+  .rig[data-bonus="out"]{padding-bottom:var(--bonus-h, calc(var(--ch) * 0.5))}
+
+  /* Lanyard strap and clip */
+  .strap{width:30px;height:clamp(54px,9vw,84px);border-radius:0 0 3px 3px;background-color:var(--jet);position:relative;overflow:hidden;
+    background-image:repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, rgba(255,255,255,0) 1px 3px);box-shadow:0 2px 4px rgba(0,0,0,0.25)}
+  .strap span{position:absolute;left:50%;bottom:6px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--mono);font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--stitch);white-space:nowrap}
+  .clip{width:46px;height:20px;margin-top:-2px;border-radius:5px 5px 7px 7px;position:relative;z-index:3;
+    background:linear-gradient(180deg,#D9DDDE,#AEB5B8 55%,#8E979B);box-shadow:0 2px 3px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.7)}
+  .clip::after{content:"";position:absolute;left:50%;bottom:-12px;width:14px;height:16px;transform:translateX(-50%);border:3px solid #9AA2A6;border-top:0;border-radius:0 0 8px 8px}
+
+  /* Clear sleeve; the card flips inside it */
+  .sleeve{position:relative;width:var(--cw);height:var(--ch);margin-top:8px;perspective:1600px;z-index:2}
+  .sleeve::before{content:"";position:absolute;left:50%;top:-4px;width:22%;height:9px;transform:translateX(-50%);border-radius:5px;background:var(--smoke);box-shadow:inset 0 1px 2px rgba(0,0,0,0.35);z-index:6}
+  .flip{position:absolute;inset:0;z-index:1;transform-style:preserve-3d;transition:transform .8s var(--ease)}
+  .sleeve[data-side="back"] .flip{transform:rotateY(180deg)}
+  .face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:var(--card);
+    box-shadow:0 22px 34px -18px rgba(34,51,59,0.55), 0 0 0 1px rgba(34,51,59,0.10)}
+  .face::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;
+    background:linear-gradient(125deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.18) 100%);box-shadow:inset 0 0 0 3px rgba(255,255,255,0.55)}
+  .front{transform:rotateY(0deg)}
+  .back{transform:rotateY(180deg)}
+  /* Safari ignores backface-visibility on transformed children, so swap the faces halfway through the flip */
+  .front,.back{transition:visibility 0s linear .38s}
+  .sleeve[data-side="front"] .back{visibility:hidden}
+  .sleeve[data-side="back"] .front{visibility:hidden}
+
+  /* Front of the card */
+  .cover{all:unset;box-sizing:border-box;position:absolute;inset:0;cursor:pointer;display:flex;flex-direction:column;touch-action:manipulation;-webkit-tap-highlight-color:transparent;border-radius:14px}
+  .cover:focus-visible{outline:3px solid var(--taupe);outline-offset:4px}
+  .band{background:var(--jet);color:var(--smoke);padding:calc(var(--cw) * 0.1) 18px 14px;display:grid;gap:4px}
+  .band .k{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--stitch)}
+  .band .brand{font-family:var(--display);font-weight:900;font-size:clamp(22px,7vw,28px);line-height:1;text-transform:uppercase;letter-spacing:-0.01em}
+  .idrow{display:flex;gap:14px;padding:16px 18px 6px;align-items:flex-start}
+  .photo{flex:none;width:calc(var(--cw) * 0.27);aspect-ratio:4/5;border-radius:6px;background:var(--taupe-soft);display:grid;place-items:center;
+    font-family:var(--display);font-weight:900;font-size:calc(var(--cw) * 0.1);color:var(--taupe-deep);box-shadow:inset 0 0 0 1px rgba(138,116,96,0.25)}
+  .fields{display:grid;gap:7px;min-width:0}
+  .fields > span{display:grid;gap:0}
+  .fields .ft{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .fields .fd{font-weight:600;font-size:14px;line-height:1.25}
+  .rules{margin:12px 18px 0;padding-top:10px;border-top:1px dashed rgba(34,51,59,0.18);display:grid;gap:5px}
+  .rules .rk{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .rl-list{margin:0;padding:0;list-style:none;display:grid;gap:3px;counter-reset:r}
+  .rule{counter-increment:r;display:flex;gap:8px;font-size:13px;line-height:1.3;color:var(--ink-soft)}
+  .rule::before{content:counter(r);font-family:var(--mono);font-size:10px;color:var(--taupe-deep);padding-top:2px}
+  .frontfoot{margin-top:auto;padding:10px 18px 14px;display:grid;gap:8px}
+  .bars{height:clamp(14px,4vw,22px);border-radius:2px;opacity:0.75;
+    background:repeating-linear-gradient(90deg, var(--jet) 0 2px, transparent 2px 4px, var(--jet) 4px 5px, transparent 5px 8px, var(--jet) 8px 11px, transparent 11px 13px)}
+  .flipnote{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* Back of the card: the checklist */
+  .back{display:flex;flex-direction:column}
+  .backhead{background:var(--jet);color:var(--smoke);padding:calc(var(--cw) * 0.085) 16px 10px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .backhead h2{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:0.02em}
+  .backhead span{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stitch);white-space:nowrap}
+  .list{list-style:none;margin:0;padding:6px 10px 4px;display:flex;flex-direction:column;flex:1;gap:2px}
+  .list li{flex:1;display:flex;min-height:40px}
+  .row{all:unset;box-sizing:border-box;flex:1;display:flex;align-items:center;gap:9px;padding:0 6px;border-radius:7px;cursor:pointer;border-bottom:1px dashed rgba(34,51,59,0.14);
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background .3s}
+  .list li:last-child .row{border-bottom:0}
+  @media (hover:hover){.row:hover{background:rgba(169,146,125,0.14)}}
+  .row:focus-visible{outline:3px solid var(--taupe);outline-offset:-1px}
+  .row[aria-pressed="true"]{background:var(--taupe-soft)}
+  .box{flex:none;width:16px;height:16px;border:1.8px solid var(--jet);border-radius:3px;position:relative;background:var(--card)}
+  .box::after{content:"";position:absolute;left:4px;top:0px;width:5px;height:9px;border-right:2px solid var(--jet);border-bottom:2px solid var(--jet);transform:rotate(40deg) scale(0);transform-origin:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .row.read .box::after{transform:rotate(40deg) scale(1)}
+  .rn{flex:none;font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:0.06em}
+  .rl{flex:1;min-width:0;font-weight:600;font-size:clamp(13px,3.9vw,14.5px);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tag{flex:none;font-family:var(--mono);font-size:8.5px;letter-spacing:0.12em;color:var(--taupe-deep);border:1px solid var(--taupe);border-radius:3px;padding:2px 4px;line-height:1.3}
+  .pull{all:unset;box-sizing:border-box;margin:2px 10px 10px;min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 12px;cursor:pointer;
+    border-top:1.5px dashed var(--taupe);font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep);touch-action:manipulation;-webkit-tap-highlight-color:transparent;border-radius:0 0 8px 8px}
+  .pull:focus-visible{outline:3px solid var(--taupe);outline-offset:-1px}
+  @media (hover:hover){.pull:hover{background:rgba(169,146,125,0.12)}}
+  .pull i{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .3s;margin-top:-3px}
+  .rig[data-bonus="out"] .pull i{transform:rotate(225deg);margin-top:3px}
+
+  /* The bonus card, tucked behind the induction card in the sleeve */
+  .bonuscard{all:unset;box-sizing:border-box;position:absolute;left:5%;width:90%;bottom:10px;z-index:0;cursor:pointer;
+    border-radius:12px;background:var(--taupe);color:var(--jet);padding:14px 16px 12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 18px -10px rgba(34,51,59,0.5);
+    transition:transform .75s var(--ease), visibility 0s linear .75s;visibility:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .rig[data-bonus="out"] .bonuscard{transform:translateY(calc(100% + 20px));visibility:visible;transition:transform .75s var(--ease), visibility 0s}
+  .bonuscard:focus-visible{outline:3px solid var(--jet);outline-offset:3px}
+  .bonuscard .bk{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(34,51,59,0.7);margin-top:4px}
+  .bonuscard .bh{font-family:var(--display);font-weight:900;font-size:clamp(18px,5.5vw,22px);text-transform:uppercase;line-height:1}
+  .blist{display:grid;gap:3px;font-size:13.5px;font-weight:600}
+  .bi{display:flex;gap:8px;align-items:center}
+  .bi::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--jet);flex:none}
+
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;min-height:44px;position:relative;z-index:3}
+  .btn{all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:11px 18px;border-radius:999px;background:var(--jet);color:var(--smoke);touch-action:manipulation}
+  .btn:hover{background:#1A282E}
+  .btn.ghost{background:transparent;color:var(--jet);box-shadow:0 0 0 1.5px var(--jet) inset}
+  .btn:focus-visible{outline:3px solid var(--taupe);outline-offset:3px}
+  .hint{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* The line you opened, enlarged */
+  .reader{min-height:12px;display:grid;justify-items:center;padding-block:6px 30px;scroll-margin-bottom:16px}
+  .big{width:min(560px,100%);background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 24px 40px -22px rgba(34,51,59,0.45), 0 0 0 1px var(--line);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+  .big-top{background:var(--jet);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .big-top span{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe)}
+  .big-top b{font-family:var(--mono);font-weight:500;font-size:9.5px;letter-spacing:0.14em;color:var(--smoke);border:1px solid var(--taupe);border-radius:3px;padding:2px 6px}
+  .big-body{padding:18px 20px 22px;display:grid;gap:10px}
+  .big h2{font-size:clamp(20px,4vw,25px);font-weight:800;line-height:1.2}
+  .big p{color:var(--ink-soft);font-size:16.5px;max-width:58ch}
+  .big p strong{color:var(--jet);font-weight:600}
+  .big .verify{margin-top:4px;padding-top:12px;border-top:1px dashed var(--taupe);font-size:15px;display:grid;gap:2px}
+  .big .verify em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe-deep)}
+  .big.bonus .big-top{background:var(--taupe-deep)}
+  .big.bonus .big-top span{color:var(--smoke)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* Without JavaScript: every line, in order */
+  .plain{list-style:none;margin:0;padding:24px 0 30px;display:grid;gap:18px;justify-items:center}
+  .js .plain{display:none}
+  .plain > li{width:min(560px,100%)}
+
+  footer{border-top:1px solid var(--line);padding-block:24px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+  footer .who strong{display:block;font-family:var(--display);font-weight:800;font-size:16px}
+  footer .who span{color:var(--ink-soft);font-size:14.5px}
+  footer .contact{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);display:grid;gap:2px;user-select:text}
+  footer a{color:var(--jet);text-decoration-color:var(--taupe);text-underline-offset:3px}
+
+  @media (prefers-reduced-motion: reduce){
+    .flip,.front,.back,.rig,.bonuscard,.rig[data-bonus="out"] .bonuscard,.big,.row,.box::after,.pull i{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Workshop AI &middot; For nbn</div>
+    <h1>Six red flags, <em>answered.</em></h1>
+  </header>
+
+  <section class="stage" aria-label="The site induction card">
+    <div class="rig" id="rig" data-bonus="in">
+      <div class="strap" aria-hidden="true"><span>workshop ai &middot; workshop ai &middot; workshop ai</span></div>
+      <div class="clip" aria-hidden="true"></div>
+      <div class="sleeve" id="sleeve" data-side="front">
+        <div class="flip">
+          <div class="face front">
+            <button class="cover" id="cover" type="button" aria-label="Flip the card to see the six checks">
+              <span class="band"><span class="k">Site induction card</span><span class="brand">Workshop AI</span></span>
+              <span class="idrow">
+                <span class="photo" aria-hidden="true">JW</span>
+                <span class="fields">
+                  <span><span class="ft">Holder</span><span class="fd">Justin Watts</span></span>
+                  <span><span class="ft">Inducted for</span><span class="fd">AI Product Enablement, nbn</span></span>
+                </span>
+              </span>
+              <span class="rules"><span class="rk">Site rules</span><span class="rl-list"><span class="rule">Sit with the people who do the work</span><span class="rule">Four questions before any agent</span><span class="rule">A person can switch it off</span></span></span>
+              <span class="frontfoot">
+                <span class="bars" aria-hidden="true"></span>
+                <span class="flipnote"><span>Six checks on the back</span><span>RF-06</span></span>
+              </span>
+            </button>
+          </div>
+          <div class="face back" id="back" inert>
+            <div class="backhead"><h2>Induction checklist</h2><span>For nbn</span></div>
+            <ol class="list" id="list"></ol>
+            <button class="pull" id="pull" type="button" aria-expanded="false" aria-controls="bonuscard">Bonus card: competencies<i aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <button class="bonuscard" id="bonuscard" type="button" tabindex="-1" aria-label="Bonus card: competencies, what comes with me">
+          <span class="bh">Competencies</span>
+          <span class="blist"><span class="bi">An engineer behind me</span><span class="bi">Capacity that flexes</span><span class="bi">Four questions first</span><span class="bi">Guides your team keeps</span></span>
+          <span class="bk">What comes with me</span>
+        </button>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="toggle" type="button">Flip the card</button>
+      <span class="hint" id="hint">Tap the card</span>
+    </div>
+  </section>
+
+  <section class="reader" id="reader" aria-live="polite"></section>
+
+  <ol class="plain" id="plain">
+    <li data-kind="flag" data-short="Not one person"><article class="big"><div class="big-top"><span>Red flag 01 of 06</span><b>CHECKED</b></div><div class="big-body"><h2>“We advertised for one person. He’s bringing a business.”</h2><p>You’d get one person in the room: me. An engineer sits behind me for the deep build work, so I can stay with your people and good ideas don’t queue behind one person. <strong>One point of contact, with capacity that flexes with your roadmap.</strong></p><p class="verify"><em>How to verify it</em>Ask me exactly who builds what, and who you’d deal with.</p></div></article></li>
+    <li data-kind="flag" data-short="Not a usual hire"><article class="big"><div class="big-top"><span>Red flag 02 of 06</span><b>CHECKED</b></div><div class="big-body"><h2>“Is this a consultancy pitch dressed up as an application?”</h2><p>It’s an application from someone who already does this work. I’d rather show you how I work than pretend to be a standard candidate. <strong>If a different shape suits nbn better, including the permanent role as advertised, I’m open to finding one.</strong></p><p class="verify"><em>How to verify it</em>Bring one real problem from one of your teams to a first conversation, and watch how I work on it.</p></div></article></li>
+    <li data-kind="flag" data-short="Never used Calyx"><article class="big"><div class="big-top"><span>Red flag 03 of 06</span><b>CHECKED</b></div><div class="big-body"><h2>“He’s never used Calyx.”</h2><p>True. I haven’t used Calyx. What transfers is the method: sit with the team, map the steps, put each idea through four questions, then check who’s still using it. <strong>I’d learn Calyx from the people already running it, and say so when I don’t know.</strong></p><p class="verify"><em>How to verify it</em>Ask me to walk one Calyx use case through that method, step by step.</p></div></article></li>
+    <li data-kind="flag" data-short="Smaller clients"><article class="big"><div class="big-top"><span>Red flag 04 of 06</span><b>CHECKED</b></div><div class="big-body"><h2>“His clients are much smaller than nbn.”</h2><p>They are. My clients are small businesses, and working alongside formal engineering and architecture teams at nbn’s scale would be new to me. What carries is the method. <strong>I’d start with one team and one workflow they want fixed, then spread what works.</strong></p><p class="verify"><em>How to verify it</em>Ask one of my client referees how I started with one team and spread what works.</p></div></article></li>
+    <li data-kind="flag" data-short="AI everywhere?"><article class="big"><div class="big-top"><span>Red flag 05 of 06</span><b>CHECKED</b></div><div class="big-body"><h2>“Will he push AI into everything?”</h2><p>No. A clear no on any of my first three questions and I don’t build it, and some ideas get a spreadsheet or a phone call instead. I follow Australia’s Guidance for AI Adoption with clients. <strong>Telling people where AI shouldn’t go is part of the job.</strong></p><p class="verify"><em>How to verify it</em>Ask me which ideas I’ve talked clients out of building, and why.</p></div></article></li>
+    <li data-kind="flag" data-short="Still using it?"><article class="big"><div class="big-top"><span>Red flag 06 of 06</span><b>CHECKED</b></div><div class="big-body"><h2>“Launching is the easy part. Who follows up?”</h2><p>That’s the part I watch most. After rollout I track uptake person by person. At a construction group, the first runs showed finance needed to see every row, not just the exceptions, so I changed the design. <strong>I report uptake with what to fix next.</strong></p><p class="verify"><em>How to verify it</em>Ask what changed after those first runs, and how I’d report uptake to you.</p></div></article></li>
+    <li data-kind="bonus" data-short=""><article class="big bonus"><div class="big-top"><span>Bonus card &middot; Competencies</span></div><div class="big-body"><h2>Plus a competencies card.</h2><p>Induction cards list what the holder is cleared for. Mine lists what comes with me: an engineer for the deep build work, capacity that flexes with your roadmap, the four questions before any agent, and guides kept in tools your team already uses. <strong>The method stays with your team.</strong></p><p class="verify"><em>How to verify it</em>Section 03 of my capability statement sets out the same shape.</p></div></article></li>
+  </ol>
+
+  <footer>
+    <div class="who"><strong>Justin Watts, Director, Workshop AI</strong><span>I hope we can have a chat.</span></div>
+    <div class="contact"><a href="tel:+61431254769">0431 254 769</a><a href="mailto:justin@workshopai.com.au">justin@workshopai.com.au</a><a href="/">workshopai.com.au</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // The six lines and the bonus live in the HTML (#plain), so they work without JavaScript too.
+  var items=[].slice.call(document.querySelectorAll('#plain > li'));
+  var FLAGS=items.filter(function(li){return li.dataset.kind==='flag';});
+  var BONUS=items.filter(function(li){return li.dataset.kind==='bonus';})[0];
+  function pad(n){return (n<10?"0":"")+n}
+
+  var rig=document.getElementById('rig'), sleeve=document.getElementById('sleeve'), back=document.getElementById('back'), list=document.getElementById('list');
+  var cover=document.getElementById('cover'), toggle=document.getElementById('toggle'), hint=document.getElementById('hint');
+  var pull=document.getElementById('pull'), bonuscard=document.getElementById('bonuscard'), reader=document.getElementById('reader');
+  var flipped=false, current=-1, rows=[];
+  var reduce=function(){ return matchMedia('(prefers-reduced-motion: reduce)').matches; };
+
+  FLAGS.forEach(function(li, i){
+    var r=document.createElement('li'), b=document.createElement('button');
+    b.type='button'; b.className='row'; b.dataset.idx=i; b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-label','Red flag '+pad(i+1)+': '+li.dataset.short);
+    b.innerHTML='<span class="box" aria-hidden="true"></span><span class="rn">'+pad(i+1)+'</span><span class="rl">'+li.dataset.short+'</span><span class="tag">CHECKED</span>';
+    b.addEventListener('click', function(){ pick(i); });
+    r.appendChild(b); list.appendChild(r); rows.push(b);
+  });
+
+  function bringIntoView(){
+    var r=reader.getBoundingClientRect();
+    if(window.innerHeight < r.top + Math.min(r.height, 220)){
+      try{ reader.scrollIntoView({behavior: reduce() ? 'auto' : 'smooth', block:'start'}); }catch(e){}
+    }
+  }
+  function show(li, top, tag, bonus){
+    reader.innerHTML='<article class="big'+(bonus?' bonus':'')+'"><div class="big-top"><span>'+top+'</span>'+(tag?'<b>'+tag+'</b>':'')+'</div><div class="big-body">'+li.querySelector('.big-body').innerHTML+'</div></article>';
+  }
+  function hintFor(){
+    if(!flipped){ hint.textContent='Tap the card'; return; }
+    hint.textContent = rig.dataset.bonus==='out' ? 'Tap the bonus card' : 'Tap a line to read it';
+  }
+  function pick(idx, silent){
+    if(idx===current && !silent){ idx=-1; }
+    current=idx;
+    rows.forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.idx===idx)); });
+    if(idx<0){ reader.innerHTML=''; return; }
+    rows[idx].classList.add('read');
+    show(FLAGS[idx], 'Red flag '+pad(idx+1)+' of 06', 'CHECKED', false);
+    track('red_flag_card', {card: pad(idx+1)});
+    if(!silent) bringIntoView();
+  }
+  function showBonus(silent){
+    pick(-1, true); current=-2;
+    show(BONUS, 'Bonus card &middot; Competencies', '', true);
+    if(!silent) bringIntoView();
+  }
+  function setBonus(out){
+    rig.style.setProperty('--bonus-h', (bonuscard.offsetHeight + 30) + 'px');
+    rig.dataset.bonus = out ? 'out' : 'in';
+    pull.setAttribute('aria-expanded', String(out));
+    bonuscard.tabIndex = out ? 0 : -1;
+    if(out){ showBonus(true); track('competencies'); }  // stay on the card so the bonus is seen sliding out
+    else if(current===-2){ pick(-1, true); }
+    hintFor();
+  }
+  function setFlipped(v){
+    flipped=v; sleeve.dataset.side = v ? 'back' : 'front';
+    if(v){ back.removeAttribute('inert'); cover.tabIndex=-1; }
+    else { back.setAttribute('inert',''); cover.tabIndex=0; pick(-1, true); setBonus(false); }
+    toggle.textContent = v ? 'Flip it back' : 'Flip the card';
+    toggle.className = v ? 'btn ghost' : 'btn';
+    hintFor();
+  }
+  function track(name, params){ try { gtag('event', name, params || {}); } catch(e){} }
+  cover.addEventListener('click', function(){ setFlipped(true); track('card_flip', {via:'card'}); });
+  toggle.addEventListener('click', function(){ var v=!flipped; setFlipped(v); if(v) track('card_flip', {via:'button'}); });
+  pull.addEventListener('click', function(){ setBonus(rig.dataset.bonus!=='out'); });
+  bonuscard.addEventListener('click', function(){ if(current===-2){ reader.innerHTML=''; current=-1; } else { showBonus(false); } });
+})();
+</script>
+</body>
+</html>
