@@ -1,0 +1,8 @@
+# Lint config for the blog tooling. Run: uvx ruff@0.14.0 check
+target-version = "py312"  # build.py already needs 3.12 f-string syntax
+line-length = 120
+include = ["_src/blog.py", "scripts/add-post", "tests/**/*.py"]
+
+[lint]
+select = ["E", "F", "W", "B"]
+ignore = ["E501"]  # long HTML and CSS lines, as in build.py

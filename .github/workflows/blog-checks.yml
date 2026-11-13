@@ -1,0 +1,28 @@
+# Tests and lint for the blog tooling. Runs on pull requests, on pushes to main and by hand.
+name: Blog checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lint
+        run: |
+          python3 -m pip install ruff==0.14.0
+          ruff check
+      - name: Tests
+        run: python3 -m unittest discover -s tests -v

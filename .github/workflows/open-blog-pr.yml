@@ -1,0 +1,43 @@
+# Opens a pull request into main when a blog/** branch is pushed, so the content
+# repo can publish with a deploy key alone (WAI-949, WAI-954). Never merges.
+name: Open blog pull request
+
+on:
+  push:
+    branches:
+      - "blog/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: open-blog-pr-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  open-pr:
+    if: ${{ !github.event.deleted }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Open a pull request unless one is already open
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+          open=$(gh pr list --repo "$REPO" --head "$BRANCH" --base main --state open --json number --jq 'length')
+          if [ "$open" != "0" ]; then
+            echo "A pull request for $BRANCH is already open; nothing to do."
+            exit 0
+          fi
+          title=$(printf '%s\n' "$MESSAGE" | head -n 1)
+          if [ -z "$title" ]; then
+            title="Blog: $BRANCH"
+          fi
+          printf '%s\n' "$MESSAGE" | tail -n +2 | sed '/./,$!d' > "$RUNNER_TEMP/pr-body.md"
+          gh pr create --repo "$REPO" --base main --head "$BRANCH" \
+            --title "$title" --body-file "$RUNNER_TEMP/pr-body.md"

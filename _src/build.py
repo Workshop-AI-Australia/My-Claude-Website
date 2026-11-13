@@ -263,7 +263,7 @@ def head(title, description, path, jsonld):
 
 def nav(current):
     links = [("/#principles", "How we work"), ("/#levels", "The path"), ("/#options", "Pricing"),
-             ("/ai-for-tradies/", "Q&amp;A"), ("/facts/", "Company facts")]
+             ("/ai-for-tradies/", "Q&amp;A"), ("/facts/", "Company facts"), ("/blog/", "Blog")]
     items = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in links)
     return f"""<nav class="nav" aria-label="Main">
@@ -282,6 +282,7 @@ FOOTER = f"""<footer>
     <div class="foot-links">
       <a href="/facts/">Company facts</a>
       <a href="/ai-for-tradies/">AI for tradies: questions answered</a>
+      <a href="/blog/">Blog</a>
       <a href="mailto:{ORG['email']}">{ORG['email']}</a>
       <a href="tel:{ORG['phone_intl']}">{ORG['phone_display']}</a>
       <a href="/privacy/">Privacy</a>
@@ -935,15 +936,18 @@ document.addEventListener('click', function (ev) {{
 
 
 # ---------------------------------------------------------------- sitemap and llms.txt
-def build_sitemap():
+def build_sitemap(root=ROOT):
+    import blog  # imported here because blog.py imports this module
     urls = ([("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8")]
             + [(f"/{p['slug']}/", "0.8") for p in PAGES] + [("/privacy/", "0.3")])
     items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{UPDATED}</lastmod><priority>{p}</priority></url>"
                       for u, p in urls)
     items += (f"\n  <url><loc>{SITE}{WORKSHOPS_PATH}</loc><lastmod>{WORKSHOPS_UPDATED}</lastmod>"
               f"<priority>0.7</priority></url>")
+    items += "".join(f"\n  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><priority>{p}</priority></url>"
+                     for u, m, p in blog.sitemap_entries(root))
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n'
-                         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n')
+                         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n', root)
 
 
 def build_llms(count):
@@ -978,8 +982,8 @@ def build_llms(count):
     write("llms.txt", txt)
 
 
-def write(rel, text):
-    path = os.path.join(ROOT, rel)
+def write(rel, text, root=ROOT):
+    path = os.path.join(root, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, "w", encoding="utf-8").write(text)
     print(f"wrote {rel} ({len(text.encode('utf-8')):,} bytes)")
@@ -992,12 +996,16 @@ if __name__ == "__main__":
     build_home_jsonld()
     build_topic_pages()
     build_workshops()
+    import blog
+    for rel in blog.build_all(ROOT):
+        print(f"wrote {rel}")
     build_sitemap()
     build_llms(n)
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     # Guard: fail the build if any template code leaked into a page
     for rel in ["index.html"] + [f"{p['slug']}/index.html" for p in PAGES] + [
-            "facts/index.html", "ai-for-tradies/index.html", "privacy/index.html", "workshops/index.html"]:
+            "facts/index.html", "ai-for-tradies/index.html", "privacy/index.html", "workshops/index.html"
+            ] + blog.page_paths(ROOT):
         text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         leak = re.search(r"\{(L|SRC|ORG|e)\(|\{[A-Z_]{3,}\}", text)
         if leak:

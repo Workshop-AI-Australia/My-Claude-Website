@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Workshop AI blog</title>
+  <link>https://workshopai.com.au/blog/</link>
+  <atom:link href="https://workshopai.com.au/blog/feed.xml" rel="self" type="application/rss+xml" />
+  <description>Articles from Workshop AI on putting AI to work in Australian trade, service and industrial businesses.</description>
+  <language>en-AU</language>
+</channel>
+</rss>
