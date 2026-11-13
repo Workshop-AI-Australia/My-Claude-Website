@@ -7,6 +7,10 @@ those two places on every run, so output is deterministic and re-running is safe
 
 Add a post with scripts/add-post (see docs/blog.md). `python3 _src/build.py`
 also rebuilds the blog, so a normal site build never drops blog pages.
+
+The blog stays hidden until it has a listed post (sample posts don't count): no Blog
+link in any nav or footer, no blog entries in sitemap.xml, and a noindex tag on /blog/.
+Both the build and scripts/add-post switch it on or off from the posts in _src/blog/.
 Standard library only, like the rest of _src/.
 """
 import datetime as dt
@@ -426,15 +430,15 @@ FEED_LINK = (f'<link rel="alternate" type="application/rss+xml" title="{BLOG_TIT
 
 
 def page_head(title, description, path, jsonld, og_type="website", image=None, image_alt="",
-              published=None, modified=None, noindex=False):
+              published=None, modified=None, robots=None):
     """Like build.head(), with article, image, Twitter and feed tags for the blog."""
     e = html.escape
     url = f"{SITE}{path}"
     img = image or build.OG_IMAGE
     alt = image_alt or "Workshop AI"
     extra = []
-    if noindex:
-        extra.append('<meta name="robots" content="noindex, nofollow" />')
+    if robots:
+        extra.append(f'<meta name="robots" content="{robots}" />')
     if published:
         extra.append(f'<meta property="article:published_time" content="{published}" />')
         extra.append(f'<meta property="article:modified_time" content="{modified or published}" />')
@@ -526,7 +530,7 @@ def render_post(post):
 """
     head = page_head(f"{post['title']} | Workshop AI", post["description"], path, build.graph(nodes),
                      og_type="article", image=hero_abs, image_alt=hero_alt, published=post["date"],
-                     modified=post["updated"], noindex=post["sample"])
+                     modified=post["updated"], robots="noindex, nofollow" if post["sample"] else None)
     return head + body + build.FOOTER + build.END
 
 
@@ -569,7 +573,9 @@ def render_index(posts):
 </section>
 </main>
 """
-    head = page_head("Blog | Workshop AI", BLOG_DESCRIPTION, BLOG_PATH, build.graph(nodes))
+    # Unlisted until the first post: kept out of search results while it says "No posts yet."
+    head = page_head("Blog | Workshop AI", BLOG_DESCRIPTION, BLOG_PATH, build.graph(nodes),
+                     robots=None if posts else "noindex")
     return head + body + build.FOOTER + build.END
 
 
@@ -619,9 +625,18 @@ def load_posts(root):
     return posts
 
 
+def is_live(root):
+    """True once the blog has a listed post. Until then the Blog link, the sitemap entries
+    and search indexing of /blog/ are all off."""
+    return bool(listed(load_posts(root)))
+
+
 def sitemap_entries(root):
-    """(path, lastmod, priority) for the blog index and every listed post."""
+    """(path, lastmod, priority) for the blog index and every listed post; none while the
+    blog has no listed post."""
     posts = listed(load_posts(root))
+    if not posts:
+        return []
     newest = max([BLOG_STARTED] + [p["updated"] for p in posts])
     return [(BLOG_PATH, newest, "0.6")] + [(f"{BLOG_PATH}{p['slug']}/", p["updated"], "0.6") for p in posts]
 
@@ -636,13 +651,13 @@ def write(root, rel, text):
 def build_all(root):
     """Regenerate every post page, the index and the feed. Returns the rel paths written."""
     posts = load_posts(root)
+    shown = listed(posts)
     written = []
     for p in posts:
         rel = f"{OUT_DIR}/{p['slug']}/index.html"
-        write(root, rel, render_post(p))
+        write(root, rel, build.set_blog_link(render_post(p), bool(shown)))
         written.append(rel)
-    shown = listed(posts)
-    write(root, f"{OUT_DIR}/index.html", render_index(shown))
+    write(root, f"{OUT_DIR}/index.html", build.set_blog_link(render_index(shown), bool(shown)))
     write(root, f"{OUT_DIR}/feed.xml", render_feed(shown))
     return written + [f"{OUT_DIR}/index.html", f"{OUT_DIR}/feed.xml"]
 
@@ -671,9 +686,33 @@ def add_post(root, md_path, assets_dir=None, slug=None, date=None):
     for name, path in post["images"].items():
         shutil.copyfile(path, os.path.join(out, name))
     write(root, f"{SRC_DIR}/{post['slug']}.md", raw)
+    rebuild(root)
+    return post
+
+
+def remove_post(root, slug):
+    """Delete a post's source and page, then rebuild. Taking the last listed post away
+    hides the blog again."""
+    if not SLUG_RE.match(slug or ""):
+        raise BlogError(f"slug must be lower-case words joined by hyphens, got {slug!r}")
+    src = os.path.join(root, SRC_DIR, f"{slug}.md")
+    if not os.path.isfile(src):
+        raise BlogError(f"no post called {slug} (no {SRC_DIR}/{slug}.md)")
+    os.remove(src)
+    out = os.path.join(root, OUT_DIR, slug)
+    if os.path.isdir(out):
+        shutil.rmtree(out)
+    rebuild(root)
+
+
+def rebuild(root):
+    """Regenerate the blog and sitemap.xml, then show or hide the Blog link on every page in
+    build.linked_pages(). Returns True if the blog is live (has a listed post)."""
     build_all(root)
     build.build_sitemap(root)
-    return post
+    live = is_live(root)
+    build.apply_blog_link(root, live)
+    return live
 
 
 def set_frontmatter(raw, values):

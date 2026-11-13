@@ -20,6 +20,9 @@ ADD_POST = os.path.join(REPO, "scripts", "add-post")
 sys.path.insert(0, os.path.join(REPO, "_src"))
 
 import blog  # noqa: E402
+import build  # noqa: E402
+
+BLOG_HREF = 'href="/blog/"'
 
 
 def png(path, w=1600, h=900):
@@ -57,7 +60,11 @@ class SiteCase(unittest.TestCase):
         os.makedirs(os.path.join(self.site, "for", "someone"))
         # Stand-in for a Grok Bot landing page: add-post must never touch it.
         with open(os.path.join(self.site, "for", "someone", "index.html"), "w") as f:
-            f.write("<p>landing page</p>")
+            f.write('<p>landing page</p><a href="/blog/">a link that must stay</a>')
+        # Copies of this repo's pages that carry the Blog link slot (index.html included).
+        for rel in build.linked_pages():
+            os.makedirs(os.path.dirname(os.path.join(self.site, rel)), exist_ok=True)
+            shutil.copy(os.path.join(REPO, rel), os.path.join(self.site, rel))
 
     def tearDown(self):
         shutil.rmtree(self.tmp)
@@ -136,14 +143,20 @@ class NewPost(SiteCase):
         self.assertIn("<loc>https://workshopai.com.au/blog/</loc>", self.read("sitemap.xml"))
         self.assertTrue(os.path.isfile(os.path.join(self.site, "_src/blog/quotes-first.md")))
 
-    def test_only_blog_files_and_sitemap_are_written(self):
+    def test_only_blog_files_sitemap_and_blog_links_are_written(self):
         before = self.snapshot()
         self.add(self.pack("2026-11-20-a", post_md("A", "a", "2026-11-20")))
         after = self.snapshot()
         self.assertEqual(after["for/someone/index.html"], before["for/someone/index.html"])
+        allowed = set(build.linked_pages()) | {"sitemap.xml"}
         for rel in after:
-            self.assertTrue(rel == "sitemap.xml" or rel.startswith(("blog/", "_src/blog/"))
-                            or rel in before, rel)
+            if after[rel] != before.get(rel):
+                self.assertTrue(rel in allowed or rel.startswith(("blog/", "_src/blog/")), rel)
+        # On the linked pages, only the Blog link slots changed.
+        for rel in build.linked_pages():
+            with open(os.path.join(REPO, rel), encoding="utf-8") as f:
+                original = f.read()
+            self.assertEqual(build.set_blog_link(self.read(rel), False), build.set_blog_link(original, False), rel)
 
     def test_slug_from_article_folder_when_frontmatter_has_none(self):
         text = post_md("No slug", "x", "2026-11-21").replace("slug: x\n", "")
@@ -191,6 +204,120 @@ class Rerun(SiteCase):
                              capture_output=True, text=True)
         self.assertEqual(res.returncode, 0, res.stderr)
         self.assertEqual(self.snapshot(), first)
+
+
+class BlogSwitch(SiteCase):
+    """The blog is hidden until it has a listed post; sample posts never count."""
+
+    def rebuild(self):
+        res = subprocess.run([sys.executable, ADD_POST, "--rebuild", "--site", self.site],
+                             capture_output=True, text=True)
+        self.assertEqual(res.returncode, 0, res.stderr)
+        return res
+
+    def remove(self, slug):
+        res = subprocess.run([sys.executable, ADD_POST, "--remove", slug, "--site", self.site],
+                             capture_output=True, text=True)
+        self.assertEqual(res.returncode, 0, res.stderr)
+        return res
+
+    def assert_hidden(self):
+        for rel in build.linked_pages():
+            page = self.read(rel)
+            self.assertNotIn(BLOG_HREF, page, rel)
+            self.assertEqual(page.count(build.BLOG_LINK_START + build.BLOG_LINK_END), 2, rel)
+        self.assertNotIn("/blog/", self.read("sitemap.xml"))
+        index = self.read("blog/index.html")
+        self.assertIn('<meta name="robots" content="noindex" />', index)
+        self.assertNotIn(BLOG_HREF, index.split("<header", 1)[0])   # no Blog link in the blog's own nav
+        self.assertTrue(os.path.isfile(os.path.join(self.site, "blog/feed.xml")))
+
+    def assert_live(self):
+        link = build.BLOG_LINK_START + build.BLOG_LINK + build.BLOG_LINK_END
+        for rel in build.linked_pages():
+            page = self.read(rel)
+            self.assertEqual(page.count(link), 2, rel)          # nav and footer
+            self.assertEqual(page.count(BLOG_HREF), 2, rel)
+        self.assertIn("<loc>https://workshopai.com.au/blog/</loc>", self.read("sitemap.xml"))
+        index = self.read("blog/index.html")
+        self.assertNotIn('name="robots"', index)
+        self.assertIn('<a href="/blog/" aria-current="page">Blog</a><!-- /blog-link -->', index)
+        self.assertIn('      <!-- blog-link --><a href="/blog/">Blog</a><!-- /blog-link -->', index)
+
+    def test_zero_listed_posts_gives_no_link_and_no_sitemap_entry(self):
+        # Start from pages that show the link, as if the blog had been live before.
+        for rel in build.linked_pages():
+            shown = build.set_blog_link(self.read(rel), True)
+            with open(os.path.join(self.site, rel), "w", encoding="utf-8") as f:
+                f.write(shown)
+            self.assertEqual(shown.count(BLOG_HREF), 2, rel)
+        self.rebuild()
+        self.assert_hidden()
+        self.assertIn("No posts yet.", self.read("blog/index.html"))
+
+    def test_first_listed_post_adds_link_and_sitemap_entry_on_every_page(self):
+        self.add(self.pack("sample", post_md("Sample", "sample-post", "2026-11-25", extra="sample: yes\n")))
+        self.assert_hidden()
+        landing = self.read("for/someone/index.html")
+        res = self.add(self.pack("2026-11-20-first", post_md("First", "first", "2026-11-20")))
+        self.assertIn("blog is live", res.stdout)
+        self.assert_live()
+        for rel in ("blog/first/index.html", "blog/sample-post/index.html"):
+            self.assertIn('<a href="/blog/" aria-current="page">Blog</a>', self.read(rel), rel)
+        self.assertEqual(self.read("for/someone/index.html"), landing)
+        # Re-running with the blog already live changes nothing.
+        live = self.snapshot()
+        self.add(self.pack("2026-11-20-first", post_md("First", "first", "2026-11-20")))
+        self.rebuild()
+        self.assertEqual(self.snapshot(), live)
+
+    def test_removing_the_only_listed_post_removes_link_and_sitemap_entry(self):
+        self.rebuild()
+        hidden = self.snapshot()
+        self.add(self.pack("2026-11-20-only", post_md("Only", "only", "2026-11-20")))
+        self.assert_live()
+        res = self.remove("only")
+        self.assertIn("blog is hidden", res.stdout)
+        self.assert_hidden()
+        self.assertFalse(os.path.exists(os.path.join(self.site, "blog/only")))
+        self.assertFalse(os.path.exists(os.path.join(self.site, "_src/blog/only.md")))
+        self.assertEqual(self.snapshot(), hidden)   # back to exactly where it started
+
+    def test_removing_by_hand_then_rebuilding_also_hides_the_blog(self):
+        self.add(self.pack("2026-11-20-only", post_md("Only", "only", "2026-11-20")))
+        os.remove(os.path.join(self.site, "_src/blog/only.md"))
+        shutil.rmtree(os.path.join(self.site, "blog/only"))
+        self.rebuild()
+        self.assert_hidden()
+
+    def test_sample_posts_never_count(self):
+        for slug in ("sample-post", "another-sample"):
+            self.add(self.pack(slug, post_md(slug, slug, "2026-11-25", extra="sample: yes\n")))
+            self.assert_hidden()
+        # With a real post and a sample, taking the real one away hides the blog again.
+        self.add(self.pack("2026-11-20-real", post_md("Real", "real", "2026-11-20")))
+        self.assert_live()
+        self.remove("real")
+        self.assert_hidden()
+        self.assertTrue(blog.load_posts(self.site))       # the samples are still there
+        self.assertFalse(blog.is_live(self.site))
+
+    def test_remove_unknown_post_is_refused(self):
+        before = self.snapshot()
+        res = subprocess.run([sys.executable, ADD_POST, "--remove", "nope", "--site", self.site],
+                             capture_output=True, text=True)
+        self.assertEqual(res.returncode, 1)
+        self.assertIn("no post called nope", res.stderr)
+        self.assertEqual(self.snapshot(), before)
+
+    def test_set_blog_link_is_idempotent_and_keeps_aria_current(self):
+        on = '<!-- blog-link --><a href="/blog/" aria-current="page">Blog</a><!-- /blog-link -->'
+        self.assertEqual(build.set_blog_link(on, True), on)
+        off = build.set_blog_link(on, False)
+        self.assertEqual(off, "<!-- blog-link --><!-- /blog-link -->")
+        self.assertEqual(build.set_blog_link(off, False), off)
+        self.assertEqual(build.set_blog_link(off, True), '<!-- blog-link --><a href="/blog/">Blog</a><!-- /blog-link -->')
+        self.assertEqual(build.set_blog_link("<p>no slot</p>", True), "<p>no slot</p>")
 
 
 class Ordering(SiteCase):
@@ -281,27 +408,48 @@ class ThisRepo(unittest.TestCase):
                 self.assertNotIn("sample-post", f.read(), rel)
 
     def test_committed_blog_is_up_to_date(self):
-        """Rebuilding from _src/blog/ into a copy must match what is committed."""
+        """Rebuilding from _src/blog/ into a copy must match what is committed, Blog links included."""
         tmp = tempfile.mkdtemp(prefix="blog-repo-")
         try:
             for d in ("_src", "blog"):
                 shutil.copytree(os.path.join(REPO, d), os.path.join(tmp, d),
                                 ignore=shutil.ignore_patterns("__pycache__"))
-            shutil.copy(os.path.join(REPO, "sitemap.xml"), tmp)
+            for rel in ["sitemap.xml"] + build.linked_pages():
+                os.makedirs(os.path.dirname(os.path.join(tmp, rel)), exist_ok=True)
+                shutil.copy(os.path.join(REPO, rel), os.path.join(tmp, rel))
             res = subprocess.run([sys.executable, ADD_POST, "--rebuild", "--site", tmp],
                                  capture_output=True, text=True)
             self.assertEqual(res.returncode, 0, res.stderr)
-            for rel in ["sitemap.xml", "blog/index.html", "blog/feed.xml"] + blog.page_paths(REPO):
+            for rel in (["sitemap.xml", "blog/index.html", "blog/feed.xml"] + blog.page_paths(REPO)
+                        + build.linked_pages()):
                 with open(os.path.join(REPO, rel), encoding="utf-8") as a, \
                         open(os.path.join(tmp, rel), encoding="utf-8") as b:
                     self.assertEqual(a.read(), b.read(), f"{rel} is stale; run scripts/add-post --rebuild")
         finally:
             shutil.rmtree(tmp)
 
-    def test_blog_linked_from_nav_and_footer(self):
-        for rel in ("index.html", "facts/index.html"):
+    def test_every_linked_page_has_a_blog_link_slot_in_nav_and_footer(self):
+        for rel in build.linked_pages():
             with open(os.path.join(REPO, rel), encoding="utf-8") as f:
-                self.assertGreaterEqual(f.read().count('<a href="/blog/"'), 2, rel)
+                self.assertEqual(len(build.BLOG_LINK_RE.findall(f.read())), 2, rel)
+
+    def test_blog_link_matches_listed_posts(self):
+        """While no post is listed, no page outside /blog/ links to it and the sitemap leaves it out."""
+        live = blog.is_live(REPO)
+        for d, dirs, files in os.walk(REPO):
+            dirs[:] = [x for x in dirs if not x.startswith((".", "_"))]
+            rel_dir = os.path.relpath(d, REPO)
+            if rel_dir == "blog" or rel_dir.startswith("blog" + os.sep):
+                continue
+            for fn in files:
+                if fn.endswith(".html") and rel_dir.split(os.sep)[0] not in ("for", "floor-ready"):
+                    rel = os.path.normpath(os.path.join(rel_dir, fn))
+                    with open(os.path.join(REPO, rel), encoding="utf-8") as f:
+                        text = f.read()
+                    if not live:
+                        self.assertNotIn(BLOG_HREF, text, rel)
+        with open(os.path.join(REPO, "sitemap.xml"), encoding="utf-8") as f:
+            self.assertEqual("/blog/" in f.read(), live)
 
     def test_open_blog_pr_workflow(self):
         with open(os.path.join(REPO, ".github", "workflows", "open-blog-pr.yml"), encoding="utf-8") as f:

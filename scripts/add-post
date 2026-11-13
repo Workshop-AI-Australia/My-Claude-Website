@@ -4,13 +4,16 @@
 Usage:
   scripts/add-post <path/to/blog.md> [--assets <dir>] [--slug <slug>] [--date <yyyy-mm-dd>] [--site <repo root>]
   scripts/add-post --rebuild [--site <repo root>]
+  scripts/add-post --remove <slug> [--site <repo root>]
 
 Reads blog.md and its images (default: the assets/ folder beside blog.md, which
 matches the content engine's pack/blog.md and pack/assets/<slot id>.png|jpg),
 writes blog/<slug>/ and _src/blog/<slug>.md, then regenerates every blog page,
-blog/index.html, blog/feed.xml and sitemap.xml. Deterministic and safe to re-run
-for the same slug. Exits 1 with a message, writing nothing, if the post can't be
-published as written. See docs/blog.md.
+blog/index.html, blog/feed.xml and sitemap.xml, and shows or hides the Blog link in
+the nav and footer of every site page: shown only while there is at least one listed
+(non-sample) post, so the first real post switches the blog on and removing the last
+one switches it off. Deterministic and safe to re-run for the same slug. Exits 1 with
+a message, writing nothing, if the post can't be published as written. See docs/blog.md.
 """
 import argparse
 import os
@@ -20,7 +23,6 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "_src"))
 
 import blog  # noqa: E402
-import build  # noqa: E402
 
 
 def main(argv=None):
@@ -30,17 +32,25 @@ def main(argv=None):
     ap.add_argument("--slug", help="override the slug (default: frontmatter slug, then the article folder name)")
     ap.add_argument("--date", help="override the publish date, yyyy-mm-dd (default: frontmatter publish_date or date)")
     ap.add_argument("--site", default=REPO, help="site repo root (default: this repo)")
-    ap.add_argument("--rebuild", action="store_true", help="regenerate the blog and sitemap from _src/blog/ only")
+    ap.add_argument("--rebuild", action="store_true",
+                    help="regenerate the blog, sitemap and Blog links from _src/blog/ only")
+    ap.add_argument("--remove", metavar="SLUG", help="delete a post, then rebuild")
     args = ap.parse_args(argv)
     root = os.path.abspath(args.site)
 
     try:
-        if args.rebuild:
+        if args.rebuild and args.remove:
+            ap.error("give --rebuild or --remove, not both")
+        if args.rebuild or args.remove:
             if args.blog_md:
-                ap.error("--rebuild takes no blog.md")
-            blog.build_all(root)
-            build.build_sitemap(root)
-            print("rebuilt the blog and sitemap.xml")
+                ap.error(f"{'--rebuild' if args.rebuild else '--remove'} takes no blog.md")
+            if args.remove:
+                blog.remove_post(root, args.remove)
+                print(f"removed {blog.BLOG_PATH}{args.remove}/")
+            else:
+                blog.rebuild(root)
+                print("rebuilt the blog and sitemap.xml")
+            print(live_message(root))
             return 0
         if not args.blog_md:
             ap.error("give the path to blog.md, or --rebuild")
@@ -51,7 +61,14 @@ def main(argv=None):
     status = "sample (not listed)" if post["sample"] else "listed"
     print(f"added {blog.BLOG_PATH}{post['slug']}/ ({post['date']}, {status}, "
           f"{len(post['images'])} image{'s' if len(post['images']) != 1 else ''})")
+    print(live_message(root))
     return 0
+
+
+def live_message(root):
+    if blog.is_live(root):
+        return "blog is live: Blog link on every page, /blog/ in sitemap.xml"
+    return "blog is hidden (no listed posts): no Blog link, no /blog/ in sitemap.xml, /blog/ is noindex"
 
 
 if __name__ == "__main__":

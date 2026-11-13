@@ -12,13 +12,26 @@ The blog lives at `/blog/`. Every post is a static page built by `scripts/add-po
 | `blog/<slug>/<image>` | The post's images, served beside the page. |
 | `blog/index.html` | The index, newest first. |
 | `blog/feed.xml` | RSS 2.0 feed, newest first. |
-| `sitemap.xml` | Built by `build_sitemap()` in `_src/build.py`, which adds `/blog/` and every listed post. |
-| `scripts/add-post` | Adds or updates a post. |
+| `sitemap.xml` | Built by `build_sitemap()` in `_src/build.py`, which adds `/blog/` and every listed post once there is at least one listed post. |
+| `scripts/add-post` | Adds, updates or removes a post, and switches the blog on or off. |
 | `tests/test_add_post.py` | Tests for `scripts/add-post`. |
 | `.github/workflows/open-blog-pr.yml` | Opens a pull request when a `blog/**` branch is pushed. |
 | `.github/workflows/blog-checks.yml` | Runs the tests and lint on pull requests. |
 
-The Blog link is in the nav and footer of every page built by `_src/build.py`, and in the hand-written nav and footer of `index.html`.
+## Hidden until the first post
+
+A listed post is any post in `_src/blog/` without `sample: yes`. While there are none, the blog is hidden:
+
+* No page has a Blog link in its nav or footer. That covers every page built by `_src/build.py`, the hand-written nav and footer in `index.html`, and the blog's own pages.
+* `sitemap.xml` has no `/blog/` entry.
+* `blog/index.html` has `<meta name="robots" content="noindex" />` and says "No posts yet."
+* `/blog/`, `/blog/feed.xml` and the sample post are still built and still work at their addresses. Nothing outside `/blog/` links to them.
+
+When the count of listed posts goes from zero to one, the same `scripts/add-post` run adds the Blog link to every page, adds `/blog/` and the post to `sitemap.xml`, and drops the noindex tag. The pull request for the first article switches the blog on with no extra step. If the count goes back to zero, the next run (`--remove`, `--rebuild` or `python3 _src/build.py`) takes the link and the entry away again.
+
+How it works: the Blog link sits between `<!-- blog-link -->` and `<!-- /blog-link -->` markers, once in the nav and once in the footer. `set_blog_link()` in `_src/build.py` fills the markers or empties them, and changes nothing else on the page. The pages it edits are listed by `linked_pages()` in `_src/build.py`: `index.html`, the fact sheet, the Q&A page, the topic pages from `_src/pages.py`, the privacy page and the workshops page. The blog's own pages get the same treatment when they are rebuilt. Pages under `for/` and `floor-ready/`, and anything else not in that list, are never opened for writing.
+
+`scripts/add-post` doesn't run the full site build. It rebuilds the blog and `sitemap.xml` and sets the Blog link markers, which gives the same result as `python3 _src/build.py` for those files. Running the full build on `main` before this change produced no changes to any page.
 
 ## Adding a post
 
@@ -27,11 +40,13 @@ scripts/add-post <path/to/blog.md> [--assets <dir>] [--slug <slug>] [--date <yyy
 ```
 
 * Images are read from `--assets`, or by default from the `assets/` folder beside `blog.md`. That matches the content engine's pack layout: `pack/blog.md` with `pack/assets/<slot id>.png` or `.jpg`.
-* The script writes `blog/<slug>/` (page and images) and `_src/blog/<slug>.md`, then rebuilds every post page, `blog/index.html`, `blog/feed.xml` and `sitemap.xml`. It writes nothing else.
+* The script writes `blog/<slug>/` (page and images) and `_src/blog/<slug>.md`, then rebuilds every post page, `blog/index.html`, `blog/feed.xml` and `sitemap.xml`, and sets the Blog link markers on the pages in `linked_pages()` (see above). A page is rewritten only if its markers change. It writes nothing else.
 * It is deterministic and safe to re-run. The same input gives byte-identical output. Re-running with the same slug replaces that post and removes images it no longer uses.
+* It prints whether the blog is live (Blog link on every page, `/blog/` in the sitemap) or hidden.
 * If the post can't be published as written, it exits with status 1 and a message, and writes nothing.
-* `scripts/add-post --rebuild` regenerates the blog and sitemap from `_src/blog/` without adding anything.
-* `python3 _src/build.py` also rebuilds the blog, so a full site build never drops blog pages.
+* `scripts/add-post --rebuild` regenerates the blog, the sitemap and the Blog link markers from `_src/blog/` without adding anything.
+* `scripts/add-post --remove <slug>` deletes `_src/blog/<slug>.md` and `blog/<slug>/`, then does the same rebuild. Removing the only listed post hides the blog again. Deleting those two by hand and running `--rebuild` does the same.
+* `python3 _src/build.py` also rebuilds the blog and sets the Blog link markers, so a full site build never drops blog pages and never shows the link while the blog is hidden.
 
 Commit everything the script changed, on a branch, and raise a pull request. Nothing is live until the pull request is merged.
 
@@ -88,7 +103,7 @@ The index, the feed and the sitemap list posts newest first by publish date. Pos
 
 ## Sample post
 
-`_src/blog/sample-post.md` builds `/blog/sample-post/`, a page of placeholder text that shows the layout. Any post with `sample: yes` gets a `noindex, nofollow` tag and a visible sample banner, and is left out of the index, the feed and the sitemap. Delete `_src/blog/sample-post.md` and `blog/sample-post/` once a real post is live.
+`_src/blog/sample-post.md` builds `/blog/sample-post/`, a page of placeholder text that shows the layout. Any post with `sample: yes` gets a `noindex, nofollow` tag and a visible sample banner, and is left out of the index, the feed and the sitemap. Sample posts never count as listed posts, so they never switch the blog on. Remove the sample (`scripts/add-post --remove sample-post`) once a real post is live.
 
 ## Pull request workflow
 
