@@ -261,11 +261,53 @@ def head(title, description, path, jsonld):
 """
 
 
+# The Blog link sits between these markers in the nav and footer of every page in
+# linked_pages() (index.html included). set_blog_link() shows it only while the blog has a
+# listed post; blog.py decides that, and the build and scripts/add-post apply it.
+BLOG_LINK_START, BLOG_LINK_END = "<!-- blog-link -->", "<!-- /blog-link -->"
+BLOG_LINK = '<a href="/blog/">Blog</a>'
+BLOG_LINK_RE = re.compile(re.escape(BLOG_LINK_START) + r"(.*?)" + re.escape(BLOG_LINK_END), re.S)
+
+
+def set_blog_link(text, on):
+    """Show (on) or empty (off) every Blog link slot in a page. Idempotent; a link already
+    in a slot is kept as it is when on, so the blog's own aria-current survives."""
+    return BLOG_LINK_RE.sub(lambda m: BLOG_LINK_START + ((m.group(1) or BLOG_LINK) if on else "") + BLOG_LINK_END,
+                            text)
+
+
+def linked_pages():
+    """Pages outside /blog/ whose nav and footer carry the Blog link slot. Nothing else
+    (for/, floor-ready/ and other hand-made pages) is ever touched."""
+    return (["index.html"] + [f"{p['slug']}/index.html" for p in PAGES]
+            + ["facts/index.html", "ai-for-tradies/index.html", "privacy/index.html", "workshops/index.html"])
+
+
+def apply_blog_link(root, on):
+    """Set the Blog link on every page in linked_pages() that exists under root. Rewrites a
+    page only if it changes. Returns the rel paths changed."""
+    changed = []
+    for rel in linked_pages():
+        path = os.path.join(root, rel)
+        if not os.path.isfile(path):
+            continue
+        with open(path, encoding="utf-8", newline="") as f:
+            text = f.read()
+        new = set_blog_link(text, on)
+        if new != text:
+            with open(path, "w", encoding="utf-8", newline="") as f:
+                f.write(new)
+            changed.append(rel)
+    return changed
+
+
 def nav(current):
     links = [("/#principles", "How we work"), ("/#levels", "The path"), ("/#options", "Pricing"),
-             ("/ai-for-tradies/", "Q&amp;A"), ("/facts/", "Company facts")]
+             ("/ai-for-tradies/", "Q&amp;A"), ("/facts/", "Company facts"), ("/blog/", "Blog")]
     items = "".join(
-        f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in links)
+        (BLOG_LINK_START if h == "/blog/" else "")
+        + f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>'
+        + (BLOG_LINK_END if h == "/blog/" else "") for h, t in links)
     return f"""<nav class="nav" aria-label="Main">
   <div class="nav-in">
     <a class="logo-img" href="/" aria-label="Workshop AI home"><img src="/assets/workshop-ai-logo.jpg" alt="Workshop AI" width="147" height="30" /></a>
@@ -282,6 +324,7 @@ FOOTER = f"""<footer>
     <div class="foot-links">
       <a href="/facts/">Company facts</a>
       <a href="/ai-for-tradies/">AI for tradies: questions answered</a>
+      <!-- blog-link --><a href="/blog/">Blog</a><!-- /blog-link -->
       <a href="mailto:{ORG['email']}">{ORG['email']}</a>
       <a href="tel:{ORG['phone_intl']}">{ORG['phone_display']}</a>
       <a href="/privacy/">Privacy</a>
@@ -935,15 +978,18 @@ document.addEventListener('click', function (ev) {{
 
 
 # ---------------------------------------------------------------- sitemap and llms.txt
-def build_sitemap():
+def build_sitemap(root=ROOT):
+    import blog  # imported here because blog.py imports this module
     urls = ([("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8")]
             + [(f"/{p['slug']}/", "0.8") for p in PAGES] + [("/privacy/", "0.3")])
     items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{UPDATED}</lastmod><priority>{p}</priority></url>"
                       for u, p in urls)
     items += (f"\n  <url><loc>{SITE}{WORKSHOPS_PATH}</loc><lastmod>{WORKSHOPS_UPDATED}</lastmod>"
               f"<priority>0.7</priority></url>")
+    items += "".join(f"\n  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><priority>{p}</priority></url>"
+                     for u, m, p in blog.sitemap_entries(root))
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n'
-                         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n')
+                         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n', root)
 
 
 def build_llms(count):
@@ -978,8 +1024,8 @@ def build_llms(count):
     write("llms.txt", txt)
 
 
-def write(rel, text):
-    path = os.path.join(ROOT, rel)
+def write(rel, text, root=ROOT):
+    path = os.path.join(root, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, "w", encoding="utf-8").write(text)
     print(f"wrote {rel} ({len(text.encode('utf-8')):,} bytes)")
@@ -992,12 +1038,16 @@ if __name__ == "__main__":
     build_home_jsonld()
     build_topic_pages()
     build_workshops()
+    import blog
+    for rel in blog.build_all(ROOT):
+        print(f"wrote {rel}")
     build_sitemap()
+    for rel in apply_blog_link(ROOT, blog.is_live(ROOT)):
+        print(f"set the Blog link in {rel}")
     build_llms(n)
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     # Guard: fail the build if any template code leaked into a page
-    for rel in ["index.html"] + [f"{p['slug']}/index.html" for p in PAGES] + [
-            "facts/index.html", "ai-for-tradies/index.html", "privacy/index.html", "workshops/index.html"]:
+    for rel in linked_pages() + blog.page_paths(ROOT):
         text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         leak = re.search(r"\{(L|SRC|ORG|e)\(|\{[A-Z_]{3,}\}", text)
         if leak:

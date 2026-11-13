@@ -1,0 +1,7 @@
+# GitHub Pages (Jekyll) settings. Only keeps repo tooling off the live site;
+# every page is plain HTML and is published as-is.
+exclude:
+  - scripts
+  - docs
+  - tests
+  - ruff.toml
