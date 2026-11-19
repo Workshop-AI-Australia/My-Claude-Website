@@ -85,7 +85,7 @@ Overrides given with `--slug` or `--date`, and a slug taken from the folder name
 ### Images
 
 * An image slot, `<!-- slot: id=<id> type=<type> brief="..." alt="..." -->` on its own line, becomes an image. The file is `<id>.png`, `.jpg` or `.jpeg` in the assets folder.
-* The first slot with `type=hero` is the hero image. A post must have one.
+* The first slot with `type=hero` is the hero image. A post must have one. It is the post's link preview image (Open Graph, Twitter and structured data), not shown on the page itself, because the page header already carries the title.
 * A markdown image, `![alt](file.png)`, also works. Files must be local PNG, JPEG, GIF or WebP.
 * Every image needs alt text. A missing or empty alt stops the script.
 
@@ -97,7 +97,7 @@ A YouTube video embeds when its link is the only thing in a paragraph: `[Caption
 
 ## What each post page has
 
-Title, date, hero image, body, alt text on every image, a canonical URL, Open Graph tags (`og:type` article, hero image and alt text), Twitter card tags (`summary_large_image`), Article structured data with a breadcrumb in JSON-LD, a link to the feed, and a link back to `/blog/`.
+Title, date, body, alt text on every image, a canonical URL, Open Graph tags (`og:type` article, hero image and alt text), Twitter card tags (`summary_large_image`), Article structured data with a breadcrumb in JSON-LD, a link to the feed, and a link back to `/blog/`.
 
 ## Order
 

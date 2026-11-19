@@ -431,8 +431,7 @@ BLOG_CSS = """
   .page-hero .eyebrow a{color:inherit;text-decoration:none}
   .post-page .page-hero h1{text-transform:none;max-width:26ch}
   .post{padding:40px 0 56px}
-  .post-hero{margin:0 0 32px}
-  .post-hero img,.post-body figure img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line-soft)}
+  .post-body figure img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line-soft)}
   .post-body{max-width:68ch}
   .post-body h2{font-size:clamp(22px,2.8vw,28px);text-transform:none;margin:36px 0 14px}
   .post-body h3,.post-body h4{margin:26px 0 10px}
@@ -540,7 +539,6 @@ def render_post(post):
     if post["sample"]:
         banner = ('<div class="sample-banner" role="note">Sample post: placeholder text that shows the '
                   'layout. It is not listed on the blog, in the feed or in the sitemap.</div>\n')
-    hero_img = img_tag(hero_name, hero_alt, post["images"][hero_name], ' fetchpriority="high"')
     body = f"""<body class="post-page">
 {build.nav(BLOG_PATH)}{banner}<header class="page-hero">
   <div class="wrap">
@@ -552,9 +550,6 @@ def render_post(post):
 </header>
 
 <main class="wrap post">
-<figure class="post-hero">
-  {hero_img}
-</figure>
 <article class="post-body">
 {post['body_html']}
 </article>
