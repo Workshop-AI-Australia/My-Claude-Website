@@ -799,21 +799,6 @@ WORKSHOP_VIDEO = {
     "size": "3.7 MB",
     "uploaded": "2026-11-19",
 }
-# On-screen text in order, so the video has a text alternative (the reel carries its message on screen).
-WORKSHOP_VIDEO_TEXT = [
-    "Your team. Plus AI. One session.",
-    "Let's get underway: a live online session with the team.",
-    "What do they think AI is? A live poll: problem solving, help, streamlining, ChatGPT.",
-    "Messy in. Structured out.",
-    "Agents that kill the admin.",
-    "Finding the right jobs. Every voice counted.",
-    "The golden rules.",
-    "Then we build it. Your whole morning, swept: email, calendar, to-dos and overdue invoices in one summary.",
-    "Any business. Voice note in, quote out: a walkthrough voice note becomes a priced cleaning quote.",
-    "What they took away: less admin, faster quotes, more time on what matters.",
-    "In person or online.",
-    "Workshop AI. AI training and automation for businesses. workshopai.com.au. Book a session for your team.",
-]
 WORKSHOPS_TITLE = "AI workshops for councils and business networks | Workshop AI"
 WORKSHOPS_DESCRIPTION = ("A hands-on, two-hour AI workshop for council business programs, chambers and "
                          "business networks in Victoria. Owners set AI up safely for their own business "
@@ -872,10 +857,6 @@ WORKSHOP_CSS = """
   .reel-play:hover span,.reel-play:focus-visible span{transform:scale(1.04)}
   .reel-play:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
   .reel figcaption{margin-top:12px;font-size:15px;color:var(--ink-soft)}
-  .reel details{margin-top:10px;font-size:15px;color:var(--ink-soft)}
-  .reel summary{cursor:pointer;color:var(--ink);font-weight:600}
-  .reel details ol{margin:10px 0 0;padding-left:22px}
-  .reel details li{margin:4px 0}
   @media(max-width:560px){.reel-play{padding:12px}.reel-play span{font-size:0;gap:0;padding:6px}.reel-play span::before{width:40px;height:40px;background-size:22px}}
 """
 
@@ -894,7 +875,6 @@ def build_workshops():
                 f'<button class="copy-btn" type="button" data-copy="{cid}">Copy</button></div>')
 
     vid = WORKSHOP_VIDEO
-    video_text = "\n".join(f"      <li>{e(t)}</li>" for t in WORKSHOP_VIDEO_TEXT)
 
     body = f"""{nav(path)}
 <header class="page-hero">
@@ -919,12 +899,6 @@ def build_workshops():
       <button class="reel-play" type="button" hidden aria-label="Play the {vid['seconds']}-second video"><span>Watch (0:{vid['seconds']:02d})</span></button>
     </div>
     <figcaption>Clips taken from our most recent online team training sessions.</figcaption>
-    <details>
-      <summary>What's in the video</summary>
-      <ol>
-{video_text}
-      </ol>
-    </details>
   </figure>
 </section>
 
