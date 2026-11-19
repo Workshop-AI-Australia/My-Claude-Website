@@ -41,6 +41,10 @@ SLOT_RE = re.compile(r"^<!--\s*slot:(.*?)-->$")
 SLOT_ATTR_RE = re.compile(r'([a-z_]+)=(?:"([^"]*)"|(\S+))')
 SAFE_URL_RE = re.compile(r"^(https?://|mailto:|tel:|/|#)", re.I)
 SCHEME_RE = re.compile(r"^[a-z][a-z0-9+.-]*:", re.I)
+STANDALONE_LINK_RE = re.compile(r"^\[([^\]]+)\]\(([^)\s]+)\)$")
+YOUTUBE_RE = re.compile(
+    r"^https?://(?:(?:www\.|m\.)?youtube\.com/(?:watch\?v=|shorts/)|youtu\.be/)"
+    r"([A-Za-z0-9_-]{11})(?:[?&#]\S*)?$")
 SLOT_EXTS = (".png", ".jpg", ".jpeg")
 
 
@@ -212,10 +216,31 @@ def figure(name, alt, images):
     return f"<figure>\n  {img_tag(name, alt, images.used[name], LAZY)}\n</figure>"
 
 
+def youtube_id(url):
+    """The 11-character video id of a YouTube watch, youtu.be or shorts URL, else None."""
+    m = YOUTUBE_RE.match(url)
+    return m.group(1) if m else None
+
+
+def video_figure(caption_md, video_id, images):
+    """A responsive, privacy-enhanced YouTube player with the link text as its caption."""
+    caption = inline(caption_md, images)
+    title = html.escape(build.plain(caption))
+    watch = f"https://www.youtube.com/watch?v={video_id}"
+    return (f'<figure class="video">\n'
+            f'  <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{video_id}" '
+            f'title="{title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; '
+            f'encrypted-media; gyroscope; picture-in-picture; web-share" '
+            f'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n'
+            f'  <figcaption>{caption} (<a href="{watch}" rel="noopener">watch on YouTube</a>)</figcaption>\n'
+            f'</figure>')
+
+
 def markdown(body, images, title=""):
     """Render the post body. Raw HTML is escaped, never passed through; HTML comments
     are dropped except image slots, which become images. The first hero slot (or a
-    standalone image before any text) becomes the post's hero image."""
+    standalone image before any text) becomes the post's hero image. A paragraph that is
+    only a link to a YouTube video becomes an embedded player."""
     lines = body.split("\n")
     blocks, para = [], []
     i, seen_text = 0, False
@@ -223,7 +248,13 @@ def markdown(body, images, title=""):
     def flush():
         nonlocal seen_text
         if para:
-            blocks.append(f"<p>{inline(' '.join(s.strip() for s in para), images)}</p>")
+            text = " ".join(s.strip() for s in para)
+            link = STANDALONE_LINK_RE.match(text)
+            video_id = youtube_id(link.group(2)) if link else None
+            if video_id:
+                blocks.append(video_figure(link.group(1), video_id, images))
+            else:
+                blocks.append(f"<p>{inline(text, images)}</p>")
             para.clear()
             seen_text = True
 
@@ -407,6 +438,8 @@ BLOG_CSS = """
   .post-body h3,.post-body h4{margin:26px 0 10px}
   .post-body a{color:var(--amber-deep)}
   .post-body figure{margin:28px 0}
+  .post-body .video-frame{position:relative;aspect-ratio:16/9}
+  .post-body .video-frame iframe{display:block;width:100%;height:100%;border:0;border-radius:10px}
   .post-body figcaption{font-size:14px;color:var(--ink-faint);margin-top:8px}
   .post-body blockquote{border-left:4px solid var(--amber);padding:4px 0 4px 18px;margin:20px 0;color:var(--ink-soft)}
   .post-body pre{background:var(--paper-2);border-radius:6px;padding:14px 16px;overflow-x:auto;font-size:14px;margin:0 0 14px}

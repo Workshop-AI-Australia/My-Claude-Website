@@ -93,6 +93,8 @@ Overrides given with `--slug` or `--date`, and a slug taken from the folder name
 
 Supported: paragraphs, `##` to `######` headings (a `#` heading becomes `##`), bold, italic, inline code, fenced code blocks, links, bullet and numbered lists, block quotes and horizontal rules. Links may be `http`, `https`, `mailto`, `tel` or site paths; other schemes are refused. Raw HTML is shown as text, never passed through. HTML comments other than image slots are dropped.
 
+A YouTube video embeds when its link is the only thing in a paragraph: `[Caption](https://www.youtube.com/watch?v=<id>)` on its own line, with blank lines around it. `youtube.com/watch?v=`, `youtu.be/` and `youtube.com/shorts/` links work. It becomes a responsive player from `youtube-nocookie.com`, with the link text as the caption and a link to the video on YouTube. A YouTube link inside a sentence, or one whose id is not 11 letters, digits, `-` or `_`, stays an ordinary link. The feed carries only each post's description, so embeds never reach it.
+
 ## What each post page has
 
 Title, date, hero image, body, alt text on every image, a canonical URL, Open Graph tags (`og:type` article, hero image and alt text), Twitter card tags (`summary_large_image`), Article structured data with a breadcrumb in JSON-LD, a link to the feed, and a link back to `/blog/`.
