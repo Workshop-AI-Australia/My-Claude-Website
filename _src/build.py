@@ -791,8 +791,8 @@ WORKSHOP_VIDEO = {
     "src": "/assets/video/workshop-ai-training-reel.mp4",
     "poster": "/assets/video/workshop-ai-training-reel-poster.jpg",
     "title": "Workshop AI training session reel",
-    "description": ("53 seconds from a live Workshop AI training session with a client team: a live poll on "
-                    "what AI is, the golden rules, then building it into their day, "
+    "description": ("Clips from Workshop AI's most recent online team training sessions: a live poll on "
+                    "what AI is, the golden rules, then building it into the team's day, "
                     "from a morning email sweep to turning a voice note into a quote."),
     "duration": "PT53S",
     "seconds": 53,
@@ -909,7 +909,7 @@ def build_workshops():
 
 <main class="wrap">
 <section id="video">
-  <h2><span class="num">In {vid['seconds']} seconds</span>What a session looks like</h2>
+  <h2>Interactive and practical: online or in person</h2>
   <figure class="reel">
     <div class="reel-frame">
       <video id="reel" controls preload="none" playsinline width="1920" height="1080" poster="{vid['poster']}" aria-label="{e(vid['title'])}">
@@ -918,7 +918,7 @@ def build_workshops():
       </video>
       <button class="reel-play" type="button" hidden aria-label="Play the {vid['seconds']}-second video"><span>Watch (0:{vid['seconds']:02d})</span></button>
     </div>
-    <figcaption>From a live session with a client team: a quick poll on what AI is, the golden rules, then building it into their day.</figcaption>
+    <figcaption>Clips taken from our most recent online team training sessions.</figcaption>
     <details>
       <summary>What's in the video</summary>
       <ol>
