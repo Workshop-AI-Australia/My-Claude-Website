@@ -781,9 +781,39 @@ def build_home_jsonld():
 
 # ---------------------------------------------------------------- workshops page (councils and business networks)
 WORKSHOPS_PATH = "/workshops/"
-WORKSHOPS_UPDATED = "2026-11-02"
-WORKSHOPS_UPDATED_HUMAN = "2 November 2026"
+WORKSHOPS_UPDATED = "2026-11-19"
+WORKSHOPS_UPDATED_HUMAN = "19 November 2026"
 WORKSHOPS_EMAIL = "justin@workshopai.com.au"
+# The training reel is self-hosted on GitHub Pages (which serves byte ranges, so it streams and
+# seeks). Re-encode a new cut with:
+#   ffmpeg -i in.mp4 -c:v libx264 -crf 27 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart out.mp4
+WORKSHOP_VIDEO = {
+    "src": "/assets/video/workshop-ai-training-reel.mp4",
+    "poster": "/assets/video/workshop-ai-training-reel-poster.jpg",
+    "title": "Workshop AI training session reel",
+    "description": ("53 seconds from a live Workshop AI training session with a client team: a live poll on "
+                    "what AI is, the golden rules, then building it into their day, "
+                    "from a morning email sweep to turning a voice note into a quote."),
+    "duration": "PT53S",
+    "seconds": 53,
+    "size": "3.7 MB",
+    "uploaded": "2026-11-19",
+}
+# On-screen text in order, so the video has a text alternative (the reel carries its message on screen).
+WORKSHOP_VIDEO_TEXT = [
+    "Your team. Plus AI. One session.",
+    "Let's get underway: a live online session with the team.",
+    "What do they think AI is? A live poll: problem solving, help, streamlining, ChatGPT.",
+    "Messy in. Structured out.",
+    "Agents that kill the admin.",
+    "Finding the right jobs. Every voice counted.",
+    "The golden rules.",
+    "Then we build it. Your whole morning, swept: email, calendar, to-dos and overdue invoices in one summary.",
+    "Any business. Voice note in, quote out: a walkthrough voice note becomes a priced cleaning quote.",
+    "What they took away: less admin, faster quotes, more time on what matters.",
+    "In person or online.",
+    "Workshop AI. AI training and automation for businesses. workshopai.com.au. Book a session for your team.",
+]
 WORKSHOPS_TITLE = "AI workshops for councils and business networks | Workshop AI"
 WORKSHOPS_DESCRIPTION = ("A hands-on, two-hour AI workshop for council business programs, chambers and "
                          "business networks in Victoria. Owners set AI up safely for their own business "
@@ -832,6 +862,21 @@ WORKSHOP_CSS = """
   @media(min-width:720px){.people{grid-template-columns:1fr 1fr}}
   .people .card{margin-top:0}
   .people p{font-size:15.5px;color:var(--ink-soft)}
+  .reel{margin:4px 0 0}
+  .reel-frame{position:relative;aspect-ratio:16/9;background:var(--navy);border-radius:12px;overflow:hidden;box-shadow:0 12px 32px rgba(34,51,59,0.18)}
+  .reel video{display:block;width:100%;height:100%;object-fit:cover;background:var(--navy)}
+  .reel-play{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:22px;background:linear-gradient(0deg,rgba(34,51,59,0.35),rgba(34,51,59,0) 45%);border:0;cursor:pointer}
+  .reel-play[hidden]{display:none}
+  .reel-play span{display:inline-flex;align-items:center;gap:10px;font:600 16px "Instrument Sans",sans-serif;color:var(--navy);background:var(--on-dark);border-radius:999px;padding:12px 20px 12px 14px;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .15s ease}
+  .reel-play span::before{content:"";width:30px;height:30px;border-radius:50%;background:var(--amber) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l9 5-9 5z' fill='%2322333B'/%3E%3C/svg%3E") center/18px no-repeat}
+  .reel-play:hover span,.reel-play:focus-visible span{transform:scale(1.04)}
+  .reel-play:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
+  .reel figcaption{margin-top:12px;font-size:15px;color:var(--ink-soft)}
+  .reel details{margin-top:10px;font-size:15px;color:var(--ink-soft)}
+  .reel summary{cursor:pointer;color:var(--ink);font-weight:600}
+  .reel details ol{margin:10px 0 0;padding-left:22px}
+  .reel details li{margin:4px 0}
+  @media(max-width:560px){.reel-play{padding:12px}.reel-play span{font-size:0;gap:0;padding:6px}.reel-play span::before{width:40px;height:40px;background-size:22px}}
 """
 
 
@@ -848,6 +893,9 @@ def build_workshops():
                 f'<p id="{cid}">{e(text)}</p>'
                 f'<button class="copy-btn" type="button" data-copy="{cid}">Copy</button></div>')
 
+    vid = WORKSHOP_VIDEO
+    video_text = "\n".join(f"      <li>{e(t)}</li>" for t in WORKSHOP_VIDEO_TEXT)
+
     body = f"""{nav(path)}
 <header class="page-hero">
   <div class="wrap">
@@ -860,6 +908,26 @@ def build_workshops():
 </header>
 
 <main class="wrap">
+<section id="video">
+  <h2><span class="num">In {vid['seconds']} seconds</span>What a session looks like</h2>
+  <figure class="reel">
+    <div class="reel-frame">
+      <video id="reel" controls preload="none" playsinline width="1920" height="1080" poster="{vid['poster']}" aria-label="{e(vid['title'])}">
+        <source src="{vid['src']}" type="video/mp4" />
+        <a href="{vid['src']}">Download the video (MP4, {vid['size']})</a>
+      </video>
+      <button class="reel-play" type="button" hidden aria-label="Play the {vid['seconds']}-second video"><span>Watch (0:{vid['seconds']:02d})</span></button>
+    </div>
+    <figcaption>From a live session with a client team: a quick poll on what AI is, the golden rules, then building it into their day.</figcaption>
+    <details>
+      <summary>What's in the video</summary>
+      <ol>
+{video_text}
+      </ol>
+    </details>
+  </figure>
+</section>
+
 <section id="workshop">
   <h2><span class="num">The workshop</span>Practical, not a tour of tools</h2>
   <p class="intro">Many business programs have already run an introduction to AI. This is the practical next step, and it works just as well on its own. Everyone works on their own business, with examples from trades, building and service businesses.</p>
@@ -952,6 +1020,30 @@ document.addEventListener('click', function (ev) {{
     setTimeout(function () {{ b.textContent = 'Copy'; }}, 1500);
   }});
 }});
+(function () {{
+  var v = document.getElementById('reel'), btn = document.querySelector('.reel-play');
+  if (!v || !btn) return;
+  // Swap the browser's own play button for ours until the first play; without JS, native controls stay.
+  v.removeAttribute('controls');
+  btn.hidden = false;
+  function start() {{ btn.hidden = true; v.setAttribute('controls', ''); }}
+  btn.addEventListener('click', function () {{ start(); var p = v.play(); if (p && p.catch) p.catch(function () {{}}); }});
+  // GA4 video events, using the names GA4 uses for its own video tracking.
+  var sent = {{}};
+  function track(name, pct) {{
+    if (sent[name]) return;
+    sent[name] = true;
+    if (typeof gtag !== 'function') return;
+    gtag('event', name, {{video_title: {json.dumps(vid['title'])}, video_provider: 'self-hosted',
+      video_url: v.currentSrc, video_percent: pct, video_current_time: Math.round(v.currentTime),
+      video_duration: Math.round(v.duration || {vid['seconds']})}});
+  }}
+  v.addEventListener('play', function () {{ start(); track('video_start', 0); }});
+  v.addEventListener('timeupdate', function () {{
+    if (v.duration && v.currentTime / v.duration >= 0.5) track('video_progress', 50);
+  }});
+  v.addEventListener('ended', function () {{ track('video_complete', 100); }});
+}})();
 </script>
 """
     nodes = [
@@ -966,6 +1058,11 @@ document.addEventListener('click', function (ev) {{
          "audience": {"@type": "Audience",
                       "audienceType": "Local councils, chambers of commerce and business networks"},
          "areaServed": [{"@type": "State", "name": "Victoria"}, {"@type": "Country", "name": "Australia"}]},
+        {"@type": "VideoObject", "@id": f"{url}#video", "name": vid["title"],
+         "description": vid["description"], "thumbnailUrl": f"{SITE}{vid['poster']}",
+         "contentUrl": f"{SITE}{vid['src']}", "uploadDate": vid["uploaded"],
+         "duration": vid["duration"], "inLanguage": "en-AU", "publisher": {"@id": ORG_ID},
+         "isPartOf": {"@id": f"{url}#webpage"}},
         {"@type": "BreadcrumbList", "@id": f"{url}#breadcrumb", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": "AI workshops for councils and business networks",
