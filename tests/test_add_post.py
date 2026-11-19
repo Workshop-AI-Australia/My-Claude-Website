@@ -446,6 +446,16 @@ class HeroPlacement(SiteCase):
         self.assertIn('<meta name="twitter:image" content="https://workshopai.com.au/blog/a/img-01.png" />', page)
 
 
+class Layout(unittest.TestCase):
+    def test_post_css_keeps_wrap_side_padding(self):
+        # .wrap gives every section its side padding; the post body must not reset it,
+        # or the body text sits left of the page header.
+        rule = re.search(r"\.post\{([^}]*)\}", blog.BLOG_CSS).group(1)
+        self.assertNotRegex(rule, r"(^|;)\s*padding\s*:")
+        self.assertNotIn("padding-left", rule)
+        self.assertNotIn("padding-right", rule)
+
+
 class YouTubeSite(SiteCase):
     def test_embed_on_page_but_not_in_feed(self):
         body = "First paragraph.\n\n[Watch: robots](https://www.youtube.com/watch?v=mUmlv814aJo)"
