@@ -397,6 +397,54 @@ class Markdown(unittest.TestCase):
         self.assertIn("<hr />", out)
 
 
+class YouTube(unittest.TestCase):
+    def render(self, body):
+        return blog.markdown(body, blog.Images([]))
+
+    def test_watch_youtu_be_and_shorts_links_embed(self):
+        for url in ("https://www.youtube.com/watch?v=mUmlv814aJo",
+                    "https://youtu.be/mUmlv814aJo?si=abc",
+                    "https://youtube.com/shorts/mUmlv814aJo"):
+            out = self.render("Before.\n\n[Watch: robots](<url>)\n\nAfter.".replace("<url>", url))
+            self.assertIn('<iframe src="https://www.youtube-nocookie.com/embed/mUmlv814aJo" '
+                          'title="Watch: robots" loading="lazy"', out, url)
+            self.assertIn("<figcaption>Watch: robots (<a href=\"https://www.youtube.com/watch?v=mUmlv814aJo\" "
+                          'rel="noopener">watch on YouTube</a>)</figcaption>', out)
+            self.assertIn("<p>Before.</p>", out)
+            self.assertIn("<p>After.</p>", out)
+
+    def test_bad_id_stays_a_link(self):
+        out = self.render("[Watch](https://www.youtube.com/watch?v=short)")
+        self.assertNotIn("<iframe", out)
+        self.assertIn('<p><a href="https://www.youtube.com/watch?v=short" rel="noopener">Watch</a></p>', out)
+
+    def test_link_inside_a_sentence_stays_a_link(self):
+        out = self.render("See [this](https://www.youtube.com/watch?v=mUmlv814aJo) clip.")
+        self.assertNotIn("<iframe", out)
+        self.assertIn("<p>See <a ", out)
+
+    def test_other_standalone_links_and_lookalike_hosts_stay_links(self):
+        for url in ("https://example.com/watch?v=mUmlv814aJo",
+                    "https://youtube.com.evil.example/watch?v=mUmlv814aJo"):
+            out = self.render("[Watch](<url>)".replace("<url>", url))
+            self.assertNotIn("<iframe", out, url)
+
+    def test_caption_is_escaped(self):
+        out = self.render('[Robots "quoted" <b>](https://youtu.be/mUmlv814aJo)')
+        self.assertIn('title="Robots &quot;quoted&quot; &lt;b&gt;"', out)
+        self.assertNotIn("<b>", out)
+
+
+class YouTubeSite(SiteCase):
+    def test_embed_on_page_but_not_in_feed(self):
+        body = "First paragraph.\n\n[Watch: robots](https://www.youtube.com/watch?v=mUmlv814aJo)"
+        self.add(self.pack("a", post_md("A", "a", "2026-11-20", body=body)))
+        self.assertIn("youtube-nocookie.com/embed/mUmlv814aJo", self.read("blog/a/index.html"))
+        feed = self.read("blog/feed.xml")
+        self.assertNotIn("<iframe", feed)
+        self.assertNotIn("&lt;iframe", feed)
+
+
 class ThisRepo(unittest.TestCase):
     """Checks on the committed site, not a temp copy."""
 
