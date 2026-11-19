@@ -1,5 +1,5 @@
 ---
-title: Above or below the algorithm
+title: AI isn't coming for your job. It's coming to tell you how to do it.
 slug: above-or-below-the-algorithm
 status: pack-ready
 publish_date: 2026-11-19
@@ -9,7 +9,7 @@ client_named: no
 client_permission: na
 ---
 
-![Workshop AI title card reading Above or below the algorithm, with the line beneath: Is AI giving you your time back, or telling you what to do?](assets/img-01.png)
+![Workshop AI title card reading AI isn't coming for your job. It's coming to tell you how to do it., with the line beneath: Is AI giving you your time back, or telling you what to do?](assets/img-01.png)
 
 ### Who benefits from AI?
 
