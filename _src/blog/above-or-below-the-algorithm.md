@@ -55,6 +55,10 @@ Now imagine this in the trades. Jobs are allocated to tradies who bid for them, 
 
 If it can be fixed then and there, the instructions go straight into the tradie's ear: "Left hand forwards, pick up pliers. Pull the red wire." The tradie finishes the job, gets paid their hourly rate and moves on to the next one.
 
+![AI-generated illustration of a tradie in hi-vis and camera glasses fitting copper pipes, while a floating screen in front of him gives step-by-step instructions.](assets/photo-01.png)
+
+*AI-generated illustration.*
+
 What this and the Uber example show is that below the algorithm, the AI does the thinking and the human is subordinated. The human loses mastery of the skill and, quite likely, the enjoyment that goes with it.
 
 ### Above the algorithm
