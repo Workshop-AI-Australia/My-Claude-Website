@@ -122,9 +122,10 @@ class NewPost(SiteCase):
         self.assertIn(f'<meta name="twitter:image" content="{url}img-01.png" />', page)
         self.assertIn('<a href="/blog/">&larr; All posts</a>', page)
         self.assertNotIn("noindex", page)
-        # Every image has non-empty alt text and the files sit beside the page.
+        # Every image on the page has non-empty alt text and the files sit beside the page.
+        # The hero is the preview image only, so the body shows just the diagram.
         imgs = re.findall(r"<img [^>]*>", page.split("<main", 1)[1].split("</main>")[0])
-        self.assertEqual(len(imgs), 2)
+        self.assertEqual(len(imgs), 1)
         for tag in imgs:
             self.assertRegex(tag, r'alt="[^"]+"')
         self.assertTrue(os.path.isfile(os.path.join(self.site, "blog/quotes-first/img-01.png")))
@@ -433,6 +434,16 @@ class YouTube(unittest.TestCase):
         out = self.render('[Robots "quoted" <b>](https://youtu.be/mUmlv814aJo)')
         self.assertIn('title="Robots &quot;quoted&quot; &lt;b&gt;"', out)
         self.assertNotIn("<b>", out)
+
+
+class HeroPlacement(SiteCase):
+    def test_hero_is_the_preview_image_but_not_on_the_page(self):
+        self.add(self.pack("a", post_md("A", "a", "2026-11-20")))
+        page = self.read("blog/a/index.html")
+        body = page.split("<main", 1)[1]
+        self.assertNotIn("img-01.png", body)
+        self.assertIn('<meta property="og:image" content="https://workshopai.com.au/blog/a/img-01.png" />', page)
+        self.assertIn('<meta name="twitter:image" content="https://workshopai.com.au/blog/a/img-01.png" />', page)
 
 
 class YouTubeSite(SiteCase):
