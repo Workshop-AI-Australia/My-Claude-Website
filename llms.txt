@@ -19,7 +19,10 @@ Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. B
 - [AI for builders and construction companies](https://workshopai.com.au/ai-for-construction/): How Victorian builders and construction companies use AI to find answers across job files, draft variations, RFIs and site reports, keep SWMS current and prepare security of payment claims.
 - [AI for logistics and transport businesses](https://workshopai.com.au/ai-for-logistics/): How freight, transport and warehousing businesses use AI for booking emails, proof of delivery and invoice checks, surcharge capture, customer updates and Chain of Responsibility records.
 - [AI help for businesses in Melbourne's west](https://workshopai.com.au/ai-in-melbournes-west/): Workshop AI is based in Hobsons Bay and works with trade, industrial and logistics businesses across Melbourne's west, from Williamstown and Altona to Brooklyn, Derrimut, Truganina and Werribee.
-- [Using AI with Simpro](https://workshopai.com.au/simpro-ai/): Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely.
+- [Using AI with Simpro](https://workshopai.com.au/simpro-ai/): Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI and JustDo agent, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely.
+- [Using AI with ServiceM8](https://workshopai.com.au/servicem8-ai/): Can AI work with your ServiceM8 data? Yes, and ServiceM8 runs its own connector for Claude and ChatGPT. A plain guide to its built-in AI, the connector, the API, what to ask and how to start safely.
+- [Using AI with Tradify](https://workshopai.com.au/tradify-ai/): Can AI work with your Tradify data? Partly. A plain guide to Tradify's SmartTools, the routes in through Xero, your inbox and exports, what isn't possible yet, and how to start safely.
+- [Using AI with AroFlo](https://workshopai.com.au/aroflo-ai/): Can AI work with your AroFlo data? Yes. A plain guide to AroFlo Lightning and JustAsk, the AroFlo API and its daily limits, connectors for Claude and ChatGPT, what to ask and how to start safely.
 
 ## Services (AUD, excluding GST)
 

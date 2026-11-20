@@ -74,6 +74,46 @@ ZAPIER_MCP = "https://zapier.com/mcp/simpro"
 VIASOCKET_MCP = "https://viasocket.com/mcp/simpro"
 TUGGER = "https://marketplace.simprogroup.com/apps/tugger"
 TUGGER_BLOG = "https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai"
+SIMPRO_JUSTDO = "https://www.simprogroup.com/features/justdo"
+SIMPRO_JUSTDO_BLOG = "https://www.simprogroup.com/blog/manual-data-entry-rekeying-jobs-field-service"
+SIMPRO_JUSTDO_WEBINAR = "https://www.simprogroup.com/resources/webinars/justdo-anz"
+ITBRIEF_JUSTDO = "https://itbrief.com.au/story/simpro-launches-justdo-ai-agent-for-trade-businesses"
+
+# Sources for the ServiceM8, Tradify and AroFlo pages, read November 2026
+SM8_AI = "https://www.servicem8.com/ai-job-management-software-for-trade-contractors"
+SM8_UPDATE = "https://www.servicem8.com/september-2025-update"
+SM8_MCP = "https://support.servicem8.com/help-center/tips-trick-more/more/how-to-connect-servicem8-to-chatgpt-with-mcp.md"
+SM8_DEV_MCP = "https://developer.servicem8.com/docs/mcp"
+SM8_AUTH = "https://developer.servicem8.com/docs/authentication"
+SM8_LIMITS = "https://developer.servicem8.com/docs/http-response-codes"
+SM8_STATUS = "https://support.servicem8.com/help-center/desktop/basics/what-does-job-status-mean.md"
+SM8_QUEUES = "https://support.servicem8.com/questions/jobs/use-queues-track-status-jobs.md"
+ZAPIER_SM8_MCP = "https://zapier.com/mcp/servicem8"
+VIASOCKET_SM8 = "https://viasocket.com/mcp/servicem8"
+TRADIFY_SMART = "https://tradifyhq.com/au/features/smarttools"
+TRADIFY_ACCESS = "https://tradifyhq.com/blog/tradify-joins-access-group"
+TRADIFY_ACCOUNTING = "https://www.tradifyhq.com/blog/connect-quickbooks-with-job-management-software"
+TRADIFY_XERO = "https://help.tradifyhq.com/hc/en-us/articles/360019239014-Integrating-with-Xero"
+XERO_APP_TRADIFY = "https://apps.xero.com/collection/apps-101/app/tradify"
+TRADIFY_EXPORT = "https://help.tradifyhq.com/hc/en-us/sections/47880181274649-Import-Export-and-Download-FAQs"
+XERO_MCP = "https://github.com/XeroAPI/xero-mcp-server"
+OAIC_AI = ("https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/"
+           "guidance-on-privacy-and-the-use-of-commercially-available-ai-products")
+SIMPRO_K1 = "https://www.simprogroup.com/au/blog/k1-growth-investment"
+AROFLO_2021 = "https://siliconangle.com/2021/11/23/simpro-raises-350m-boost-field-service-management-platform/"
+AROFLO_LIGHTNING = "https://aroflo.com/lightning"
+AROFLO_LIGHTNING_BLOG = "https://aroflo.com/blog/aroflo-lightning-ai-field-service-management"
+AROFLO_PRICING = "https://aroflo.com/pricing"
+AROFLO_RAIN = "https://aroflo.com/rain"
+AROFLO_REWRITE = "https://aroflo.com/blog/february-2026-product-updates"
+AROFLO_API_DOCS = "https://apidocs.aroflo.com/view/metadata/RWgqUe1k"
+AROFLO_API_HELP = "https://help.aroflo.com/en_AU/aroflo-api-v30-documentation"
+AROFLO_API_KEY = "https://aroflo.helpjuice.com/en_AU/aroflo-api"
+AROFLO_COMPLETE = "https://help.aroflo.com/office-completing-a-task"
+AROFLO_COMPLETED_LIST = "https://help.aroflo.com/en_AU/office-completed-task-list"
+AROFLO_QUOTE_STATUS = "https://help.aroflo.com/x/GY3cAw"
+ZAPIER_AROFLO = ("https://zapier.com/templates/details/"
+                 "1b06c7eedde2d2012fdde65e31c3965fbaaa115f813207468c22a8d7e8a6ac21")
 
 
 # ---------------------------------------------------------------------------
@@ -124,7 +164,7 @@ PAGES = [
 """),
 ("software", "Systems", "Works with the HVAC software you already run", """
 <p>Simpro, AroFlo, ServiceM8, Fergus, Tradify and Ascora all sell versions of their job management software to Australian HVAC businesses, several with refrigerant logging and maintenance planning built in. AI doesn't replace them. It reads from them, writes to them where that's safe, and connects them to your email and accounts.</p>
-<p>Running Simpro? See <a href="/simpro-ai/">using AI with Simpro</a>, including what Simpro's own AI does and doesn't cover.</p>
+<p>Running Simpro? See <a href="/simpro-ai/">using AI with Simpro</a>, including what Simpro's own AI does and doesn't cover. There are also guides for <a href="/servicem8-ai/">ServiceM8</a>, <a href="/aroflo-ai/">AroFlo</a> and <a href="/tradify-ai/">Tradify</a>.</p>
 """),
 ],
 "faqs": [
@@ -185,7 +225,7 @@ PAGES = [
 </div>
 """),
 ("software", "Systems", "Works with the plumbing software you already run", """
-<p>Simpro, ServiceM8, Fergus, Tradify, AroFlo and Ascora all sell to Australian plumbing businesses. Simpro and ServiceM8 both advertise compliance certificates in the app, and Simpro includes backflow testing in its maintenance planning. AI works alongside them rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>.</p>
+<p>Simpro, ServiceM8, Fergus, Tradify, AroFlo and Ascora all sell to Australian plumbing businesses. Simpro and ServiceM8 both advertise compliance certificates in the app, and Simpro includes backflow testing in its maintenance planning. AI works alongside them rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>. There are also guides for <a href="/servicem8-ai/">ServiceM8</a>, <a href="/aroflo-ai/">AroFlo</a> and <a href="/tradify-ai/">Tradify</a>.</p>
 """),
 ],
 "faqs": [
@@ -243,7 +283,7 @@ PAGES = [
 </div>
 """),
 ("software", "Systems", "Works with the software electricians already run", f"""
-<p>{L(SIMPRO_ABOUT, 'Simpro')} was started in 2002 by an electrical business owner and a software engineering student, and it still sells to electrical contractors, as do AroFlo, Fergus, ServiceM8 and Tradify. AI works with these systems rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>.</p>
+<p>{L(SIMPRO_ABOUT, 'Simpro')} was started in 2002 by an electrical business owner and a software engineering student, and it still sells to electrical contractors, as do AroFlo, Fergus, ServiceM8 and Tradify. AI works with these systems rather than replacing them. If you run Simpro, see <a href="/simpro-ai/">using AI with Simpro</a>. There are also guides for <a href="/servicem8-ai/">ServiceM8</a>, <a href="/aroflo-ai/">AroFlo</a> and <a href="/tradify-ai/">Tradify</a>.</p>
 """),
 ],
 "faqs": [
@@ -444,8 +484,11 @@ PAGES = [
 "slug": "simpro-ai",
 "short": "Simpro and AI",
 "audience": "trade businesses that run Simpro",
+"reviewed": "2026-11-20",
+"reviewed_human": "20 November 2026",
+"checked": "October and November 2026",
 "title": "Using AI with Simpro: Claude, ChatGPT and Simpro's own AI | Workshop AI",
-"description": ("Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI, Zapier "
+"description": ("Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI and JustDo agent, Zapier "
                 "and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start "
                 "safely."),
 "eyebrow": "Simpro and AI",
@@ -459,7 +502,8 @@ PAGES = [
 ("three-routes", "Three routes", "How AI connects to Simpro", f"""
 <h3>1. Simpro's own AI</h3>
 <p>Simpro launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} in May 2026, describing it as an AI-native operating platform. Its AI, called Cooper, comes with four agents (FieldReady, JobReady, JobScribe and JobBrief), and {L(SIMPRO_LIGHTNING, 'JustAsk')} answers plain-English questions about things like technician margins, overdue invoices and customer history. A {L(SIMPRO_RAIN_PR, 'July 2026 release')} added an AI scheduler and expanded JustAsk. At launch, Lightning was priced as an extra 15 per cent on existing contracts, rising to 25 per cent after 31 May 2026.</p>
-<p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it sees Simpro, not your inbox, your accounts or your shared drive.</p>
+<p>In November 2026 Simpro added {L(SIMPRO_JUSTDO, 'JustDo')}, an AI office agent inside Simpro Lightning. You type or say what needs doing, or attach an email, photo, PDF or spreadsheet, and it prepares the job, customer or quote for your team to review and approve. Nothing is saved until someone approves it, and it {L(SIMPRO_JUSTDO_WEBINAR, "works within each user's existing permissions")}. Early Access opened on 9 November 2026, with general access rolling out after that, and {L(ITBRIEF_JUSTDO, 'IT Brief reports')} it runs on credits.</p>
+<p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it works inside Simpro. JustDo can read an email you hand it, but Simpro's AI doesn't watch your inbox, your accounts or your shared drive.</p>
 <h3>2. Ready-made connectors</h3>
 <p>{L(ZAPIER_SIMPRO, 'Zapier')} connects to Simpro with triggers such as new or updated jobs and quotes, and actions such as creating a service job or quote, and {L(ZAPIER_SIMPRO_PARTNER, 'Simpro charges nothing')} for the Zapier connection. Several services also offer MCP connectors, the standard way AI assistants such as Claude and ChatGPT use other software: {L(ZAPIER_MCP, 'Zapier MCP')}, {L(VIASOCKET_MCP, 'viaSocket')} and {L(TUGGER, 'Tugger')}, which is listed on the Simpro Marketplace and {L(TUGGER_BLOG, 'gives AI read-only access')} to a synced copy of your data.</p>
 <p><strong>Good for:</strong> quick wins and simple automations. <strong>Limit:</strong> you're bound by what each connector exposes, and some connect with write access by default.</p>
@@ -496,11 +540,216 @@ PAGES = [
 ("need-lightning", "Do we need Simpro Lightning to use AI?",
  f"""<p>No. {L(SIMPRO_LIGHTNING_PR, 'Lightning')} is Simpro's own route, built in and priced as a percentage on top of your contract. Connectors and custom builds work through Simpro's API instead. Many businesses will use both: Simpro's AI inside Simpro, and a connected assistant for work that spans email, accounts and documents.</p>"""),
 ("official-mcp", "Is there an official Simpro MCP server?",
- """<p>We haven't found one from Simpro itself as of October 2026. The MCP connectors available come from third parties. Check what each one can read and write before you connect it.</p>"""),
+ """<p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it.</p>"""),
+("simpro-justdo", "What is Simpro JustDo?",
+ f"""<p>{L(SIMPRO_JUSTDO_BLOG, 'JustDo')} is Simpro's AI office agent inside Simpro Lightning, introduced in November 2026. Your team tells it what needs doing, or hands it an email, photo or spreadsheet, and it drafts the job, customer or quote for a person to check. It's built for the re-keying work in the office. A connected assistant such as Claude covers the work that spans email, accounts and documents.</p>"""),
 ("ai-create-jobs", "Can AI create jobs and quotes in Simpro?",
- f"""<p>Yes. The {L(SIMPRO_API_FAQ, 'API')} and connectors such as {L(ZAPIER_SIMPRO, 'Zapier')} can create jobs and quotes. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>"""),
+ f"""<p>Yes. Simpro's own {L(SIMPRO_JUSTDO, 'JustDo')} drafts jobs and quotes for a person to approve, and the {L(SIMPRO_API_FAQ, 'API')} and connectors such as {L(ZAPIER_SIMPRO, 'Zapier')} can create them too. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>"""),
 ("simpro-ai-cost", "What does it cost to connect AI to Simpro?",
  """<p>It depends on the route. Simpro's Lightning is priced as a percentage of your Simpro contract, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project, excluding GST.</p>"""),
+],
+},
+
+# ============================================================== ServiceM8
+{
+"slug": "servicem8-ai",
+"short": "ServiceM8 and AI",
+"audience": "trade businesses that run ServiceM8",
+"reviewed": "2026-11-20",
+"reviewed_human": "20 November 2026",
+"checked": "November 2026",
+"title": "Using AI with ServiceM8: its own AI, Claude, ChatGPT and the official connector | Workshop AI",
+"description": ("Can AI work with your ServiceM8 data? Yes, and ServiceM8 runs its own connector for Claude "
+                "and ChatGPT. A plain guide to its built-in AI, the connector, the API, what to ask and how "
+                "to start safely."),
+"eyebrow": "ServiceM8 and AI",
+"h1": "Using AI with ServiceM8",
+"lede": ("Yes, AI can work with your ServiceM8 data, and ServiceM8 makes it easier than most. It has AI "
+         "built in, its own connector that plugs straight into Claude and ChatGPT, and an open API for "
+         "anything custom. The catch is that the connector can do more than read, including sending "
+         "messages to your customers, so it needs setting up with care. Here's a plain guide from a "
+         "Melbourne team that sets up AI for trade businesses."),
+"sections": [
+("three-routes", "Three routes", "How AI connects to ServiceM8", f"""
+<h3>1. ServiceM8's own AI</h3>
+<p>ServiceM8 has {L(SM8_AI, 'AI built into the app')}: a writing helper for emails, texts, quotes and invoice descriptions, AI quoting and an AI invoice generator. Its {L(SM8_UPDATE, 'September 2025 update')} added an Office Agent that handles routine admin such as chasing quotes, drafting replies and flagging overdue tasks, with you approving or declining what it suggests. The same update added a Phone Agent that answers business calls, and a Smart Report Helper that builds a custom report from a plain-English description.</p>
+<p><strong>Good for:</strong> writing, quoting, calls and reports inside ServiceM8, with nothing to connect. <strong>Limit:</strong> it sees ServiceM8, not your inbox, your accounts or your shared drive.</p>
+<h3>2. ServiceM8's own connector</h3>
+<p>ServiceM8 runs its own MCP server, the standard way AI assistants such as Claude and ChatGPT use other software. You {L(SM8_MCP, 'add it as a connector')} at api.servicem8.com/mcp and sign in to ServiceM8, with no developer needed. It can search clients and jobs, read job details, diary notes and staff availability, and it can also create jobs from templates, schedule them, change job status and send job-linked emails and SMS. Third-party connectors also exist, including {L(ZAPIER_SM8_MCP, 'Zapier MCP')} and {L(VIASOCKET_SM8, 'viaSocket')}.</p>
+<p><strong>Good for:</strong> asking questions and doing quick jobs from the AI tool you already use. <strong>Limit:</strong> the same connector can message your customers, so decide what it's allowed to do before you switch it on.</p>
+<h3>3. A custom build on the API</h3>
+<p>ServiceM8's {L(SM8_AUTH, 'REST API')} uses an API key, created under Settings, then API Keys, for a business's own integrations, and OAuth for add-ons sold to other businesses. It allows {L(SM8_LIMITS, '180 requests a minute and 20,000 a day')}, so integrations that sync a lot of history need to pace themselves.</p>
+<p><strong>Good for:</strong> joining ServiceM8 to email, Xero and documents, and agents that run on a schedule rather than waiting to be asked. <strong>Limit:</strong> it needs building and looking after.</p>
+"""),
+("what-to-ask", "Once it's connected", "Questions worth asking your ServiceM8 data", f"""
+<p>ServiceM8's four {L(SM8_STATUS, 'job statuses')} are Quote, Work Order, Completed and Unsuccessful, and Completed means the work is finished and the job is ready to invoice. The statuses can't be customised, so ServiceM8 uses {L(SM8_QUEUES, 'queues')} for jobs that are waiting on something.</p>
+<ul>
+<li>"Which jobs are Completed but not yet invoiced, and for how long?"</li>
+<li>"Which jobs are still at Quote after a fortnight, and who were they for?"</li>
+<li>"Which jobs have been sitting in a queue the longest, and what are they waiting on?"</li>
+<li>"What did we mark Unsuccessful last quarter, and is there a pattern in why?"</li>
+<li>"Draft a follow-up email for each quote older than 14 days, for me to check before anything is sent."</li>
+</ul>
+"""),
+("safely", "Start safely", "Decide what it may do before you connect it", f"""
+<ul>
+<li><strong>Know what the connector can change.</strong> ServiceM8's {L(SM8_MCP, 'connector')} can change job status and send emails and SMS to customers. Your AI tool may ask before running these, depending on its settings, so check them before the first real request.</li>
+<li><strong>On business plans, an owner goes first.</strong> On Claude's Team and Enterprise plans, an Owner adds ServiceM8 for the organisation before staff can connect their own accounts.</li>
+<li><strong>Treat API keys like master keys.</strong> A private integration connects straight to your account with an {L(SM8_AUTH, 'API key')}. Give each integration its own key, limit who holds them, and remove them when they're no longer needed.</li>
+<li><strong>Mind the limits.</strong> Past {L(SM8_LIMITS, '180 requests a minute or 20,000 a day')}, the API refuses requests, so well-built integrations pace themselves.</li>
+<li><strong>Keep a person on the trigger.</strong> Anything sent to a customer, any price and any job created should have a person approving it until the results have earned trust.</li>
+</ul>
+"""),
+("where-we-fit", "Where we fit", "The connection is quick. The set-up is the work.", """
+<div class="card">
+<p>Adding ServiceM8's connector is quick. The work is in deciding what it may do, writing the instructions your team will use, and joining ServiceM8 to the parts of the business it can't see, such as the inbox, Xero and shared files. Workshop AI sets that up, then builds on the API where the connector stops.</p>
+</div>
+"""),
+],
+"faqs": [
+("claude-connect-servicem8", "Can Claude or ChatGPT connect directly to ServiceM8?",
+ f"""<p>Yes. ServiceM8 runs its own {L(SM8_MCP, 'MCP connector')}, which you add to Claude as a custom connector or to ChatGPT, then sign in with your ServiceM8 account. Third-party connectors from {L(ZAPIER_SM8_MCP, 'Zapier')} and {L(VIASOCKET_SM8, 'viaSocket')} also work.</p>"""),
+("official-mcp-servicem8", "Is there an official ServiceM8 MCP server?",
+ f"""<p>Yes. ServiceM8 hosts its own, and announced it in its {L(SM8_UPDATE, 'September 2025 update')}. A separate {L(SM8_DEV_MCP, 'developer MCP server')} helps developers who are building ServiceM8 integrations search its API and documentation.</p>"""),
+("servicem8-ai-messages", "Can AI send emails and texts to our customers from ServiceM8?",
+ f"""<p>Yes, which is why it needs care. The official {L(SM8_MCP, 'connector')} can compose and send job-linked emails and SMS. Start with AI drafting and a person sending, and only let it send on its own once you trust the results.</p>"""),
+("servicem8-own-ai", "Do we still need ServiceM8's own AI if we connect Claude or ChatGPT?",
+ """<p>They do different jobs. ServiceM8's AI works inside ServiceM8, on its screens and its phone line. A connected assistant works across ServiceM8, your email, accounts and documents. Many businesses will use both.</p>"""),
+("servicem8-ai-cost", "What does it cost to connect AI to ServiceM8?",
+ """<p>It depends on the route. ServiceM8's own connector needs no developer, though your AI tool's plan has to allow connectors. Third-party connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, setting Claude up for an owner starts at A$1,500, and custom builds start from A$4,400 a month on a month-to-month retainer or as a fixed-price project, excluding GST.</p>"""),
+],
+},
+
+# ============================================================== Tradify
+{
+"slug": "tradify-ai",
+"short": "Tradify and AI",
+"audience": "trade businesses that run Tradify",
+"reviewed": "2026-11-20",
+"reviewed_human": "20 November 2026",
+"checked": "November 2026",
+"title": "Using AI with Tradify: SmartTools, Claude, ChatGPT and the routes that work today | Workshop AI",
+"description": ("Can AI work with your Tradify data? Partly. A plain guide to Tradify's SmartTools, the routes "
+                "in through Xero, your inbox and exports, what isn't possible yet, and how to start safely."),
+"eyebrow": "Tradify and AI",
+"h1": "Using AI with Tradify",
+"lede": ("Partly. Tradify has its own AI, called SmartTools, but we haven't found a public API, a Zapier "
+         "app or an MCP connector for it, so tools such as Claude and ChatGPT can't plug straight in the "
+         "way they can with some other job software. There are still useful routes in, through your "
+         "accounting software, your inbox and Tradify's own exports. Here's a plain guide to what works "
+         "today."),
+"sections": [
+("four-routes", "Four routes", "How AI can work with Tradify today", f"""
+<h3>1. Tradify's own AI: SmartTools</h3>
+<p>Tradify's {L(TRADIFY_SMART, 'SmartTools')} are two features. SmartRead pulls the details off a photo of a supplier bill, so costs land on the job without retyping. SmartWrite fixes spelling, grammar and formatting, writes descriptions from quote and invoice line items, and offers a friendly or professional tone.</p>
+<p><strong>Good for:</strong> costs and customer-facing wording inside Tradify. <strong>Limit:</strong> they don't answer questions about the business or work across your other systems.</p>
+<h3>2. Through your accounting software</h3>
+<p>Tradify connects to {L(TRADIFY_ACCOUNTING, 'Xero, MYOB, QuickBooks Online and Sage')}, and its {L(XERO_APP_TRADIFY, 'Xero connection')} shares invoices in both directions. Xero publishes an {L(XERO_MCP, 'official MCP server')}, the standard way AI assistants such as Claude and ChatGPT use other software, so once invoices reach Xero, AI can read them there.</p>
+<p><strong>Good for:</strong> money questions, such as who owes what and which invoices are overdue. <strong>Limit:</strong> Xero doesn't hold your schedule, job notes or quotes still in progress.</p>
+<h3>3. Through your inbox</h3>
+<p>Much of what happens around a Tradify job passes through email: customer enquiries, supplier bills and quote follow-ups. An AI assistant connected to your inbox can sort enquiries, draft replies and pull out bills to snap with SmartRead.</p>
+<p><strong>Good for:</strong> the admin around Tradify. <strong>Limit:</strong> someone still enters or checks things in Tradify itself.</p>
+<h3>4. Through exports</h3>
+<p>Tradify can {L(TRADIFY_EXPORT, 'download reports and exports as CSV files')}. Drop an export into Claude or ChatGPT and ask questions of it.</p>
+<p><strong>Good for:</strong> monthly reviews and one-off questions. <strong>Limit:</strong> it's a snapshot, not live, and someone has to run the export.</p>
+"""),
+("what-to-ask", "Once you're set up", "Questions worth asking", """
+<ul>
+<li><strong>Through Xero:</strong> "Which invoices are more than 30 days overdue, and who should I call first?"</li>
+<li><strong>From an export:</strong> "Which customers have we done the most work for this year, and which have gone quiet?"</li>
+<li><strong>In your inbox:</strong> "Which enquiries from this week haven't had a reply yet?"</li>
+<li><strong>In your inbox:</strong> "Draft a polite follow-up for each quote I sent more than a fortnight ago, for me to check before anything is sent."</li>
+</ul>
+"""),
+("safely", "Start safely", "Keep each system the source of truth for its own data", f"""
+<ul>
+<li><strong>Start read-only.</strong> Xero's {L(XERO_MCP, 'MCP server')} can create and update invoices and contacts as well as read them. Choose read-only permissions where the connection allows, and add write access one action at a time.</li>
+<li><strong>Watch the Xero sync.</strong> Logging back in to Xero from Tradify {L(TRADIFY_XERO, 're-imports customers, suppliers and price list items')}, and can overwrite details stored only in Tradify. If AI edits contacts in Xero, those edits can flow back into Tradify.</li>
+<li><strong>Treat exports like customer lists.</strong> A CSV export holds customer details. Use AI tools in line with the {L(OAIC_AI, "OAIC's guidance on commercially available AI products")}, and delete files you no longer need.</li>
+<li><strong>Keep a person on the trigger.</strong> Anything sent to a customer and any price should have a person approving it until the results have earned trust.</li>
+</ul>
+"""),
+],
+"faqs": [
+("claude-connect-tradify", "Can Claude or ChatGPT connect directly to Tradify?",
+ """<p>Not directly, as far as we can find in November 2026. We haven't found a public API, a Zapier app or an MCP connector for Tradify. The practical routes are through Xero or another accounting connection, your inbox and CSV exports.</p>"""),
+("tradify-api", "Does Tradify have an API?",
+ f"""<p>Not a public one that we've found. Tradify connects to {L(TRADIFY_ACCOUNTING, 'accounting software')} instead. It's part of {L(TRADIFY_ACCESS, 'The Access Group')}, which agreed to acquire it in October 2024. We'll update this page if a public API arrives.</p>"""),
+("tradify-smarttools", "What do Tradify's SmartTools do?",
+ f"""<p>Two things. {L(TRADIFY_SMART, 'SmartRead')} captures costs from a photo of a supplier bill, and SmartWrite writes and tidies customer-facing text, including descriptions built from quote and invoice line items.</p>"""),
+("tradify-switch", "Should we switch job software to get better AI?",
+ """<p>Not for AI alone. Switching job software is a big project, and the routes above cover a lot. If you're already weighing a move for other reasons, add how each option connects to AI to your list. ServiceM8, for example, runs its own connector for Claude and ChatGPT: see <a href="/servicem8-ai/">using AI with ServiceM8</a>.</p>"""),
+("tradify-ai-cost", "What does it cost to use AI with Tradify?",
+ """<p>SmartTools come with Tradify, so check which of its plans include them. The inbox route needs an AI tool connected to your email. With Workshop AI, setting Claude up for an owner, connected to files, email and calendar, starts at A$1,500, and custom builds start from A$4,400 a month on a month-to-month retainer or as a fixed-price project, excluding GST.</p>"""),
+],
+},
+
+# ============================================================== AroFlo
+{
+"slug": "aroflo-ai",
+"short": "AroFlo and AI",
+"audience": "trade businesses that run AroFlo",
+"reviewed": "2026-11-20",
+"reviewed_human": "20 November 2026",
+"checked": "November 2026",
+"title": "Using AI with AroFlo: Lightning, JustAsk, Claude and the AroFlo API | Workshop AI",
+"description": ("Can AI work with your AroFlo data? Yes. A plain guide to AroFlo Lightning and JustAsk, the "
+                "AroFlo API and its daily limits, connectors for Claude and ChatGPT, what to ask and how to "
+                "start safely."),
+"eyebrow": "AroFlo and AI",
+"h1": "Using AI with AroFlo",
+"lede": ("Yes, AI can work with your AroFlo data. AroFlo is part of Simpro Group and now shares its AI, "
+         "called Cooper, through AroFlo Lightning. It also has an open API, though its daily limits shape "
+         "what you can build on it. Here's a plain guide from a Melbourne team that has built on Simpro "
+         "Group's software."),
+"sections": [
+("three-routes", "Three routes", "How AI connects to AroFlo", f"""
+<h3>1. AroFlo's own AI: Lightning</h3>
+<p>AroFlo has been part of {L(SIMPRO_K1, 'Simpro Group')} since {L(AROFLO_2021, 'November 2021')}. In May 2026 Simpro Group launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} across its products, including AroFlo Lightning in Australia and New Zealand, with an AI called Cooper at the centre. {L(AROFLO_LIGHTNING, 'JustAsk')} answers plain-English questions about your business, such as {L(AROFLO_LIGHTNING_BLOG, 'which jobs are running over on labour')} or who owes you money.</p>
+<p>AroFlo's {L(AROFLO_PRICING, 'pricing page')} lists JustAsk, FieldReady, JobReady, JobScribe and JobBrief among the AI features all plans include. AroFlo also added {L(AROFLO_REWRITE, 'AI Rewrite')} in February 2026, which can write an invoice description from the task. Its {L(AROFLO_RAIN, 'RAIN release')} lists Smart Import, which brings work orders and quote requests from emails and portals into AroFlo, though AroFlo says the timing may shift. {L(ITBRIEF_JUSTDO, 'IT Brief reported')} in November 2026 that Simpro Group's JustDo office agent, which drafts jobs and quotes for a person to approve, is rolling out to AroFlo Lightning customers too.</p>
+<p><strong>Good for:</strong> questions and tasks inside AroFlo, with nothing to connect. <strong>Limit:</strong> it sees AroFlo, not your inbox, your accounts or your shared drive.</p>
+<h3>2. Ready-made connectors</h3>
+<p>AroFlo works with {L(ZAPIER_AROFLO, 'Zapier')}, for example to update a task's details and status from a mobile form. We haven't found an official AroFlo MCP connector for Claude or ChatGPT as of November 2026, though we've seen at least one small community-built one.</p>
+<p><strong>Good for:</strong> simple automations between AroFlo and other apps. <strong>Limit:</strong> you're bound by what each connector exposes.</p>
+<h3>3. A custom build on the API</h3>
+<p>AroFlo's {L(AROFLO_API_DOCS, 'API')} uses HMAC-SHA512 signed requests and returns XML by default, or JSON on request. Its limits are tight: 1 request a second, 60 a minute and 2,000 a day. AroFlo {L(AROFLO_API_HELP, "doesn't offer coding support")} for the API, so you'll need a developer or a partner.</p>
+<p><strong>Good for:</strong> joining AroFlo to email, Xero and documents, branded reporting, and agents that do a defined job. <strong>Limit:</strong> it needs building around the daily limit, and looking after.</p>
+"""),
+("what-to-ask", "Once it's connected", "Questions worth asking your AroFlo data", f"""
+<p>In AroFlo, jobs are tasks. Setting a task to {L(AROFLO_COMPLETE, 'Completed')} means the work is done and it's ready for invoicing or archiving, and the {L(AROFLO_COMPLETED_LIST, 'Completed Tasks list')} shows closed tasks waiting to be invoiced. Quotes carry their own {L(AROFLO_QUOTE_STATUS, 'status and acceptance status')}.</p>
+<ul>
+<li>"Which tasks are Completed but not yet invoiced, and for how long?"</li>
+<li>"Which approved quotes still have no acceptance recorded after a fortnight?"</li>
+<li>"Which work orders came in by email this week that aren't in AroFlo yet?"</li>
+<li>"Which tasks are running over on labour this month?"</li>
+<li>"Draft this month's maintenance summary for this customer, in our branding."</li>
+</ul>
+"""),
+("safely", "Start safely", "Read-only first, and design for the daily limit", f"""
+<ul>
+<li><strong>Start read-only.</strong> Let AI look before it's allowed to change anything. Add write access one action at a time, with a person approving.</li>
+<li><strong>Guard the secret key.</strong> Generating a new key means {L(AROFLO_API_KEY, 'updating every integration')} that uses it, so share it with as few people as possible and keep a record of where it's used.</li>
+<li><strong>Design for 2,000 calls a day.</strong> At {L(AROFLO_API_DOCS, '2,000 requests a day')}, a build can't ask AroFlo live every time someone has a question. Sync changes on a schedule, work from a copy, and spread large history pulls out.</li>
+<li><strong>Keep a person on the trigger.</strong> Anything sent to a customer, any price and any task created should have a person approving it until the results have earned trust.</li>
+</ul>
+"""),
+("example", "Related client work", "Mattick Air, on Simpro", """
+<div class="card">
+<p><strong>Mattick Air</strong> is a Melbourne commercial air conditioning business that runs Simpro, AroFlo's sister product. Workshop AI built branded monthly reports for Mattick Air's own customers from live Simpro data, and an agent that reads every emailed work order and lands the job ready to go, with a person staying on the trigger. AroFlo has its own API, but the same patterns apply.</p>
+</div>
+"""),
+],
+"faqs": [
+("aroflo-simpro-same", "Is AroFlo the same as Simpro now?",
+ f"""<p>No. Both belong to Simpro Group, which said at the time of the purchase that {L(SIMPRO_K1, 'the leadership teams would operate independently')}, and they remain separate products with separate APIs. Since May 2026 they share the same AI layer, {L(SIMPRO_LIGHTNING_PR, 'Lightning')}, and the same AI, Cooper. If you're comparing, see <a href="/simpro-ai/">using AI with Simpro</a>.</p>"""),
+("claude-connect-aroflo", "Can Claude or ChatGPT connect directly to AroFlo?",
+ """<p>Not through an official connector that we've found as of November 2026. A custom connection built on AroFlo's API gives you control over what the AI can see and do, within AroFlo's daily request limit.</p>"""),
+("need-aroflo-lightning", "Do we need AroFlo Lightning to use AI?",
+ f"""<p>No. Lightning is AroFlo's own route, and its {L(AROFLO_PRICING, 'pricing page')} lists JustAsk and several agents among the AI features in all plans. Connectors and custom builds work through the API instead. Many businesses will use both: AroFlo's AI inside AroFlo, and a connected assistant for work that spans email, accounts and documents.</p>"""),
+("aroflo-api-limit", "Is 2,000 API calls a day enough?",
+ f"""<p>It can be, if the build syncs changes on a schedule and works from a copy rather than calling AroFlo every time someone asks a question. Pulling years of history at once may need spreading over several days. The {L(AROFLO_API_DOCS, 'limits')} also cap requests at one a second.</p>"""),
+("aroflo-ai-cost", "What does it cost to connect AI to AroFlo?",
+ """<p>It depends on the route. AroFlo lists its Lightning features in its plans, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project, excluding GST.</p>"""),
 ],
 },
 ]
@@ -567,6 +816,41 @@ SOURCE_TITLES = {
     VIASOCKET_MCP: "Simpro MCP",
     TUGGER: "Tugger",
     TUGGER_BLOG: "How to connect Simpro to AI",
+    SIMPRO_JUSTDO: "JustDo: AI office assistant for field service businesses",
+    SIMPRO_JUSTDO_BLOG: "Introducing JustDo",
+    SIMPRO_JUSTDO_WEBINAR: "From inbox to job: put JustDo to work in your office",
+    ITBRIEF_JUSTDO: "Simpro launches JustDo AI agent for trade businesses",
+    SM8_AI: "AI job management software for trade contractors",
+    SM8_UPDATE: "September 2025 update",
+    SM8_MCP: "How to connect ServiceM8 to ChatGPT with MCP",
+    SM8_DEV_MCP: "MCP (developer portal)",
+    SM8_AUTH: "API authentication",
+    SM8_LIMITS: "HTTP response codes and rate limits",
+    SM8_STATUS: "What does Job Status mean?",
+    SM8_QUEUES: "Using queues to track the status of jobs",
+    ZAPIER_SM8_MCP: "ServiceM8 MCP",
+    VIASOCKET_SM8: "ServiceM8 MCP",
+    TRADIFY_SMART: "SmartTools",
+    TRADIFY_ACCESS: "The Access Group has entered into an agreement to acquire Tradify",
+    TRADIFY_ACCOUNTING: "Connect QuickBooks with job management software",
+    TRADIFY_XERO: "Understanding Xero and Tradify's integration",
+    XERO_APP_TRADIFY: "Tradify on the Xero App Store",
+    TRADIFY_EXPORT: "Import, export and download FAQs",
+    XERO_MCP: "Xero MCP Server (official)",
+    SIMPRO_K1: "Growth investment of over US$350 million from K1",
+    AROFLO_2021: "Simpro raises $350M to boost its field service management platform",
+    AROFLO_LIGHTNING: "AroFlo Lightning",
+    AROFLO_LIGHTNING_BLOG: "AroFlo just became something the trades have never seen before",
+    AROFLO_PRICING: "Pricing",
+    AROFLO_RAIN: "RAIN",
+    AROFLO_REWRITE: "February 2026 product updates",
+    AROFLO_API_DOCS: "AroFlo API documentation",
+    AROFLO_API_HELP: "AroFlo API v3.0 documentation",
+    AROFLO_API_KEY: "AroFlo API set-up",
+    AROFLO_COMPLETE: "Completing a task",
+    AROFLO_COMPLETED_LIST: "Completed task list",
+    AROFLO_QUOTE_STATUS: "Track quote status",
+    ZAPIER_AROFLO: "Update task details and status in AroFlo from new FastField form submissions",
     "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products":
         "Guidance on privacy and the use of commercially available AI products",
 }

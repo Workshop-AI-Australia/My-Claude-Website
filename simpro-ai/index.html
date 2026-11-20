@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Using AI with Simpro: Claude, ChatGPT and Simpro&#x27;s own AI | Workshop AI</title>
-<meta name="description" content="Can AI read your Simpro data? Yes. A plain guide to Simpro&#x27;s API, its Lightning AI, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely." />
+<meta name="description" content="Can AI read your Simpro data? Yes. A plain guide to Simpro&#x27;s API, its Lightning AI and JustDo agent, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely." />
 <link rel="canonical" href="https://workshopai.com.au/simpro-ai/" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Workshop AI" />
 <meta property="og:locale" content="en_AU" />
 <meta property="og:title" content="Using AI with Simpro: Claude, ChatGPT and Simpro&#x27;s own AI | Workshop AI" />
-<meta property="og:description" content="Can AI read your Simpro data? Yes. A plain guide to Simpro&#x27;s API, its Lightning AI, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely." />
+<meta property="og:description" content="Can AI read your Simpro data? Yes. A plain guide to Simpro&#x27;s API, its Lightning AI and JustDo agent, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely." />
 <meta property="og:url" content="https://workshopai.com.au/simpro-ai/" />
 <meta property="og:image" content="https://workshopai.com.au/assets/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -396,7 +396,7 @@
    "@id": "https://workshopai.com.au/simpro-ai/#webpage",
    "url": "https://workshopai.com.au/simpro-ai/",
    "name": "Using AI with Simpro",
-   "description": "Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely.",
+   "description": "Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI and JustDo agent, Zapier and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start safely.",
    "isPartOf": {
     "@id": "https://workshopai.com.au/#website"
    },
@@ -409,7 +409,7 @@
    "publisher": {
     "@id": "https://workshopai.com.au/#organization"
    },
-   "dateModified": "2026-10-15",
+   "dateModified": "2026-11-20",
    "inLanguage": "en-AU",
    "breadcrumb": {
     "@id": "https://workshopai.com.au/simpro-ai/#breadcrumb"
@@ -439,7 +439,16 @@
      "url": "https://workshopai.com.au/simpro-ai/#official-mcp",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "We haven't found one from Simpro itself as of October 2026. The MCP connectors available come from third parties. Check what each one can read and write before you connect it."
+      "text": "We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is Simpro JustDo?",
+     "url": "https://workshopai.com.au/simpro-ai/#simpro-justdo",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JustDo is Simpro's AI office agent inside Simpro Lightning, introduced in November 2026. Your team tells it what needs doing, or hands it an email, photo or spreadsheet, and it drafts the job, customer or quote for a person to check. It's built for the re-keying work in the office. A connected assistant such as Claude covers the work that spans email, accounts and documents."
      }
     },
     {
@@ -448,7 +457,7 @@
      "url": "https://workshopai.com.au/simpro-ai/#ai-create-jobs",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. The API and connectors such as Zapier can create jobs and quotes. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results."
+      "text": "Yes. Simpro's own JustDo drafts jobs and quotes for a person to approve, and the API and connectors such as Zapier can create them too. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results."
      }
     },
     {
@@ -527,7 +536,7 @@
     <p class="eyebrow">Simpro and AI</p>
     <h1>Using AI with Simpro</h1>
     <p class="lede">Yes, AI can work with your Simpro data. Simpro has an open API, its own AI in the Lightning platform, and third-party connectors that let tools such as Claude and ChatGPT read it, and sometimes write to it. The right route depends on what you want to ask, what you want automated and what you want to spend. Here&#x27;s a plain guide from a Melbourne team that has built on Simpro.</p>
-    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed 15 October 2026<br/>General information only, not legal, tax or financial advice.</p>
+    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed 20 November 2026<br/>General information only, not legal, tax or financial advice.</p>
   </div>
 </header>
 
@@ -537,7 +546,8 @@
 
 <h3>1. Simpro's own AI</h3>
 <p>Simpro launched <a href="https://www.simprogroup.com/company/press/simpro-group-unveils-lightning" rel="noopener" target="_blank">Lightning</a> in May 2026, describing it as an AI-native operating platform. Its AI, called Cooper, comes with four agents (FieldReady, JobReady, JobScribe and JobBrief), and <a href="https://www.simprogroup.com/lightning" rel="noopener" target="_blank">JustAsk</a> answers plain-English questions about things like technician margins, overdue invoices and customer history. A <a href="https://www.simprogroup.com/company/press/simpro-group-announces-rain" rel="noopener" target="_blank">July 2026 release</a> added an AI scheduler and expanded JustAsk. At launch, Lightning was priced as an extra 15 per cent on existing contracts, rising to 25 per cent after 31 May 2026.</p>
-<p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it sees Simpro, not your inbox, your accounts or your shared drive.</p>
+<p>In November 2026 Simpro added <a href="https://www.simprogroup.com/features/justdo" rel="noopener" target="_blank">JustDo</a>, an AI office agent inside Simpro Lightning. You type or say what needs doing, or attach an email, photo, PDF or spreadsheet, and it prepares the job, customer or quote for your team to review and approve. Nothing is saved until someone approves it, and it <a href="https://www.simprogroup.com/resources/webinars/justdo-anz" rel="noopener" target="_blank">works within each user's existing permissions</a>. Early Access opened on 9 November 2026, with general access rolling out after that, and <a href="https://itbrief.com.au/story/simpro-launches-justdo-ai-agent-for-trade-businesses" rel="noopener" target="_blank">IT Brief reports</a> it runs on credits.</p>
+<p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it works inside Simpro. JustDo can read an email you hand it, but Simpro's AI doesn't watch your inbox, your accounts or your shared drive.</p>
 <h3>2. Ready-made connectors</h3>
 <p><a href="https://zapier.com/apps/simpro/integrations" rel="noopener" target="_blank">Zapier</a> connects to Simpro with triggers such as new or updated jobs and quotes, and actions such as creating a service job or quote, and <a href="https://www.simprogroup.com/partners/integration-partners/zapier" rel="noopener" target="_blank">Simpro charges nothing</a> for the Zapier connection. Several services also offer MCP connectors, the standard way AI assistants such as Claude and ChatGPT use other software: <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Zapier MCP</a>, <a href="https://viasocket.com/mcp/simpro" rel="noopener" target="_blank">viaSocket</a> and <a href="https://marketplace.simprogroup.com/apps/tugger" rel="noopener" target="_blank">Tugger</a>, which is listed on the Simpro Marketplace and <a href="https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai" rel="noopener" target="_blank">gives AI read-only access</a> to a synced copy of your data.</p>
 <p><strong>Good for:</strong> quick wins and simple automations. <strong>Limit:</strong> you're bound by what each connector exposes, and some connect with write access by default.</p>
@@ -578,7 +588,7 @@
 
 </section>
 <section id="questions">
-  <h2><span class="num">5 questions</span>Questions we hear</h2>
+  <h2><span class="num">6 questions</span>Questions we hear</h2>
 <div class="qa" id="claude-connect-simpro">
   <h3>Can Claude or ChatGPT connect directly to Simpro?</h3>
   <p>Yes, through a connector. Third-party MCP connectors from services such as <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Zapier</a>, <a href="https://viasocket.com/mcp/simpro" rel="noopener" target="_blank">viaSocket</a> and <a href="https://marketplace.simprogroup.com/apps/tugger" rel="noopener" target="_blank">Tugger</a> let Claude and ChatGPT read Simpro data, and some can also create or update records. A custom connection built on Simpro's API gives you full control over what the AI can see and do.</p>
@@ -589,11 +599,15 @@
 </div>
 <div class="qa" id="official-mcp">
   <h3>Is there an official Simpro MCP server?</h3>
-  <p>We haven't found one from Simpro itself as of October 2026. The MCP connectors available come from third parties. Check what each one can read and write before you connect it.</p>
+  <p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it.</p>
+</div>
+<div class="qa" id="simpro-justdo">
+  <h3>What is Simpro JustDo?</h3>
+  <p><a href="https://www.simprogroup.com/blog/manual-data-entry-rekeying-jobs-field-service" rel="noopener" target="_blank">JustDo</a> is Simpro's AI office agent inside Simpro Lightning, introduced in November 2026. Your team tells it what needs doing, or hands it an email, photo or spreadsheet, and it drafts the job, customer or quote for a person to check. It's built for the re-keying work in the office. A connected assistant such as Claude covers the work that spans email, accounts and documents.</p>
 </div>
 <div class="qa" id="ai-create-jobs">
   <h3>Can AI create jobs and quotes in Simpro?</h3>
-  <p>Yes. The <a href="https://helpguide.simprogroup.com/Content/Service-and-Enterprise/API-FAQs.htm" rel="noopener" target="_blank">API</a> and connectors such as <a href="https://zapier.com/apps/simpro/integrations" rel="noopener" target="_blank">Zapier</a> can create jobs and quotes. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>
+  <p>Yes. Simpro's own <a href="https://www.simprogroup.com/features/justdo" rel="noopener" target="_blank">JustDo</a> drafts jobs and quotes for a person to approve, and the <a href="https://helpguide.simprogroup.com/Content/Service-and-Enterprise/API-FAQs.htm" rel="noopener" target="_blank">API</a> and connectors such as <a href="https://zapier.com/apps/simpro/integrations" rel="noopener" target="_blank">Zapier</a> can create them too. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>
 </div>
 <div class="qa" id="simpro-ai-cost">
   <h3>What does it cost to connect AI to Simpro?</h3>
@@ -621,17 +635,23 @@
 <a href="/ai-for-construction/">Construction and building</a>
 <a href="/ai-for-logistics/">Logistics and transport</a>
 <a href="/ai-in-melbournes-west/">Melbourne&#x27;s west</a>
+<a href="/servicem8-ai/">ServiceM8 and AI</a>
+<a href="/tradify-ai/">Tradify and AI</a>
+<a href="/aroflo-ai/">AroFlo and AI</a>
 <a href="/ai-for-tradies/">All questions answered</a>
 <a href="/facts/">Company facts</a>
   </nav>
 </section>
 <section id="sources">
   <h2><span class="num">Sources</span>Where these facts come from</h2>
-  <p class="sources">Rules and figures on this page were checked against these sources in October 2026. Rules change, so check the source before relying on them.</p>
+  <p class="sources">Rules and figures on this page were checked against these sources in October and November 2026. Rules change, so check the source before relying on them.</p>
   <ul class="sources">
 <li>Simpro: <a href="https://www.simprogroup.com/company/press/simpro-group-unveils-lightning" rel="noopener" target="_blank">Simpro Group unveils Lightning</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/lightning" rel="noopener" target="_blank">Lightning</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/company/press/simpro-group-announces-rain" rel="noopener" target="_blank">Simpro Group announces RAIN</a></li>
+<li>Simpro: <a href="https://www.simprogroup.com/features/justdo" rel="noopener" target="_blank">JustDo: AI office assistant for field service businesses</a></li>
+<li>Simpro: <a href="https://www.simprogroup.com/resources/webinars/justdo-anz" rel="noopener" target="_blank">From inbox to job: put JustDo to work in your office</a></li>
+<li>IT Brief Australia: <a href="https://itbrief.com.au/story/simpro-launches-justdo-ai-agent-for-trade-businesses" rel="noopener" target="_blank">Simpro launches JustDo AI agent for trade businesses</a></li>
 <li>Zapier: <a href="https://zapier.com/apps/simpro/integrations" rel="noopener" target="_blank">Simpro integrations</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/partners/integration-partners/zapier" rel="noopener" target="_blank">Zapier integration partner</a></li>
 <li>Zapier: <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Simpro MCP</a></li>
@@ -645,6 +665,7 @@
 <li>Simpro developer documentation: <a href="https://developer.simprogroup.com/apidoc/?page=b0d64c044a432c8e0f9f01e0641d5596" rel="noopener" target="_blank">API authentication</a></li>
 <li>Simpro developer documentation: <a href="https://developer.simprogroup.com/apidoc/?page=07adc9c3c19b7c17e7309e86c22161a2" rel="noopener" target="_blank">API pagination</a></li>
 <li>Simpro developer documentation: <a href="https://developer.simprogroup.com/apidoc/?page=ed8457e003ba0f6197756eca5a61fde9" rel="noopener" target="_blank">API rate limits</a></li>
+<li>Simpro: <a href="https://www.simprogroup.com/blog/manual-data-entry-rekeying-jobs-field-service" rel="noopener" target="_blank">Introducing JustDo</a></li>
 <li>Simpro help guide: <a href="https://helpguide.simprogroup.com/Content/Service-and-Enterprise/API-FAQs.htm" rel="noopener" target="_blank">API FAQs</a></li>
   </ul>
 </section>
