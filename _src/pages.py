@@ -74,6 +74,10 @@ ZAPIER_MCP = "https://zapier.com/mcp/simpro"
 VIASOCKET_MCP = "https://viasocket.com/mcp/simpro"
 TUGGER = "https://marketplace.simprogroup.com/apps/tugger"
 TUGGER_BLOG = "https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai"
+SIMPRO_JUSTDO = "https://www.simprogroup.com/features/justdo"
+SIMPRO_JUSTDO_BLOG = "https://www.simprogroup.com/blog/manual-data-entry-rekeying-jobs-field-service"
+SIMPRO_JUSTDO_WEBINAR = "https://www.simprogroup.com/resources/webinars/justdo-anz"
+ITBRIEF_JUSTDO = "https://itbrief.com.au/story/simpro-launches-justdo-ai-agent-for-trade-businesses"
 
 # Sources for the ServiceM8, Tradify and AroFlo pages, read November 2026
 SM8_AI = "https://www.servicem8.com/ai-job-management-software-for-trade-contractors"
@@ -480,8 +484,11 @@ PAGES = [
 "slug": "simpro-ai",
 "short": "Simpro and AI",
 "audience": "trade businesses that run Simpro",
+"reviewed": "2026-11-20",
+"reviewed_human": "20 November 2026",
+"checked": "October and November 2026",
 "title": "Using AI with Simpro: Claude, ChatGPT and Simpro's own AI | Workshop AI",
-"description": ("Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI, Zapier "
+"description": ("Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI and JustDo agent, Zapier "
                 "and MCP connectors for Claude and ChatGPT, what to ask once connected, and how to start "
                 "safely."),
 "eyebrow": "Simpro and AI",
@@ -495,7 +502,8 @@ PAGES = [
 ("three-routes", "Three routes", "How AI connects to Simpro", f"""
 <h3>1. Simpro's own AI</h3>
 <p>Simpro launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} in May 2026, describing it as an AI-native operating platform. Its AI, called Cooper, comes with four agents (FieldReady, JobReady, JobScribe and JobBrief), and {L(SIMPRO_LIGHTNING, 'JustAsk')} answers plain-English questions about things like technician margins, overdue invoices and customer history. A {L(SIMPRO_RAIN_PR, 'July 2026 release')} added an AI scheduler and expanded JustAsk. At launch, Lightning was priced as an extra 15 per cent on existing contracts, rising to 25 per cent after 31 May 2026.</p>
-<p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it sees Simpro, not your inbox, your accounts or your shared drive.</p>
+<p>In November 2026 Simpro added {L(SIMPRO_JUSTDO, 'JustDo')}, an AI office agent inside Simpro Lightning. You type or say what needs doing, or attach an email, photo, PDF or spreadsheet, and it prepares the job, customer or quote for your team to review and approve. Nothing is saved until someone approves it, and it {L(SIMPRO_JUSTDO_WEBINAR, "works within each user's existing permissions")}. Early Access opened on 9 November 2026, with general access rolling out after that, and {L(ITBRIEF_JUSTDO, 'IT Brief reports')} it runs on credits.</p>
+<p><strong>Good for:</strong> questions and tasks inside Simpro, with nothing to connect. <strong>Limit:</strong> it works inside Simpro. JustDo can read an email you hand it, but Simpro's AI doesn't watch your inbox, your accounts or your shared drive.</p>
 <h3>2. Ready-made connectors</h3>
 <p>{L(ZAPIER_SIMPRO, 'Zapier')} connects to Simpro with triggers such as new or updated jobs and quotes, and actions such as creating a service job or quote, and {L(ZAPIER_SIMPRO_PARTNER, 'Simpro charges nothing')} for the Zapier connection. Several services also offer MCP connectors, the standard way AI assistants such as Claude and ChatGPT use other software: {L(ZAPIER_MCP, 'Zapier MCP')}, {L(VIASOCKET_MCP, 'viaSocket')} and {L(TUGGER, 'Tugger')}, which is listed on the Simpro Marketplace and {L(TUGGER_BLOG, 'gives AI read-only access')} to a synced copy of your data.</p>
 <p><strong>Good for:</strong> quick wins and simple automations. <strong>Limit:</strong> you're bound by what each connector exposes, and some connect with write access by default.</p>
@@ -532,9 +540,11 @@ PAGES = [
 ("need-lightning", "Do we need Simpro Lightning to use AI?",
  f"""<p>No. {L(SIMPRO_LIGHTNING_PR, 'Lightning')} is Simpro's own route, built in and priced as a percentage on top of your contract. Connectors and custom builds work through Simpro's API instead. Many businesses will use both: Simpro's AI inside Simpro, and a connected assistant for work that spans email, accounts and documents.</p>"""),
 ("official-mcp", "Is there an official Simpro MCP server?",
- """<p>We haven't found one from Simpro itself as of October 2026. The MCP connectors available come from third parties. Check what each one can read and write before you connect it.</p>"""),
+ """<p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it.</p>"""),
+("simpro-justdo", "What is Simpro JustDo?",
+ f"""<p>{L(SIMPRO_JUSTDO_BLOG, 'JustDo')} is Simpro's AI office agent inside Simpro Lightning, introduced in November 2026. Your team tells it what needs doing, or hands it an email, photo or spreadsheet, and it drafts the job, customer or quote for a person to check. It's built for the re-keying work in the office. A connected assistant such as Claude covers the work that spans email, accounts and documents.</p>"""),
 ("ai-create-jobs", "Can AI create jobs and quotes in Simpro?",
- f"""<p>Yes. The {L(SIMPRO_API_FAQ, 'API')} and connectors such as {L(ZAPIER_SIMPRO, 'Zapier')} can create jobs and quotes. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>"""),
+ f"""<p>Yes. Simpro's own {L(SIMPRO_JUSTDO, 'JustDo')} drafts jobs and quotes for a person to approve, and the {L(SIMPRO_API_FAQ, 'API')} and connectors such as {L(ZAPIER_SIMPRO, 'Zapier')} can create them too. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>"""),
 ("simpro-ai-cost", "What does it cost to connect AI to Simpro?",
  """<p>It depends on the route. Simpro's Lightning is priced as a percentage of your Simpro contract, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project, excluding GST.</p>"""),
 ],
@@ -696,7 +706,7 @@ PAGES = [
 ("three-routes", "Three routes", "How AI connects to AroFlo", f"""
 <h3>1. AroFlo's own AI: Lightning</h3>
 <p>AroFlo has been part of {L(SIMPRO_K1, 'Simpro Group')} since {L(AROFLO_2021, 'November 2021')}. In May 2026 Simpro Group launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} across its products, including AroFlo Lightning in Australia and New Zealand, with an AI called Cooper at the centre. {L(AROFLO_LIGHTNING, 'JustAsk')} answers plain-English questions about your business, such as {L(AROFLO_LIGHTNING_BLOG, 'which jobs are running over on labour')} or who owes you money.</p>
-<p>AroFlo's {L(AROFLO_PRICING, 'pricing page')} lists JustAsk, FieldReady, JobReady, JobScribe and JobBrief among the AI features all plans include. AroFlo also added {L(AROFLO_REWRITE, 'AI Rewrite')} in February 2026, which can write an invoice description from the task. Its {L(AROFLO_RAIN, 'RAIN release')} lists Smart Import, which brings work orders and quote requests from emails and portals into AroFlo, though AroFlo says the timing may shift.</p>
+<p>AroFlo's {L(AROFLO_PRICING, 'pricing page')} lists JustAsk, FieldReady, JobReady, JobScribe and JobBrief among the AI features all plans include. AroFlo also added {L(AROFLO_REWRITE, 'AI Rewrite')} in February 2026, which can write an invoice description from the task. Its {L(AROFLO_RAIN, 'RAIN release')} lists Smart Import, which brings work orders and quote requests from emails and portals into AroFlo, though AroFlo says the timing may shift. {L(ITBRIEF_JUSTDO, 'IT Brief reported')} in November 2026 that Simpro Group's JustDo office agent, which drafts jobs and quotes for a person to approve, is rolling out to AroFlo Lightning customers too.</p>
 <p><strong>Good for:</strong> questions and tasks inside AroFlo, with nothing to connect. <strong>Limit:</strong> it sees AroFlo, not your inbox, your accounts or your shared drive.</p>
 <h3>2. Ready-made connectors</h3>
 <p>AroFlo works with {L(ZAPIER_AROFLO, 'Zapier')}, for example to update a task's details and status from a mobile form. We haven't found an official AroFlo MCP connector for Claude or ChatGPT as of November 2026, though we've seen at least one small community-built one.</p>
@@ -806,6 +816,10 @@ SOURCE_TITLES = {
     VIASOCKET_MCP: "Simpro MCP",
     TUGGER: "Tugger",
     TUGGER_BLOG: "How to connect Simpro to AI",
+    SIMPRO_JUSTDO: "JustDo: AI office assistant for field service businesses",
+    SIMPRO_JUSTDO_BLOG: "Introducing JustDo",
+    SIMPRO_JUSTDO_WEBINAR: "From inbox to job: put JustDo to work in your office",
+    ITBRIEF_JUSTDO: "Simpro launches JustDo AI agent for trade businesses",
     SM8_AI: "AI job management software for trade contractors",
     SM8_UPDATE: "September 2025 update",
     SM8_MCP: "How to connect ServiceM8 to ChatGPT with MCP",
