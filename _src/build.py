@@ -656,6 +656,18 @@ SOURCE_NAMES = {
     "zapier.com": "Zapier",
     "viasocket.com": "viaSocket",
     "oaic.gov.au": "OAIC",
+    "servicem8.com": "ServiceM8",
+    "support.servicem8.com": "ServiceM8 help centre",
+    "developer.servicem8.com": "ServiceM8 developer documentation",
+    "tradifyhq.com": "Tradify",
+    "help.tradifyhq.com": "Tradify help centre",
+    "apps.xero.com": "Xero App Store",
+    "github.com": "GitHub",
+    "siliconangle.com": "SiliconANGLE",
+    "aroflo.com": "AroFlo",
+    "apidocs.aroflo.com": "AroFlo API documentation",
+    "help.aroflo.com": "AroFlo help centre",
+    "aroflo.helpjuice.com": "AroFlo help centre",
 }
 
 
@@ -700,7 +712,7 @@ def build_topic_pages():
     <p class="eyebrow">{e(pg['eyebrow'])}</p>
     <h1>{e(pg['h1'])}</h1>
     <p class="lede">{e(pg['lede'])}</p>
-    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed {UPDATED_HUMAN}<br/>General information only, not legal, tax or financial advice.</p>
+    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed {pg.get('reviewed_human', UPDATED_HUMAN)}<br/>General information only, not legal, tax or financial advice.</p>
   </div>
 </header>
 
@@ -728,7 +740,7 @@ def build_topic_pages():
 </section>
 <section id="sources">
   <h2><span class="num">Sources</span>Where these facts come from</h2>
-  <p class="sources">Rules and figures on this page were checked against these sources in October 2026. Rules change, so check the source before relying on them.</p>
+  <p class="sources">Rules and figures on this page were checked against these sources in {pg.get('checked', 'October 2026')}. Rules change, so check the source before relying on them.</p>
   <ul class="sources">
 {page_sources(content)}
   </ul>
@@ -739,7 +751,7 @@ def build_topic_pages():
             {"@type": "FAQPage", "@id": f"{url}#webpage", "url": url, "name": pg["h1"],
              "description": pg["description"], "isPartOf": {"@id": WEBSITE_ID},
              "about": {"@id": f"{url}#service"}, "author": {"@id": PERSON_ID},
-             "publisher": {"@id": ORG_ID}, "dateModified": UPDATED, "inLanguage": "en-AU",
+             "publisher": {"@id": ORG_ID}, "dateModified": pg.get("reviewed", UPDATED), "inLanguage": "en-AU",
              "breadcrumb": {"@id": f"{url}#breadcrumb"},
              "mainEntity": [{"@type": "Question", "name": q, "url": f"{url}#{qid}",
                              "acceptedAnswer": {"@type": "Answer", "text": plain(ans)}}
@@ -781,8 +793,8 @@ def build_home_jsonld():
 
 # ---------------------------------------------------------------- workshops page (councils and business networks)
 WORKSHOPS_PATH = "/workshops/"
-WORKSHOPS_UPDATED = "2026-11-19"
-WORKSHOPS_UPDATED_HUMAN = "19 November 2026"
+WORKSHOPS_UPDATED = "2026-11-20"
+WORKSHOPS_UPDATED_HUMAN = "20 November 2026"
 WORKSHOPS_EMAIL = "justin@workshopai.com.au"
 # The training reel is self-hosted on GitHub Pages (which serves byte ranges, so it streams and
 # seeks). Re-encode a new cut with:
@@ -858,6 +870,10 @@ WORKSHOP_CSS = """
   .reel-play:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
   .reel figcaption{margin-top:12px;font-size:15px;color:var(--ink-soft)}
   @media(max-width:560px){.reel-play{padding:12px}.reel-play span{font-size:0;gap:0;padding:6px}.reel-play span::before{width:40px;height:40px;background-size:22px}}
+  .book-band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:var(--navy);color:var(--on-dark);border-radius:12px;padding:24px 26px}
+  .book-band .book-title{font-family:"Archivo",sans-serif;font-weight:800;font-size:20px;margin:0 0 6px;color:var(--on-dark)}
+  .book-band .book-sub{margin:0;color:var(--on-dark-soft);font-size:15.5px;max-width:56ch}
+  .book-band .btn.solid{color:var(--navy);white-space:nowrap}
 """
 
 
@@ -882,7 +898,7 @@ def build_workshops():
     <p class="eyebrow">For councils, chambers and business networks</p>
     <h1>AI for business: put it to work</h1>
     <p class="lede">A hands-on, two-hour workshop for your business program. Owners bring a laptop, set AI up safely for their own business, and leave with it working.</p>
-    <div class="ctas"><a class="btn solid" href="{mail}">Ask for the outline and fee</a><a class="btn outline" href="{ORG['booking_url']}" target="_blank" rel="noopener">Book a 20-minute chat</a></div>
+    <div class="ctas"><a class="btn solid" href="{ORG['booking_url']}" target="_blank" rel="noopener">Book a 20-minute chat</a><a class="btn outline" href="{mail}">Ask for the outline and fee</a></div>
     <p class="byline">Run by Justin Watts and Kylie, <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Updated {WORKSHOPS_UPDATED_HUMAN}</p>
   </div>
 </header>
@@ -900,6 +916,14 @@ def build_workshops():
     </div>
     <figcaption>Clips taken from our most recent online team training sessions.</figcaption>
   </figure>
+</section>
+
+<section id="book" class="book-band">
+  <div>
+    <p class="book-title">Planning your 2027 business program?</p>
+    <p class="book-sub">Pick a time that suits you. We'll talk through your program, your audience and your dates, and send the outline and fee afterwards.</p>
+  </div>
+  <a class="btn solid" href="{ORG['booking_url']}" target="_blank" rel="noopener">Book a 20-minute chat</a>
 </section>
 
 <section id="workshop">
@@ -1051,10 +1075,11 @@ document.addEventListener('click', function (ev) {{
 # ---------------------------------------------------------------- sitemap and llms.txt
 def build_sitemap(root=ROOT):
     import blog  # imported here because blog.py imports this module
-    urls = ([("/", "1.0"), ("/ai-for-tradies/", "0.9"), ("/facts/", "0.8")]
-            + [(f"/{p['slug']}/", "0.8") for p in PAGES] + [("/privacy/", "0.3")])
-    items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{UPDATED}</lastmod><priority>{p}</priority></url>"
-                      for u, p in urls)
+    urls = ([("/", "1.0", UPDATED), ("/ai-for-tradies/", "0.9", UPDATED), ("/facts/", "0.8", UPDATED)]
+            + [(f"/{p['slug']}/", "0.8", p.get("reviewed", UPDATED)) for p in PAGES]
+            + [("/privacy/", "0.3", UPDATED)])
+    items = "\n".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><priority>{p}</priority></url>"
+                      for u, p, m in urls)
     items += (f"\n  <url><loc>{SITE}{WORKSHOPS_PATH}</loc><lastmod>{WORKSHOPS_UPDATED}</lastmod>"
               f"<priority>0.7</priority></url>")
     items += "".join(f"\n  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><priority>{p}</priority></url>"
