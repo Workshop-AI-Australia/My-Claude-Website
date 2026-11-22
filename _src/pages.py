@@ -78,6 +78,9 @@ SIMPRO_JUSTDO = "https://www.simprogroup.com/features/justdo"
 SIMPRO_JUSTDO_BLOG = "https://www.simprogroup.com/blog/manual-data-entry-rekeying-jobs-field-service"
 SIMPRO_JUSTDO_WEBINAR = "https://www.simprogroup.com/resources/webinars/justdo-anz"
 ITBRIEF_JUSTDO = "https://itbrief.com.au/story/simpro-launches-justdo-ai-agent-for-trade-businesses"
+# Read November 2026, for the ChatGPT and Claude connection steps
+OPENAI_MCP_APPS = "https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt"
+CLAUDE_CONNECTORS = "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp"
 
 # Sources for the ServiceM8, Tradify and AroFlo pages, read November 2026
 SM8_AI = "https://www.servicem8.com/ai-job-management-software-for-trade-contractors"
@@ -484,8 +487,8 @@ PAGES = [
 "slug": "simpro-ai",
 "short": "Simpro and AI",
 "audience": "trade businesses that run Simpro",
-"reviewed": "2026-11-20",
-"reviewed_human": "20 November 2026",
+"reviewed": "2026-11-23",
+"reviewed_human": "23 November 2026",
 "checked": "October and November 2026",
 "title": "Using AI with Simpro: Claude, ChatGPT and Simpro's own AI | Workshop AI",
 "description": ("Can AI read your Simpro data? Yes. A plain guide to Simpro's API, its Lightning AI and JustDo agent, Zapier "
@@ -498,7 +501,34 @@ PAGES = [
          "sometimes write to it. The right route depends on what you want to ask, what you want "
          "automated and what you want to spend. Here's a plain guide from a Melbourne team that has built "
          "on Simpro."),
+"section_faqs": ["connect-chatgpt"],   # also listed as a question in the FAQPage structured data
 "sections": [
+("connect-chatgpt", "Step by step", "How to connect ChatGPT to Simpro", f"""
+<p>ChatGPT connects to Simpro through an MCP server, the standard way AI assistants use other software. Simpro doesn't offer an official Simpro MCP server yet, so you use a third-party connector that signs in to your Simpro build and gives ChatGPT a web address to talk to. Choose the connector first, because it decides what ChatGPT can see and change: {L(TUGGER_BLOG, 'Tugger gives AI read-only access')} to a synced copy of your data, which suits questions and reports, while the Simpro actions {L(ZAPIER_MCP, 'Zapier MCP')} lists mostly create records, such as service jobs, quotes and customers.</p>
+<div class="pair">
+<div class="card">
+<h3>In ChatGPT</h3>
+<ol>
+<li>Set up the connector and copy its MCP server URL.</li>
+<li>Check your plan. {L(OPENAI_MCP_APPS, 'OpenAI lists')} custom MCP apps and developer mode for ChatGPT Business, Enterprise and Edu on the web, and only a workspace admin or owner can turn developer mode on.</li>
+<li>In ChatGPT's settings, open Apps and choose Create. Paste the MCP server URL, pick how it signs in, click Scan Tools, then Create.</li>
+<li>Start a new chat, choose the app from the tools menu or mention it by name, and ask a read-only question first.</li>
+<li>Check each change before you confirm it. ChatGPT asks for confirmation based on the app's permissions.</li>
+</ol>
+</div>
+<div class="card">
+<h3>In Claude</h3>
+<ol>
+<li>Set up the same connector and copy its MCP server URL.</li>
+<li>{L(CLAUDE_CONNECTORS, 'Custom connectors')} work on every Claude plan, including one on the Free plan. On Team and Enterprise, an Owner adds the connector in Organization settings, then each person connects with their own login.</li>
+<li>On your own plan, go to Customize, then Connectors, and click Add custom connector.</li>
+<li>Paste the MCP server URL, choose the sign-in settings, click Add, then Connect.</li>
+<li>Ask a read-only question first, such as which jobs are sitting in Complete but not yet invoiced.</li>
+</ol>
+</div>
+</div>
+<p class="note">Give the connector its own Simpro credentials, start read-only and keep a person approving anything it creates. Each Zapier MCP tool call uses two tasks from your {L(ZAPIER_MCP, 'Zapier plan')}, so check your usage in the first few weeks.</p>
+"""),
 ("three-routes", "Three routes", "How AI connects to Simpro", f"""
 <h3>1. Simpro's own AI</h3>
 <p>Simpro launched {L(SIMPRO_LIGHTNING_PR, 'Lightning')} in May 2026, describing it as an AI-native operating platform. Its AI, called Cooper, comes with four agents (FieldReady, JobReady, JobScribe and JobBrief), and {L(SIMPRO_LIGHTNING, 'JustAsk')} answers plain-English questions about things like technician margins, overdue invoices and customer history. A {L(SIMPRO_RAIN_PR, 'July 2026 release')} added an AI scheduler and expanded JustAsk. At launch, Lightning was priced as an extra 15 per cent on existing contracts, rising to 25 per cent after 31 May 2026.</p>
@@ -540,7 +570,7 @@ PAGES = [
 ("need-lightning", "Do we need Simpro Lightning to use AI?",
  f"""<p>No. {L(SIMPRO_LIGHTNING_PR, 'Lightning')} is Simpro's own route, built in and priced as a percentage on top of your contract. Connectors and custom builds work through Simpro's API instead. Many businesses will use both: Simpro's AI inside Simpro, and a connected assistant for work that spans email, accounts and documents.</p>"""),
 ("official-mcp", "Is there an official Simpro MCP server?",
- """<p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it.</p>"""),
+ """<p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it. The steps to connect one are under <a href="#connect-chatgpt">How to connect ChatGPT to Simpro</a>.</p>"""),
 ("simpro-justdo", "What is Simpro JustDo?",
  f"""<p>{L(SIMPRO_JUSTDO_BLOG, 'JustDo')} is Simpro's AI office agent inside Simpro Lightning, introduced in November 2026. Your team tells it what needs doing, or hands it an email, photo or spreadsheet, and it drafts the job, customer or quote for a person to check. It's built for the re-keying work in the office. A connected assistant such as Claude covers the work that spans email, accounts and documents.</p>"""),
 ("ai-create-jobs", "Can AI create jobs and quotes in Simpro?",
