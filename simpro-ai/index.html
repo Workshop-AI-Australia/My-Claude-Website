@@ -118,6 +118,10 @@
   .topic .btn.outline,.topic .related a{color:var(--ink)}
   .qa .more{font-size:15px}
   .topic section > h3{margin-top:26px}
+  .pair{display:grid;gap:18px;margin-top:18px}
+  @media(min-width:720px){.pair{grid-template-columns:1fr 1fr}}
+  .pair .card{margin-top:0}
+  .pair ol{margin-left:20px}
   footer p{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:0.06em;color:var(--ink-faint);max-width:none;margin:0}
 </style>
 <script type="application/ld+json">
@@ -131,8 +135,16 @@
    ],
    "@id": "https://workshopai.com.au/#organization",
    "name": "Workshop AI",
+   "alternateName": [
+    "WorkshopAI",
+    "Workshop AI Australia"
+   ],
    "legalName": "Workshop AI Pty Ltd",
    "url": "https://workshopai.com.au/",
+   "sameAs": [
+    "https://www.linkedin.com/company/workshop-ai-australia/",
+    "https://www.google.com/maps?cid=1992414515400435971"
+   ],
    "logo": {
     "@type": "ImageObject",
     "url": "https://workshopai.com.au/assets/workshop-ai-logo.jpg",
@@ -409,12 +421,21 @@
    "publisher": {
     "@id": "https://workshopai.com.au/#organization"
    },
-   "dateModified": "2026-11-20",
+   "dateModified": "2026-11-23",
    "inLanguage": "en-AU",
    "breadcrumb": {
     "@id": "https://workshopai.com.au/simpro-ai/#breadcrumb"
    },
    "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How to connect ChatGPT to Simpro",
+     "url": "https://workshopai.com.au/simpro-ai/#connect-chatgpt",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ChatGPT connects to Simpro through an MCP server, the standard way AI assistants use other software. Simpro doesn't offer an official Simpro MCP server yet, so you use a third-party connector that signs in to your Simpro build and gives ChatGPT a web address to talk to. Choose the connector first, because it decides what ChatGPT can see and change: Tugger gives AI read-only access to a synced copy of your data, which suits questions and reports, while the Simpro actions Zapier MCP lists mostly create records, such as service jobs, quotes and customers. In ChatGPT: Set up the connector and copy its MCP server URL. Check your plan. OpenAI lists custom MCP apps and developer mode for ChatGPT Business, Enterprise and Edu on the web, and only a workspace admin or owner can turn developer mode on. In ChatGPT's settings, open Apps and choose Create. Paste the MCP server URL, pick how it signs in, click Scan Tools, then Create. Start a new chat, choose the app from the tools menu or mention it by name, and ask a read-only question first. Check each change before you confirm it. ChatGPT asks for confirmation based on the app's permissions. In Claude: Set up the same connector and copy its MCP server URL. Custom connectors work on every Claude plan, including one on the Free plan. On Team and Enterprise, an Owner adds the connector in Organization settings, then each person connects with their own login. On your own plan, go to Customize, then Connectors, and click Add custom connector. Paste the MCP server URL, choose the sign-in settings, click Add, then Connect. Ask a read-only question first, such as which jobs are sitting in Complete but not yet invoiced. Give the connector its own Simpro credentials, start read-only and keep a person approving anything it creates. Each Zapier MCP tool call uses two tasks from your Zapier plan, so check your usage in the first few weeks."
+     }
+    },
     {
      "@type": "Question",
      "name": "Can Claude or ChatGPT connect directly to Simpro?",
@@ -439,7 +460,7 @@
      "url": "https://workshopai.com.au/simpro-ai/#official-mcp",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it."
+      "text": "We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it. The steps to connect one are under How to connect ChatGPT to Simpro."
      }
     },
     {
@@ -536,11 +557,40 @@
     <p class="eyebrow">Simpro and AI</p>
     <h1>Using AI with Simpro</h1>
     <p class="lede">Yes, AI can work with your Simpro data. Simpro has an open API, its own AI in the Lightning platform, and third-party connectors that let tools such as Claude and ChatGPT read it, and sometimes write to it. The right route depends on what you want to ask, what you want automated and what you want to spend. Here&#x27;s a plain guide from a Melbourne team that has built on Simpro.</p>
-    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed 20 November 2026<br/>General information only, not legal, tax or financial advice.</p>
+    <p class="byline">Written by Justin Watts, Director of <a href="/facts/">Workshop AI</a>, Hobsons Bay, Melbourne &middot; Last reviewed 23 November 2026<br/>General information only, not legal, tax or financial advice.</p>
   </div>
 </header>
 
 <main class="wrap topic">
+<section id="connect-chatgpt">
+  <h2><span class="num">Step by step</span>How to connect ChatGPT to Simpro</h2>
+
+<p>ChatGPT connects to Simpro through an MCP server, the standard way AI assistants use other software. Simpro doesn't offer an official Simpro MCP server yet, so you use a third-party connector that signs in to your Simpro build and gives ChatGPT a web address to talk to. Choose the connector first, because it decides what ChatGPT can see and change: <a href="https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai" rel="noopener" target="_blank">Tugger gives AI read-only access</a> to a synced copy of your data, which suits questions and reports, while the Simpro actions <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Zapier MCP</a> lists mostly create records, such as service jobs, quotes and customers.</p>
+<div class="pair">
+<div class="card">
+<h3>In ChatGPT</h3>
+<ol>
+<li>Set up the connector and copy its MCP server URL.</li>
+<li>Check your plan. <a href="https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt" rel="noopener" target="_blank">OpenAI lists</a> custom MCP apps and developer mode for ChatGPT Business, Enterprise and Edu on the web, and only a workspace admin or owner can turn developer mode on.</li>
+<li>In ChatGPT's settings, open Apps and choose Create. Paste the MCP server URL, pick how it signs in, click Scan Tools, then Create.</li>
+<li>Start a new chat, choose the app from the tools menu or mention it by name, and ask a read-only question first.</li>
+<li>Check each change before you confirm it. ChatGPT asks for confirmation based on the app's permissions.</li>
+</ol>
+</div>
+<div class="card">
+<h3>In Claude</h3>
+<ol>
+<li>Set up the same connector and copy its MCP server URL.</li>
+<li><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" rel="noopener" target="_blank">Custom connectors</a> work on every Claude plan, including one on the Free plan. On Team and Enterprise, an Owner adds the connector in Organization settings, then each person connects with their own login.</li>
+<li>On your own plan, go to Customize, then Connectors, and click Add custom connector.</li>
+<li>Paste the MCP server URL, choose the sign-in settings, click Add, then Connect.</li>
+<li>Ask a read-only question first, such as which jobs are sitting in Complete but not yet invoiced.</li>
+</ol>
+</div>
+</div>
+<p class="note">Give the connector its own Simpro credentials, start read-only and keep a person approving anything it creates. Each Zapier MCP tool call uses two tasks from your <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Zapier plan</a>, so check your usage in the first few weeks.</p>
+
+</section>
 <section id="three-routes">
   <h2><span class="num">Three routes</span>How AI connects to Simpro</h2>
 
@@ -599,7 +649,7 @@
 </div>
 <div class="qa" id="official-mcp">
   <h3>Is there an official Simpro MCP server?</h3>
-  <p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it.</p>
+  <p>We haven't found one from Simpro itself as of November 2026. The MCP connectors available come from third parties, including independent open-source projects. Check what each one can read and write before you connect it. The steps to connect one are under <a href="#connect-chatgpt">How to connect ChatGPT to Simpro</a>.</p>
 </div>
 <div class="qa" id="simpro-justdo">
   <h3>What is Simpro JustDo?</h3>
@@ -646,6 +696,10 @@
   <h2><span class="num">Sources</span>Where these facts come from</h2>
   <p class="sources">Rules and figures on this page were checked against these sources in October and November 2026. Rules change, so check the source before relying on them.</p>
   <ul class="sources">
+<li>tuggerapp.com: <a href="https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai" rel="noopener" target="_blank">How to connect Simpro to AI</a></li>
+<li>Zapier: <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Simpro MCP</a></li>
+<li>help.openai.com: <a href="https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt" rel="noopener" target="_blank">OpenAI lists</a></li>
+<li>support.claude.com: <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" rel="noopener" target="_blank">Custom connectors</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/company/press/simpro-group-unveils-lightning" rel="noopener" target="_blank">Simpro Group unveils Lightning</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/lightning" rel="noopener" target="_blank">Lightning</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/company/press/simpro-group-announces-rain" rel="noopener" target="_blank">Simpro Group announces RAIN</a></li>
@@ -654,10 +708,8 @@
 <li>IT Brief Australia: <a href="https://itbrief.com.au/story/simpro-launches-justdo-ai-agent-for-trade-businesses" rel="noopener" target="_blank">Simpro launches JustDo AI agent for trade businesses</a></li>
 <li>Zapier: <a href="https://zapier.com/apps/simpro/integrations" rel="noopener" target="_blank">Simpro integrations</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/partners/integration-partners/zapier" rel="noopener" target="_blank">Zapier integration partner</a></li>
-<li>Zapier: <a href="https://zapier.com/mcp/simpro" rel="noopener" target="_blank">Simpro MCP</a></li>
 <li>viaSocket: <a href="https://viasocket.com/mcp/simpro" rel="noopener" target="_blank">Simpro MCP</a></li>
 <li>Simpro Marketplace: <a href="https://marketplace.simprogroup.com/apps/tugger" rel="noopener" target="_blank">Tugger</a></li>
-<li>tuggerapp.com: <a href="https://tuggerapp.com/Blogs/Blog/how-to-connect-simpro-to-ai" rel="noopener" target="_blank">How to connect Simpro to AI</a></li>
 <li>Simpro developer documentation: <a href="https://developer.simprogroup.com/apidoc/" rel="noopener" target="_blank">API documentation</a></li>
 <li>Simpro: <a href="https://www.simprogroup.com/au/pricing" rel="noopener" target="_blank">Pricing (Australia)</a></li>
 <li>Simpro help guide: <a href="https://helpguide.simprogroup.com/Content/Service-and-Enterprise/Managing-Existing-Jobs.htm" rel="noopener" target="_blank">Managing existing jobs</a></li>

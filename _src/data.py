@@ -28,6 +28,12 @@ ORG = {
     "phone_display": "0431 254 769",
     "phone_intl": "+61431254769",
     "booking_url": "https://calendar.app.google/vLCXuaZViuscaWe96",
+    # Other spellings people search, so Google ties "workshopai" to us and not workshop.ai.
+    "alternate_names": ["WorkshopAI", "Workshop AI Australia"],
+    # Profiles that confirm who we are (Organization sameAs). The Business Profile is
+    # Kylie's verified one; link it by CID, which stays stable if the name or URL changes.
+    "same_as": ["https://www.linkedin.com/company/workshop-ai-australia/",
+                "https://www.google.com/maps?cid=1992414515400435971"],
     "postcode": "3015",
     "base": "Hobsons Bay, in Melbourne's western suburbs, Victoria",
     "suburbs": ["Altona", "Williamstown", "Newport", "Laverton", "Point Cook",
