@@ -16,8 +16,8 @@
 
   var COPY = {
     eyebrow: 'Free, once a month',
-    headline: 'Still doing quotes at the kitchen table?',
-    body: 'Once a month I share how a real trade business is using AI to get admin off the owner’s plate. Short, practical, and written for people who’d rather be on the tools.',
+    headline: 'What are other trade businesses actually doing with AI?',
+    body: 'A few short reads each month on AI tools and real businesses I\u2019ve come across. Like the NSW builder whose AI keeps a daily index of its folders, so the team finds the right file.',
     signoff: 'Justin Watts, Workshop AI, Hobsons Bay',
     noThanks: 'No thanks'
   };
@@ -25,9 +25,9 @@
   var EXCLUDE = [/^\/for\//i, /^\/floor-ready\//i, /^\/proposals\//i, /^\/privacy\//i];
   var DAY = 864e5, NEW_DAYS = 7, MAX_VIEWS = 2, WINDOW_DAYS = 7, QUIET_DAYS = 30;
   var KEY = 'wai_newsletter', PV_KEY = 'wai_pv';
-  // Substack's form sits vertically centred in a 320px frame; showing from 176px down keeps the
-  // email box and terms in view at every width from 300px up.
-  var FRAME_H = 320, CROP_TOP = 176;
+  // Substack's form sits vertically centred in a 320px frame. A 120px window from 176px down
+  // shows the email box and terms (not Substack's header) at every width from 300px up.
+  var FRAME_H = 320, CROP_TOP = 176, VIEW_H = 120;
 
   var now = Date.now();
   var params = new URLSearchParams(location.search);
@@ -82,9 +82,9 @@
     '.wai-sub-mid{padding:20px 26px 6px}',
     '.wai-sub-body{font-size:15.5px;line-height:1.55;color:#54565C;margin:0 0 10px}',
     '.wai-sub-sign{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.04em;color:#7E674F;margin:0}',
-    '.wai-sub-form{height:' + (FRAME_H - CROP_TOP) + 'px;overflow:hidden;margin:4px 14px 0}',
+    '.wai-sub-form{height:' + VIEW_H + 'px;overflow:hidden;margin:4px 14px 0}',
     '.wai-sub-form iframe{display:block;width:100%;height:' + FRAME_H + 'px;margin-top:-' + CROP_TOP + 'px;border:0;background:#F4F3F2}',
-    '.wai-sub-foot{padding:0 26px 18px;text-align:center}',
+    '.wai-sub-foot{padding:0 26px 12px;text-align:center}',
     '.wai-sub-no{background:none;border:0;padding:10px 12px;font:inherit;font-size:14px;color:#8B8D94;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px}',
     '.wai-sub-no:hover{color:#22333B}',
     '.wai-sub.sheet{inset:auto 0 0 0;padding:0 8px calc(8px + env(safe-area-inset-bottom));background:none;align-items:flex-end;pointer-events:none}',
@@ -97,7 +97,7 @@
     '.wai-sub.sheet .wai-sub-mid{padding:12px 18px 0}',
     '.wai-sub.sheet .wai-sub-body{font-size:14.5px;margin-bottom:6px}',
     '.wai-sub.sheet .wai-sub-form{margin:0 6px}',
-    '.wai-sub.sheet .wai-sub-foot{padding:0 18px 6px}',
+    '.wai-sub.sheet .wai-sub-foot{padding:0 18px 2px}',
     '@media (prefers-reduced-motion: reduce){.wai-sub,.wai-sub-card{transition:none}}',
     '@media print{.wai-sub{display:none}}'
   ].join('\n');
