@@ -71,8 +71,8 @@
     '.wai-sub.in{opacity:1}',
     '.wai-sub-card{position:relative;width:100%;max-width:420px;background:#FFFFFF;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);transform:translateY(12px);transition:transform .25s ease;font-family:"Instrument Sans",system-ui,sans-serif;color:#22333B;max-height:calc(100vh - 40px);overflow-y:auto}',
     '.wai-sub.in .wai-sub-card{transform:none}',
-    '.wai-sub-top{background:#A9927D;padding:26px 60px 22px 26px}',
-    '.wai-sub-h{font-family:"Archivo",system-ui,sans-serif;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1.05;letter-spacing:-.005em;color:#22333B;margin:0;text-wrap:balance}',
+    '.wai-sub-top{background:#A9927D;padding:26px 56px 22px 26px}',
+    '.wai-sub-h{font-family:"Archivo",system-ui,sans-serif;font-weight:800;text-transform:uppercase;font-size:25px;line-height:1.05;letter-spacing:-.005em;color:#22333B;margin:0}',
     '.wai-sub-x{position:absolute;top:10px;right:10px;width:44px;height:44px;border:0;border-radius:8px;background:transparent;color:#22333B;font-size:28px;line-height:1;cursor:pointer}',
     '.wai-sub-x:hover,.wai-sub-x:focus-visible{background:rgba(34,51,59,.12)}',
     '.wai-sub-x:focus-visible,.wai-sub-no:focus-visible{outline:2px solid #22333B;outline-offset:2px}',
@@ -121,6 +121,7 @@
     setTimeout(function () {
       if (root && document.activeElement && document.activeElement.tagName === 'IFRAME' && root.contains(document.activeElement)) {
         st.done = Date.now(); save(st);
+        var n = root.querySelector('.wai-sub-no'); if (n) n.textContent = 'Close';
       }
     }, 0);
   }
@@ -160,6 +161,9 @@
     frame.title = 'Subscribe to the Workshop AI newsletter';
     frame.setAttribute('scrolling', 'no');
     frame.setAttribute('frameborder', '0');
+    // The signup completes inside the frame. Leaving out allow-popups stops Substack opening its
+    // own welcome page in a new tab afterwards, so visitors stay on our site.
+    frame.setAttribute('sandbox', 'allow-scripts allow-forms allow-same-origin');
     form.appendChild(frame);
 
     var foot = el('div', 'wai-sub-foot');
