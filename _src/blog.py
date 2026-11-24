@@ -501,6 +501,7 @@ def page_head(title, description, path, jsonld, og_type="website", image=None, i
 <meta name="twitter:image:alt" content="{e(alt)}" />
 <meta name="author" content="Justin Watts, Workshop AI" />
 {build.GA_SNIPPET}
+{build.SUBSCRIBE_SNIPPET}
 {build.FONTS}
 <style>{build.CSS}{BLOG_CSS}</style>
 <script type="application/ld+json">
