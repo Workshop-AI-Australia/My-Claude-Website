@@ -144,6 +144,8 @@
     }
     var sheet = phone.matches;
     root = el('div', 'wai-sub' + (sheet ? ' sheet' : ''));
+    // Pin the sheet to the screen width even if something on the page overflows sideways.
+    if (sheet) { root.style.right = 'auto'; root.style.width = document.documentElement.clientWidth + 'px'; }
     var card = el('div', 'wai-sub-card');
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-modal', sheet ? 'false' : 'true');
