@@ -15,7 +15,7 @@
   window.__waiSubscribe = true;
 
   var COPY = {
-    headline: 'What are other tradies doing with AI?',
+    headline: 'What are other trade businesses doing with AI?',
     line: 'Find out in our free newsletter.',
     noThanks: 'No thanks'
   };
