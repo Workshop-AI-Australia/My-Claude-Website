@@ -12,8 +12,8 @@ Rules for anything in this file:
 """
 
 SITE = "https://workshopai.com.au"
-UPDATED = "2026-10-15"            # ISO date, shown on the pages and in the sitemap
-UPDATED_HUMAN = "15 October 2026"
+UPDATED = "2026-11-24"            # ISO date, shown on the pages and in the sitemap
+UPDATED_HUMAN = "24 November 2026"
 GA_ID = "G-SB01RKTVMZ"           # Google Analytics 4, property "Workshop AI"
 INDEXNOW_KEY = "5724ab8cfb4b2553fdb524f346523338"  # served at /<key>.txt so Bing accepts our IndexNow pings
 
@@ -63,26 +63,26 @@ TOOLS = ["Claude", "Simpro", "ServiceM8", "AroFlo", "Tradify", "Fergus",
 
 # (name, price, price_number_for_schema, unit_note, summary)
 SERVICES = [
-    ("Claude for Owners", "A$1,500", 1500, "Two one-on-one video sessions",
+    ("Claude for Owners", "A$1,500", 1500, "Once off, two one-on-one video sessions",
      "AI set up on the owner's desk first: Claude connected to files, email and "
      "calendar, a company-wide Claude Project with the business's context, and a "
      "one-page guide to using it safely with client information. Credited in full "
      "if the business goes further within 60 days."),
-    ("Claude for Business", "A$2,500", 2500, "Set up and running within a week",
+    ("Claude for Business", "A$2,500", 2500, "Once off, set up and running within a week",
      "The team on Claude properly: set up for nominated staff, connected to everyday "
      "tools, a shared company-wide Claude Project, AI standards and governance, a "
      "team intro session and a follow-up two weeks later. Credited in full towards "
      "Discovery within 60 days."),
-    ("Discovery", "A$3,600", 3600, "Four stages, about a month",
+    ("Discovery", "A$3,600", 3600, "Once off, four stages over about a month",
      "A complete picture of how the business really works before any tool is "
      "recommended: AI standards and governance, a written AI use policy, a systems "
      "audit and confidential team survey, a workflow map, a scored AI Opportunity "
      "Map, and a findings report with a recommended pathway."),
-    ("Custom Builds", "From A$4,400 a month", 4400, "Monthly retainer or fixed-price project",
+    ("Custom Builds", "Fixed quote", None, "Scoped and priced per build",
      "Custom AI agents and automations built into the job, file and accounting "
      "systems the business already runs, one defined piece at a time with a clear "
-     "definition of done. Month to month, no lock-in."),
-    ("Document Standard", "A$2,000 as an add-on, A$2,750 on its own", 2000, "Two weeks",
+     "definition of done. Each build is quoted as a fixed price before work starts. No lock-in."),
+    ("Document Standard", "A$2,000 as an add-on, A$2,750 on its own", 2000, "Once off, two weeks",
      "Up to four client-facing documents (quotes, reports, letters) built into Claude "
      "in the business's own format, wording and branding, with two rounds of "
      "revisions. A$2,000 as an add-on or A$2,750 on its own; A$4,000 for Claude for "
@@ -173,7 +173,7 @@ THEMES = [
 ("cost", "Cost and return", [
 ("consulting-cost",
  "How much does AI consulting cost for a trade business?",
- """<p>At Workshop AI, fixed prices start at A$1,500 to set AI up on an owner's desk, A$2,500 for a team setup and A$3,600 for a month-long Discovery. Custom builds start at A$4,400 a month or are quoted as a fixed-price project. All prices exclude GST.</p>
+ """<p>At Workshop AI, fixed prices start at A$1,500 to set AI up on an owner's desk, A$2,500 for a team setup and A$3,600 for a month-long Discovery, each a once-off fee. Custom builds are scoped and quoted as a fixed price per build. All prices exclude GST.</p>
 <p>Across the market, prices range from short workshops costing a few thousand dollars to enterprise projects running into five and six figures. For a 10 to 30 person business, be wary of anything that needs a large upfront commitment before you've seen a result in your own business.</p>"""),
 
 ("running-cost",
@@ -189,7 +189,7 @@ THEMES = [
 ("pilot",
  "Can we start small with a pilot?",
  """<p>Yes, and you should. Pick one task, agree what "done" looks like and how you'll measure it, and run it for a few weeks before committing to anything bigger.</p>
-<p>Workshop AI's entry points are built for this. Claude for Owners (A$1,500) is credited in full if you go further within 60 days. Claude for Business (A$2,500) is credited in full towards Discovery within 60 days. Custom builds run month to month with no lock-in.</p>"""),
+<p>Workshop AI's entry points are built for this. Claude for Owners (A$1,500) is credited in full if you go further within 60 days. Claude for Business (A$2,500) is credited in full towards Discovery within 60 days. Custom builds are quoted as a fixed price per build, with no lock-in.</p>"""),
 
 ("measure-roi",
  "How do I measure whether AI is working?",

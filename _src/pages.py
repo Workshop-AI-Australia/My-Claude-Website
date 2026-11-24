@@ -181,7 +181,7 @@ PAGES = [
  f"""<p>No. AI should flag the result immediately and start the response steps from the site's risk management plan, but the decisions belong to the people responsible under Victoria's {L(VIC_COOLING, 'cooling tower rules')}.</p>
 <p>Where AI earns its keep is cutting the risk of a result sitting unread in an inbox or a test date slipping past.</p>"""),
 ("hvac-cost", "What does it cost to start using AI in an HVAC business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a work order agent connected to your job system, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a work order agent connected to your job system, are scoped and quoted as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -239,7 +239,7 @@ PAGES = [
 ("hot-water-electrification", "How should we handle customers asking about replacing gas hot water?",
  f"""<p>Give them a consistent, accurate answer. AI can draft your quote options and a plain-English explainer, but check it against the {L(VIC_ELECTRIFY, "government's current rules")} and rebate information before sending, and update it when they change.</p>"""),
 ("plumbing-cost", "What does it cost to start using AI in a plumbing business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a certificate tracker connected to your job system, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a certificate tracker connected to your job system, are scoped and quoted as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -296,7 +296,7 @@ PAGES = [
 ("standards-questions", "Can AI answer technical questions about the Wiring Rules?",
  """<p>Use it carefully. AI tools can be wrong on clause-level detail. Point AI at your own procedures and the manufacturer documents you hold, have it show where each answer came from, and check the standard itself for anything that matters.</p>"""),
 ("electrical-cost", "What does it cost to start using AI in an electrical business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a variations and claims register connected to your job system, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a variations and claims register connected to your job system, are scoped and quoted as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -356,7 +356,7 @@ PAGES = [
 ("job-folders", "Can AI find things across our job folders and emails?",
  """<p>Yes, and it's often the biggest win for builders. With read-only access to a project's folders and inbox, AI can answer questions and link to the drawing, RFI or email the answer came from. It works much better when files are named and filed consistently.</p>"""),
 ("construction-cost", "What does it cost to start using AI in a construction business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Discovery, which maps how the business really runs before anything is built, is A$3,600. Custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Discovery, which maps how the business really runs before anything is built, is A$3,600. Custom builds are scoped and quoted as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -412,7 +412,7 @@ PAGES = [
 ("unbilled-surcharges", "Can AI find surcharges we forgot to bill?",
  """<p>Yes, and it's a good first project. AI compares driver notes and POD comments with invoices and lists jobs where waiting time, tail lifts, futile pick-ups or redeliveries were recorded but not charged.</p>"""),
 ("logistics-cost", "What does it cost to start using AI in a logistics business?",
- """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a weekly surcharge check or booking reader connected to your systems, start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project. All prices exclude GST.</p>"""),
+ """<p>Workshop AI's Claude for Owners starts at A$1,500 and Claude for Business at A$2,500, both fixed price. Custom builds, such as a weekly surcharge check or booking reader connected to your systems, are scoped and quoted as a fixed-price project. All prices exclude GST.</p>"""),
 ],
 },
 
@@ -546,7 +546,7 @@ PAGES = [
 ("ai-create-jobs", "Can AI create jobs and quotes in Simpro?",
  f"""<p>Yes. Simpro's own {L(SIMPRO_JUSTDO, 'JustDo')} drafts jobs and quotes for a person to approve, and the {L(SIMPRO_API_FAQ, 'API')} and connectors such as {L(ZAPIER_SIMPRO, 'Zapier')} can create them too. Start with AI preparing them for a person to approve, and only let it act on its own once you trust the results.</p>"""),
 ("simpro-ai-cost", "What does it cost to connect AI to Simpro?",
- """<p>It depends on the route. Simpro's Lightning is priced as a percentage of your Simpro contract, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project, excluding GST.</p>"""),
+ """<p>It depends on the route. Simpro's Lightning is priced as a percentage of your Simpro contract, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds are scoped and quoted as a fixed-price project, excluding GST.</p>"""),
 ],
 },
 
@@ -616,7 +616,7 @@ PAGES = [
 ("servicem8-own-ai", "Do we still need ServiceM8's own AI if we connect Claude or ChatGPT?",
  """<p>They do different jobs. ServiceM8's AI works inside ServiceM8, on its screens and its phone line. A connected assistant works across ServiceM8, your email, accounts and documents. Many businesses will use both.</p>"""),
 ("servicem8-ai-cost", "What does it cost to connect AI to ServiceM8?",
- """<p>It depends on the route. ServiceM8's own connector needs no developer, though your AI tool's plan has to allow connectors. Third-party connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, setting Claude up for an owner starts at A$1,500, and custom builds start from A$4,400 a month on a month-to-month retainer or as a fixed-price project, excluding GST.</p>"""),
+ """<p>It depends on the route. ServiceM8's own connector needs no developer, though your AI tool's plan has to allow connectors. Third-party connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, setting Claude up for an owner starts at A$1,500, and custom builds are scoped and quoted as a fixed-price project, excluding GST.</p>"""),
 ],
 },
 
@@ -680,7 +680,7 @@ PAGES = [
 ("tradify-switch", "Should we switch job software to get better AI?",
  """<p>Not for AI alone. Switching job software is a big project, and the routes above cover a lot. If you're already weighing a move for other reasons, add how each option connects to AI to your list. ServiceM8, for example, runs its own connector for Claude and ChatGPT: see <a href="/servicem8-ai/">using AI with ServiceM8</a>.</p>"""),
 ("tradify-ai-cost", "What does it cost to use AI with Tradify?",
- """<p>SmartTools come with Tradify, so check which of its plans include them. The inbox route needs an AI tool connected to your email. With Workshop AI, setting Claude up for an owner, connected to files, email and calendar, starts at A$1,500, and custom builds start from A$4,400 a month on a month-to-month retainer or as a fixed-price project, excluding GST.</p>"""),
+ """<p>SmartTools come with Tradify, so check which of its plans include them. The inbox route needs an AI tool connected to your email. With Workshop AI, setting Claude up for an owner, connected to files, email and calendar, starts at A$1,500, and custom builds are scoped and quoted as a fixed-price project, excluding GST.</p>"""),
 ],
 },
 
@@ -749,7 +749,7 @@ PAGES = [
 ("aroflo-api-limit", "Is 2,000 API calls a day enough?",
  f"""<p>It can be, if the build syncs changes on a schedule and works from a copy rather than calling AroFlo every time someone asks a question. Pulling years of history at once may need spreading over several days. The {L(AROFLO_API_DOCS, 'limits')} also cap requests at one a second.</p>"""),
 ("aroflo-ai-cost", "What does it cost to connect AI to AroFlo?",
- """<p>It depends on the route. AroFlo lists its Lightning features in its plans, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds start from A$4,400 a month on a month-to-month retainer, or can be scoped as a fixed-price project, excluding GST.</p>"""),
+ """<p>It depends on the route. AroFlo lists its Lightning features in its plans, ready-made connectors charge their own subscriptions or usage fees, and a custom build costs what it takes to build and run. With Workshop AI, custom builds are scoped and quoted as a fixed-price project, excluding GST.</p>"""),
 ],
 },
 ]
