@@ -71,7 +71,7 @@
   var CSS = [
     '.wai-sub{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(34,51,59,.5);opacity:0;transition:opacity .25s ease}',
     '.wai-sub.in{opacity:1}',
-    '.wai-sub-card{position:relative;width:100%;max-width:460px;background:#F4F3F2;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(14,22,26,.35);transform:translateY(12px);transition:transform .25s ease;font-family:"Instrument Sans",system-ui,sans-serif;color:#22333B;max-height:calc(100vh - 40px);overflow-y:auto}',
+    '.wai-sub-card{position:relative;width:100%;max-width:420px;background:#F4F3F2;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(14,22,26,.35);transform:translateY(12px);transition:transform .25s ease;font-family:"Instrument Sans",system-ui,sans-serif;color:#22333B;max-height:calc(100vh - 40px);overflow-y:auto}',
     '.wai-sub.in .wai-sub-card{transform:none}',
     '.wai-sub-top{background:#22333B;color:#F2F4F3;padding:24px 56px 22px 26px}',
     '.wai-sub-eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#A9927D;margin:0 0 10px}',
