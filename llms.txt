@@ -2,7 +2,7 @@
 
 > Workshop AI is a Melbourne-based AI implementation consultancy that helps Australian tradies and trade, service and industrial businesses put AI to work in the office, with fixed prices and hands-on delivery.
 
-Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. Based in Hobsons Bay, in Melbourne's western suburbs, Victoria. In person across Melbourne, remote Australia-wide. Contact: info@workshopai.com.au, 0431 254 769. Last updated 15 October 2026.
+Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. Based in Hobsons Bay, in Melbourne's western suburbs, Victoria. In person across Melbourne, remote Australia-wide. Contact: info@workshopai.com.au, 0431 254 769. Last updated 24 November 2026.
 
 ## Key pages
 
@@ -26,11 +26,11 @@ Workshop AI Pty Ltd, ABN 63 698 704 915. Founded 2026. Director: Justin Watts. B
 
 ## Services (AUD, excluding GST)
 
-- Claude for Owners: A$1,500 (Two one-on-one video sessions). AI set up on the owner's desk first: Claude connected to files, email and calendar, a company-wide Claude Project with the business's context, and a one-page guide to using it safely with client information. Credited in full if the business goes further within 60 days.
-- Claude for Business: A$2,500 (Set up and running within a week). The team on Claude properly: set up for nominated staff, connected to everyday tools, a shared company-wide Claude Project, AI standards and governance, a team intro session and a follow-up two weeks later. Credited in full towards Discovery within 60 days.
-- Discovery: A$3,600 (Four stages, about a month). A complete picture of how the business really works before any tool is recommended: AI standards and governance, a written AI use policy, a systems audit and confidential team survey, a workflow map, a scored AI Opportunity Map, and a findings report with a recommended pathway.
-- Custom Builds: From A$4,400 a month (Monthly retainer or fixed-price project). Custom AI agents and automations built into the job, file and accounting systems the business already runs, one defined piece at a time with a clear definition of done. Month to month, no lock-in.
-- Document Standard: A$2,000 as an add-on, A$2,750 on its own (Two weeks). Up to four client-facing documents (quotes, reports, letters) built into Claude in the business's own format, wording and branding, with two rounds of revisions. A$2,000 as an add-on or A$2,750 on its own; A$4,000 for Claude for Business and Document Standard booked together.
+- Claude for Owners: A$1,500 (Once off, two one-on-one video sessions). AI set up on the owner's desk first: Claude connected to files, email and calendar, a company-wide Claude Project with the business's context, and a one-page guide to using it safely with client information. Credited in full if the business goes further within 60 days.
+- Claude for Business: A$2,500 (Once off, set up and running within a week). The team on Claude properly: set up for nominated staff, connected to everyday tools, a shared company-wide Claude Project, AI standards and governance, a team intro session and a follow-up two weeks later. Credited in full towards Discovery within 60 days.
+- Discovery: A$3,600 (Once off, four stages over about a month). A complete picture of how the business really works before any tool is recommended: AI standards and governance, a written AI use policy, a systems audit and confidential team survey, a workflow map, a scored AI Opportunity Map, and a findings report with a recommended pathway.
+- Custom Builds: Fixed quote (Scoped and priced per build). Custom AI agents and automations built into the job, file and accounting systems the business already runs, one defined piece at a time with a clear definition of done. Each build is quoted as a fixed price before work starts. No lock-in.
+- Document Standard: A$2,000 as an add-on, A$2,750 on its own (Once off, two weeks). Up to four client-facing documents (quotes, reports, letters) built into Claude in the business's own format, wording and branding, with two rounds of revisions. A$2,000 as an add-on or A$2,750 on its own; A$4,000 for Claude for Business and Document Standard booked together.
 
 ## Questions answered
 

@@ -96,7 +96,7 @@ def org_node():
                        "Simpro", "ServiceM8", "Xero",
                        "Trade business operations", "HVAC", "Plumbing", "Electrical contracting",
                        "Construction", "Logistics"],
-        "priceRange": "A$1,500 to A$4,400+ ex GST",
+        "priceRange": "From A$1,500 ex GST",
         "currenciesAccepted": "AUD",
         "contactPoint": {"@type": "ContactPoint", "contactType": "sales",
                          "email": ORG["email"], "telephone": ORG["phone_intl"],
@@ -104,13 +104,12 @@ def org_node():
         "hasOfferCatalog": {
             "@type": "OfferCatalog", "name": "Workshop AI services",
             "itemListElement": [
-                {"@type": "Offer", "price": num, "priceCurrency": "AUD",
-                 "priceSpecification": (
-                     {"@type": "UnitPriceSpecification", "minPrice": num, "price": num,
-                      "priceCurrency": "AUD", "unitText": "MONTH", "valueAddedTaxIncluded": False}
-                     if "month" in _p else
-                     {"@type": "PriceSpecification", "price": num,
-                      "priceCurrency": "AUD", "valueAddedTaxIncluded": False}),
+                {"@type": "Offer",
+                 # A service quoted per job (num is None) carries no price in the schema.
+                 **({"price": num, "priceCurrency": "AUD",
+                     "priceSpecification": {"@type": "PriceSpecification", "price": num,
+                                            "priceCurrency": "AUD", "valueAddedTaxIncluded": False}}
+                    if num is not None else {}),
                  "itemOffered": {"@type": "Service", "name": name, "description": summary,
                                  "provider": {"@id": ORG_ID}}}
                 for name, _p, num, _u, summary in SERVICES
@@ -445,7 +444,7 @@ def build_facts():
         ("Based in", f"{ORG['base']} (postcode {ORG['postcode']})"),
         ("Service area", f"In person anywhere around Melbourne, including {suburbs}. Remote delivery anywhere in Australia. "
                          f'See <a href="/ai-in-melbournes-west/">Melbourne\'s west</a>.'),
-        ("Prices", "Fixed prices from A$1,500. Custom builds from A$4,400 a month. All prices in AUD, excluding GST."),
+        ("Prices", "Once-off fixed prices from A$1,500. Custom builds quoted as a fixed price per build. All prices in AUD, excluding GST."),
         ("Contact", f'<a href="mailto:{ORG["email"]}">{ORG["email"]}</a> &middot; '
                     f'<a href="tel:{ORG["phone_intl"]}">{ORG["phone_display"]}</a> &middot; '
                     f'<a href="{ORG["booking_url"]}" rel="noopener" target="_blank">book a 30-minute chat</a>'),
