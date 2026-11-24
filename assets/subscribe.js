@@ -25,9 +25,9 @@
   var EXCLUDE = [/^\/for\//i, /^\/floor-ready\//i, /^\/proposals\//i, /^\/privacy\//i];
   var DAY = 864e5, NEW_DAYS = 7, MAX_VIEWS = 2, WINDOW_DAYS = 7, QUIET_DAYS = 30;
   var KEY = 'wai_newsletter', PV_KEY = 'wai_pv';
-  // Substack's form sits vertically centred in a 320px frame. A 120px window from 176px down
+  // Substack's form sits vertically centred in a 320px frame. A 114px window from 176px down
   // shows the email box and terms (not Substack's header) at every width from 300px up.
-  var FRAME_H = 320, CROP_TOP = 176, VIEW_H = 120;
+  var FRAME_H = 320, CROP_TOP = 176, VIEW_H = 114;
 
   var now = Date.now();
   var params = new URLSearchParams(location.search);
