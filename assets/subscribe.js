@@ -15,8 +15,8 @@
   window.__waiSubscribe = true;
 
   var COPY = {
-    headline: 'What are other trade businesses actually doing with AI?',
-    line: 'Short, free reads. Unsubscribe any time.',
+    headline: 'What are other tradies doing with AI?',
+    line: 'Find out in our free newsletter.',
     noThanks: 'No thanks'
   };
   var EMBED = 'https://workshopai.substack.com/embed';
