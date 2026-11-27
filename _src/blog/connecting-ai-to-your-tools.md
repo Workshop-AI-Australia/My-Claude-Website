@@ -25,7 +25,7 @@ To be frank, that's a fair reaction. So it's worth going step by step: understan
 
 ### How connections work
 
-The most common way to connect an AI to another tool is called an MCP (Model Context Protocol). More and more software is rolling them out.
+The most common way to connect an AI to another tool is called an MCP (Model Context Protocol). More and more software companies are rolling them out.
 
 I've heard a few metaphors for this, involving bouncers and hotel concierges. The one I think works best is a car at a drive-through.
 
